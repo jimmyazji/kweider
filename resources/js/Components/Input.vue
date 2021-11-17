@@ -1,15 +1,6 @@
 <template>
   <input
-    class="
-      border-gray-300
-      focus:border-indigo-300
-      focus:ring
-      focus:ring-indigo-200
-      focus:ring-opacity-50
-      rounded-md
-      shadow-sm
-      placeholder-gray-400
-    "
+    class="input input-bordered focus:border-transparent focus:translate-x-10"
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
     ref="input"
