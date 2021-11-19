@@ -1,8 +1,5 @@
 <template>
   <Head title="Log in" />
-
-  <BreezeValidationErrors class="mb-4" />
-
   <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
     {{ status }}
   </div>
@@ -14,11 +11,16 @@
         type="email"
         class="mt-1 block w-full"
         v-model="form.email"
-        required
         autofocus
         autocomplete="username"
         placeholder="Email"
+        :class="{'input-error' : $page.props.errors.email}"
       />
+      <div
+        v-if="$page.props.errors.email"
+        v-text="$page.props.errors.email"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
     </div>
 
     <div class="mt-2 relative">
@@ -27,10 +29,15 @@
         :type="passwordFieldType"
         class="mt-1 block w-full"
         v-model="form.password"
-        required
         autocomplete="current-password"
         placeholder="Password"
+        :class="{'input-error' : $page.props.errors.password}"
       />
+      <div
+        v-if="$page.props.errors.password"
+        v-text="$page.props.errors.password"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
       <button
         @click.prevent="switchVisibility"
         class="absolute top-0 right-0 rounded-l-none btn btn-primary"
@@ -138,9 +145,10 @@ export default {
         onFinish: () => this.form.reset("password"),
       });
     },
-    switchVisibility(){
-      this.passwordFieldType = this.passwordFieldType === "password" ? "text" :"password";
-    }
+    switchVisibility() {
+      this.passwordFieldType =
+        this.passwordFieldType === "password" ? "text" : "password";
+    },
   },
 };
 </script>

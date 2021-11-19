@@ -1,4 +1,3 @@
-
 import {
     createApp,
     h
@@ -50,5 +49,6 @@ createInertiaApp({
 
 InertiaProgress.init({
     color: '#edd6d6',
+    includeCSS: true,
     showSpinner: true,
 });

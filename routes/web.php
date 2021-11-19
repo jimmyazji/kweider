@@ -17,8 +17,27 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render(
-        'Dashboard',
-    );  
+        'Dashboard');  
 })->name('dashboard');
+Route::get('/users', function () {
+    return Inertia::render(
+        'Users/Index');  
+})->name('users');
+Route::get('/settings', function () {
+    return Inertia::render(
+        'Settings');  
+})->name('settings');
+Route::get('/products',function(){
+    return Inertia::render('Products/Index');
+})->name('products');
+Route::get('/menu',function(){
+    return Inertia::render('Menu/Index');
+})->name('menu');
+Route::get('/about',function(){
+    return Inertia::render('About/Index');
+})->name('about');
+Route::get('/contact',function(){
+    return Inertia::render('Contact/Index');
+})->name('contact');
 
 require __DIR__ . '/auth.php';

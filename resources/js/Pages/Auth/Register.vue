@@ -1,8 +1,5 @@
 <template>
   <Head title="Register" />
-
-  <BreezeValidationErrors class="mb-4" />
-
   <form @submit.prevent="submit">
     <div>
       <BreezeInput
@@ -10,11 +7,16 @@
         type="text"
         class="mt-1 block w-full"
         v-model="form.first_name"
-        required
         autofocus
         autocomplete="first_name"
         placeholder="First Name"
+        :class="{'input-error' : $page.props.errors.first_name}"
       />
+      <div
+        v-if="$page.props.errors.first_name"
+        v-text="$page.props.errors.first_name"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
     </div>
 
     <div class="mt-2">
@@ -23,10 +25,15 @@
         type="text"
         class="mt-1 block w-full"
         v-model="form.last_name"
-        required
         autocomplete="last_name"
         placeholder="Last Name"
+        :class="{'input-error' : $page.props.errors.last_name}"
       />
+      <div
+        v-if="$page.props.errors.last_name"
+        v-text="$page.props.errors.last_name"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
     </div>
 
     <div class="mt-2">
@@ -35,10 +42,15 @@
         type="email"
         class="mt-1 block w-full"
         v-model="form.email"
-        required
         autocomplete="username"
         placeholder="Email"
+        :class="{'input-error' : $page.props.errors.email}"
       />
+      <div
+        v-if="$page.props.errors.email"
+        v-text="$page.props.errors.email"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
     </div>
     <div class="mt-2">
       <BreezeInput
@@ -46,10 +58,15 @@
         type="password"
         class="mt-1 block w-full"
         v-model="form.password"
-        required
         autocomplete="new-password"
         placeholder="Enter Password"
+        :class="{'input-error' : $page.props.errors.password}"
       />
+      <div
+        v-if="$page.props.errors.password"
+        v-text="$page.props.errors.password"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
     </div>
 
     <div class="mt-2">
@@ -58,10 +75,15 @@
         type="password"
         class="mt-1 block w-full"
         v-model="form.password_confirmation"
-        required
         autocomplete="new-password"
         placeholder="Confim Password"
+        :class="{'input-error' : $page.props.errors.password_confirmation}"
       />
+      <div
+        v-if="$page.props.errors.password_confirmation"
+        v-text="$page.props.errors.password_confirmation"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
     </div>
 
     <div class="flex items-center justify-between md:justify-end mt-4">

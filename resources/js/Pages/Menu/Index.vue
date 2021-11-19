@@ -1,10 +1,8 @@
 <template>
-  <Head title="Dashboard" />
+  <Head title="Menu" />
   <header class="bg-oyster-200 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Dashboard
-      </h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Menu</h2>
     </div>
   </header>
   <div class="py-12">
