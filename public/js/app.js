@@ -25841,7 +25841,7 @@ var messages = {
   ar: _lang_ar_json__WEBPACK_IMPORTED_MODULE_4__
 };
 var i18n = (0,vue_i18n__WEBPACK_IMPORTED_MODULE_5__.createI18n)({
-  locale: 'ar',
+  locale: 'en',
   fallbackLocale: 'en',
   globalInjection: true,
   messages: messages
