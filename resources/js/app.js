@@ -24,7 +24,7 @@ const messages = {
         
 };
 const i18n = createI18n({
-    locale: 'ar',
+    locale: 'en',
     fallbackLocale: 'en',
     globalInjection: true,
     messages,
