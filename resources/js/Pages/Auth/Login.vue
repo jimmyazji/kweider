@@ -13,7 +13,7 @@
         v-model="form.email"
         autofocus
         autocomplete="username"
-        placeholder="Email"
+        :placeholder="$t('Email')"
         :class="{'input-error' : $page.props.errors.email}"
       />
       <div
@@ -30,7 +30,7 @@
         class="mt-1 block w-full"
         v-model="form.password"
         autocomplete="current-password"
-        placeholder="Password"
+        :placeholder="$t('Password')"
         :class="{'input-error' : $page.props.errors.password}"
       />
       <div
@@ -61,7 +61,7 @@
     <div class="flex items-center justify-between mt-4">
       <label class="flex items-center">
         <BreezeCheckbox name="remember" v-model:checked="form.remember" />
-        <span class="ml-2 text-sm text-lonestar-700">Remember me</span>
+        <span class="ml-2 text-sm text-lonestar-700">{{ $t('Remember me') }}</span>
       </label>
       <Link
         v-if="canResetPassword"
@@ -72,7 +72,7 @@
           hover:text-lonestar-900
         "
       >
-        Forgot password?
+        {{ $t('Forgot your password?') }}
       </Link>
     </div>
     <div class="flex flex-wrap justify-center mt-2">
@@ -95,13 +95,15 @@
           />
         </svg>
 
-        Log in
+        {{ $t('Log in') }}
       </BreezeButton>
     </div>
   </form>
 </template>
 
 <script>
+
+
 import BreezeButton from "@/Components/Button.vue";
 import BreezeCheckbox from "@/Components/Checkbox.vue";
 import BreezeAuthenticatingLayout from "@/Layouts/Authenticating.vue";

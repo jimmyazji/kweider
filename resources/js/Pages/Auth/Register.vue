@@ -9,7 +9,7 @@
         v-model="form.first_name"
         autofocus
         autocomplete="first_name"
-        placeholder="First Name"
+        :placeholder="$t('First name')"
         :class="{'input-error' : $page.props.errors.first_name}"
       />
       <div
@@ -26,7 +26,7 @@
         class="mt-1 block w-full"
         v-model="form.last_name"
         autocomplete="last_name"
-        placeholder="Last Name"
+        :placeholder="$t('Last name')"
         :class="{'input-error' : $page.props.errors.last_name}"
       />
       <div
@@ -43,7 +43,7 @@
         class="mt-1 block w-full"
         v-model="form.email"
         autocomplete="username"
-        placeholder="Email"
+        :placeholder="$t('Email')"
         :class="{'input-error' : $page.props.errors.email}"
       />
       <div
@@ -59,7 +59,7 @@
         class="mt-1 block w-full"
         v-model="form.password"
         autocomplete="new-password"
-        placeholder="Enter Password"
+        :placeholder="$t('Enter password')"
         :class="{'input-error' : $page.props.errors.password}"
       />
       <div
@@ -76,7 +76,7 @@
         class="mt-1 block w-full"
         v-model="form.password_confirmation"
         autocomplete="new-password"
-        placeholder="Confim Password"
+        :placeholder="$t('Confirm password')"
         :class="{'input-error' : $page.props.errors.password_confirmation}"
       />
       <div

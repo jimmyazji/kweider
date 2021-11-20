@@ -8,7 +8,7 @@
           />
         </Link>
         <div class="text-center text-base md:text-3xl">
-            Qwaider For Damascene Sweets 
+            {{ $t('Qwaider For Damascene Sweets') }} 
         </div>
       </div>
     </section>

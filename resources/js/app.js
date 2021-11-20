@@ -12,7 +12,26 @@ import {
     Link
 } from "@inertiajs/inertia-vue3";
 import Layout from "./Layouts/App";
-const appName = window.document.getElementsByTagName('title')[0] ?. innerText || 'Kweider';
+
+import AR from "./../lang/ar.json"
+
+import {
+    createI18n
+} from 'vue-i18n'
+
+const messages = {
+    ar: AR
+        
+};
+const i18n = createI18n({
+    locale: 'ar',
+    fallbackLocale: 'en',
+    globalInjection: true,
+    messages,
+});
+
+const appName = window.document.getElementsByTagName('title')[0] ?.innerText || 'Kweider';
+
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -20,10 +39,10 @@ createInertiaApp({
         require(`./Pages/${name}.vue`);
         const page = require(`./Pages/${name}`).default;
 
-        if (page.layout === undefined ) {
+        if (page.layout === undefined) {
             page.layout = Layout
         }
-        
+
 
         return page;
     },
@@ -31,12 +50,13 @@ createInertiaApp({
         el,
         app,
         props,
-        plugin
+        plugin,
     }) {
         createApp({
                 render: () => h(app, props)
             })
             .use(plugin)
+            .use(i18n)
             .component('Link', Link)
             .mixin({
                 methods: {
