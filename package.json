@@ -31,5 +31,13 @@
     "dependencies": {
         "daisyui": "^1.16.2",
         "vue3-country-region-select": "^1.0.0"
+    },
+    "engines": {
+        "name": "myapp",
+        "description": "a really cool app",
+        "version": "1.0.0",
+        "engines": {
+            "node": "17.0.1"
+        }
     }
 }
