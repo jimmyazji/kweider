@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="min-h-screen bg-oyster-300">
+    <div class="min-h-screen bg-oyster-200">
       <nav class="bg-lonestar-500 border-b border-gray-100">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,7 +9,7 @@
               <!-- Logo -->
               <div class="flex-shrink-0 flex items-center">
                 <Link
-                  :href="route('dashboard')"
+                  :href="route('home')"
                   class="
                     block
                     focus:outline-none focus:border-oyster-200
@@ -27,25 +27,25 @@
                   :href="route('products')"
                   :active="route().current('products')"
                 >
-                  {{ $t('Products') }}
+                  {{ $t("products") }}
                 </BreezeNavLink>
                 <BreezeNavLink
                   :href="route('menu')"
                   :active="route().current('menu')"
                 >
-                  {{ $t('Menu') }}
+                  {{ $t("menu") }}
                 </BreezeNavLink>
                 <BreezeNavLink
                   :href="route('about')"
                   :active="route().current('about')"
                 >
-                  {{ $t('About us') }}
+                  {{ $t("about") }}
                 </BreezeNavLink>
                 <BreezeNavLink
                   :href="route('contact')"
                   :active="route().current('contact')"
                 >
-                  {{ $t('Contact us') }}
+                  {{ $t("contact") }}
                 </BreezeNavLink>
               </div>
             </div>
@@ -62,14 +62,53 @@
                   sm:-my-px sm:ml-10 sm:flex
                 "
               >
-                <LanguageSelector />
+                <LanguageSelector>
+                  <span class="inline-flex rounded-md">
+                    <button
+                      type="button"
+                      class="
+                        inline-flex
+                        items-center
+                        px-3
+                        py-2
+                        border border-transparent
+                        text-sm
+                        leading-4
+                        font-medium
+                        rounded-md
+                        text-oyster-500
+                        hover:text-oyster-300
+                        focus:outline-none
+                        transition
+                        ease-in-out
+                        duration-150
+                      "
+                    >
+                      {{ $i18n.locale.toUpperCase() }}
+                      <svg
+                        class="ml-2 -mr-0.5 h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </span>
+                </LanguageSelector>
               </div>
               <!-- Auth -->
               <template v-if="!$page.props.auth.user">
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                  <BreezeNavLink :href="route('login')"> {{ $t('Log in') }} </BreezeNavLink>
+                  <BreezeNavLink :href="route('login')">
+                    {{ $t("login") }}
+                  </BreezeNavLink>
                   <BreezeNavLink :href="route('register')">
-                    {{ $t('Register') }}
+                    {{ $t("register") }}
                   </BreezeNavLink>
                 </div>
               </template>
@@ -172,7 +211,7 @@
             <template v-if="!$page.props.auth.user">
               <div class="mt-3 space-y-1">
                 <BreezeResponsiveNavLink :href="route('login')">
-                  {{ $t('Log in') }}
+                  {{ $t("login") }}
                 </BreezeResponsiveNavLink>
                 <BreezeResponsiveNavLink :href="route('register')">
                   Register
@@ -183,16 +222,8 @@
           </div>
         </div>
       </nav>
-
-      <!-- Page Heading -->
-      <header class="bg-oyster-200 shadow" v-if="$slots.header">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <slot name="header" />
-        </div>
-      </header>
-
       <!-- Page Content -->
-      <main class="text-gray-900">
+      <main class="text-lonestar-800">
         <slot />
       </main>
     </div>

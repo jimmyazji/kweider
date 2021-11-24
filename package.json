@@ -29,6 +29,7 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
-        "daisyui": "^1.16.2"
+        "daisyui": "^1.16.2",
+        "vue3-country-region-select": "^1.0.0"
     }
 }

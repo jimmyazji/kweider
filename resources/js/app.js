@@ -14,23 +14,23 @@ import {
 import Layout from "./Layouts/App";
 
 import AR from "./../lang/ar.json"
+import EN from "./../lang/en.json"
 
-import {
-    createI18n
-} from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
+import vueCountryRegionSelect from 'vue3-country-region-select'
 
 const messages = {
-    ar: AR
-        
+    ar: AR,
+    en: EN
 };
 const i18n = createI18n({
-    locale: 'en',
+    locale: localStorage.getItem('lang'),
     fallbackLocale: 'en',
-    globalInjection: true,
+    register: global,
     messages,
 });
 
-const appName = window.document.getElementsByTagName('title')[0] ?.innerText || 'Kweider';
+const appName = 'Kweider';
 
 
 createInertiaApp({
@@ -42,8 +42,6 @@ createInertiaApp({
         if (page.layout === undefined) {
             page.layout = Layout
         }
-
-
         return page;
     },
     setup({
@@ -56,6 +54,7 @@ createInertiaApp({
                 render: () => h(app, props)
             })
             .use(plugin)
+            .use(vueCountryRegionSelect)
             .use(i18n)
             .component('Link', Link)
             .mixin({

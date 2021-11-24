@@ -1,7 +1,7 @@
 <template>
   <Head title="Register" />
   <form @submit.prevent="submit">
-    <div>
+    <div class="mt-1">
       <BreezeInput
         id="first_name"
         type="text"
@@ -9,8 +9,8 @@
         v-model="form.first_name"
         autofocus
         autocomplete="first_name"
-        :placeholder="$t('First name')"
-        :class="{'input-error' : $page.props.errors.first_name}"
+        :placeholder="$t('firstname')"
+        :class="{ 'input-error': $page.props.errors.first_name }"
       />
       <div
         v-if="$page.props.errors.first_name"
@@ -18,16 +18,15 @@
         class="text-error text-sm ml-2 mt-1"
       ></div>
     </div>
-
-    <div class="mt-2">
+    <div class="mt-1">
       <BreezeInput
         id="last_name"
         type="text"
         class="mt-1 block w-full"
         v-model="form.last_name"
         autocomplete="last_name"
-        :placeholder="$t('Last name')"
-        :class="{'input-error' : $page.props.errors.last_name}"
+        :placeholder="$t('lastname')"
+        :class="{ 'input-error': $page.props.errors.last_name }"
       />
       <div
         v-if="$page.props.errors.last_name"
@@ -36,31 +35,79 @@
       ></div>
     </div>
 
-    <div class="mt-2">
+    <div class="mt-1">
       <BreezeInput
         id="email"
         type="email"
         class="mt-1 block w-full"
         v-model="form.email"
         autocomplete="username"
-        :placeholder="$t('Email')"
-        :class="{'input-error' : $page.props.errors.email}"
+        :placeholder="$t('email')"
+        :class="{ 'input-error': $page.props.errors.email }"
       />
       <div
         v-if="$page.props.errors.email"
         v-text="$page.props.errors.email"
         class="text-error text-sm ml-2 mt-1"
       ></div>
+      <country-select
+        class="
+          mt-1
+          block
+          w-full
+          select select-bordered
+          focus:border-transparent
+          font-normal
+        "
+        v-model="form.country"
+        :country="form.country"
+        topCountry="SY"
+        autocomplete
+        countryNamex
+        :placeholder="$t('Select Country')"
+        disablePlaceholder
+      />
+      <region-select
+        class="
+          mt-1
+          block
+          w-full
+          select select-bordered
+          focus:border-transparent
+          font-normal
+        "
+        v-model="form.region"
+        :country="form.country"
+        :region="region"
+        autocomplete
+        disablePlaceholder
+        :placeholder="$t('Select Region')"
+
+      />
+      <BreezeInput
+        id="phone"
+        type="text"
+        class="mt-1 block w-full"
+        v-model="form.phone"
+        autocomplete="phone"
+        :placeholder="$t('phone')"
+        :class="{ 'input-error': $page.props.errors.phone }"
+      />
+      <div
+        v-if="$page.props.errors.phone"
+        v-text="$page.props.errors.phone"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
     </div>
-    <div class="mt-2">
+    <div class="mt-1">
       <BreezeInput
         id="password"
         type="password"
         class="mt-1 block w-full"
         v-model="form.password"
         autocomplete="new-password"
-        :placeholder="$t('Enter password')"
-        :class="{'input-error' : $page.props.errors.password}"
+        :placeholder="$t('enterpassword')"
+        :class="{ 'input-error': $page.props.errors.password }"
       />
       <div
         v-if="$page.props.errors.password"
@@ -69,15 +116,15 @@
       ></div>
     </div>
 
-    <div class="mt-2">
+    <div class="mt-1">
       <BreezeInput
         id="password_confirmation"
         type="password"
         class="mt-1 block w-full"
         v-model="form.password_confirmation"
         autocomplete="new-password"
-        :placeholder="$t('Confirm password')"
-        :class="{'input-error' : $page.props.errors.password_confirmation}"
+        :placeholder="$t('confirmpassword')"
+        :class="{ 'input-error': $page.props.errors.password_confirmation }"
       />
       <div
         v-if="$page.props.errors.password_confirmation"
@@ -96,7 +143,7 @@
             hover:text-lonestar-700
           "
         >
-          Already Registered?
+          {{ $t("registered") }}
         </Link>
       </div>
       <div>
@@ -105,7 +152,7 @@
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
         >
-          Register
+          {{ $t("register") }}
         </BreezeButton>
       </div>
     </div>
@@ -119,7 +166,6 @@ import BreezeInput from "@/Components/Input.vue";
 import BreezeLabel from "@/Components/Label.vue";
 import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
-
 export default {
   layout: BreezeAuthenticatingLayout,
 
@@ -138,6 +184,9 @@ export default {
         first_name: "",
         last_name: "",
         email: "",
+        phone: "",
+        country: "",
+        region: "",
         password: "",
         password_confirmation: "",
         terms: false,

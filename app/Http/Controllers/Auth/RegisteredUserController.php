@@ -38,13 +38,19 @@ class RegisteredUserController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'country' => 'required',
+            'region' => 'required',
+            'phone' => 'nullable|digits:10',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'first_name' => ucfirst($request->first_name),
             'last_name'=> ucfirst($request->last_name),
-            'email' => $request->email,
+            'email' => strtolower($request->email),
+            'country' => $request->country,
+            'region' => $request->region,
+            'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
 

@@ -13,8 +13,8 @@
         v-model="form.email"
         autofocus
         autocomplete="username"
-        :placeholder="$t('Email')"
-        :class="{'input-error' : $page.props.errors.email}"
+        :placeholder="$t('email')"
+        :class="{ 'input-error': $page.props.errors.email }"
       />
       <div
         v-if="$page.props.errors.email"
@@ -30,19 +30,20 @@
         class="mt-1 block w-full"
         v-model="form.password"
         autocomplete="current-password"
-        :placeholder="$t('Password')"
-        :class="{'input-error' : $page.props.errors.password}"
+        :placeholder="$t('password')"
+        :class="{ 'input-error': $page.props.errors.password }"
       />
       <div
         v-if="$page.props.errors.password"
         v-text="$page.props.errors.password"
         class="text-error text-sm ml-2 mt-1"
       ></div>
-      <button
+      <span
         @click.prevent="switchVisibility"
         class="absolute top-0 right-0 rounded-l-none btn btn-primary"
       >
         <svg
+          v-if="passwordFieldType === 'text'"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="none"
@@ -55,13 +56,31 @@
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
           <circle cx="12" cy="12" r="3" />
         </svg>
-      </button>
+        <svg v-else
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-6 w-auto"
+        >
+          <path
+            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"
+          />
+        </svg>
+      </span>
     </div>
 
     <div class="flex items-center justify-between mt-4">
       <label class="flex items-center">
         <BreezeCheckbox name="remember" v-model:checked="form.remember" />
-        <span class="ml-2 text-sm text-lonestar-700">{{ $t('Remember me') }}</span>
+        <span class="ml-2 text-sm text-lonestar-700">{{
+          $t("rememberme")
+        }}</span>
       </label>
       <Link
         v-if="canResetPassword"
@@ -72,7 +91,7 @@
           hover:text-lonestar-900
         "
       >
-        {{ $t('Forgot your password?') }}
+        {{ $t("forgotpassword") }}
       </Link>
     </div>
     <div class="flex flex-wrap justify-center mt-2">
@@ -95,15 +114,13 @@
           />
         </svg>
 
-        {{ $t('Log in') }}
+        {{ $t("login") }}
       </BreezeButton>
     </div>
   </form>
 </template>
 
 <script>
-
-
 import BreezeButton from "@/Components/Button.vue";
 import BreezeCheckbox from "@/Components/Checkbox.vue";
 import BreezeAuthenticatingLayout from "@/Layouts/Authenticating.vue";
@@ -147,7 +164,7 @@ export default {
         onFinish: () => this.form.reset("password"),
       });
     },
-    switchVisibility() {
+    switchVisibility(e) {
       this.passwordFieldType =
         this.passwordFieldType === "password" ? "text" : "password";
     },
