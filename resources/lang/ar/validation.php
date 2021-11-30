@@ -49,6 +49,7 @@ return [
         'title'                 => 'اللقب',
         'username'              => 'اسم المُستخدم',
         'year'                  => 'السنة',
+        'region'                => 'المنطقة',
     ],
     'accepted'             => 'يجب قبول :attribute.',
     'accepted_if'          => 'يجب قبول :attribute في حالة :other يساوي :value.',

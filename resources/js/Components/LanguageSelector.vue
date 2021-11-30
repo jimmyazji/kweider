@@ -1,6 +1,6 @@
 
 <template>
-  <BreezeDropdown align="{{ align }}" width="32">
+  <BreezeDropdown :align=align width="32">
     <template #trigger>
       <slot />
     </template>
@@ -13,7 +13,7 @@
             width="1235"
             height="650"
             viewBox="0 0 7410 3900"
-            class="w-6 h-6 mr-1"
+            class="w-6 h-6 mx-1"
           >
             <path fill="#b22234" d="M0 0h7410v3900H0z" />
             <path
@@ -55,7 +55,7 @@
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 180 120"
-            class="w-6 h-6 mr-1"
+            class="w-6 h-6 mx-1"
           >
             <path d="M0 0h180v120H0z" />
             <path fill="#fff" d="M0 0h180v80H0z" />

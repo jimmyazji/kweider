@@ -9,7 +9,7 @@
         v-model="form.first_name"
         autofocus
         autocomplete="first_name"
-        :placeholder="$t('firstname')"
+        :placeholder="$t('first name')"
         :class="{ 'input-error': $page.props.errors.first_name }"
       />
       <div
@@ -25,7 +25,7 @@
         class="mt-1 block w-full"
         v-model="form.last_name"
         autocomplete="last_name"
-        :placeholder="$t('lastname')"
+        :placeholder="$t('last name')"
         :class="{ 'input-error': $page.props.errors.last_name }"
       />
       <div
@@ -52,25 +52,31 @@
       ></div>
       <country-select
         class="
-          mt-1
           block
+          mt-1
           w-full
           select select-bordered
           focus:border-transparent
           font-normal
         "
-        v-model="form.country"
-        :country="form.country"
         topCountry="SY"
-        autocomplete
-        countryNamex
-        :placeholder="$t('Select Country')"
+        v-model="form.country"
+        :class="[
+          form.country === '' ? 'text-gray-500' : '',
+          { 'border-error': $page.props.errors.country },
+        ]"
         disablePlaceholder
+        :placeholder="$t('select country')"
       />
+      <div
+        v-if="$page.props.errors.country"
+        v-text="$page.props.errors.country"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
       <region-select
         class="
-          mt-1
           block
+          mt-1
           w-full
           select select-bordered
           focus:border-transparent
@@ -78,12 +84,18 @@
         "
         v-model="form.region"
         :country="form.country"
-        :region="region"
-        autocomplete
         disablePlaceholder
-        :placeholder="$t('Select Region')"
-
+        :class="[
+          form.region === '' ? 'text-gray-500' : '',
+          { 'border-error': $page.props.errors.region },
+        ]"
+        :placeholder="$t('select region')"
       />
+      <div
+        v-if="$page.props.errors.region"
+        v-text="$page.props.errors.region"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
       <BreezeInput
         id="phone"
         type="text"
@@ -105,8 +117,7 @@
         type="password"
         class="mt-1 block w-full"
         v-model="form.password"
-        autocomplete="new-password"
-        :placeholder="$t('enterpassword')"
+        :placeholder="$t('enter password')"
         :class="{ 'input-error': $page.props.errors.password }"
       />
       <div
@@ -123,7 +134,7 @@
         class="mt-1 block w-full"
         v-model="form.password_confirmation"
         autocomplete="new-password"
-        :placeholder="$t('confirmpassword')"
+        :placeholder="$t('confirm password')"
         :class="{ 'input-error': $page.props.errors.password_confirmation }"
       />
       <div
@@ -146,9 +157,8 @@
           {{ $t("registered") }}
         </Link>
       </div>
-      <div>
+      <div :class="locale === 'ar' ? 'mr-4' : 'ml-4'">
         <BreezeButton
-          class="ml-4"
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
         >
@@ -167,7 +177,7 @@ import BreezeLabel from "@/Components/Label.vue";
 import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 export default {
-  layout: BreezeAuthenticatingLayout,
+layout: BreezeAuthenticatingLayout,
 
   components: {
     BreezeButton,
@@ -180,6 +190,7 @@ export default {
 
   data() {
     return {
+      locale: localStorage.getItem("lang"),
       form: this.$inertia.form({
         first_name: "",
         last_name: "",
@@ -197,6 +208,7 @@ export default {
   methods: {
     submit() {
       this.form.post(this.route("register"), {
+        preserveScroll: true,
         onFinish: () => this.form.reset("password", "password_confirmation"),
       });
     },

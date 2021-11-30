@@ -33,14 +33,12 @@
         :placeholder="$t('password')"
         :class="{ 'input-error': $page.props.errors.password }"
       />
-      <div
-        v-if="$page.props.errors.password"
-        v-text="$page.props.errors.password"
-        class="text-error text-sm ml-2 mt-1"
-      ></div>
       <span
         @click.prevent="switchVisibility"
-        class="absolute top-0 right-0 rounded-l-none btn btn-primary"
+        class="absolute top-0 btn btn-primary"
+        :class="
+          locale === 'en' ? 'right-0 rounded-l-none' : 'left-0 rounded-r-none'
+        "
       >
         <svg
           v-if="passwordFieldType === 'text'"
@@ -56,7 +54,8 @@
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
           <circle cx="12" cy="12" r="3" />
         </svg>
-        <svg v-else
+        <svg
+          v-else
           xmlns="http://www.w3.org/2000/svg"
           width="48"
           height="48"
@@ -73,13 +72,18 @@
           />
         </svg>
       </span>
+      <div
+        v-if="$page.props.errors.password"
+        v-text="$page.props.errors.password"
+        class="text-error text-sm ml-2 mt-1"
+      ></div>
     </div>
 
     <div class="flex items-center justify-between mt-4">
       <label class="flex items-center">
         <BreezeCheckbox name="remember" v-model:checked="form.remember" />
-        <span class="ml-2 text-sm text-lonestar-700">{{
-          $t("rememberme")
+        <span class="mx-2 text-sm text-lonestar-700">{{
+          $t("remember me")
         }}</span>
       </label>
       <Link
@@ -107,7 +111,7 @@
           stroke-width="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="w-4 h-4 mr-2 text-white"
+          class="w-4 h-4 mx-2 text-white"
         >
           <path
             d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4m-5-4 5-5-5-5m5 5H3"
@@ -150,6 +154,7 @@ export default {
   data() {
     return {
       passwordFieldType: "password",
+      locale: localStorage.getItem("lang"),
       form: this.$inertia.form({
         email: "",
         password: "",
@@ -161,10 +166,11 @@ export default {
   methods: {
     submit() {
       this.form.post(this.route("login"), {
-        onFinish: () => this.form.reset("password"),
+        preserveScroll: true,
+        onSuccess: () => form.reset("password"),
       });
     },
-    switchVisibility(e) {
+    switchVisibility() {
       this.passwordFieldType =
         this.passwordFieldType === "password" ? "text" : "password";
     },

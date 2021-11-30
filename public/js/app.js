@@ -22880,6 +22880,55 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    flash: Object,
+    errors: Object
+  },
+  data: function data() {
+    return {
+      showFlash: false
+    };
+  },
+  watch: {
+    flash: {
+      deep: true,
+      handler: function handler() {
+        var _this = this;
+
+        this.showFlash = true;
+        setTimeout(function () {
+          return _this.showFlash = false;
+        }, 5000);
+      }
+    },
+    errors: {
+      deep: true,
+      handler: function handler() {
+        var _this2 = this;
+
+        this.showFlash = true;
+        setTimeout(function () {
+          return _this2.showFlash = false;
+        }, 5000);
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Input.vue?vue&type=script&lang=js":
 /*!***********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Input.vue?vue&type=script&lang=js ***!
@@ -22977,7 +23026,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['href', 'active'],
   computed: {
     classes: function classes() {
-      return this.active ? 'inline-flex items-center px-1 pt-1 border-b-4 border-sand-500 text-sm font-medium leading-5 text-oyster-300 focus:outline-none focus:border-oyster-200 transition  duration-150 ease-in-out' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-oyster-500 hover:text-oyster-300 hover:border-oyster-300 focus:outline-none focus:text-oyster-300 focus:border-oyster-300 transition duration-150 ease-in-out';
+      return this.active ? 'inline-flex items-center px-1 pt-1 border-b-4 border-almond-600 text-sm font-medium leading-5 text-almond-300 focus:outline-none focus:border-almond-200 transition  duration-150 ease-in-out font-bold' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-almond-500 hover:text-almond-300 hover:border-almond-300 focus:outline-none focus:text-almond-300 focus:border-almond-300 font-bold transition hover:scale duration-150 ease-in-out';
     }
   }
 });
@@ -23058,7 +23107,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['href', 'active'],
   computed: {
     classes: function classes() {
-      return this.active ? 'block pl-3 pr-4 py-2 border-l-4 border-sand-500 text-base font-medium text-lonestar-800 bg-indigo-50 focus:outline-none focus:text-lonestar-900 focus:bg-oyster-300 focus:border-sand-700 transition duration-150 ease-in-out' : 'block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-oyster-600 hover:text-oyster-800 hover:bg-gray-50 hover:border-oyster-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out';
+      return this.active ? 'block pl-3 pr-4 py-2 border-l-4 border-sand-500 text-base font-medium text-lonestar-800 bg-indigo-50 focus:outline-none focus:text-lonestar-900 focus:bg-almond-300 focus:border-sand-700 transition duration-150 ease-in-out' : 'block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-almond-600 hover:text-almond-800 hover:bg-gray-50 hover:border-almond-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out';
     }
   }
 });
@@ -23108,6 +23157,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_AuthLinks_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/AuthLinks.vue */ "./resources/js/Components/AuthLinks.vue");
 /* harmony import */ var _Components_ResponsiveAuthLinks_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/ResponsiveAuthLinks.vue */ "./resources/js/Components/ResponsiveAuthLinks.vue");
 /* harmony import */ var _Components_LanguageSelector_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Components/LanguageSelector.vue */ "./resources/js/Components/LanguageSelector.vue");
+/* harmony import */ var _Components_FlashMessage_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/Components/FlashMessage.vue */ "./resources/js/Components/FlashMessage.vue");
+
 
 
 
@@ -23123,7 +23174,9 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var locale = localStorage.getItem("lang");
     var __returned__ = {
+      locale: locale,
       BreezeApplicationLogo: _Components_ApplicationLogo_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       BreezeDropdown: _Components_Dropdown_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       BreezeDropdownLink: _Components_DropdownLink_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -23131,7 +23184,8 @@ __webpack_require__.r(__webpack_exports__);
       BreezeResponsiveNavLink: _Components_ResponsiveNavLink_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
       AuthLinks: _Components_AuthLinks_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
       ResponsiveAuthLinks: _Components_ResponsiveAuthLinks_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-      LanguageSelector: _Components_LanguageSelector_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+      LanguageSelector: _Components_LanguageSelector_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+      FlashMessage: _Components_FlashMessage_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23156,15 +23210,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Components_ApplicationLogo_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Components/ApplicationLogo.vue */ "./resources/js/Components/ApplicationLogo.vue");
 /* harmony import */ var _Components_LanguageSelector_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/LanguageSelector.vue */ "./resources/js/Components/LanguageSelector.vue");
+/* harmony import */ var _Components_FlashMessage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/FlashMessage.vue */ "./resources/js/Components/FlashMessage.vue");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var locale = localStorage.getItem("lang");
     var __returned__ = {
+      locale: locale,
       BreezeApplicationLogo: _Components_ApplicationLogo_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-      LanguageSelector: _Components_LanguageSelector_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+      LanguageSelector: _Components_LanguageSelector_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+      FlashMessage: _Components_FlashMessage_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23345,6 +23404,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       passwordFieldType: "password",
+      locale: localStorage.getItem("lang"),
       form: this.$inertia.form({
         email: "",
         password: "",
@@ -23354,15 +23414,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      var _this = this;
-
       this.form.post(this.route("login"), {
-        onFinish: function onFinish() {
-          return _this.form.reset("password");
+        preserveScroll: true,
+        onSuccess: function onSuccess() {
+          return form.reset("password");
         }
       });
     },
-    switchVisibility: function switchVisibility(e) {
+    switchVisibility: function switchVisibility() {
       this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
     }
   }
@@ -23405,6 +23464,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      locale: localStorage.getItem("lang"),
       form: this.$inertia.form({
         first_name: "",
         last_name: "",
@@ -23423,6 +23483,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.form.post(this.route("register"), {
+        preserveScroll: true,
         onFinish: function onFinish() {
           return _this.form.reset("password", "password_confirmation");
         }
@@ -23582,10 +23643,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Menu/Index.vue?vue&type=script&lang=js":
-/*!***********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Menu/Index.vue?vue&type=script&lang=js ***!
-  \***********************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Menu/Index.vue?vue&type=script&setup=true&lang=js":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Menu/Index.vue?vue&type=script&setup=true&lang=js ***!
+  \**********************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -23594,10 +23655,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Head
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var myEl = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(null);
+    var smoothScroll = (0,vue__WEBPACK_IMPORTED_MODULE_1__.inject)("smoothScroll");
+
+    var scrollToMyEl = function scrollToMyEl() {
+      smoothScroll({
+        scrollTo: myEl.value,
+        hash: "#sampleHash"
+      });
+    };
+
+    var __returned__ = {
+      myEl: myEl,
+      smoothScroll: smoothScroll,
+      scrollToMyEl: scrollToMyEl,
+      Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Head,
+      inject: vue__WEBPACK_IMPORTED_MODULE_1__.inject,
+      ref: vue__WEBPACK_IMPORTED_MODULE_1__.ref
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
   }
 });
 
@@ -23640,6 +23727,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Head
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Create.vue?vue&type=script&setup=true&lang=js":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Create.vue?vue&type=script&setup=true&lang=js ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _Components_Input_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Input.vue */ "./resources/js/Components/Input.vue");
+/* harmony import */ var _Components_Button_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Button.vue */ "./resources/js/Components/Button.vue");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  setup: function setup(__props, _ref) {
+    var _this = this;
+
+    var expose = _ref.expose;
+    expose();
+    var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
+      country: "",
+      region: "",
+      password: "",
+      password_confirmation: ""
+    });
+
+    var submit = function submit() {
+      form.post(route("users.index")), {
+        preserveScroll: true,
+        onFinish: function onFinish() {
+          return _this.form.reset("password", "password_confirmation");
+        }
+      };
+    };
+
+    var __returned__ = {
+      form: form,
+      submit: submit,
+      Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Head,
+      Input: _Components_Input_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+      Button: _Components_Button_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
   }
 });
 
@@ -23709,6 +23858,39 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Show.vue?vue&type=script&setup=true&lang=js":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Show.vue?vue&type=script&setup=true&lang=js ***!
+  \**********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    user: Object
+  },
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var __returned__ = {
+      Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Head
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/ApplicationLogo.vue?vue&type=template&id=3ac4aa20":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/ApplicationLogo.vue?vue&type=template&id=3ac4aa20 ***!
@@ -23723,18 +23905,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  version: "1.0",
   xmlns: "http://www.w3.org/2000/svg",
-  width: "8334.7",
-  height: "8334.7",
-  viewBox: "0 0 6251 6251"
+  viewBox: "0 0 400 164.07576747"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<path d=\"m4695 1899-30 32 17 15c16 12 24 16 33 17 8 0 12-1 20-6 7-4 26-24 28-28l1-3-20-12c-30-19-30-19-37-19-6 0-7 0-12 4zM4596 1915l-33 36a907 907 0 0 0 56 32c9 0 34-20 40-32 3-7 2-9-5-13l-50-28c-2 0-4 1-8 5zM4713 2068c-30 6-55 38-63 78-2 14-1 34 2 46 5 16 11 25 20 29 7 4 23 6 39 6 20 0 29-3 39-14 7-7 10-13 13-25l5-15 2-6 8 11c17 22 22 38 17 49-4 9-21 21-45 33s-52 20-82 24c-15 2-56 4-62 4-8-2-12-6-43-46-23-30-35-43-40-47-8-7-20-8-30-3-16 7-42 33-53 53-8 14-14 32-16 45-2 24 13 47 36 55 7 2 23 4 38 5l52 5c3 0 4 1 4 3 1 3 0 4-7 11-75 69-130 99-201 109l-68 1-58 1-3 3c0 3 1 4 31 11 50 12 97 20 143 23 18 1 23 1 38-6a307 307 0 0 0 115-86c8-10 22-30 29-42 10-19 12-22 15-24 5-4 11-6 20-6a365 365 0 0 0 190-63c13-15 25-40 30-64 2-13 2-39 0-52a135 135 0 0 0-88-106c-7-2-18-2-27 0zm11 69c7 2 19 9 19 11a55 55 0 0 1-46 14c-9-1-12-2-12-3l4-6c7-11 17-18 26-18l9 2zm-223 120c6 3 11 8 15 16 4 9 4 11 1 12-5 2-22 1-31-1-12-3-15-7-13-15 1-6 5-10 10-13 6-3 11-3 18 1zM4025 2077c-4 12-5 24-4 36 1 7 4 18 18 58 18 54 19 62 17 73-2 14-11 26-27 37-29 21-70 31-115 30-26-1-29-4-33-31-2-14-3-16-7-16l-3-1c-2 2-18 35-20 42-11 33 3 62 35 73l24 2c40 1 71-6 99-20 39-20 63-53 69-96l4-17 2-4 18 27c19 28 27 39 38 50 23 22 52 35 83 35a75 75 0 0 0 77-60c9-36 4-70-17-105-11-20-19-28-27-27-4 2-13 11-18 21-6 12-7 18-7 28 1 11 5 20 16 31 11 12 15 19 16 25 0 5 0 5-3 8-8 7-27 12-45 12-12 0-14 0-22-2-13-5-21-10-39-29-30-30-39-43-80-117a1393 1393 0 0 0-45-73l-4 9zM2353 2221a105 105 0 0 0-85 96c-3 12-2 61 1 87 5 59 5 92 3 116a249 249 0 0 1-113 185c-25 16-56 26-93 30l-14 2c-2 1 10 8 18 11 22 8 53 17 76 21 40 7 63 7 180 7 147-1 162 0 201 13 29 10 52 24 80 48 30 25 58 44 79 52 32 12 75 10 105-6 27-13 47-35 60-65 7-16 8-23 8-42 0-15 0-17-2-25-7-23-21-44-43-64-26-23-63-38-110-46-16-2-63-2-81 0-42 6-66 13-190 51-67 21-77 24-95 28-36 9-69 14-103 16h-14l4-3 16-7c27-12 62-30 87-47a382 382 0 0 0 169-301c0-28 0-35-6-55-5-19-16-42-27-57-15-21-39-37-65-44-10-3-36-4-47-1zM3624 2226c-39 6-95 32-137 62-23 16-31 24-95 86-95 91-104 98-135 114-18 9-23 11-35 11-8 0-10-1-15-3-6-3-14-11-17-17-4-8-5-16-5-32a237 237 0 0 1 28-98l11-21c0-1-4-5-6-5l-7 5c-6 5-7 5-23 33-17 31-36 68-41 81-8 18-11 37-9 54 6 51 33 78 72 72 24-4 57-22 92-52l68-68 70-68c51-44 92-67 136-76 17-4 46-4 63 0 16 3 36 10 53 18 17 9 22 9 27 4 7-6 11-19 11-33 0-21-9-36-31-51-10-7-20-11-32-14-9-3-33-4-44-2z\"></path><path d=\"M2645 2357c-21 4-39 13-64 33a191 191 0 0 0-74 116 336 336 0 0 1-88 149c-11 11-14 14-11 13l32-10c16-6 38-12 49-15a444 444 0 0 1 137-26c32-8 66-25 102-53 52-39 65-108 31-158-17-26-43-43-71-49-11-2-33-3-43 0z\"></path><path d=\"M2085 2444c-24 6-37 16-103 80-12 12-17 17-16 18 3 1 16 3 28 3 41 0 72-18 103-59 11-14 17-20 24-23 5-3 14-4 19-2 12 4 24 21 32 44 2 8 2 11 2 24s0 15-2 23c-7 21-17 37-36 55l-20 19c-19 13-45 23-70 28l-13 2-300 1c-307 1-305 1-336 5a532 532 0 0 0-463 450l-7 37v91l3 14 5 28a543 543 0 0 0 494 447l1768 1 1766-2a535 535 0 0 0 292-945 527 527 0 0 0-305-124c-11-1-195-2-857-2-816 0-987 0-1014 3-81 8-122 22-155 53-20 20-34 42-43 70-12 38-10 68 8 94 15 22 45 42 73 49a104 104 0 0 0 87-17c11-8 82-78 80-79-3-2-27-3-38-3-34 2-55 16-83 54-10 15-16 21-24 25-5 2-7 2-14 2s-11 0-15-2c-12-5-21-13-25-24a140 140 0 0 1 61-146c18-13 42-21 72-24 14-2 1837-2 1867 0a485 485 0 0 1 460 426 488 488 0 0 1-265 487c-57 27-114 43-182 49-22 2-3500 2-3520 0a480 480 0 0 1-321-797 459 459 0 0 1 306-162c33-4 42-4 347-5l300-1 14-2c59-11 101-37 128-79s34-91 17-126c-14-27-40-45-83-56-12-3-37-4-47-2zM4097 2488c-10 6-22 19-25 28-6 16 2 29 26 45 12 8 16 10 21 10s8-3 16-16c11-17 14-27 13-34-1-4-7-10-13-15l-33-21-5 3zM4001 2515c-5 2-8 7-15 17-10 14-12 18-12 24 0 4 0 5 4 9s29 18 37 20c7 3 18 3 24 0 11-5 17-15 19-29 1-7 1-7-2-11-4-5-7-8-20-16l-15-9c-7-5-16-8-20-5z\"></path><path d=\"M4037 2825a129334 129334 0 0 1-179 60c-6 5-7 8-7 33l1 22 10-3 24-8 16-5v137l-4-2-22-11c-20-10-33-15-51-20a197 197 0 0 0-197 58 338 338 0 0 0-93 236c0 36 1 50 7 79a209 209 0 0 0 244 167c35-7 69-24 98-49l21-16 5 28 5 27 84 1h84v-5l1-20c0-24-1-24-26-25-15 0-17-1-20-3l-4-4-1-301 1-304c3-11 10-16 23-21 11-3 19-8 22-11l2-28-1-26-43 14zm-225 254c41 8 75 39 85 80 4 15 4 23 4 126a2763 2763 0 0 0 0 143c-4 20-15 33-36 43a113 113 0 0 1-115-2c-13-8-30-25-39-39-30-47-46-109-44-178 1-41 7-68 22-97 17-35 41-58 71-70 19-7 35-9 52-6zM3422 2824l-89 28-5 5c-2 3-2 4-3 72 0 68 0 69 2 69l42-12c63-17 79-22 81-24 6-5 5-2 6-78l-1-71-33 11zM1402 2821c-39 1-38 0-43 7-3 4-5 17-5 31 0 13 1 16 8 20 6 3 25 4 39 3l13 1c4 1 8 5 10 10l1 298c0 324 0 299-6 303-3 2-5 2-33 2h-30v19c-1 33-1 34 2 37l5 4a9104 9104 0 0 0 263 1h6v-61h-26c-31 0-32 0-35-8-2-4-2-6-2-119l1-118 13-17 51-54 170 313c0 2-1 2-10 2-34 2-38 3-42 11-1 3-2 5-1 20l1 19c3 4 10 11 13 12l124 1c130 0 126 0 134-5l4-5 1-27v-25h-24c-23 0-24 0-28-2-12-5-17-11-33-39a34547 34547 0 0 0-213-361c-2-4-3-9-1-13l15-17 129-137c24-26 33-34 43-39 11-6 17-7 30-7 12 1 12 1 16-2l5-5c1-1 2-13 2-28v-26h-104c-113 1-106 1-110 7-2 2-2 5-2 29v27h31l32 1-122 131-123 131v-131c0-129 0-131 2-132l28-1c28 0 29 0 31-5l1-23v-20l-4-6-6-6c-2-1-172-2-222-1zM4933 3023c-33 5-62 32-91 84l-4 6-8-14c-12-19-20-29-31-40s-22-19-37-26c-8-4-10-4-16-4l-9 1a7274 7274 0 0 1-80 102l-8 10 20 15 20 16 10-11 8-11 4 4c9 8 15 18 17 28 2 6 1 307 0 313-2 8-9 11-30 13-12 1-14 2-17 6-2 2-2 4-2 17s0 16 2 18c3 5-1 5 118 5 120 0 116 0 119-5 2-3 2-31 0-35-2-5-4-5-30-5h-24v-7l-1-152v-145l3-10c4-14 8-22 16-30 11-11 24-16 43-16 17 0 32 4 66 16 13 5 22 8 23 7l31-67 31-67-9-5c-16-9-20-11-26-12-8 0-10 1-20 14l-9 10-6-3c-24-15-52-23-73-20z\"></path><path d=\"m2288 3061-78 40-7 4 10 20 10 21s18-6 25-10l12-3c5 0 6 0 9 4l6 9 19 46c31 71 31 72 29 83-1 8-54 140-66 165l-4 10-2-5-82-211-82-207-144 69c-10 6-11 6-13 11-2 4-2 5-1 8l13 31 16-6 21-7c5 0 8 2 11 9a48351 48351 0 0 1 164 384c9 22 11 25 17 29l4 2 43 1 47-1c5-1 9-4 11-9l11-30c23-62 65-174 67-175l6 9a11706 11706 0 0 1 83 199l6 6 4 3h43c48 0 48 0 52-6 2-2 19-46 39-98 78-202 103-266 124-313 35-82 35-82 35-87 0-6-2-11-7-14-10-6-18-6-45-1-28 7-36 7-59 5-16-2-37-7-60-12-42-11-70-8-100 12-12 8-25 21-52 52l-23 29c-1 1-6-10-21-51l-19-53-72 38zm232 61 29 8c40 14 63 16 91 9l9-2-56 143-59 151c-3 9-3 9-6 9-2 0-3-3-17-35a10140 10140 0 0 1-71-168l-21-49c-7-18-5-25 12-42a83 83 0 0 1 88-24zM3385 3045c-101 30-99 29-102 33-6 5-6 7-6 29l1 21a662 662 0 0 0 48-14 10914 10914 0 0 1-1 386c-2 6-5 6-22 7-14 1-16 1-19 3-6 4-6 5-6 27v20h109c101 0 109 0 112-2 7-3 8-5 8-22 0-22-2-25-22-23l-15-1c-4-2-7-6-8-11l-1-238-1-234c-4-2-9-1-76 19zM2954 3028c-49 6-94 29-137 69a266 266 0 0 0-84 205 274 274 0 0 0 78 204c36 36 77 57 129 65a304 304 0 0 0 231-73c11-10 33-32 43-44l8-9-14-13-19-16-4-4-12 10c-27 24-46 36-74 45-48 16-98 10-142-16-31-20-60-55-73-91-4-11-4-16-1-20 4-4 8-5 30-12 98-31 310-99 312-101a388 388 0 0 0-81-132c-36-36-77-58-126-67-14-2-50-2-64 0zm14 60 15 4a179 179 0 0 1 103 118l-224 73-5-30c-2-14-2-53 0-65 9-47 33-83 65-95 15-6 31-7 46-4zM4346 3027c-57 5-106 29-148 69a289 289 0 0 0-84 249 289 289 0 0 0 103 183c32 24 68 38 109 43a291 291 0 0 0 206-58 307 307 0 0 0 70-68l-33-29-3-3-10 9c-36 32-73 49-117 53-15 2-33 0-48-3a172 172 0 0 1-130-130v-3l172-55 173-57c1-3-17-42-28-61a258 258 0 0 0-180-137c-11-2-43-3-52-2zm11 63c22 6 43 19 63 39 12 12 20 22 30 40 9 15 20 39 18 40l-221 72c-2 1-6-14-9-26-2-14-2-38-1-55 5-41 20-74 40-91 13-11 28-18 44-21 9-1 26-1 36 2z\"></path>", 5);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "fill-rule": "evenodd",
+  d: "M331.591.813c-.249.113-2.442 2.316-2.894 2.908l-.215.281.284.242c2.956 2.512 4.301 2.997 5.815 2.093.874-.522 2.628-2.369 2.627-2.766-.001-.127-2.11-1.512-3.652-2.399-.817-.47-1.462-.588-1.965-.359m-8.676 1.343c-.352.233-3.359 3.473-3.289 3.543.095.093 4.128 2.493 4.465 2.656 1.264.612 4.985-2.725 3.995-3.583-.376-.327-4.627-2.769-4.817-2.768-.069 0-.228.069-.354.152m10.402 13.529c-4.109.473-7.131 6.011-5.909 10.829.554 2.185 1.339 2.882 3.53 3.135 2.614.301 3.898.046 4.998-.995.702-.664.979-1.256 1.622-3.473l.186-.641.699.943c2.262 3.052 2.168 4.217-.478 5.96-3.46 2.28-7.653 3.4-12.818 3.426l-2.09.01-.327-.25c-.357-.273-1.374-1.505-3.242-3.93-2.434-3.157-3.125-3.914-3.815-4.178-3.238-1.236-8.996 6.15-7.957 10.207.686 2.675 2.168 3.476 7.061 3.814 4.98.345 4.839.252 2.981 1.947-6.056 5.524-10.61 8.016-16.286 8.91-1.027.162-1.701.187-6.501.243-2.946.035-5.366.069-5.378.076-.012.007-.022.144-.022.304v.291l2.156.536c6.114 1.519 13.45 2.524 15.131 2.072 5.138-1.379 10.824-6.306 14.022-12.149 1.041-1.903 1.185-1.993 3.371-2.101 4.016-.2 7.782-1.227 12.784-3.486 1.938-.876 2.847-1.525 3.651-2.609 4.261-5.747 2.314-14.963-3.826-18.106-1.427-.731-2.31-.926-3.543-.785m-60.328.343c-.948 2.371-.845 3.281.993 8.792 1.525 4.569 1.606 4.881 1.553 5.986-.166 3.47-5.527 6.204-11.967 6.104-2.709-.042-2.879-.174-3.221-2.51-.194-1.322-.249-1.458-.627-1.563-.173-.048-.323-.078-.332-.067-.138.158-1.558 3.164-1.737 3.677-.858 2.454.061 5.003 2.179 6.046 2.291 1.127 7.926.631 11.331-.998 3.648-1.746 6.479-5.806 6.479-9.293 0-.15.083-.444.184-.653l.184-.38 1.385 2.103c3.331 5.059 5.191 6.634 8.809 7.458 7.777 1.773 11.811-7.196 6.751-15.009-1.347-2.079-2.208-2.116-3.404-.148-1.244 2.049-1.07 3.79.551 5.513 1.921 2.039 1.911 2.857-.041 3.482-3.456 1.106-5.551.426-8.46-2.746-2.277-2.483-3.196-3.891-6.871-10.529-1.451-2.62-1.858-3.286-3.016-4.937-.552-.786-.541-.781-.723-.328m60.853 5.906c.254.089.709.32 1.013.513l.551.35-.383.28c-1.151.839-2.615 1.151-4.088.872-.613-.116-.608-.088-.134-.783.856-1.253 1.844-1.653 3.041-1.232m-206.379 7.119c-3.573.646-6.264 2.96-7.315 6.293-.458 1.453-.529 2.102-.521 4.802.007 2.36.064 3.359.441 7.707.355 4.097.169 7.722-.54 10.538-2.181 8.659-10.2 15.597-18.069 15.634-1.088.005-.34.546 1.849 1.339 2.635.954 5.213 1.534 8.819 1.982.522.065 4.875.117 13.02.157 11.875.058 12.27.065 13.374.243 4.401.711 7.336 2.088 10.789 5.062 4.318 3.72 7.057 5.085 10.455 5.213 5.406.202 9.854-2.949 11.316-8.016 2.241-7.771-6.576-15.009-17.63-14.475-4.599.222-6.964.792-19.421 4.676-9.024 2.814-12.093 3.505-16.374 3.69-.598.025-1.262.065-1.475.088l-.389.041.28-.206c.154-.114.834-.434 1.512-.712 12.515-5.138 20.409-14.921 22.143-27.444 1.364-9.846-4.646-17.987-12.264-16.612m110.9.477c-3.072.292-8.086 2.423-11.844 5.034-2.041 1.418-3.353 2.574-7.838 6.904-9.201 8.882-10.124 9.668-12.933 11.012-2.237 1.071-3.351 1.148-4.566.316-2.276-1.559-1.87-6.508 1.012-12.325l.992-2.004-.238-.248c-.304-.318-.279-.323-.97.18l-.588.428-1.364 2.424c-4.164 7.403-4.864 9.358-4.417 12.336.823 5.481 4.331 7.305 9.228 4.8 3.028-1.548 4.998-3.23 11.461-9.783 5.189-5.262 7.193-7.048 10.046-8.949 6.211-4.138 11.986-4.565 18.078-1.338 1.356.719 1.983.403 2.579-1.3 1.206-3.446-1.969-7.032-6.635-7.494-.923-.092-.963-.092-2.003.007m75.943 2.781c.556.283 1.224 1.156 1.514 1.977l.127.362-.434.093c-1.606.344-3.65-.228-3.645-1.021.007-1.235 1.308-1.988 2.438-1.411m-161.22 8.534c-2.059.328-3.704 1.158-6.123 3.09-3.432 2.741-5.253 5.535-6.274 9.625-1.21 4.848-3.786 9.28-7.722 13.287-.708.721-1.288 1.334-1.288 1.361 0 .027.597-.144 1.328-.379 4.17-1.341 5.153-1.64 7.729-2.354 3.739-1.036 4.882-1.268 6.793-1.382 4.601-.272 7.73-1.508 12.192-4.813 6.544-4.847 5.871-14.24-1.262-17.619-1.546-.732-3.771-1.07-5.373-.816m-49.043 7.715c-1.137.206-2.245.735-3.237 1.546-1.709 1.396-7.492 6.881-7.404 7.022.146.236 2.501.408 3.695.269 3.088-.359 5.581-1.975 7.95-5.152 2.049-2.748 3.738-2.965 5.26-.675 4.047 6.088-1.634 14.251-10.721 15.406-.569.072-6.31.098-20.988.093-31.912-.009-33.108.022-38.015.998-16.359 3.253-29.76 15.127-35.035 31.04-.669 2.02-1.18 4.091-1.888 7.663l-.612 3.089v4.118c0 4.027.005 4.14.211 5.097.115.538.354 1.782.531 2.764 3.894 21.66 21.906 37.627 43.717 38.754 2.251.117 301.763.116 304.289-.001 27.905-1.285 48.358-26.082 44.32-53.733-2.912-19.942-19.218-36.286-39.094-39.183-3.575-.521 3.757-.476-82.996-.51-56.505-.021-79.585-.002-81.08.066-10.997.504-16.163 2.951-19.035 9.015-2.334 4.93-1.698 9.227 1.78 12.027 4.334 3.489 9.48 3.488 13.205-.002 1.074-1.006 6.096-6.005 6.096-6.068 0-.103-1.864-.272-2.95-.268-3.262.014-5.274 1.227-7.751 4.675-1.656 2.305-2.753 2.85-4.489 2.23-1.956-.699-2.664-2.03-2.55-4.799.276-6.703 5.05-11.451 12.167-12.1 1.352-.124 158.491-.127 161.289-.004 8.938.394 15.543 2.468 22.338 7.011 12.024 8.041 19.344 21.864 18.815 35.531-.862 22.302-16.348 38.843-38.541 41.166-1.981.207-306.266.164-307.99-.044-19.149-2.309-33.814-16.297-36.918-35.216C4.83 98.558 19.69 77.031 41.28 72.771c4.811-.95 4.97-.954 35.402-.963 25.704-.008 24.298.015 26.606-.446 5.9-1.181 10.298-4.855 12.02-10.043 1.83-5.515.003-9.837-4.99-11.802-2.406-.946-4.536-1.271-6.275-.957m174.947 3.858c-.603.345-1.701 1.518-2.006 2.142-.721 1.473-.04 2.79 2.231 4.309 1.909 1.278 2.217 1.213 3.373-.718 1.625-2.712 1.432-3.327-1.625-5.181-1.507-.914-1.397-.883-1.973-.552m-8.281 2.352c-.75.341-2.381 2.814-2.386 3.618-.005.889 3.184 2.749 4.714 2.749 1.355 0 2.393-.975 2.686-2.523.199-1.047-.088-1.51-1.442-2.328-.46-.278-1.152-.715-1.537-.971-1.081-.718-1.442-.814-2.035-.545m4.449 26.565c-19.488 6.422-17.343 5.592-17.473 6.766-.082.741-.094 2.53-.021 3.227l.054.52 1.971-.623c1.083-.344 2.078-.651 2.21-.683l.239-.06v5.88c0 3.234-.02 5.881-.044 5.881-.025 0-.799-.378-1.72-.839-10.356-5.185-19.505-2.362-26.005 8.023-3.99 6.374-5.298 14.421-3.663 22.536 2.802 13.915 18.943 19.637 29.627 10.502 1.469-1.256 2.154-1.702 2.152-1.403 0 .084.162 1.162.361 2.395l.361 2.243h14.686l.066-.327c.036-.179.068-.973.069-1.763.006-2.206-.054-2.265-2.348-2.347-1.537-.055-1.718-.099-1.968-.475-.194-.292-.226-51.847-.032-52.606.269-1.054.774-1.504 2.204-1.965 1.488-.479 1.724-.708 1.852-1.792.114-.973.018-3.868-.128-3.866-.054 0-1.157.35-2.45.776m-53.647-.11c-.814.262-3.146 1.005-5.182 1.65-3.873 1.228-4.043 1.299-4.289 1.782-.177.346-.242 12.186-.067 12.186.097 0 6.491-1.748 9.043-2.472 1.824-.517 1.864-.537 2.113-1.024.249-.489.264-12.621.015-12.607-.084.004-.819.222-1.633.485m-180.317.278c-.734.393-1.043 1.379-1.042 3.322 0 1.715.601 2.031 3.784 1.992 1.717-.021 1.92.038 2.239.644l.194.368v25.735c0 28.169.041 26.023-.501 26.424-.239.177-.32.181-2.896.152l-2.65-.031.001 2.338c0 2.612.023 2.723.627 3.053.309.169 20.986.293 22.717.136l.735-.067.023-2.73.023-2.73-2.334.03c-2.598.034-2.637.027-2.957-.558-.164-.301-.248-19.873-.088-20.623.049-.229.357-.631 1.168-1.524 1.757-1.936 4.305-4.61 4.392-4.61.044 0 3.383 6.114 7.42 13.586l7.34 13.586-.265.058c-.146.032-.912.099-1.702.149-2.595.164-2.698.27-2.699 2.765l-.001 1.404.588.615c.764.798-.298.736 11.919.7l10.354-.031.581-.275c.822-.389.802-.315.841-2.98l.034-2.297-1.555.062c-2.074.084-2.434.074-2.901-.082-.961-.321-1.642-1.096-2.962-3.371-3.101-5.347-10.764-18.293-15.972-26.981-2.512-4.192-2.88-4.893-2.782-5.312.138-.59-.063-.362 4.645-5.269 3.305-3.446 5.15-5.405 7.756-8.235 3.523-3.826 4.429-4.393 6.753-4.22 1.704.127 1.927-.368 1.796-3.984l-.049-1.373-9.086.023-9.086.023-.328.328-.328.328-.028 2.435-.028 2.436 2.774.023 2.773.023-10.627 11.339-10.627 11.338-.022-11.33c-.012-6.232-.002-11.351.022-11.376.024-.024 1.14-.066 2.48-.094 3.155-.066 2.952.123 2.959-2.76l.004-1.577-.545-.579-.545-.578H52.512c-10.564 0-11.029.007-11.318.162m319.44 17.503c-.257.135-.619.535-1.654 1.825l-.16.199-.464-.297c-5.573-3.561-10.05-1.957-14.111 5.056l-.566.976-.765-1.227c-.96-1.539-1.634-2.435-2.476-3.294-2.002-2.043-4.764-3.28-5.723-2.564-.41.306-7.561 9.553-7.504 9.703.022.056 1.998 1.625 3.218 2.554l.319.242.766-.974.767-.973.536.565c.595.628 1.103 1.548 1.252 2.266.174.836.084 26.854-.094 27.245-.292.642-.698.812-2.296.962-1.815.169-1.877.234-1.923 2.015-.036 1.377.054 1.74.486 1.955.349.175 19.771.16 20.109-.015.537-.278.661-3.092.159-3.595l-.241-.241-2.123-.026-2.123-.026-.067-.235c-.103-.36-.143-20.497-.047-23.662.113-3.738.378-4.702 1.642-5.96 1.932-1.923 4.296-1.855 10.112.293.736.272 1.347.482 1.359.468.037-.047 5.359-11.825 5.359-11.861 0-.09-2.087-1.212-2.535-1.363-.629-.212-.827-.214-1.212-.011m-239.667 3.553c-3.712 1.943-6.766 3.547-6.785 3.566-.057.056 1.59 3.538 1.693 3.577.129.049 1.785-.534 2.405-.848 1.028-.518 1.559-.269 2.105.986.859 1.976 3.495 8.173 3.812 8.963.436 1.087.522 1.795.305 2.54-.41 1.411-5.805 14.603-5.972 14.603-.033 0-3.287-8.25-7.231-18.332-3.944-10.083-7.21-18.332-7.258-18.332-.105 0-7.178 3.434-10.861 5.273-3.438 1.717-3.351 1.575-2.382 3.886.268.638.519 1.195.559 1.236.066.069.903-.188 2.481-.764 1.034-.377 1.417-.268 1.81.514.227.453 12.128 28.497 14.222 33.514 1.181 2.831.823 2.667 5.853 2.67 5.08.002 4.453.374 5.848-3.457 1.431-3.926 4.393-11.797 5.676-15.08.137-.349 1.378 2.501 6.043 13.88.609 1.484 1.226 2.989 1.372 3.343.291.705.641 1.162 1.057 1.378.48.249 7.775.198 8.189-.058.47-.29.478-.311 3.431-7.973 7.192-18.662 9.447-24.372 11.384-28.826 3.26-7.499 3.232-7.398 2.208-8.14-.871-.631-1.359-.64-4.039-.081-3.274.684-5.18.578-9.607-.538-4.05-1.02-6.066-.938-8.526.348-1.568.819-2.466 1.677-5.466 5.218l-2.087 2.462-.102-.288c-.192-.54-3.069-8.473-3.129-8.626-.094-.239.091-.329-7.008 3.386m95.667-1.547c-9.234 2.795-8.458 2.511-8.849 3.234-.135.248-.236 4.008-.108 4.003.041-.001.995-.291 2.121-.644l2.046-.642.06.318c.156.821.077 32.963-.082 33.281-.235.469-.498.547-1.911.567-1.185.016-1.259.028-1.571.245-.575.399-.585.437-.618 2.388l-.03 1.764 8.477.022c11.65.029 10.611.045 10.961-.16.552-.322.653-.625.637-1.899-.026-1.99-.185-2.165-1.926-2.125-1.306.03-1.552-.064-1.872-.713l-.194-.394-.015-20.496c-.009-11.273-.036-20.516-.061-20.541-.24-.24-.92-.068-7.065 1.792m-36.268-1.727c-9.279.896-17.701 8.787-19.642 18.404-2.103 10.423 1.703 20.809 9.535 26.021 7.763 5.166 19.098 4.059 27.477-2.682 1.909-1.537 5.307-5.049 5.132-5.305-.142-.207-3.073-2.825-3.163-2.825-.047 0-.49.356-.984.79-.494.435-1.28 1.08-1.747 1.434-7.978 6.05-18.564 3.524-22.878-5.459-1.428-2.972-1.401-3.023 2.212-4.141 8.598-2.661 26.958-8.588 26.958-8.702 0-.132-.89-2.26-1.344-3.212-4.64-9.744-12.802-15.168-21.556-14.323m119.612.095c-15.379 1.932-24.443 21.002-16.941 35.645 4.842 9.452 13.687 13.583 24.17 11.289 5.921-1.296 12.154-5.412 15.908-10.506.043-.059-.535-.624-1.543-1.507l-1.613-1.412-.715.667c-4.701 4.382-10.659 5.896-16.076 4.083-4.012-1.342-7.383-4.567-9.029-8.637-.314-.776-.84-2.389-.792-2.429.007-.006 6.773-2.176 15.035-4.822 8.263-2.646 15.056-4.841 15.095-4.877.182-.167-1.75-4.307-2.874-6.161-4.944-8.151-12.575-12.344-20.625-11.333m-46.288 4.52c4.099.432 7.554 3.762 8.174 7.879.154 1.02.201 5.532.121 11.583-.048 3.629-.045 6.636.009 8.157.156 4.384-.596 5.597-4.385 7.071-6.949 2.704-13.259-2.355-15.241-12.22-2.214-11.014 1.196-20.155 8.272-22.176.622-.177 1.004-.244 2.136-.371.048-.005.459.029.914.077m-72.066 1.037c3.354.926 7.129 4.492 8.76 8.275.295.683.728 2.016.666 2.05-.546.299-19.453 6.347-19.496 6.236-.117-.302-.424-2.728-.51-4.033-.555-8.362 4.403-14.232 10.58-12.528m119.764-.13c3.137.668 6.389 3.345 8.469 6.972.604 1.053 1.695 3.347 1.625 3.417-.04.041-19.209 6.293-19.293 6.293-.259 0-.756-2.147-.871-3.762-.585-8.247 4.055-14.2 10.07-12.92m-159.52 2.867c.647.171 1.764.51 2.482.752 3.265 1.101 5.616 1.333 7.776.766.685-.179.801-.191.759-.075-2.264 6.166-10.211 26.137-10.393 26.115-.247-.03-.765-1.203-4.993-11.304-1.293-3.09-2.892-6.891-3.554-8.448-1.528-3.597-1.553-3.779-.683-4.891 2.266-2.895 5.084-3.85 8.606-2.915"
+}, null, -1
+/* HOISTED */
+);
 
-var _hoisted_7 = [_hoisted_2];
+var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_1, _hoisted_7);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_1, _hoisted_3);
 }
 
 /***/ }),
@@ -23760,11 +23944,11 @@ var _hoisted_2 = {
 };
 var _hoisted_3 = {
   type: "button",
-  "class": "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-oyster-500 bg-lonestar-500 hover:text-oyster-300 focus:outline-none transition ease-in-out duration-150"
+  "class": "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-almond-500 hover:text-almond-300 focus:outline-none transition ease-in-out duration-150"
 };
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  "class": "ml-2 -mr-0.5 h-4 w-4",
+  "class": "mx-2 h-4 w-4",
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
   fill: "currentColor"
@@ -23790,7 +23974,7 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "stroke-width": "1.5",
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
-  "class": "w-4 h-auto mr-1"
+  "class": "w-4 h-auto mx-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
@@ -23817,7 +24001,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "stroke-width": "1.5",
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
-  "class": "w-4 h-auto mr-1"
+  "class": "w-4 h-auto mx-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
   cx: "12",
   cy: "12",
@@ -23842,7 +24026,7 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "stroke-width": "1.5",
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
-  "class": "w-4 h-auto mr-1"
+  "class": "w-4 h-auto mx-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
 })], -1
@@ -23861,7 +24045,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     content: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeDropdownLink"], {
-        href: _ctx.route('users')
+        href: _ctx.route('users.index')
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t('users')), 1
@@ -24056,6 +24240,79 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=template&id=12c86242&scoped=true":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=template&id=12c86242&scoped=true ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-12c86242"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+
+var _hoisted_1 = {
+  "class": "fixed bottom-6 left-0 opacity-80 z-50 m-6"
+};
+var _hoisted_2 = {
+  key: 0,
+  "class": "flex items-center"
+};
+var _hoisted_3 = {
+  key: 1,
+  "class": "flex items-center"
+};
+var _hoisted_4 = {
+  key: 2,
+  "class": "flex items-center"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+    name: "slide-fade"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [($props.flash.message || $props.flash.success || $props.flash.error || Object.keys($props.errors).length > 0) && $data.showFlash ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+        key: 0,
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
+          'bg-red-200 text-red-900': _ctx.$page.props.flash.error || Object.keys($props.errors).length > 0,
+          'bg-green-200 text-green-900': $props.flash.success,
+          'bg-yellow-200 text-yellow-900': $props.flash.message
+        }, "rounded-lg shadow-md p-6 pr-10"]),
+        style: {
+          "min-width": "240px"
+        }
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+          return $data.showFlash = false;
+        }, ["prevent"])),
+        "class": "opacity-75 cursor-pointer absolute top-0 right-0 py-2 px-3 hover:opacity-100"
+      }, " × "), $props.flash.error || Object.keys($props.errors).length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("Whoops, Something went wrong!")) + " ", 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.flash.error), 1
+      /* TEXT */
+      )])) : $props.flash.success ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("Success,")) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.flash.success), 1
+      /* TEXT */
+      )) : $props.flash.message ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$("Warning,")) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.flash.message), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
+      /* CLASS */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 1
+    /* STABLE */
+
+  })]);
+}
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Input.vue?vue&type=template&id=43da0f8f":
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Input.vue?vue&type=template&id=43da0f8f ***!
@@ -24137,7 +24394,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   width: "1235",
   height: "650",
   viewBox: "0 0 7410 3900",
-  "class": "w-6 h-6 mr-1"
+  "class": "w-6 h-6 mx-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   fill: "#b22234",
   d: "M0 0h7410v3900H0z"
@@ -24199,7 +24456,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   xmlns: "http://www.w3.org/2000/svg",
   "xmlns:xlink": "http://www.w3.org/1999/xlink",
   viewBox: "0 0 180 120",
-  "class": "w-6 h-6 mr-1"
+  "class": "w-6 h-6 mx-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M0 0h180v120H0z"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
@@ -24245,7 +24502,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_BreezeDropdown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BreezeDropdown");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_BreezeDropdown, {
-    align: "{{ align }}",
+    align: $props.align,
     width: "32"
   }, {
     trigger: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -24279,7 +24536,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
     /* FORWARDED */
 
-  });
+  }, 8
+  /* PROPS */
+  , ["align"]);
 }
 
 /***/ }),
@@ -24342,7 +24601,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       href: link.url,
       innerHTML: link.label,
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["px-2 btn btn-accent btn-sm", {
-        'bg-oyster-500 border-oyster-500 btn-disabled': !link.url,
+        'bg-almond-500 border-almond-500 btn-disabled': !link.url,
         'btn-active': link.active
       }]),
       "preserve-scroll": ""
@@ -24376,7 +24635,7 @@ var _hoisted_2 = {
   "class": "px-4"
 };
 var _hoisted_3 = {
-  "class": "font-medium text-base text-oyster-500"
+  "class": "font-medium text-base text-almond-500"
 };
 var _hoisted_4 = {
   "class": "font-medium text-sm text-sand-500"
@@ -24496,43 +24755,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "class": "min-h-screen bg-oyster-200"
-};
+var _hoisted_1 = ["dir"];
 var _hoisted_2 = {
-  "class": "bg-lonestar-500 border-b border-gray-100"
-};
-var _hoisted_3 = {
   "class": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
 };
-var _hoisted_4 = {
+var _hoisted_3 = {
   "class": "flex justify-between h-16"
 };
-var _hoisted_5 = {
+var _hoisted_4 = {
   "class": "flex"
 };
-var _hoisted_6 = {
+var _hoisted_5 = {
   "class": "flex-shrink-0 flex items-center"
 };
-var _hoisted_7 = {
-  "class": "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
+var _hoisted_6 = {
+  "class": "hidden space-x-8 sm:-my-px sm:mx-10 sm:flex"
 };
-var _hoisted_8 = {
+var _hoisted_7 = {
   "class": "flex"
 };
-var _hoisted_9 = {
-  "class": "hidden ml-3 items-center relative space-x-8 sm:-my-px sm:ml-10 sm:flex"
+var _hoisted_8 = {
+  "class": "hidden items-center relative sm:flex"
 };
-var _hoisted_10 = {
+var _hoisted_9 = {
   "class": "inline-flex rounded-md"
 };
-var _hoisted_11 = {
+var _hoisted_10 = {
   type: "button",
-  "class": "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-oyster-500 hover:text-oyster-300 focus:outline-none transition ease-in-out duration-150"
+  "class": "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-almond-500 hover:text-almond-300 focus:outline-none transition ease-in-out duration-150"
 };
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  "class": "ml-2 -mr-0.5 h-4 w-4",
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  "class": "mx-2 h-4 w-4",
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
   fill: "currentColor"
@@ -24544,66 +24798,85 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_13 = {
+var _hoisted_12 = {
   key: 0,
-  "class": "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
+  "class": "hidden sm:-my-px sm:flex"
+};
+var _hoisted_13 = {
+  "class": "flex items-center sm:hidden"
 };
 var _hoisted_14 = {
-  "class": "-mr-2 flex items-center sm:hidden"
-};
-var _hoisted_15 = {
   "class": "h-6 w-6",
   stroke: "currentColor",
   fill: "none",
   viewBox: "0 0 24 24"
 };
-var _hoisted_16 = {
+var _hoisted_15 = {
   "class": "pt-2 pb-3 space-y-1"
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Products ");
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Products ");
 
-var _hoisted_18 = {
+var _hoisted_17 = {
   "class": "pt-2 pb-3 space-y-1"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Menu ");
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Menu ");
 
-var _hoisted_20 = {
+var _hoisted_19 = {
   "class": "pt-2 pb-3 space-y-1"
 };
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" About us ");
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" About us ");
 
-var _hoisted_22 = {
+var _hoisted_21 = {
   "class": "pt-2 pb-3 space-y-1"
 };
 
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Contact us ");
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Contact us ");
 
-var _hoisted_24 = {
+var _hoisted_23 = {
   "class": "pb-1 border-t border-gray-200"
 };
-var _hoisted_25 = {
+var _hoisted_24 = {
   key: 0,
   "class": "mt-3 space-y-1"
 };
 
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Register ");
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Register ");
 
-var _hoisted_27 = {
+var _hoisted_26 = {
   "class": "text-lonestar-800"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Primary Navigation Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Logo "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    dir: $setup.locale === 'ar' ? 'rtl' : 'ltr'
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "min-h-screen bg-almond-400",
+    style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
+      backgroundImage: "url('~@/../images/pattern.png')",
+      backgroundPosition: '600px 200px',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed'
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", {
+    "class": "bg-lonestar-500 border-b border-almond-100 sticky top-0 z-50",
+    style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
+      backgroundImage: "url('~@/../images/pattern.png')",
+      backgroundPosition: 'left center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Primary Navigation Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Logo "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('home'),
-    "class": "block focus:outline-none focus:border-oyster-200 hover:text-oyster-300 focus:text-oyster-300 text-oyster-500"
+    "class": "block focus:outline-none focus:border-almond-200 hover:text-almond-300 focus:text-almond-300 text-almond-500"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeApplicationLogo"], {
-        "class": "h-24 w-auto fill-current"
+        "class": "h-8 w-auto fill-current"
       })];
     }),
     _: 1
@@ -24611,7 +24884,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navigation Links "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeNavLink"], {
+  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navigation Links "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeNavLink"], {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($setup.locale === 'ar' ? 'ml-8' : ''),
     href: _ctx.route('products'),
     active: _ctx.route().current('products')
   }, {
@@ -24625,7 +24899,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href", "active"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeNavLink"], {
+  , ["class", "href", "active"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeNavLink"], {
     href: _ctx.route('menu'),
     active: _ctx.route().current('menu')
   }, {
@@ -24667,16 +24941,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href", "active"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Language Selector "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LanguageSelector"], null, {
+  , ["href", "active"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Language Selector "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LanguageSelector"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$i18n.locale.toUpperCase()) + " ", 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$i18n.locale.toUpperCase()) + " ", 1
       /* TEXT */
-      ), _hoisted_12])])];
+      ), _hoisted_11])])];
     }),
     _: 1
     /* STABLE */
 
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Auth "), !_ctx.$page.props.auth.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeNavLink"], {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Auth "), !_ctx.$page.props.auth.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeNavLink"], {
+    "class": "mx-8",
     href: _ctx.route('login')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -24690,6 +24965,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8
   /* PROPS */
   , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeNavLink"], {
+    "class": "",
     href: _ctx.route('register')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -24704,12 +24980,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["href"])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AuthLinks"], {
     key: 1
-  }))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hamburger "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hamburger "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $props.showingNavigationDropdown = !$props.showingNavigationDropdown;
     }),
-    "class": "inline-flex items-center justify-center p-2 rounded-md text-oyster-500 hover:text-lonestar-500 hover:bg-oyster-300 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
-  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+    "class": "inline-flex items-center justify-center p-2 rounded-md text-almond-500 hover:text-lonestar-500 hover:bg-almond-300 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       hidden: $props.showingNavigationDropdown,
       'inline-flex': !$props.showingNavigationDropdown
@@ -24736,55 +25012,55 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       block: $props.showingNavigationDropdown,
       hidden: !$props.showingNavigationDropdown
     }, "sm:hidden"])
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
     href: _ctx.route('products'),
     active: _ctx.route().current('products')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_17];
+      return [_hoisted_16];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["href", "active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
+  , ["href", "active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
     href: _ctx.route('menu'),
     active: _ctx.route().current('menu')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_19];
+      return [_hoisted_18];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["href", "active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
+  , ["href", "active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
     href: _ctx.route('about'),
     active: _ctx.route().current('about')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_21];
+      return [_hoisted_20];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["href", "active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
+  , ["href", "active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
     href: _ctx.route('contact'),
     active: _ctx.route().current('contact')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_23];
+      return [_hoisted_22];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["href", "active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Responsive Settings Options "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [!_ctx.$page.props.auth.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
+  , ["href", "active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Responsive Settings Options "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [!_ctx.$page.props.auth.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeResponsiveNavLink"], {
     href: _ctx.route('login')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -24801,7 +25077,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: _ctx.route('register')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_26];
+      return [_hoisted_25];
     }),
     _: 1
     /* STABLE */
@@ -24812,7 +25088,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     key: 1
   }))])], 2
   /* CLASS */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
+  )], 4
+  /* STYLE */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FlashMessage"], {
+    flash: _ctx.$page.props.flash,
+    errors: _ctx.$page.props.errors
+  }, null, 8
+  /* PROPS */
+  , ["flash", "errors"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])], 4
+  /* STYLE */
+  )], 8
+  /* PROPS */
+  , _hoisted_1);
 }
 
 /***/ }),
@@ -24831,11 +25118,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "p-8 min-h-screen flex flex-col pt-6 sm:pt-0 bg-oyster-300"
-};
-var _hoisted_2 = {
   "class": "xl:w-2/5 lg:w-5/12 md:w-1/2 sm:w-2/3 w-full"
 };
+var _hoisted_2 = ["dir"];
 var _hoisted_3 = {
   "class": "border-b-4 border-lonestar-500"
 };
@@ -24843,7 +25128,7 @@ var _hoisted_4 = {
   "class": "flex justify-between"
 };
 var _hoisted_5 = {
-  "class": "ml-4 py-2 inline-flex rounded-md"
+  "class": "mx-4 py-1 inline-flex rounded-md"
 };
 var _hoisted_6 = {
   type: "button",
@@ -24851,7 +25136,7 @@ var _hoisted_6 = {
 };
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  "class": "ml-2 -mr-0.5 h-4 w-4",
+  "class": "mx-2 h-4 w-4",
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
   fill: "currentColor"
@@ -24867,7 +25152,7 @@ var _hoisted_8 = {
   "class": "text-lonestar-500"
 };
 var _hoisted_9 = {
-  "class": "text-center text-base md:text-3xl transform transition ease-in-out duration-150 hover:scale-110"
+  "class": "text-center text-base md:text-3xl transform transition ease-in-out duration-150"
 };
 var _hoisted_10 = {
   "class": "xl:w-2/5 lg:w-5/12 md:w-1/2 sm:w-2/3 w-full"
@@ -24875,11 +25160,21 @@ var _hoisted_10 = {
 var _hoisted_11 = {
   "class": "md:px-12 xl:px-20 pt-4 max-w-2xl"
 };
+var _hoisted_12 = ["dir"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LanguageSelector"], {
-    align: _ctx.left
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    "class": "p-8 min-h-screen flex flex-col pt-6 sm:pt-0 bg-almond-400",
+    style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
+      backgroundImage: "url('~@/../images/authenticating.jpg')",
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    dir: $setup.locale === 'ar' ? 'rtl' : 'ltr'
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LanguageSelector"], {
+    align: 'left'
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$i18n.locale.toUpperCase()) + " ", 1
@@ -24889,9 +25184,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }, 8
-  /* PROPS */
-  , ["align"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: "/",
     "class": "focus:outline-none text-lonestar-500 transition ease-in-out duration-150"
   }, {
@@ -24905,7 +25198,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
+  })])], 8
+  /* PROPS */
+  , _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FlashMessage"], {
+    flash: _ctx.$page.props.flash,
+    errors: _ctx.$page.props.errors
+  }, null, 8
+  /* PROPS */
+  , ["flash", "errors"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    dir: $setup.locale === 'ar' ? 'rtl' : 'ltr'
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")], 8
+  /* PROPS */
+  , _hoisted_12)])])], 4
+  /* STYLE */
+  );
 }
 
 /***/ }),
@@ -24924,7 +25230,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-oyster-200 shadow"
+  "class": "bg-almond-200 shadow"
 };
 var _hoisted_2 = {
   "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
@@ -24939,10 +25245,10 @@ var _hoisted_5 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
 };
 var _hoisted_6 = {
-  "class": "bg-white overflow-hidden shadow-sm sm:rounded-lg"
+  "class": "bg-almond-200 overflow-hidden shadow-sm sm:rounded-lg"
 };
 var _hoisted_7 = {
-  "class": "p-6 bg-white border-b border-gray-200"
+  "class": "p-6 bg-almond-200 border-b border-gray-200"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
@@ -25157,8 +25463,7 @@ var _hoisted_2 = ["textContent"];
 var _hoisted_3 = {
   "class": "mt-2 relative"
 };
-var _hoisted_4 = ["textContent"];
-var _hoisted_5 = {
+var _hoisted_4 = {
   key: 0,
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 24 24",
@@ -25170,13 +25475,13 @@ var _hoisted_5 = {
   "class": "h-6 w-auto"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
   cx: "12",
   cy: "12",
   r: "3"
@@ -25184,8 +25489,8 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_8 = [_hoisted_6, _hoisted_7];
-var _hoisted_9 = {
+var _hoisted_7 = [_hoisted_5, _hoisted_6];
+var _hoisted_8 = {
   key: 1,
   xmlns: "http://www.w3.org/2000/svg",
   width: "48",
@@ -25199,13 +25504,14 @@ var _hoisted_9 = {
   "class": "h-6 w-auto"
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_11 = [_hoisted_10];
+var _hoisted_10 = [_hoisted_9];
+var _hoisted_11 = ["textContent"];
 var _hoisted_12 = {
   "class": "flex items-center justify-between mt-4"
 };
@@ -25213,7 +25519,7 @@ var _hoisted_13 = {
   "class": "flex items-center"
 };
 var _hoisted_14 = {
-  "class": "ml-2 text-sm text-lonestar-700"
+  "class": "mx-2 text-sm text-lonestar-700"
 };
 var _hoisted_15 = {
   "class": "flex flex-wrap justify-center mt-2"
@@ -25227,7 +25533,7 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "stroke-width": "1.5",
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
-  "class": "w-4 h-4 mr-2 text-white"
+  "class": "w-4 h-4 mx-2 text-white"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4m-5-4 5-5-5-5m5 5H3"
 })], -1
@@ -25288,18 +25594,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: _ctx.$t('password')
   }, null, 8
   /* PROPS */
-  , ["type", "modelValue", "placeholder", "class"]), _ctx.$page.props.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+  , ["type", "modelValue", "placeholder", "class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.switchVisibility && $options.switchVisibility.apply($options, arguments);
+    }, ["prevent"])),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["absolute top-0 btn btn-primary", $data.locale === 'en' ? 'right-0 rounded-l-none' : 'left-0 rounded-r-none'])
+  }, [$data.passwordFieldType === 'text' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_4, _hoisted_7)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_8, _hoisted_10))], 2
+  /* CLASS */
+  ), _ctx.$page.props.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     key: 0,
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.password),
     "class": "text-error text-sm ml-2 mt-1"
   }, null, 8
   /* PROPS */
-  , _hoisted_4)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return $options.switchVisibility && $options.switchVisibility.apply($options, arguments);
-    }, ["prevent"])),
-    "class": "absolute top-0 right-0 rounded-l-none btn btn-primary"
-  }, [$data.passwordFieldType === 'text' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_5, _hoisted_8)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_9, _hoisted_11))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeCheckbox, {
+  , _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeCheckbox, {
     name: "remember",
     checked: $data.form.remember,
     "onUpdate:checked": _cache[3] || (_cache[3] = function ($event) {
@@ -25307,7 +25615,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 8
   /* PROPS */
-  , ["checked"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("rememberme")), 1
+  , ["checked"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("remember me")), 1
   /* TEXT */
   )]), $props.canResetPassword ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
     key: 0,
@@ -25375,15 +25683,17 @@ var _hoisted_5 = {
 };
 var _hoisted_6 = ["textContent"];
 var _hoisted_7 = ["textContent"];
-var _hoisted_8 = {
-  "class": "mt-1"
-};
+var _hoisted_8 = ["textContent"];
 var _hoisted_9 = ["textContent"];
 var _hoisted_10 = {
   "class": "mt-1"
 };
 var _hoisted_11 = ["textContent"];
 var _hoisted_12 = {
+  "class": "mt-1"
+};
+var _hoisted_13 = ["textContent"];
+var _hoisted_14 = {
   "class": "flex items-center justify-between md:justify-end mt-4"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -25417,7 +25727,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     autofocus: "",
     autocomplete: "first_name",
-    placeholder: _ctx.$t('firstname')
+    placeholder: _ctx.$t('first name')
   }, null, 8
   /* PROPS */
   , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.first_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
@@ -25437,7 +25747,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.form.last_name = $event;
     }),
     autocomplete: "last_name",
-    placeholder: _ctx.$t('lastname')
+    placeholder: _ctx.$t('last name')
   }, null, 8
   /* PROPS */
   , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.last_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
@@ -25467,33 +25777,44 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8
   /* PROPS */
   , _hoisted_6)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_country_select, {
-    "class": "mt-1 block w-full select select-bordered focus:border-transparent font-normal",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["block mt-1 w-full select select-bordered focus:border-transparent font-normal", [$data.form.country === '' ? 'text-gray-500' : '', {
+      'border-error': _ctx.$page.props.errors.country
+    }]]),
+    topCountry: "SY",
     modelValue: $data.form.country,
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.form.country = $event;
     }),
-    country: $data.form.country,
-    topCountry: "SY",
-    autocomplete: "",
-    countryNamex: "",
-    placeholder: _ctx.$t('Select Country'),
-    disablePlaceholder: ""
+    disablePlaceholder: "",
+    placeholder: _ctx.$t('select country')
   }, null, 8
   /* PROPS */
-  , ["modelValue", "country", "placeholder"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_region_select, {
-    "class": "mt-1 block w-full select select-bordered focus:border-transparent font-normal",
+  , ["modelValue", "class", "placeholder"]), _ctx.$page.props.errors.country ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 1,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.country),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_7)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_region_select, {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["block mt-1 w-full select select-bordered focus:border-transparent font-normal", [$data.form.region === '' ? 'text-gray-500' : '', {
+      'border-error': _ctx.$page.props.errors.region
+    }]]),
     modelValue: $data.form.region,
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.form.region = $event;
     }),
     country: $data.form.country,
-    region: _ctx.region,
-    autocomplete: "",
     disablePlaceholder: "",
-    placeholder: _ctx.$t('Select Region')
+    placeholder: _ctx.$t('select region')
   }, null, 8
   /* PROPS */
-  , ["modelValue", "country", "region", "placeholder"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
+  , ["modelValue", "country", "class", "placeholder"]), _ctx.$page.props.errors.region ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 2,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.region),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_8)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
     id: "phone",
     type: "text",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full", {
@@ -25508,12 +25829,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8
   /* PROPS */
   , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.phone ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-    key: 1,
+    key: 3,
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.phone),
     "class": "text-error text-sm ml-2 mt-1"
   }, null, 8
   /* PROPS */
-  , _hoisted_7)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
+  , _hoisted_9)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
     id: "password",
     type: "password",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full", {
@@ -25523,8 +25844,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.form.password = $event;
     }),
-    autocomplete: "new-password",
-    placeholder: _ctx.$t('enterpassword')
+    placeholder: _ctx.$t('enter password')
   }, null, 8
   /* PROPS */
   , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
@@ -25533,7 +25853,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-error text-sm ml-2 mt-1"
   }, null, 8
   /* PROPS */
-  , _hoisted_9)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
+  , _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeInput, {
     id: "password_confirmation",
     type: "password",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full", {
@@ -25544,7 +25864,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.form.password_confirmation = $event;
     }),
     autocomplete: "new-password",
-    placeholder: _ctx.$t('confirmpassword')
+    placeholder: _ctx.$t('confirm password')
   }, null, 8
   /* PROPS */
   , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.password_confirmation ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
@@ -25553,7 +25873,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-error text-sm ml-2 mt-1"
   }, null, 8
   /* PROPS */
-  , _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  , _hoisted_13)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('login'),
     "class": "hover:underline text-sm text-lonestar-500 hover:text-lonestar-700"
   }, {
@@ -25567,10 +25887,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeButton, {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["ml-4", {
+  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.locale === 'ar' ? 'mr-4' : 'ml-4')
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeButton, {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'opacity-25': $data.form.processing
-    }]),
+    }),
     disabled: $data.form.processing
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -25583,7 +25905,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["class", "disabled"])])])], 32
+  , ["class", "disabled"])], 2
+  /* CLASS */
+  )])], 32
   /* HYDRATE_EVENTS */
   )], 64
   /* STABLE_FRAGMENT */
@@ -25801,7 +26125,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-oyster-200 shadow"
+  "class": "bg-almond-200 shadow"
 };
 var _hoisted_2 = {
   "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
@@ -25816,10 +26140,10 @@ var _hoisted_5 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
 };
 var _hoisted_6 = {
-  "class": "bg-white overflow-hidden shadow-sm sm:rounded-lg"
+  "class": "bg-almond-200 overflow-hidden shadow-sm sm:rounded-lg"
 };
 var _hoisted_7 = {
-  "class": "p-6 bg-white border-b border-gray-200"
+  "class": "p-6 bg-almond-200 border-b border-gray-200"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
@@ -25851,7 +26175,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "shadow-xl bg-oyster-300"
+  "class": "shadow bg-almond-200"
 };
 var _hoisted_2 = {
   "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
@@ -25866,10 +26190,10 @@ var _hoisted_5 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
 };
 var _hoisted_6 = {
-  "class": "bg-white overflow-hidden shadow-sm sm:rounded-lg"
+  "class": "bg-almond-200 overflow-hidden shadow-sm sm:rounded-lg"
 };
 var _hoisted_7 = {
-  "class": "p-6 bg-white border-b border-gray-200"
+  "class": "p-6 bg-almond-200 border-b border-gray-200"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
@@ -25903,7 +26227,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-oyster-200 shadow"
+  "class": "bg-almond-200 shadow-sm"
 };
 var _hoisted_2 = {
   "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
@@ -25918,21 +26242,171 @@ var _hoisted_5 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
 };
 var _hoisted_6 = {
-  "class": "bg-white overflow-hidden shadow-sm sm:rounded-lg"
+  "class": "bg-almond-200 overflow-hidden shadow-sm sm:rounded-lg"
 };
 var _hoisted_7 = {
-  "class": "p-6 bg-white border-b border-gray-200"
+  "class": "p-6 border-b border-gray-200"
 };
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
+var _hoisted_8 = {
+  "class": ""
+};
+var _hoisted_9 = {
+  "class": "max-w-2xl mx-auto py-8 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8p"
+};
+var _hoisted_10 = {
+  "class": "flex justify-center"
+};
+var _hoisted_11 = {
+  href: "#sec-1",
+  "class": "btn btn-primary mx-1"
+};
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
-    title: "Menu"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t('menu')), 1
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Div 1 ");
+
+var _hoisted_13 = [_hoisted_12];
+var _hoisted_14 = {
+  href: "#sec-2",
+  "class": "btn btn-primary mx-1"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Div 2 ");
+
+var _hoisted_16 = [_hoisted_15];
+var _hoisted_17 = {
+  href: "#sec-3",
+  "class": "btn btn-primary mx-1"
+};
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Div 3 ");
+
+var _hoisted_19 = [_hoisted_18];
+var _hoisted_20 = {
+  id: "sec-1"
+};
+var _hoisted_21 = {
+  "class": "grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-4"
+};
+var _hoisted_22 = {
+  "class": "w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden rounded-t-lg xl:aspect-w-7 xl:aspect-h-8"
+};
+var _hoisted_23 = ["src"];
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "mt-4 text-sm text-gray-700 px-2"
+}, " Earthen Bottle ", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "mt-1 text-lg font-medium text-gray-900 p-2"
+}, " $48 ", -1
+/* HOISTED */
+);
+
+var _hoisted_26 = {
+  id: "sec-2"
+};
+var _hoisted_27 = {
+  "class": "grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-4"
+};
+var _hoisted_28 = {
+  "class": "w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden rounded-t-lg xl:aspect-w-7 xl:aspect-h-8"
+};
+var _hoisted_29 = ["src"];
+
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "mt-4 text-sm text-gray-700 px-2"
+}, " Earthen Bottle ", -1
+/* HOISTED */
+);
+
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "mt-1 text-lg font-medium text-gray-900 p-2"
+}, " $48 ", -1
+/* HOISTED */
+);
+
+var _hoisted_32 = {
+  id: "sec-3"
+};
+var _hoisted_33 = {
+  "class": "grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-4"
+};
+var _hoisted_34 = {
+  "class": "w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden rounded-t-lg xl:aspect-w-7 xl:aspect-h-8"
+};
+var _hoisted_35 = ["src"];
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "mt-4 text-sm text-gray-700 px-2"
+}, " Earthen Bottle ", -1
+/* HOISTED */
+);
+
+var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "mt-1 text-lg font-medium text-gray-900 p-2"
+}, " $48 ", -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _directive_smooth_scroll = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDirective)("smooth-scroll");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Head"], {
+    title: _ctx.$t('menu')
+  }, null, 8
+  /* PROPS */
+  , ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("menu")), 1
   /* TEXT */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t('incoming')), 1
-  /* TEXT */
-  )])])])], 64
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_11, _hoisted_13, 512
+  /* NEED_PATCH */
+  ), [[_directive_smooth_scroll]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_14, _hoisted_16, 512
+  /* NEED_PATCH */
+  ), [[_directive_smooth_scroll]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_17, _hoisted_19, 512
+  /* NEED_PATCH */
+  ), [[_directive_smooth_scroll]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(4, function (n) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      key: n,
+      href: "#",
+      "class": "group border-2 border-lonestar-300 rounded-lg"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: 'https://picsum.photos/600?random=' + n,
+      alt: "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+      "class": "w-full h-full object-center object-cover group-hover:opacity-75"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_23)]), _hoisted_24, _hoisted_25]);
+  }), 64
+  /* STABLE_FRAGMENT */
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" More products... ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(4, function (n) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      key: n,
+      href: "https://picsum.photos/600?random=",
+      "class": "group border-2 border-lonestar-300 rounded-lg"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: 'https://picsum.photos/600?random=' + n + 8,
+      alt: "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+      "class": "w-full h-full object-center object-cover group-hover:opacity-75"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_29)]), _hoisted_30, _hoisted_31]);
+  }), 64
+  /* STABLE_FRAGMENT */
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" More products... ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(4, function (n) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      key: n,
+      href: "#",
+      "class": "group border-2 border-lonestar-300 rounded-lg"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: 'https://picsum.photos/600?random=' + n + 12,
+      alt: "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+      "class": "w-full h-full object-center object-cover group-hover:opacity-75"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_35)]), _hoisted_36, _hoisted_37]);
+  }), 64
+  /* STABLE_FRAGMENT */
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" More products... ")])])])])])])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -25953,7 +26427,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-oyster-200 shadow"
+  "class": "bg-almond-200 shadow"
 };
 var _hoisted_2 = {
   "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
@@ -25968,10 +26442,10 @@ var _hoisted_5 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
 };
 var _hoisted_6 = {
-  "class": "bg-white overflow-hidden shadow-sm sm:rounded-lg"
+  "class": "bg-almond-200 overflow-hidden shadow-sm sm:rounded-lg"
 };
 var _hoisted_7 = {
-  "class": "p-6 bg-white border-b border-gray-200"
+  "class": "p-6 bg-almond-200 border-b border-gray-200"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
@@ -26005,7 +26479,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<header class=\"bg-oyster-200 shadow\"><div class=\"max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8\"><h2 class=\"font-semibold text-xl text-gray-800 leading-tight\"> Profile and Settings </h2></div></header><div class=\"py-12\"><div class=\"max-w-7xl mx-auto sm:px-6 lg:px-8\"><div class=\"bg-white overflow-hidden shadow-sm sm:rounded-lg\"><div class=\"p-6 bg-white border-b border-gray-200\"> Coming Soon! </div></div></div></div>", 2);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<header class=\"bg-almond-200 shadow\"><div class=\"max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8\"><h2 class=\"font-semibold text-xl text-gray-800 leading-tight\"> Profile and Settings </h2></div></header><div class=\"py-12\"><div class=\"max-w-7xl mx-auto sm:px-6 lg:px-8\"><div class=\"bg-white overflow-hidden shadow-sm sm:rounded-lg\"><div class=\"p-6 bg-white border-b border-gray-200\"> Coming Soon! </div></div></div></div>", 2);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
@@ -26019,10 +26493,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Index.vue?vue&type=template&id=5cc3d152":
-/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Index.vue?vue&type=template&id=5cc3d152 ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Create.vue?vue&type=template&id=636aa3ac":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Create.vue?vue&type=template&id=636aa3ac ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26033,7 +26507,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-oyster-200 shadow"
+  "class": "bg-almond-200 shadow"
 };
 var _hoisted_2 = {
   "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
@@ -26054,6 +26528,280 @@ var _hoisted_7 = {
   "class": "p-6 bg-white border-b border-gray-200"
 };
 var _hoisted_8 = {
+  "class": "grid grid-row-3 gap-1"
+};
+var _hoisted_9 = {
+  "class": "grid grid-cols-2 gap-2"
+};
+var _hoisted_10 = ["textContent"];
+var _hoisted_11 = ["textContent"];
+var _hoisted_12 = {
+  "class": "grid grid-cols-2 gap-2"
+};
+var _hoisted_13 = ["textContent"];
+var _hoisted_14 = ["textContent"];
+var _hoisted_15 = {
+  "class": "grid grid-cols-2 gap-2"
+};
+var _hoisted_16 = ["textContent"];
+var _hoisted_17 = ["textContent"];
+var _hoisted_18 = {
+  "class": "grid grid-cols-2 gap-2"
+};
+var _hoisted_19 = ["textContent"];
+var _hoisted_20 = ["textContent"];
+var _hoisted_21 = {
+  "class": "flex items-center justify-between mt-4"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_country_select = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("country-select");
+
+  var _component_region_select = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("region-select");
+
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Head"], {
+    title: _ctx.$t('create user')
+  }, null, 8
+  /* PROPS */
+  , ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("create user")), 1
+  /* TEXT */
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $setup.submit && $setup.submit.apply($setup, arguments);
+    }, ["prevent"]))
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
+    id: "first_name",
+    type: "text",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["block mt-1 w-full", {
+      'input-error': _ctx.$page.props.errors.first_name
+    }]),
+    modelValue: $setup.form.first_name,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.form.first_name = $event;
+    }),
+    placeholder: _ctx.$t('first name'),
+    autofocus: "",
+    autocomplete: "first_name"
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.first_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 0,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.first_name),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
+    id: "last_name",
+    type: "text",
+    modelValue: $setup.form.last_name,
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $setup.form.last_name = $event;
+    }),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["block mt-1 w-full", {
+      'input-error': _ctx.$page.props.errors.last_name
+    }]),
+    placeholder: _ctx.$t('last name')
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.last_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 0,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.last_name),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
+    id: "email",
+    type: "email",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["block mt-1 w-full", {
+      'input-error': _ctx.$page.props.errors.email
+    }]),
+    modelValue: $setup.form.email,
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $setup.form.email = $event;
+    }),
+    placeholder: _ctx.$t('email')
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 0,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.email),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_13)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
+    id: "phone",
+    type: "text",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full", {
+      'input-error': _ctx.$page.props.errors.phone
+    }]),
+    modelValue: $setup.form.phone,
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $setup.form.phone = $event;
+    }),
+    autocomplete: "phone",
+    placeholder: _ctx.$t('phone')
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.phone ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 0,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.phone),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_14)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_country_select, {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["block mt-1 w-full select select-bordered focus:border-transparent font-normal", [$setup.form.country === '' ? 'text-gray-500' : '', {
+      'border-error': _ctx.$page.props.errors.country
+    }]]),
+    topCountry: "SY",
+    modelValue: $setup.form.country,
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $setup.form.country = $event;
+    }),
+    disablePlaceholder: "",
+    placeholder: _ctx.$t('select country'),
+    countryName: true
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "class", "placeholder"]), _ctx.$page.props.errors.country ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 0,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.country),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_16)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_region_select, {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["block mt-1 w-full select select-bordered focus:border-transparent font-normal", [$setup.form.region === '' ? 'text-gray-500' : '', {
+      'border-error': _ctx.$page.props.errors.region
+    }]]),
+    modelValue: $setup.form.region,
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $setup.form.region = $event;
+    }),
+    country: $setup.form.country,
+    disablePlaceholder: "",
+    placeholder: _ctx.$t('select region'),
+    countryName: true,
+    regionName: true
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "country", "class", "placeholder"]), _ctx.$page.props.errors.region ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 0,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.region),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_17)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["block mt-1 w-full", {
+      'input-error': _ctx.$page.props.errors.password
+    }]),
+    type: "password",
+    placeholder: _ctx.$t('enter password'),
+    modelValue: $setup.form.password,
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+      return $setup.form.password = $event;
+    })
+  }, null, 8
+  /* PROPS */
+  , ["placeholder", "modelValue", "class"]), _ctx.$page.props.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 0,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.password),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_19)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
+    id: "password_confirmation",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["block mt-1 w-full", {
+      'input-error': _ctx.$page.props.errors.password_confirmation
+    }]),
+    type: "password",
+    modelValue: $setup.form.password_confirmation,
+    "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+      return $setup.form.password_confirmation = $event;
+    }),
+    placeholder: _ctx.$t('confirm password')
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "placeholder", "class"]), _ctx.$page.props.errors.password_confirmation ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    key: 0,
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.password_confirmation),
+    "class": "text-error text-sm ml-2 mt-1"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_20)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    href: _ctx.route('users.index'),
+    "class": "text-sm underline hover:text-lonestar-500 font-semibold mx-1"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("back")), 1
+      /* TEXT */
+      )];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
+    type: "submit",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["px-5", {
+      'opacity-25': $setup.form.processing
+    }]),
+    disabled: $setup.form.processing
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("create")), 1
+      /* TEXT */
+      )];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["class", "disabled"])])])], 32
+  /* HYDRATE_EVENTS */
+  )])])])])], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Index.vue?vue&type=template&id=5cc3d152":
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Index.vue?vue&type=template&id=5cc3d152 ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "bg-almond-200 shadow"
+};
+var _hoisted_2 = {
+  "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
+};
+var _hoisted_3 = {
+  "class": "font-semibold text-xl text-gray-800 leading-tight"
+};
+var _hoisted_4 = {
+  "class": "py-12"
+};
+var _hoisted_5 = {
+  "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
+};
+var _hoisted_6 = {
+  "class": "bg-almond-200 overflow-hidden shadow-sm sm:rounded-lg"
+};
+var _hoisted_7 = {
+  "class": "p-6 bg-almond-200 border-b border-gray-200"
+};
+var _hoisted_8 = {
   "class": "overflow-x-auto"
 };
 var _hoisted_9 = {
@@ -26064,43 +26812,60 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  "class": "absolute fill-current text-gray-500 mt-3.5 ml-4 w-3 h-3",
+var _hoisted_11 = {
+  "class": "flex items-center"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 92 92"
+  width: "48",
+  height: "48",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "#fff",
+  "stroke-width": "1.5",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "class": "h-6 w-auto"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  d: "M57.8 2.2c-17.1 0-31 14.1-31 31.3 0 7.3 2.5 13.9 6.6 19.3L4 82.6a4.53 4.53 0 000 6.3c.9.9 2 1.3 3.1 1.3 1.2 0 2.3-.4 3.2-1.3l29.4-29.8c5.1 3.7 11.3 5.8 18 5.8 17.1 0 31-14.1 31-31.3S74.9 2.2 57.8 2.2zm0 54.8c-12.7 0-23-10.5-23-23.4 0-12.9 10.3-23.4 23-23.4s23 10.5 23 23.4c0 12.9-10.3 23.4-23 23.4zm15.5-23c-.2 1.7-1.7 3-3.4 3h-.5c-1.9-.3-3.2-2-3-3.9.7-5.2-5.1-7.9-5.4-8-1.7-.8-2.5-2.9-1.7-4.6s2.8-2.5 4.6-1.8c.4.1 10.8 4.9 9.4 15.3zM66 41.6c.7.7 1.2 1.8 1.2 2.8 0 1.1-.4 2.1-1.2 2.8-.7.7-1.8 1.2-2.8 1.2-1 0-2.1-.4-2.8-1.2a4.2 4.2 0 01-1.2-2.8c0-1 .4-2.1 1.2-2.8.7-.7 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2z"
+  d: "M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+  cx: "8.5",
+  cy: "7",
+  r: "4"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M20 8v6M23 11h-6"
 })], -1
 /* HOISTED */
 );
 
-var _hoisted_12 = {
+var _hoisted_13 = {
   "class": "table w-full table-compact table-zebra text-lonestar-800"
 };
-
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, null, -1
-/* HOISTED */
-);
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_15 = {
-  key: 0
-};
-var _hoisted_16 = {
-  key: 1
-};
-var _hoisted_17 = {
-  "class": "text-lonestar-500"
-};
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, null, -1
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, null, -1
 /* HOISTED */
 );
 
+var _hoisted_16 = {
+  key: 0
+};
+var _hoisted_17 = {
+  key: 1
+};
+var _hoisted_18 = {
+  "class": "text-lonestar-500"
+};
+
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, null, -1
 /* HOISTED */
 );
 
@@ -26111,9 +26876,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     title: _ctx.$t('manageusers')
   }, null, 8
   /* PROPS */
-  , ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t('manageusers')), 1
+  , ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("manageusers")), 1
   /* TEXT */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
     type: "text",
     "class": "input md:w-96 w-full mr-1 placeholder-lonestar-400 text-lonestar-800",
     placeholder: _ctx.$t('search'),
@@ -26124,7 +26889,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     autofocus: ""
   }, null, 8
   /* PROPS */
-  , ["placeholder", "modelValue"]), _hoisted_11])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("name")), 1
+  , ["placeholder", "modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+    href: _ctx.route('users.create'),
+    "class": "relative btn btn-primary mx-2"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_12];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["href"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("name")), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("email")), 1
   /* TEXT */
@@ -26134,24 +26911,60 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("phone")), 1
   /* TEXT */
-  ), _hoisted_14])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.users.data, function (user) {
+  ), _hoisted_15])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.users.data, function (user) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       key: user.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.id), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.first_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.last_name), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.email), 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, 512
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+      "class": "hover:underline",
+      href: _ctx.route('users.show', user)
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.id), 1
+        /* TEXT */
+        )];
+      }),
+      _: 2
+      /* DYNAMIC */
+
+    }, 1032
+    /* PROPS, DYNAMIC_SLOTS */
+    , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+      "class": "hover:underline",
+      href: _ctx.route('users.show', user)
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.first_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.last_name), 1
+        /* TEXT */
+        )];
+      }),
+      _: 2
+      /* DYNAMIC */
+
+    }, 1032
+    /* PROPS, DYNAMIC_SLOTS */
+    , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+      "class": "hover:underline",
+      href: _ctx.route('users.show', user)
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.email), 1
+        /* TEXT */
+        )];
+      }),
+      _: 2
+      /* DYNAMIC */
+
+    }, 1032
+    /* PROPS, DYNAMIC_SLOTS */
+    , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, 512
     /* NEED_PATCH */
     ), [[_directive_t, user.country]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, null, 512
     /* NEED_PATCH */
-    ), [[_directive_t, user.region]]), user.phone ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.phone), 1
+    ), [[_directive_t, user.region]]), user.phone ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.phone), 1
     /* TEXT */
-    )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("none")), 1
+    )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("none")), 1
     /* TEXT */
-    )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+    )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
       "class": "focus:outline-none hover:underline",
       href: _ctx.route('users.edit', user.id)
     }, {
@@ -26168,7 +26981,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["href"])])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tfoot", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("name")), 1
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tfoot", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("name")), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("email")), 1
   /* TEXT */
@@ -26178,14 +26991,62 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("phone")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("lastlogin")), 1
-  /* TEXT */
-  ), _hoisted_19])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Pagination"], {
+  ), _hoisted_20])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Pagination"], {
     "class": "mt-6",
     links: $props.users.links
   }, null, 8
   /* PROPS */
   , ["links"])])])], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Show.vue?vue&type=template&id=617ec9a6":
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Show.vue?vue&type=template&id=617ec9a6 ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "bg-almond-200 shadow"
+};
+var _hoisted_2 = {
+  "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
+};
+var _hoisted_3 = {
+  "class": "font-semibold text-xl text-gray-800 leading-tight"
+};
+var _hoisted_4 = {
+  "class": "py-12"
+};
+var _hoisted_5 = {
+  "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
+};
+var _hoisted_6 = {
+  "class": "bg-white overflow-hidden shadow-sm sm:rounded-lg"
+};
+var _hoisted_7 = {
+  "class": "p-6 bg-white border-b border-gray-200"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Head"], {
+    title: $props.user.first_name.concat(' ', $props.user.last_name)
+  }, null, 8
+  /* PROPS */
+  , ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.user.first_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.user.last_name), 1
+  /* TEXT */
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t('incoming')), 1
+  /* TEXT */
+  )])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -26206,9 +27067,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Layouts/App */ "./resources/js/Layouts/App.vue");
 /* harmony import */ var _lang_ar_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../lang/ar.json */ "./resources/lang/ar.json");
 /* harmony import */ var _lang_en_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../lang/en.json */ "./resources/lang/en.json");
-/* harmony import */ var vue_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-i18n */ "./node_modules/vue-i18n/dist/vue-i18n.esm-bundler.js");
+/* harmony import */ var vue_i18n__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-i18n */ "./node_modules/vue-i18n/dist/vue-i18n.esm-bundler.js");
 /* harmony import */ var vue3_country_region_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue3-country-region-select */ "./node_modules/vue3-country-region-select/dist/vueCountryRegionSelect.umd.min.js");
 /* harmony import */ var vue3_country_region_select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue3_country_region_select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue3_smooth_scroll__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue3-smooth-scroll */ "./node_modules/vue3-smooth-scroll/dist/vue-smooth-scroll.min.js");
+/* harmony import */ var vue3_smooth_scroll__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue3_smooth_scroll__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -26222,7 +27086,7 @@ var messages = {
   ar: _lang_ar_json__WEBPACK_IMPORTED_MODULE_4__,
   en: _lang_en_json__WEBPACK_IMPORTED_MODULE_5__
 };
-var i18n = (0,vue_i18n__WEBPACK_IMPORTED_MODULE_7__.createI18n)({
+var i18n = (0,vue_i18n__WEBPACK_IMPORTED_MODULE_8__.createI18n)({
   locale: localStorage.getItem('lang'),
   fallbackLocale: 'en',
   register: __webpack_require__.g,
@@ -26253,7 +27117,7 @@ var appName = 'Kweider';
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(app, props);
       }
-    }).use(plugin).use((vue3_country_region_select__WEBPACK_IMPORTED_MODULE_6___default())).use(i18n).component('Link', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link).mixin({
+    }).use(plugin).use((vue3_country_region_select__WEBPACK_IMPORTED_MODULE_6___default())).use((vue3_smooth_scroll__WEBPACK_IMPORTED_MODULE_7___default())).use(i18n).component('Link', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link).mixin({
       methods: {
         route: route
       }
@@ -26349,6 +27213,106 @@ if ($defineProperty) {
 	module.exports.apply = applyBind;
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.slide-fade-enter-active[data-v-12c86242] {\r\n  transition: all 0.4s;\n}\n.slide-fade-leave-active[data-v-12c86242] {\r\n  transition: all 1s;\n}\n.slide-fade-enter-to[data-v-12c86242] {\r\n  opacity: 1;\n}\n.slide-fade-enter-from[data-v-12c86242] {\r\n  transform: translateY(-400px);\r\n  opacity: 0;\n}\n.slide-fade-leave-to[data-v-12c86242] {\r\n  transform: translateX(400px);\r\n  opacity: 0;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
 
 /***/ }),
 
@@ -33486,6 +34450,315 @@ module.exports = function getSideChannel() {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlashMessage_vue_vue_type_style_index_0_id_12c86242_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlashMessage_vue_vue_type_style_index_0_id_12c86242_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlashMessage_vue_vue_type_style_index_0_id_12c86242_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
 /***/ "./node_modules/vue-i18n/dist/vue-i18n.esm-bundler.js":
 /*!************************************************************!*\
   !*** ./node_modules/vue-i18n/dist/vue-i18n.esm-bundler.js ***!
@@ -36043,6 +37316,37 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Components/FlashMessage.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/Components/FlashMessage.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FlashMessage_vue_vue_type_template_id_12c86242_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FlashMessage.vue?vue&type=template&id=12c86242&scoped=true */ "./resources/js/Components/FlashMessage.vue?vue&type=template&id=12c86242&scoped=true");
+/* harmony import */ var _FlashMessage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FlashMessage.vue?vue&type=script&lang=js */ "./resources/js/Components/FlashMessage.vue?vue&type=script&lang=js");
+/* harmony import */ var _FlashMessage_vue_vue_type_style_index_0_id_12c86242_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css */ "./resources/js/Components/FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css");
+/* harmony import */ var C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_FlashMessage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_FlashMessage_vue_vue_type_template_id_12c86242_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-12c86242"],['__file',"resources/js/Components/FlashMessage.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Components/Input.vue":
 /*!*******************************************!*\
   !*** ./resources/js/Components/Input.vue ***!
@@ -36587,14 +37891,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Index_vue_vue_type_template_id_16aaf52a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=16aaf52a */ "./resources/js/Pages/Menu/Index.vue?vue&type=template&id=16aaf52a");
-/* harmony import */ var _Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js */ "./resources/js/Pages/Menu/Index.vue?vue&type=script&lang=js");
+/* harmony import */ var _Index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/Menu/Index.vue?vue&type=script&setup=true&lang=js");
 /* harmony import */ var C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Index_vue_vue_type_template_id_16aaf52a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Menu/Index.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Index_vue_vue_type_template_id_16aaf52a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Menu/Index.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -36659,6 +37963,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Users/Create.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/Pages/Users/Create.vue ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Create_vue_vue_type_template_id_636aa3ac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create.vue?vue&type=template&id=636aa3ac */ "./resources/js/Pages/Users/Create.vue?vue&type=template&id=636aa3ac");
+/* harmony import */ var _Create_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/Users/Create.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Create_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Create_vue_vue_type_template_id_636aa3ac__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Users/Create.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Users/Index.vue":
 /*!********************************************!*\
   !*** ./resources/js/Pages/Users/Index.vue ***!
@@ -36679,6 +38011,34 @@ __webpack_require__.r(__webpack_exports__);
 
 ;
 const __exports__ = /*#__PURE__*/(0,C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Index_vue_vue_type_template_id_5cc3d152__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Users/Index.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Users/Show.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/Pages/Users/Show.vue ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Show_vue_vue_type_template_id_617ec9a6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Show.vue?vue&type=template&id=617ec9a6 */ "./resources/js/Pages/Users/Show.vue?vue&type=template&id=617ec9a6");
+/* harmony import */ var _Show_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Show.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/Users/Show.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_Projects_Kweider_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Show_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Show_vue_vue_type_template_id_617ec9a6__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Users/Show.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -36763,6 +38123,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DropdownLink_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DropdownLink_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DropdownLink.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/DropdownLink.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Components/FlashMessage.vue?vue&type=script&lang=js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Components/FlashMessage.vue?vue&type=script&lang=js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlashMessage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlashMessage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FlashMessage.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -37071,18 +38447,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Menu/Index.vue?vue&type=script&lang=js":
-/*!*******************************************************************!*\
-  !*** ./resources/js/Pages/Menu/Index.vue?vue&type=script&lang=js ***!
-  \*******************************************************************/
+/***/ "./resources/js/Pages/Menu/Index.vue?vue&type=script&setup=true&lang=js":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Pages/Menu/Index.vue?vue&type=script&setup=true&lang=js ***!
+  \******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Menu/Index.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Menu/Index.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),
@@ -37119,6 +38495,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Users/Create.vue?vue&type=script&setup=true&lang=js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Pages/Users/Create.vue?vue&type=script&setup=true&lang=js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Create_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Create_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Create.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Create.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Users/Index.vue?vue&type=script&setup=true&lang=js":
 /*!*******************************************************************************!*\
   !*** ./resources/js/Pages/Users/Index.vue?vue&type=script&setup=true&lang=js ***!
@@ -37131,6 +38523,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Index.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Users/Show.vue?vue&type=script&setup=true&lang=js":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Pages/Users/Show.vue?vue&type=script&setup=true&lang=js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Show_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Show_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Show.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Show.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),
@@ -37227,6 +38635,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DropdownLink_vue_vue_type_template_id_6e0ef414__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DropdownLink_vue_vue_type_template_id_6e0ef414__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DropdownLink.vue?vue&type=template&id=6e0ef414 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/DropdownLink.vue?vue&type=template&id=6e0ef414");
+
+
+/***/ }),
+
+/***/ "./resources/js/Components/FlashMessage.vue?vue&type=template&id=12c86242&scoped=true":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/Components/FlashMessage.vue?vue&type=template&id=12c86242&scoped=true ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlashMessage_vue_vue_type_template_id_12c86242_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlashMessage_vue_vue_type_template_id_12c86242_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FlashMessage.vue?vue&type=template&id=12c86242&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=template&id=12c86242&scoped=true");
 
 
 /***/ }),
@@ -37583,6 +39007,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Users/Create.vue?vue&type=template&id=636aa3ac":
+/*!***************************************************************************!*\
+  !*** ./resources/js/Pages/Users/Create.vue?vue&type=template&id=636aa3ac ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Create_vue_vue_type_template_id_636aa3ac__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Create_vue_vue_type_template_id_636aa3ac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Create.vue?vue&type=template&id=636aa3ac */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Create.vue?vue&type=template&id=636aa3ac");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Users/Index.vue?vue&type=template&id=5cc3d152":
 /*!**************************************************************************!*\
   !*** ./resources/js/Pages/Users/Index.vue?vue&type=template&id=5cc3d152 ***!
@@ -37599,6 +39039,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Users/Show.vue?vue&type=template&id=617ec9a6":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Pages/Users/Show.vue?vue&type=template&id=617ec9a6 ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Show_vue_vue_type_template_id_617ec9a6__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Show_vue_vue_type_template_id_617ec9a6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Show.vue?vue&type=template&id=617ec9a6 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Users/Show.vue?vue&type=template&id=617ec9a6");
+
+
+/***/ }),
+
+/***/ "./resources/js/Components/FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/Components/FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css ***!
+  \**********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlashMessage_vue_vue_type_style_index_0_id_12c86242_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/FlashMessage.vue?vue&type=style&index=0&id=12c86242&scoped=true&lang=css");
+
+
+/***/ }),
+
 /***/ "./node_modules/vue3-country-region-select/dist/vueCountryRegionSelect.umd.min.js":
 /*!****************************************************************************************!*\
   !*** ./node_modules/vue3-country-region-select/dist/vueCountryRegionSelect.umd.min.js ***!
@@ -37607,6 +39076,16 @@ __webpack_require__.r(__webpack_exports__);
 
 (function(e,o){ true?module.exports=o(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js")):0})("undefined"!==typeof self?self:this,(function(e){return function(e){var o={};function a(n){if(o[n])return o[n].exports;var r=o[n]={i:n,l:!1,exports:{}};return e[n].call(r.exports,r,r.exports,a),r.l=!0,r.exports}return a.m=e,a.c=o,a.d=function(e,o,n){a.o(e,o)||Object.defineProperty(e,o,{enumerable:!0,get:n})},a.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},a.t=function(e,o){if(1&o&&(e=a(e)),8&o)return e;if(4&o&&"object"===typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(a.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&o&&"string"!=typeof e)for(var r in e)a.d(n,r,function(o){return e[o]}.bind(null,r));return n},a.n=function(e){var o=e&&e.__esModule?function(){return e["default"]}:function(){return e};return a.d(o,"a",o),o},a.o=function(e,o){return Object.prototype.hasOwnProperty.call(e,o)},a.p="",a(a.s="fb15")}({"0366":function(e,o,a){var n=a("1c0b");e.exports=function(e,o,a){if(n(e),void 0===o)return e;switch(a){case 0:return function(){return e.call(o)};case 1:return function(a){return e.call(o,a)};case 2:return function(a,n){return e.call(o,a,n)};case 3:return function(a,n,r){return e.call(o,a,n,r)}}return function(){return e.apply(o,arguments)}}},"06cf":function(e,o,a){var n=a("83ab"),r=a("d1e7"),t=a("5c6c"),s=a("fc6a"),d=a("c04e"),h=a("5135"),m=a("0cfb"),C=Object.getOwnPropertyDescriptor;o.f=n?C:function(e,o){if(e=s(e),o=d(o,!0),m)try{return C(e,o)}catch(a){}if(h(e,o))return t(!r.f.call(e,o),e[o])}},"0cfb":function(e,o,a){var n=a("83ab"),r=a("d039"),t=a("cc12");e.exports=!n&&!r((function(){return 7!=Object.defineProperty(t("div"),"a",{get:function(){return 7}}).a}))},"159b":function(e,o,a){var n=a("da84"),r=a("fdbc"),t=a("17c2"),s=a("9112");for(var d in r){var h=n[d],m=h&&h.prototype;if(m&&m.forEach!==t)try{s(m,"forEach",t)}catch(C){m.forEach=t}}},"17c2":function(e,o,a){"use strict";var n=a("b727").forEach,r=a("a640"),t=r("forEach");e.exports=t?[].forEach:function(e){return n(this,e,arguments.length>1?arguments[1]:void 0)}},"1be4":function(e,o,a){var n=a("d066");e.exports=n("document","documentElement")},"1c0b":function(e,o){e.exports=function(e){if("function"!=typeof e)throw TypeError(String(e)+" is not a function");return e}},"1d80":function(e,o){e.exports=function(e){if(void 0==e)throw TypeError("Can't call method on "+e);return e}},"1dde":function(e,o,a){var n=a("d039"),r=a("b622"),t=a("2d00"),s=r("species");e.exports=function(e){return t>=51||!n((function(){var o=[],a=o.constructor={};return a[s]=function(){return{foo:1}},1!==o[e](Boolean).foo}))}},"23cb":function(e,o,a){var n=a("a691"),r=Math.max,t=Math.min;e.exports=function(e,o){var a=n(e);return a<0?r(a+o,0):t(a,o)}},"23e7":function(e,o,a){var n=a("da84"),r=a("06cf").f,t=a("9112"),s=a("6eeb"),d=a("ce4e"),h=a("e893"),m=a("94ca");e.exports=function(e,o){var a,C,i,u,l,c,S=e.target,g=e.global,y=e.stat;if(C=g?n:y?n[S]||d(S,{}):(n[S]||{}).prototype,C)for(i in o){if(l=o[i],e.noTargetGet?(c=r(C,i),u=c&&c.value):u=C[i],a=m(g?i:S+(y?".":"#")+i,e.forced),!a&&void 0!==u){if(typeof l===typeof u)continue;h(l,u)}(e.sham||u&&u.sham)&&t(l,"sham",!0),s(C,i,l,e)}}},"241c":function(e,o,a){var n=a("ca84"),r=a("7839"),t=r.concat("length","prototype");o.f=Object.getOwnPropertyNames||function(e){return n(e,t)}},2532:function(e,o,a){"use strict";var n=a("23e7"),r=a("5a34"),t=a("1d80"),s=a("ab13");n({target:"String",proto:!0,forced:!s("includes")},{includes:function(e){return!!~String(t(this)).indexOf(r(e),arguments.length>1?arguments[1]:void 0)}})},"2d00":function(e,o,a){var n,r,t=a("da84"),s=a("342f"),d=t.process,h=d&&d.versions,m=h&&h.v8;m?(n=m.split("."),r=n[0]+n[1]):s&&(n=s.match(/Edge\/(\d+)/),(!n||n[1]>=74)&&(n=s.match(/Chrome\/(\d+)/),n&&(r=n[1]))),e.exports=r&&+r},"342f":function(e,o,a){var n=a("d066");e.exports=n("navigator","userAgent")||""},"37e8":function(e,o,a){var n=a("83ab"),r=a("9bf2"),t=a("825a"),s=a("df75");e.exports=n?Object.defineProperties:function(e,o){t(e);var a,n=s(o),d=n.length,h=0;while(d>h)r.f(e,a=n[h++],o[a]);return e}},"428f":function(e,o,a){var n=a("da84");e.exports=n},"44ad":function(e,o,a){var n=a("d039"),r=a("c6b6"),t="".split;e.exports=n((function(){return!Object("z").propertyIsEnumerable(0)}))?function(e){return"String"==r(e)?t.call(e,""):Object(e)}:Object},"44d2":function(e,o,a){var n=a("b622"),r=a("7c73"),t=a("9bf2"),s=n("unscopables"),d=Array.prototype;void 0==d[s]&&t.f(d,s,{configurable:!0,value:r(null)}),e.exports=function(e){d[s][e]=!0}},"44e7":function(e,o,a){var n=a("861d"),r=a("c6b6"),t=a("b622"),s=t("match");e.exports=function(e){var o;return n(e)&&(void 0!==(o=e[s])?!!o:"RegExp"==r(e))}},4930:function(e,o,a){var n=a("605d"),r=a("2d00"),t=a("d039");e.exports=!!Object.getOwnPropertySymbols&&!t((function(){return!Symbol.sham&&(n?38===r:r>37&&r<41)}))},"4d64":function(e,o,a){var n=a("fc6a"),r=a("50c4"),t=a("23cb"),s=function(e){return function(o,a,s){var d,h=n(o),m=r(h.length),C=t(s,m);if(e&&a!=a){while(m>C)if(d=h[C++],d!=d)return!0}else for(;m>C;C++)if((e||C in h)&&h[C]===a)return e||C||0;return!e&&-1}};e.exports={includes:s(!0),indexOf:s(!1)}},"4de4":function(e,o,a){"use strict";var n=a("23e7"),r=a("b727").filter,t=a("1dde"),s=t("filter");n({target:"Array",proto:!0,forced:!s},{filter:function(e){return r(this,e,arguments.length>1?arguments[1]:void 0)}})},"50c4":function(e,o,a){var n=a("a691"),r=Math.min;e.exports=function(e){return e>0?r(n(e),9007199254740991):0}},5135:function(e,o){var a={}.hasOwnProperty;e.exports=function(e,o){return a.call(e,o)}},5692:function(e,o,a){var n=a("c430"),r=a("c6cd");(e.exports=function(e,o){return r[e]||(r[e]=void 0!==o?o:{})})("versions",[]).push({version:"3.10.0",mode:n?"pure":"global",copyright:"© 2021 Denis Pushkarev (zloirock.ru)"})},"56ef":function(e,o,a){var n=a("d066"),r=a("241c"),t=a("7418"),s=a("825a");e.exports=n("Reflect","ownKeys")||function(e){var o=r.f(s(e)),a=t.f;return a?o.concat(a(e)):o}},"5a34":function(e,o,a){var n=a("44e7");e.exports=function(e){if(n(e))throw TypeError("The method doesn't accept regular expressions");return e}},"5c6c":function(e,o){e.exports=function(e,o){return{enumerable:!(1&e),configurable:!(2&e),writable:!(4&e),value:o}}},"605d":function(e,o,a){var n=a("c6b6"),r=a("da84");e.exports="process"==n(r.process)},"60da":function(e,o,a){"use strict";var n=a("83ab"),r=a("d039"),t=a("df75"),s=a("7418"),d=a("d1e7"),h=a("7b0b"),m=a("44ad"),C=Object.assign,i=Object.defineProperty;e.exports=!C||r((function(){if(n&&1!==C({b:1},C(i({},"a",{enumerable:!0,get:function(){i(this,"b",{value:3,enumerable:!1})}}),{b:2})).b)return!0;var e={},o={},a=Symbol(),r="abcdefghijklmnopqrst";return e[a]=7,r.split("").forEach((function(e){o[e]=e})),7!=C({},e)[a]||t(C({},o)).join("")!=r}))?function(e,o){var a=h(e),r=arguments.length,C=1,i=s.f,u=d.f;while(r>C){var l,c=m(arguments[C++]),S=i?t(c).concat(i(c)):t(c),g=S.length,y=0;while(g>y)l=S[y++],n&&!u.call(c,l)||(a[l]=c[l])}return a}:C},"65f0":function(e,o,a){var n=a("861d"),r=a("e8b5"),t=a("b622"),s=t("species");e.exports=function(e,o){var a;return r(e)&&(a=e.constructor,"function"!=typeof a||a!==Array&&!r(a.prototype)?n(a)&&(a=a[s],null===a&&(a=void 0)):a=void 0),new(void 0===a?Array:a)(0===o?0:o)}},"69f3":function(e,o,a){var n,r,t,s=a("7f9a"),d=a("da84"),h=a("861d"),m=a("9112"),C=a("5135"),i=a("c6cd"),u=a("f772"),l=a("d012"),c=d.WeakMap,S=function(e){return t(e)?r(e):n(e,{})},g=function(e){return function(o){var a;if(!h(o)||(a=r(o)).type!==e)throw TypeError("Incompatible receiver, "+e+" required");return a}};if(s){var y=i.state||(i.state=new c),A=y.get,N=y.has,b=y.set;n=function(e,o){return o.facade=e,b.call(y,e,o),o},r=function(e){return A.call(y,e)||{}},t=function(e){return N.call(y,e)}}else{var M=u("state");l[M]=!0,n=function(e,o){return o.facade=e,m(e,M,o),o},r=function(e){return C(e,M)?e[M]:{}},t=function(e){return C(e,M)}}e.exports={set:n,get:r,has:t,enforce:S,getterFor:g}},"6eeb":function(e,o,a){var n=a("da84"),r=a("9112"),t=a("5135"),s=a("ce4e"),d=a("8925"),h=a("69f3"),m=h.get,C=h.enforce,i=String(String).split("String");(e.exports=function(e,o,a,d){var h,m=!!d&&!!d.unsafe,u=!!d&&!!d.enumerable,l=!!d&&!!d.noTargetGet;"function"==typeof a&&("string"!=typeof o||t(a,"name")||r(a,"name",o),h=C(a),h.source||(h.source=i.join("string"==typeof o?o:""))),e!==n?(m?!l&&e[o]&&(u=!0):delete e[o],u?e[o]=a:r(e,o,a)):u?e[o]=a:s(o,a)})(Function.prototype,"toString",(function(){return"function"==typeof this&&m(this).source||d(this)}))},7418:function(e,o){o.f=Object.getOwnPropertySymbols},7839:function(e,o){e.exports=["constructor","hasOwnProperty","isPrototypeOf","propertyIsEnumerable","toLocaleString","toString","valueOf"]},"7b0b":function(e,o,a){var n=a("1d80");e.exports=function(e){return Object(n(e))}},"7c73":function(e,o,a){var n,r=a("825a"),t=a("37e8"),s=a("7839"),d=a("d012"),h=a("1be4"),m=a("cc12"),C=a("f772"),i=">",u="<",l="prototype",c="script",S=C("IE_PROTO"),g=function(){},y=function(e){return u+c+i+e+u+"/"+c+i},A=function(e){e.write(y("")),e.close();var o=e.parentWindow.Object;return e=null,o},N=function(){var e,o=m("iframe"),a="java"+c+":";return o.style.display="none",h.appendChild(o),o.src=String(a),e=o.contentWindow.document,e.open(),e.write(y("document.F=Object")),e.close(),e.F},b=function(){try{n=document.domain&&new ActiveXObject("htmlfile")}catch(o){}b=n?A(n):N();var e=s.length;while(e--)delete b[l][s[e]];return b()};d[S]=!0,e.exports=Object.create||function(e,o){var a;return null!==e?(g[l]=r(e),a=new g,g[l]=null,a[S]=e):a=b(),void 0===o?a:t(a,o)}},"7db0":function(e,o,a){"use strict";var n=a("23e7"),r=a("b727").find,t=a("44d2"),s="find",d=!0;s in[]&&Array(1)[s]((function(){d=!1})),n({target:"Array",proto:!0,forced:d},{find:function(e){return r(this,e,arguments.length>1?arguments[1]:void 0)}}),t(s)},"7f9a":function(e,o,a){var n=a("da84"),r=a("8925"),t=n.WeakMap;e.exports="function"===typeof t&&/native code/.test(r(t))},"825a":function(e,o,a){var n=a("861d");e.exports=function(e){if(!n(e))throw TypeError(String(e)+" is not an object");return e}},"83ab":function(e,o,a){var n=a("d039");e.exports=!n((function(){return 7!=Object.defineProperty({},1,{get:function(){return 7}})[1]}))},"861d":function(e,o){e.exports=function(e){return"object"===typeof e?null!==e:"function"===typeof e}},8875:function(e,o,a){var n,r,t;(function(a,s){r=[],n=s,t="function"===typeof n?n.apply(o,r):n,void 0===t||(e.exports=t)})("undefined"!==typeof self&&self,(function(){function e(){var o=Object.getOwnPropertyDescriptor(document,"currentScript");if(!o&&"currentScript"in document&&document.currentScript)return document.currentScript;if(o&&o.get!==e&&document.currentScript)return document.currentScript;try{throw new Error}catch(l){var a,n,r,t=/.*at [^(]*\((.*):(.+):(.+)\)$/gi,s=/@([^@]*):(\d+):(\d+)\s*$/gi,d=t.exec(l.stack)||s.exec(l.stack),h=d&&d[1]||!1,m=d&&d[2]||!1,C=document.location.href.replace(document.location.hash,""),i=document.getElementsByTagName("script");h===C&&(a=document.documentElement.outerHTML,n=new RegExp("(?:[^\\n]+?\\n){0,"+(m-2)+"}[^<]*<script>([\\d\\D]*?)<\\/script>[\\d\\D]*","i"),r=a.replace(n,"$1").trim());for(var u=0;u<i.length;u++){if("interactive"===i[u].readyState)return i[u];if(i[u].src===h)return i[u];if(h===C&&i[u].innerHTML&&i[u].innerHTML.trim()===r)return i[u]}return null}}return e}))},8925:function(e,o,a){var n=a("c6cd"),r=Function.toString;"function"!=typeof n.inspectSource&&(n.inspectSource=function(e){return r.call(e)}),e.exports=n.inspectSource},"8bbf":function(o,a){o.exports=e},"90e3":function(e,o){var a=0,n=Math.random();e.exports=function(e){return"Symbol("+String(void 0===e?"":e)+")_"+(++a+n).toString(36)}},9112:function(e,o,a){var n=a("83ab"),r=a("9bf2"),t=a("5c6c");e.exports=n?function(e,o,a){return r.f(e,o,t(1,a))}:function(e,o,a){return e[o]=a,e}},"94ca":function(e,o,a){var n=a("d039"),r=/#|\.prototype\./,t=function(e,o){var a=d[s(e)];return a==m||a!=h&&("function"==typeof o?n(o):!!o)},s=t.normalize=function(e){return String(e).replace(r,".").toLowerCase()},d=t.data={},h=t.NATIVE="N",m=t.POLYFILL="P";e.exports=t},"9bf2":function(e,o,a){var n=a("83ab"),r=a("0cfb"),t=a("825a"),s=a("c04e"),d=Object.defineProperty;o.f=n?d:function(e,o,a){if(t(e),o=s(o,!0),t(a),r)try{return d(e,o,a)}catch(n){}if("get"in a||"set"in a)throw TypeError("Accessors not supported");return"value"in a&&(e[o]=a.value),e}},a640:function(e,o,a){"use strict";var n=a("d039");e.exports=function(e,o){var a=[][e];return!!a&&n((function(){a.call(null,o||function(){throw 1},1)}))}},a691:function(e,o){var a=Math.ceil,n=Math.floor;e.exports=function(e){return isNaN(e=+e)?0:(e>0?n:a)(e)}},ab13:function(e,o,a){var n=a("b622"),r=n("match");e.exports=function(e){var o=/./;try{"/./"[e](o)}catch(a){try{return o[r]=!1,"/./"[e](o)}catch(n){}}return!1}},b0c0:function(e,o,a){var n=a("83ab"),r=a("9bf2").f,t=Function.prototype,s=t.toString,d=/^\s*function ([^ (]*)/,h="name";n&&!(h in t)&&r(t,h,{configurable:!0,get:function(){try{return s.call(this).match(d)[1]}catch(e){return""}}})},b622:function(e,o,a){var n=a("da84"),r=a("5692"),t=a("5135"),s=a("90e3"),d=a("4930"),h=a("fdbf"),m=r("wks"),C=n.Symbol,i=h?C:C&&C.withoutSetter||s;e.exports=function(e){return t(m,e)&&(d||"string"==typeof m[e])||(d&&t(C,e)?m[e]=C[e]:m[e]=i("Symbol."+e)),m[e]}},b64b:function(e,o,a){var n=a("23e7"),r=a("7b0b"),t=a("df75"),s=a("d039"),d=s((function(){t(1)}));n({target:"Object",stat:!0,forced:d},{keys:function(e){return t(r(e))}})},b727:function(e,o,a){var n=a("0366"),r=a("44ad"),t=a("7b0b"),s=a("50c4"),d=a("65f0"),h=[].push,m=function(e){var o=1==e,a=2==e,m=3==e,C=4==e,i=6==e,u=7==e,l=5==e||i;return function(c,S,g,y){for(var A,N,b=t(c),M=r(b),B=n(S,g,3),k=s(M.length),p=0,f=y||d,v=o?f(c,k):a||u?f(c,0):void 0;k>p;p++)if((l||p in M)&&(A=M[p],N=B(A,p,b),e))if(o)v[p]=N;else if(N)switch(e){case 3:return!0;case 5:return A;case 6:return p;case 2:h.call(v,A)}else switch(e){case 4:return!1;case 7:h.call(v,A)}return i?-1:m||C?C:v}};e.exports={forEach:m(0),map:m(1),filter:m(2),some:m(3),every:m(4),find:m(5),findIndex:m(6),filterOut:m(7)}},c04e:function(e,o,a){var n=a("861d");e.exports=function(e,o){if(!n(e))return e;var a,r;if(o&&"function"==typeof(a=e.toString)&&!n(r=a.call(e)))return r;if("function"==typeof(a=e.valueOf)&&!n(r=a.call(e)))return r;if(!o&&"function"==typeof(a=e.toString)&&!n(r=a.call(e)))return r;throw TypeError("Can't convert object to primitive value")}},c430:function(e,o){e.exports=!1},c6b6:function(e,o){var a={}.toString;e.exports=function(e){return a.call(e).slice(8,-1)}},c6cd:function(e,o,a){var n=a("da84"),r=a("ce4e"),t="__core-js_shared__",s=n[t]||r(t,{});e.exports=s},c8ba:function(e,o){var a;a=function(){return this}();try{a=a||new Function("return this")()}catch(n){"object"===typeof window&&(a=window)}e.exports=a},ca84:function(e,o,a){var n=a("5135"),r=a("fc6a"),t=a("4d64").indexOf,s=a("d012");e.exports=function(e,o){var a,d=r(e),h=0,m=[];for(a in d)!n(s,a)&&n(d,a)&&m.push(a);while(o.length>h)n(d,a=o[h++])&&(~t(m,a)||m.push(a));return m}},caad:function(e,o,a){"use strict";var n=a("23e7"),r=a("4d64").includes,t=a("44d2");n({target:"Array",proto:!0},{includes:function(e){return r(this,e,arguments.length>1?arguments[1]:void 0)}}),t("includes")},cc12:function(e,o,a){var n=a("da84"),r=a("861d"),t=n.document,s=r(t)&&r(t.createElement);e.exports=function(e){return s?t.createElement(e):{}}},cca6:function(e,o,a){var n=a("23e7"),r=a("60da");n({target:"Object",stat:!0,forced:Object.assign!==r},{assign:r})},ce4e:function(e,o,a){var n=a("da84"),r=a("9112");e.exports=function(e,o){try{r(n,e,o)}catch(a){n[e]=o}return o}},d012:function(e,o){e.exports={}},d039:function(e,o){e.exports=function(e){try{return!!e()}catch(o){return!0}}},d066:function(e,o,a){var n=a("428f"),r=a("da84"),t=function(e){return"function"==typeof e?e:void 0};e.exports=function(e,o){return arguments.length<2?t(n[e])||t(r[e]):n[e]&&n[e][o]||r[e]&&r[e][o]}},d1e7:function(e,o,a){"use strict";var n={}.propertyIsEnumerable,r=Object.getOwnPropertyDescriptor,t=r&&!n.call({1:2},1);o.f=t?function(e){var o=r(this,e);return!!o&&o.enumerable}:n},d81d:function(e,o,a){"use strict";var n=a("23e7"),r=a("b727").map,t=a("1dde"),s=t("map");n({target:"Array",proto:!0,forced:!s},{map:function(e){return r(this,e,arguments.length>1?arguments[1]:void 0)}})},da84:function(e,o,a){(function(o){var a=function(e){return e&&e.Math==Math&&e};e.exports=a("object"==typeof globalThis&&globalThis)||a("object"==typeof window&&window)||a("object"==typeof self&&self)||a("object"==typeof o&&o)||function(){return this}()||Function("return this")()}).call(this,a("c8ba"))},df75:function(e,o,a){var n=a("ca84"),r=a("7839");e.exports=Object.keys||function(e){return n(e,r)}},e893:function(e,o,a){var n=a("5135"),r=a("56ef"),t=a("06cf"),s=a("9bf2");e.exports=function(e,o){for(var a=r(o),d=s.f,h=t.f,m=0;m<a.length;m++){var C=a[m];n(e,C)||d(e,C,h(o,C))}}},e8b5:function(e,o,a){var n=a("c6b6");e.exports=Array.isArray||function(e){return"Array"==n(e)}},f772:function(e,o,a){var n=a("5692"),r=a("90e3"),t=n("keys");e.exports=function(e){return t[e]||(t[e]=r(e))}},fb15:function(e,o,a){"use strict";if(a.r(o),a.d(o,"CountrySelect",(function(){return u})),a.d(o,"RegionSelect",(function(){return y})),"undefined"!==typeof window){var n=window.document.currentScript,r=a("8875");n=r(),"currentScript"in document||Object.defineProperty(document,"currentScript",{get:r});var t=n&&n.src.match(/(.+\/)[^/]+\.js(\?.*)?$/);t&&(a.p=t[1])}a("159b"),a("b64b");var s=a("8bbf"),d={key:0,value:""},h={key:1,value:"",disabled:"",selected:""};function m(e,o,a,n,r,t){return Object(s["openBlock"])(),Object(s["createBlock"])("select",{onChange:o[1]||(o[1]=function(e){return t.onChange(e.target.value)}),class:a.className,autocomplete:t.autocompleteAttr},[a.disablePlaceholder||a.removePlaceholder?Object(s["createCommentVNode"])("",!0):(Object(s["openBlock"])(),Object(s["createBlock"])("option",d,Object(s["toDisplayString"])(a.placeholder),1)),a.disablePlaceholder&&!a.removePlaceholder?(Object(s["openBlock"])(),Object(s["createBlock"])("option",h,Object(s["toDisplayString"])(a.placeholder),1)):Object(s["createCommentVNode"])("",!0),a.topCountry?(Object(s["openBlock"])(),Object(s["createBlock"])("option",{key:2,value:t.firstCountry,selected:a.country===t.firstCountry},Object(s["toDisplayString"])(t.topCountryName()),9,["value","selected"])):Object(s["createCommentVNode"])("",!0),(Object(s["openBlock"])(!0),Object(s["createBlock"])(s["Fragment"],null,Object(s["renderList"])(t.countries,(function(e,o){return Object(s["openBlock"])(),Object(s["createBlock"])("option",{value:e[t.valueType],selected:a.country===e[t.valueType],key:o},Object(s["toDisplayString"])(a.shortCodeDropdown?e.countryShortCode:e.countryName),9,["value","selected"])})),128))],42,["autocomplete"])}a("4de4"),a("caad"),a("2532"),a("d81d"),a("cca6"),a("7db0"),a("b0c0");var C=[{countryName:"Afghanistan",countryShortCode:"AF",regions:[{name:"Badakhshan",shortCode:"BDS"},{name:"Badghis",shortCode:"BDG"},{name:"Baghlan",shortCode:"BGL"},{name:"Balkh",shortCode:"BAL"},{name:"Bamyan",shortCode:"BAM"},{name:"Daykundi",shortCode:"DAY"},{name:"Farah",shortCode:"FRA"},{name:"Faryab",shortCode:"FYB"},{name:"Ghazni",shortCode:"GHA"},{name:"Ghor",shortCode:"GHO"},{name:"Helmand",shortCode:"HEL"},{name:"Herat",shortCode:"HER"},{name:"Jowzjan",shortCode:"JOW"},{name:"Kabul",shortCode:"KAB"},{name:"Kandahar",shortCode:"KAN"},{name:"Kapisa",shortCode:"KAP"},{name:"Khost",shortCode:"KHO"},{name:"Kunar",shortCode:"KNR"},{name:"Kunduz",shortCode:"KDZ"},{name:"Laghman",shortCode:"LAG"},{name:"Logar",shortCode:"LOW"},{name:"Maidan Wardak",shortCode:"WAR"},{name:"Nangarhar",shortCode:"NAN"},{name:"Nimruz",shortCode:"NIM"},{name:"Nuristan",shortCode:"NUR"},{name:"Paktia",shortCode:"PIA"},{name:"Paktika",shortCode:"PKA"},{name:"Panjshir",shortCode:"PAN"},{name:"Parwan",shortCode:"PAR"},{name:"Samangan",shortCode:"SAM"},{name:"Sar-e Pol",shortCode:"SAR"},{name:"Takhar",shortCode:"TAK"},{name:"Urozgan",shortCode:"ORU"},{name:"Zabul",shortCode:"ZAB"}]},{countryName:"Åland Islands",countryShortCode:"AX",regions:[{name:"Brändö",shortCode:"BR"},{name:"Eckerö",shortCode:"EC"},{name:"Finström",shortCode:"FN"},{name:"Föglö",shortCode:"FG"},{name:"Geta",shortCode:"GT"},{name:"Hammarland",shortCode:"HM"},{name:"Jomala",shortCode:"JM"},{name:"Kumlinge",shortCode:"KM"},{name:"Kökar",shortCode:"KK"},{name:"Lemland",shortCode:"LE"},{name:"Lumparland",shortCode:"LU"},{name:"Mariehamn",shortCode:"MH"},{name:"Saltvik",shortCode:"SV"},{name:"Sottunga",shortCode:"ST"},{name:"Sund",shortCode:"SD"},{name:"Vårdö",shortCode:"VR"}]},{countryName:"Albania",countryShortCode:"AL",regions:[{name:"Berat",shortCode:"01"},{name:"Dibër",shortCode:"09"},{name:"Durrës",shortCode:"02"},{name:"Elbasan",shortCode:"03"},{name:"Fier",shortCode:"04"},{name:"Gjirokastër",shortCode:"05"},{name:"Korçë",shortCode:"06"},{name:"Kukës",shortCode:"07"},{name:"Lezhë",shortCode:"08"},{name:"Shkodër",shortCode:"10"},{name:"Tirana",shortCode:"11"},{name:"Vlorë",shortCode:"12"}]},{countryName:"Algeria",countryShortCode:"DZ",regions:[{name:"Adrar",shortCode:"01"},{name:"Aïn Defla",shortCode:"44"},{name:"Aïn Témouchent",shortCode:"46"},{name:"Algiers",shortCode:"16"},{name:"Annaba",shortCode:"23"},{name:"Batna",shortCode:"05"},{name:"Béchar",shortCode:"08"},{name:"Béjaïa",shortCode:"06"},{name:"Biskra",shortCode:"07"},{name:"Blida",shortCode:"09"},{name:"Bordj Bou Arréridj",shortCode:"34"},{name:"Bouïra",shortCode:"10"},{name:"Boumerdès",shortCode:"35"},{name:"Chlef",shortCode:"02"},{name:"Constantine",shortCode:"25"},{name:"Djelfa",shortCode:"17"},{name:"El Bayadh",shortCode:"32"},{name:"El Oued",shortCode:"39"},{name:"El Tarf",shortCode:"36"},{name:"Ghardaïa",shortCode:"47"},{name:"Guelma",shortCode:"24"},{name:"Illizi",shortCode:"33"},{name:"Jijel",shortCode:"18"},{name:"Khenchela",shortCode:"40"},{name:"Laghouat",shortCode:"03"},{name:"Mascara",shortCode:"29"},{name:"Médéa",shortCode:"26"},{name:"Mila",shortCode:"43"},{name:"Mostaganem",shortCode:"27"},{name:"Msila",shortCode:"28"},{name:"Naâma",shortCode:"45"},{name:"Oran",shortCode:"31"},{name:"Ouargla",shortCode:"30"},{name:"Oum el Bouaghi",shortCode:"04"},{name:"Relizane",shortCode:"48"},{name:"Saïda",shortCode:"20"},{name:"Sétif",shortCode:"19"},{name:"Sidi Bel Abbès",shortCode:"22"},{name:"Skikda",shortCode:"21"},{name:"Souk Ahras",shortCode:"41"},{name:"Tamanghasset",shortCode:"11"},{name:"Tébessa",shortCode:"12"},{name:"Tiaret",shortCode:"14"},{name:"Tindouf",shortCode:"37"},{name:"Tipaza",shortCode:"42"},{name:"Tissemsilt",shortCode:"38"},{name:"Tizi Ouzou",shortCode:"15"},{name:"Tlemcen",shortCode:"13"}]},{countryName:"American Samoa",countryShortCode:"AS",regions:[{name:"Tutuila",shortCode:"01"},{name:"Aunu'u",shortCode:"02"},{name:"Ta'ū",shortCode:"03"},{name:"Ofu‑Olosega",shortCode:"04"},{name:"Rose Atoll",shortCode:"21"},{name:"Swains Island",shortCode:"22"}]},{countryName:"Andorra",countryShortCode:"AD",regions:[{name:"Andorra la Vella",shortCode:"07"},{name:"Canillo",shortCode:"02"},{name:"Encamp",shortCode:"03"},{name:"Escaldes-Engordany",shortCode:"08"},{name:"La Massana",shortCode:"04"},{name:"Ordino",shortCode:"05"},{name:"Sant Julià de Lòria",shortCode:"06"}]},{countryName:"Angola",countryShortCode:"AO",regions:[{name:"Bengo",shortCode:"BGO"},{name:"Benguela",shortCode:"BGU"},{name:"Bié",shortCode:"BIE"},{name:"Cabinda",shortCode:"CAB"},{name:"Cuando Cubango",shortCode:"CCU"},{name:"Cuanza Norte",shortCode:"CNO"},{name:"Cuanza Sul",shortCode:"CUS"},{name:"Cunene",shortCode:"CNN"},{name:"Huambo",shortCode:"HUA"},{name:"Huíla",shortCode:"HUI"},{name:"Luanda",shortCode:"LUA"},{name:"Lunda Norte",shortCode:"LNO"},{name:"Lunda Sul",shortCode:"LSU"},{name:"Malanje",shortCode:"MAL"},{name:"Moxico",shortCode:"MOX"},{name:"Namibe",shortCode:"NAM"},{name:"Uíge",shortCode:"UIG"},{name:"Zaire",shortCode:"ZAI"}]},{countryName:"Anguilla",countryShortCode:"AI",regions:[{name:"Anguilla",shortCode:"01"},{name:"Anguillita Island",shortCode:"02"},{name:"Blowing Rock",shortCode:"03"},{name:"Cove Cay",shortCode:"04"},{name:"Crocus Cay",shortCode:"05"},{name:"Deadman's Cay",shortCode:"06"},{name:"Dog Island",shortCode:"07"},{name:"East Cay",shortCode:"08"},{name:"Little Island",shortCode:"09"},{name:"Little Scrub Island",shortCode:"10"},{name:"Mid Cay",shortCode:"11"},{name:"North Cay",shortCode:"12"},{name:"Prickly Pear Cays",shortCode:"13"},{name:"Rabbit Island",shortCode:"14"},{name:"Sandy Island/Sand Island",shortCode:"15"},{name:"Scilly Cay",shortCode:"16"},{name:"Scrub Island",shortCode:"17"},{name:"Seal Island",shortCode:"18"},{name:"Sombrero/Hat Island",shortCode:"19"},{name:"South Cay",shortCode:"20"},{name:"South Wager Island",shortCode:"21"},{name:"West Cay",shortCode:"22"}]},{countryName:"Antarctica",countryShortCode:"AQ",regions:[{name:"Antarctica",shortCode:"AQ"}]},{countryName:"Antigua and Barbuda",countryShortCode:"AG",regions:[{name:"Antigua Island",shortCode:"01"},{name:"Barbuda Island",shortCode:"02"},{name:"Bird Island",shortCode:"04"},{name:"Bishop Island",shortCode:"05"},{name:"Blake Island",shortCode:"06"},{name:"Crump Island",shortCode:"09"},{name:"Dulcina Island",shortCode:"10"},{name:"Exchange Island",shortCode:"11"},{name:"Five Islands",shortCode:"12"},{name:"Great Bird Island",shortCode:"13"},{name:"Green Island",shortCode:"14"},{name:"Guiana Island",shortCode:"15"},{name:"Hawes Island",shortCode:"17"},{name:"Hells Gate Island",shortCode:"16"},{name:"Henry Island",shortCode:"18"},{name:"Johnson Island",shortCode:"19"},{name:"Kid Island",shortCode:"20"},{name:"Lobster Island",shortCode:"22"},{name:"Maiden Island",shortCode:"24"},{name:"Moor Island",shortCode:"25"},{name:"Nanny Island",shortCode:"26"},{name:"Pelican Island",shortCode:"27"},{name:"Prickly Pear Island",shortCode:"28"},{name:"Rabbit Island",shortCode:"29"},{name:"Red Head Island",shortCode:"31"},{name:"Redonda Island",shortCode:"03"},{name:"Sandy Island",shortCode:"32"},{name:"Smith Island",shortCode:"33"},{name:"The Sisters",shortCode:"34"},{name:"Vernon Island",shortCode:"35"},{name:"Wicked Will Island",shortCode:"36"},{name:"York Island",shortCode:"37"}]},{countryName:"Argentina",countryShortCode:"AR",regions:[{name:"Buenos Aires",shortCode:"B"},{name:"Capital Federal",shortCode:"C"},{name:"Catamarca",shortCode:"K"},{name:"Chaco",shortCode:"H"},{name:"Chubut",shortCode:"U"},{name:"Córdoba",shortCode:"X"},{name:"Corrientes",shortCode:"W"},{name:"Entre Ríos",shortCode:"E"},{name:"Formosa",shortCode:"P"},{name:"Jujuy",shortCode:"Y"},{name:"La Pampa",shortCode:"L"},{name:"La Rioja",shortCode:"F"},{name:"Mendoza",shortCode:"M"},{name:"Misiones",shortCode:"N"},{name:"Neuquén",shortCode:"Q"},{name:"Río Negro",shortCode:"R"},{name:"Salta",shortCode:"A"},{name:"San Juan",shortCode:"J"},{name:"San Luis",shortCode:"D"},{name:"Santa Cruz",shortCode:"Z"},{name:"Santa Fe",shortCode:"S"},{name:"Santiago del Estero",shortCode:"G"},{name:"Tierra del Fuego",shortCode:"V"},{name:"Tucumán",shortCode:"T"}]},{countryName:"Armenia",countryShortCode:"AM",regions:[{name:"Aragatsotn",shortCode:"AG"},{name:"Ararat",shortCode:"AR"},{name:"Armavir",shortCode:"AV"},{name:"Gegharkunik",shortCode:"GR"},{name:"Kotayk",shortCode:"KT"},{name:"Lori",shortCode:"LO"},{name:"Shirak",shortCode:"SH"},{name:"Syunik",shortCode:"SU"},{name:"Tavush",shortCode:"TV"},{name:"Vayots Dzor",shortCode:"VD"},{name:"Yerevan",shortCode:"ER"}]},{countryName:"Aruba",countryShortCode:"AW",regions:[{name:"Aruba",shortCode:"AW"}]},{countryName:"Australia",countryShortCode:"AU",regions:[{name:"Australian Capital Territory",shortCode:"ACT"},{name:"New South Wales",shortCode:"NSW"},{name:"Northern Territory",shortCode:"NT"},{name:"Queensland",shortCode:"QLD"},{name:"South Australia",shortCode:"SA"},{name:"Tasmania",shortCode:"TAS"},{name:"Victoria",shortCode:"VIC"},{name:"Western Australia",shortCode:"WA"}]},{countryName:"Austria",countryShortCode:"AT",regions:[{name:"Burgenland",shortCode:"1"},{name:"Kärnten",shortCode:"2"},{name:"Niederösterreich",shortCode:"3"},{name:"Oberösterreich",shortCode:"4"},{name:"Salzburg",shortCode:"5"},{name:"Steiermark",shortCode:"6"},{name:"Tirol",shortCode:"7"},{name:"Vorarlberg",shortCode:"8"},{name:"Wien",shortCode:"9"}]},{countryName:"Azerbaijan",countryShortCode:"AZ",regions:[{name:"Abşeron",shortCode:"ABS"},{name:"Ağcabədi",shortCode:"AGC"},{name:"Ağdam",shortCode:"AGM"},{name:"Ağdaş",shortCode:"AGS"},{name:"Ağstafa",shortCode:"AGA"},{name:"Ağsu",shortCode:"AGU"},{name:"Astara",shortCode:"AST"},{name:"Bakı",shortCode:"BAK"},{name:"Babək",shortCode:"BAB"},{name:"Balakən",shortCode:"BAL"},{name:"Bərdə",shortCode:"BAR"},{name:"Beyləqan",shortCode:"BEY"},{name:"Biləsuvar",shortCode:"BIL"},{name:"Cəbrayıl",shortCode:"CAB"},{name:"Cəlilabad",shortCode:"CAL"},{name:"Culfa",shortCode:"CUL"},{name:"Daşkəsən",shortCode:"DAS"},{name:"Füzuli",shortCode:"FUZ"},{name:"Gədəbəy",shortCode:"GAD"},{name:"Goranboy",shortCode:"GOR"},{name:"Göyçay",shortCode:"GOY"},{name:"Göygöl",shortCode:"GYG"},{name:"Hacıqabul",shortCode:"HAC"},{name:"İmişli",shortCode:"IMI"},{name:"İsmayıllı",shortCode:"ISM"},{name:"Kəlbəcər",shortCode:"KAL"},{name:"Kǝngǝrli",shortCode:"KAN"},{name:"Kürdəmir",shortCode:"KUR"},{name:"Laçın",shortCode:"LAC"},{name:"Lənkəran",shortCode:"LAN"},{name:"Lerik",shortCode:"LER"},{name:"Masallı",shortCode:"MAS"},{name:"Neftçala",shortCode:"NEF"},{name:"Oğuz",shortCode:"OGU"},{name:"Ordubad",shortCode:"ORD"},{name:"Qəbələ",shortCode:"QAB"},{name:"Qax",shortCode:"QAX"},{name:"Qazax",shortCode:"QAZ"},{name:"Qobustan",shortCode:"QOB"},{name:"Quba",shortCode:"QBA"},{name:"Qubadli",shortCode:"QBI"},{name:"Qusar",shortCode:"QUS"},{name:"Saatlı",shortCode:"SAT"},{name:"Sabirabad",shortCode:"SAB"},{name:"Şabran",shortCode:"SBN"},{name:"Sədərək",shortCode:"SAD"},{name:"Şahbuz",shortCode:"SAH"},{name:"Şəki",shortCode:"SAK"},{name:"Salyan",shortCode:"SAL"},{name:"Şamaxı",shortCode:"SMI"},{name:"Şəmkir",shortCode:"SKR"},{name:"Samux",shortCode:"SMX"},{name:"Şərur",shortCode:"SAR"},{name:"Siyəzən",shortCode:"SIY"},{name:"Şuşa",shortCode:"SUS"},{name:"Tərtər",shortCode:"TAR"},{name:"Tovuz",shortCode:"TOV"},{name:"Ucar",shortCode:"UCA"},{name:"Xaçmaz",shortCode:"XAC"},{name:"Xızı",shortCode:"XIZ"},{name:"Xocalı",shortCode:"XCI"},{name:"Xocavənd",shortCode:"XVD"},{name:"Yardımlı",shortCode:"YAR"},{name:"Yevlax",shortCode:"YEV"},{name:"Zəngilan",shortCode:"ZAN"},{name:"Zaqatala",shortCode:"ZAQ"},{name:"Zərdab",shortCode:"ZAR"}]},{countryName:"Bahamas",countryShortCode:"BS",regions:[{name:"Acklins Island",shortCode:"01"},{name:"Berry Islands",shortCode:"22"},{name:"Bimini",shortCode:"02"},{name:"Black Point",shortCode:"23"},{name:"Cat Island",shortCode:"03"},{name:"Central Abaco",shortCode:"24"},{name:"Crooked Island and Long Cay",shortCode:"28"},{name:"East Grand Bahama",shortCode:"29"},{name:"Exuma",shortCode:"04"},{name:"Freeport",shortCode:"05"},{name:"Fresh Creek",shortCode:"06"},{name:"Governor's Harbour",shortCode:"07"},{name:"Green Turtle Cay",shortCode:"08"},{name:"Harbour Island",shortCode:"09"},{name:"High Rock",shortCode:"10"},{name:"Inagua",shortCode:"11"},{name:"Kemps Bay",shortCode:"12"},{name:"Long Island",shortCode:"13"},{name:"Marsh Harbour",shortCode:"14"},{name:"Mayaguana",shortCode:"15"},{name:"Moore’s Island",shortCode:"40"},{name:"New Providence",shortCode:"16"},{name:"Nichollstown and Berry Islands",shortCode:"17"},{name:"North Abaco",shortCode:"42"},{name:"North Andros",shortCode:"41"},{name:"North Eleuthera",shortCode:"33"},{name:"Ragged Island",shortCode:"18"},{name:"Rock Sound",shortCode:"19"},{name:"San Salvador and Rum Cay",shortCode:"20"},{name:"Sandy Point",shortCode:"21"},{name:"South Abaco",shortCode:"35"},{name:"South Andros",shortCode:"36"},{name:"South Eleuthera",shortCode:"37"},{name:"West Grand Bahama",shortCode:"39"}]},{countryName:"Bahrain",countryShortCode:"BH",regions:[{name:"Al Janūbīyah",shortCode:"14"},{name:"Al Manāmah",shortCode:"13"},{name:"Al Muḩarraq",shortCode:"15"},{name:"Al Wusţá",shortCode:"16"},{name:"Ash Shamālīyah",shortCode:"17"}]},{countryName:"Bangladesh",countryShortCode:"BD",regions:[{name:"Barisal",shortCode:"A"},{name:"Chittagong",shortCode:"B"},{name:"Dhaka",shortCode:"C"},{name:"Khulna",shortCode:"D"},{name:"Mymensingh",shortCode:"M"},{name:"Rajshahi",shortCode:"E"},{name:"Rangpur",shortCode:"F"},{name:"Sylhet",shortCode:"G"}]},{countryName:"Barbados",countryShortCode:"BB",regions:[{name:"Christ Church",shortCode:"01"},{name:"Saint Andrew",shortCode:"02"},{name:"Saint George",shortCode:"03"},{name:"Saint James",shortCode:"04"},{name:"Saint John",shortCode:"05"},{name:"Saint Joseph",shortCode:"06"},{name:"Saint Lucy",shortCode:"07"},{name:"Saint Michael",shortCode:"08"},{name:"Saint Peter",shortCode:"09"},{name:"Saint Philip",shortCode:"10"},{name:"Saint Thomas",shortCode:"11"}]},{countryName:"Belarus",countryShortCode:"BY",regions:[{name:"Brest voblast",shortCode:"BR"},{name:"Gorod Minsk",shortCode:"HM"},{name:"Homiel voblast",shortCode:"HO"},{name:"Hrodna voblast",shortCode:"HR"},{name:"Mahilyow voblast",shortCode:"MA"},{name:"Minsk voblast",shortCode:"MI"},{name:"Vitsebsk voblast",shortCode:"VI"}]},{countryName:"Belgium",countryShortCode:"BE",regions:[{name:"Bruxelles-Capitale",shortCode:"BRU"},{name:"Région Flamande",shortCode:"VLG"},{name:"Région Wallonië",shortCode:"WAL"}]},{countryName:"Belize",countryShortCode:"BZ",regions:[{name:"Belize District",shortCode:"BZ"},{name:"Cayo District",shortCode:"CY"},{name:"Corozal District",shortCode:"CZL"},{name:"Orange Walk District",shortCode:"OW"},{name:"Stann Creek District",shortCode:"SC"},{name:"Toledo District",shortCode:"TOL"}]},{countryName:"Benin",countryShortCode:"BJ",regions:[{name:"Alibori",shortCode:"AL"},{name:"Atakora",shortCode:"AK"},{name:"Atlantique",shortCode:"AQ"},{name:"Borgou",shortCode:"BO"},{name:"Collines Department",shortCode:"CO"},{name:"Donga",shortCode:"DO"},{name:"Kouffo",shortCode:"KO"},{name:"Littoral Department",shortCode:"LI"},{name:"Mono Department",shortCode:"MO"},{name:"Ouémé",shortCode:"OU"},{name:"Plateau",shortCode:"PL"},{name:"Zou",shortCode:"ZO"}]},{countryName:"Bermuda",countryShortCode:"BM",regions:[{name:"City of Hamilton",shortCode:"03"},{name:"Devonshire Parish",shortCode:"01"},{name:"Hamilton Parish",shortCode:"02"},{name:"Paget Parish",shortCode:"04"},{name:"Pembroke Parish",shortCode:"05"},{name:"Sandys Parish",shortCode:"08"},{name:"Smith's Parish",shortCode:"09"},{name:"Southampton Parish",shortCode:"10"},{name:"St. George's Parish",shortCode:"07"},{name:"Town of St. George",shortCode:"06"},{name:"Warwick Parish",shortCode:"11"}]},{countryName:"Bhutan",countryShortCode:"BT",regions:[{name:"Bumthang",shortCode:"33"},{name:"Chhukha",shortCode:"12"},{name:"Dagana",shortCode:"22"},{name:"Gasa",shortCode:"GA"},{name:"Haa",shortCode:"13"},{name:"Lhuntse",shortCode:"44"},{name:"Mongar",shortCode:"42"},{name:"Paro",shortCode:"11"},{name:"Pemagatshel",shortCode:"43"},{name:"Punakha",shortCode:"23"},{name:"Samdrup Jongkhar",shortCode:"45"},{name:"Samtse",shortCode:"14"},{name:"Sarpang",shortCode:"31"},{name:"Thimphu",shortCode:"15"},{name:"Trashigang",shortCode:"41"},{name:"Trashiyangtse",shortCode:"TY"},{name:"Trongsa",shortCode:"32"},{name:"Tsirang",shortCode:"21"},{name:"Wangdue Phodrang",shortCode:"24"},{name:"Zhemgang",shortCode:"34"}]},{countryName:"Bolivia",countryShortCode:"BO",regions:[{name:"Beni",shortCode:"B"},{name:"Chuquisaca",shortCode:"H"},{name:"Cochabamba",shortCode:"C"},{name:"La Paz",shortCode:"L"},{name:"Oruro",shortCode:"O"},{name:"Pando",shortCode:"N"},{name:"Potosí",shortCode:"P"},{name:"Santa Cruz",shortCode:"S"},{name:"Tarija",shortCode:"T"}]},{countryName:"Bonaire, Sint Eustatius and Saba",countryShortCode:"BQ",regions:[{name:"Bonaire",shortCode:"BO"},{name:"Saba Isand",shortCode:"SA"},{name:"Sint Eustatius",shortCode:"SE"}]},{countryName:"Bosnia and Herzegovina",countryShortCode:"BA",regions:[{name:"Brčko Distrikt",shortCode:"BRC"},{name:"Federacija Bosne i Hercegovine",shortCode:"BIH"},{name:"Republika Srpska",shortCode:"SRP"}]},{countryName:"Botswana",countryShortCode:"BW",regions:[{name:"Central",shortCode:"CE"},{name:"Ghanzi",shortCode:"GH"},{name:"Kgalagadi",shortCode:"KG"},{name:"Kgatleng",shortCode:"KL"},{name:"Kweneng",shortCode:"KW"},{name:"North West",shortCode:"NW"},{name:"North-East",shortCode:"NE"},{name:"South East",shortCode:"SE"},{name:"Southern",shortCode:"SO"}]},{countryName:"Bouvet Island",countryShortCode:"BV",regions:[{name:"Bouvet Island",shortCode:"BV"}]},{countryName:"Brazil",countryShortCode:"BR",regions:[{name:"Acre",shortCode:"AC"},{name:"Alagoas",shortCode:"AL"},{name:"Amapá",shortCode:"AP"},{name:"Amazonas",shortCode:"AM"},{name:"Bahia",shortCode:"BA"},{name:"Ceará",shortCode:"CE"},{name:"Distrito Federal",shortCode:"DF"},{name:"Espírito Santo",shortCode:"ES"},{name:"Goiás",shortCode:"GO"},{name:"Maranhão",shortCode:"MA"},{name:"Mato Grosso",shortCode:"MT"},{name:"Mato Grosso do Sul",shortCode:"MS"},{name:"Minas Gerais",shortCode:"MG"},{name:"Pará",shortCode:"PA"},{name:"Paraíba",shortCode:"PB"},{name:"Paraná",shortCode:"PR"},{name:"Pernambuco",shortCode:"PE"},{name:"Piauí",shortCode:"PI"},{name:"Rio de Janeiro",shortCode:"RJ"},{name:"Rio Grande do Norte",shortCode:"RN"},{name:"Rio Grande do Sul",shortCode:"RS"},{name:"Rondônia",shortCode:"RO"},{name:"Roraima",shortCode:"RR"},{name:"Santa Catarina",shortCode:"SC"},{name:"São Paulo",shortCode:"SP"},{name:"Sergipe",shortCode:"SE"},{name:"Tocantins",shortCode:"TO"}]},{countryName:"British Indian Ocean Territory",countryShortCode:"IO",regions:[{name:"British Indian Ocean Territory",shortCode:"IO"}]},{countryName:"Brunei Darussalam",countryShortCode:"BN",regions:[{name:"Belait",shortCode:"BE"},{name:"Brunei Muara",shortCode:"BM"},{name:"Temburong",shortCode:"TE"},{name:"Tutong",shortCode:"TU"}]},{countryName:"Bulgaria",countryShortCode:"BG",regions:[{name:"Blagoevgrad",shortCode:"01"},{name:"Burgas",shortCode:"02"},{name:"Dobrich",shortCode:"08"},{name:"Gabrovo",shortCode:"07"},{name:"Jambol",shortCode:"28"},{name:"Khaskovo",shortCode:"26"},{name:"Kjustendil",shortCode:"10"},{name:"Kurdzhali",shortCode:"09"},{name:"Lovech",shortCode:"11"},{name:"Montana",shortCode:"12"},{name:"Pazardzhik",shortCode:"13"},{name:"Pernik",shortCode:"14"},{name:"Pleven",shortCode:"15"},{name:"Plovdiv",shortCode:"16"},{name:"Razgrad",shortCode:"17"},{name:"Ruse",shortCode:"18"},{name:"Shumen",shortCode:"27"},{name:"Silistra",shortCode:"19"},{name:"Sliven",shortCode:"20"},{name:"Smoljan",shortCode:"21"},{name:"Sofija",shortCode:"23"},{name:"Sofija-Grad",shortCode:"22"},{name:"Stara Zagora",shortCode:"24"},{name:"Turgovishhe",shortCode:"25"},{name:"Varna",shortCode:"03"},{name:"Veliko Turnovo",shortCode:"04"},{name:"Vidin",shortCode:"05"},{name:"Vraca",shortCode:"06"}]},{countryName:"Burkina Faso",countryShortCode:"BF",regions:[{name:"Balé",shortCode:"BAL"},{name:"Bam/Lake Bam",shortCode:"BAM"},{name:"Banwa Province",shortCode:"BAN"},{name:"Bazèga",shortCode:"BAZ"},{name:"Bougouriba",shortCode:"BGR"},{name:"Boulgou Province",shortCode:"BLG"},{name:"Boulkiemdé",shortCode:"BLK"},{name:"Comoé/Komoe",shortCode:"COM"},{name:"Ganzourgou Province",shortCode:"GAN"},{name:"Gnagna",shortCode:"GNA"},{name:"Gourma Province",shortCode:"GOU"},{name:"Houet",shortCode:"HOU"},{name:"Ioba",shortCode:"IOB"},{name:"Kadiogo",shortCode:"KAD"},{name:"Kénédougou",shortCode:"KEN"},{name:"Komondjari",shortCode:"KMD"},{name:"Kompienga",shortCode:"KMP"},{name:"Kossi Province",shortCode:"KOS"},{name:"Koulpélogo",shortCode:"KOP"},{name:"Kouritenga",shortCode:"KOT"},{name:"Kourwéogo",shortCode:"KOW"},{name:"Léraba",shortCode:"LER"},{name:"Loroum",shortCode:"LOR"},{name:"Mouhoun",shortCode:"MOU"},{name:"Namentenga",shortCode:"NAM"},{name:"Naouri/Nahouri",shortCode:"NAO"},{name:"Nayala",shortCode:"NAY"},{name:"Noumbiel",shortCode:"NOU"},{name:"Oubritenga",shortCode:"OUB"},{name:"Oudalan",shortCode:"OUD"},{name:"Passoré",shortCode:"PAS"},{name:"Poni",shortCode:"PON"},{name:"Sanguié",shortCode:"SNG"},{name:"Sanmatenga",shortCode:"SMT"},{name:"Séno",shortCode:"SEN"},{name:"Sissili",shortCode:"SIS"},{name:"Soum",shortCode:"SOM"},{name:"Sourou",shortCode:"SOR"},{name:"Tapoa",shortCode:"TAP"},{name:"Tui/Tuy",shortCode:"TUI"},{name:"Yagha",shortCode:"YAG"},{name:"Yatenga",shortCode:"YAT"},{name:"Ziro",shortCode:"ZIR"},{name:"Zondoma",shortCode:"ZON"},{name:"Zoundwéogo",shortCode:"ZOU"}]},{countryName:"Burundi",countryShortCode:"BI",regions:[{name:"Bubanza",shortCode:"BB"},{name:"Bujumbura Mairie",shortCode:"BM"},{name:"Bujumbura Rural",shortCode:"BL"},{name:"Bururi",shortCode:"BR"},{name:"Cankuzo",shortCode:"CA"},{name:"Cibitoke",shortCode:"CI"},{name:"Gitega",shortCode:"GI"},{name:"Karuzi",shortCode:"KR"},{name:"Kayanza",shortCode:"KY"},{name:"Kirundo",shortCode:"KI"},{name:"Makamba",shortCode:"MA"},{name:"Muramvya",shortCode:"MU"},{name:"Muyinga",shortCode:"MY"},{name:"Mwaro",shortCode:"MW"},{name:"Ngozi",shortCode:"NG"},{name:"Rutana",shortCode:"RT"},{name:"Ruyigi",shortCode:"RY"}]},{countryName:"Cambodia",countryShortCode:"KH",regions:[{name:"Baat Dambang",shortCode:"2"},{name:"Banteay Mean Chey",shortCode:"1"},{name:"Kampong Chaam",shortCode:"3"},{name:"Kampong Chhnang",shortCode:"4"},{name:"Kampong Spueu",shortCode:"5"},{name:"Kampong Thum",shortCode:"6"},{name:"Kampot",shortCode:"7"},{name:"Kandaal",shortCode:"8"},{name:"Kaoh Kong",shortCode:"9"},{name:"Kracheh",shortCode:"10"},{name:"Krong Kaeb",shortCode:"23"},{name:"Krong Pailin",shortCode:"24"},{name:"Krong Preah Sihanouk",shortCode:"18"},{name:"Mondol Kiri",shortCode:"11"},{name:"Otdar Mean Chey",shortCode:"22"},{name:"Phnom Penh",shortCode:"12"},{name:"Pousaat",shortCode:"15"},{name:"Preah Vihear",shortCode:"13"},{name:"Prey Veaeng",shortCode:"14"},{name:"Rotanah Kiri",shortCode:"16"},{name:"Siem Reab",shortCode:"17"},{name:"Stueng Treng",shortCode:"19"},{name:"Svaay Rieng",shortCode:"20"},{name:"Taakaev",shortCode:"21"},{name:"Tbong Khmum",shortCode:"25"}]},{countryName:"Cameroon",countryShortCode:"CM",regions:[{name:"Adamaoua",shortCode:"AD"},{name:"Centre",shortCode:"CE"},{name:"Est",shortCode:"ES"},{name:"Extrême-Nord",shortCode:"EN"},{name:"Littoral",shortCode:"LT"},{name:"Nord",shortCode:"NO"},{name:"Nord-Ouest",shortCode:"NW"},{name:"Ouest",shortCode:"OU"},{name:"Sud",shortCode:"SU"},{name:"Sud-Ouest",shortCode:"SW"}]},{countryName:"Canada",countryShortCode:"CA",regions:[{name:"Alberta",shortCode:"AB"},{name:"British Columbia",shortCode:"BC"},{name:"Manitoba",shortCode:"MB"},{name:"New Brunswick",shortCode:"NB"},{name:"Newfoundland and Labrador",shortCode:"NL"},{name:"Northwest Territories",shortCode:"NT"},{name:"Nova Scotia",shortCode:"NS"},{name:"Nunavut",shortCode:"NU"},{name:"Ontario",shortCode:"ON"},{name:"Prince Edward Island",shortCode:"PE"},{name:"Quebec",shortCode:"QC"},{name:"Saskatchewan",shortCode:"SK"},{name:"Yukon",shortCode:"YT"}]},{countryName:"Cape Verde",countryShortCode:"CV",regions:[{name:"Boa Vista",shortCode:"BV"},{name:"Brava",shortCode:"BR"},{name:"Calheta de São Miguel",shortCode:"CS"},{name:"Maio",shortCode:"MA"},{name:"Mosteiros",shortCode:"MO"},{name:"Paúl",shortCode:"PA"},{name:"Porto Novo",shortCode:"PN"},{name:"Praia",shortCode:"PR"},{name:"Ribeira Brava",shortCode:"RB"},{name:"Ribeira Grande",shortCode:"RG"},{name:"Sal",shortCode:"SL"},{name:"Santa Catarina",shortCode:"CA"},{name:"Santa Cruz",shortCode:"CR"},{name:"São Domingos",shortCode:"SD"},{name:"São Filipe",shortCode:"SF"},{name:"São Nicolau",shortCode:"SN"},{name:"São Vicente",shortCode:"SV"},{name:"Tarrafal",shortCode:"TA"},{name:"Tarrafal de São Nicolau",shortCode:"TS"}]},{countryName:"Cayman Islands",countryShortCode:"KY",regions:[{name:"Creek"},{name:"Eastern"},{name:"Midland"},{name:"South Town"},{name:"Spot Bay"},{name:"Stake Bay"},{name:"West End"},{name:"Western"}]},{countryName:"Central African Republic",countryShortCode:"CF",regions:[{name:"Bamingui-Bangoran",shortCode:"BB"},{name:"Bangui",shortCode:"BGF"},{name:"Basse-Kotto",shortCode:"BK"},{name:"Haute-Kotto",shortCode:"HK"},{name:"Haut-Mbomou",shortCode:"HM"},{name:"Kémo",shortCode:"KG"},{name:"Lobaye",shortCode:"LB"},{name:"Mambéré-Kadéï",shortCode:"HS"},{name:"Mbomou",shortCode:"MB"},{name:"Nana-Grebizi",shortCode:"10"},{name:"Nana-Mambéré",shortCode:"NM"},{name:"Ombella-M'Poko",shortCode:"MP"},{name:"Ouaka",shortCode:"UK"},{name:"Ouham",shortCode:"AC"},{name:"Ouham Péndé",shortCode:"OP"},{name:"Sangha-Mbaéré",shortCode:"SE"},{name:"Vakaga",shortCode:"VK"}]},{countryName:"Chad",countryShortCode:"TD",regions:[{name:"Bahr el Ghazal",shortCode:"BG"},{name:"Batha",shortCode:"BA"},{name:"Borkou",shortCode:"BO"},{name:"Chari-Baguirmi",shortCode:"CB"},{name:"Ennedi-Est",shortCode:"EE"},{name:"Ennedi-Ouest",shortCode:"EO"},{name:"Guéra",shortCode:"GR"},{name:"Hadjer Lamis",shortCode:"HL"},{name:"Kanem",shortCode:"KA"},{name:"Lac",shortCode:"LC"},{name:"Logone Occidental",shortCode:"LO"},{name:"Logone Oriental",shortCode:"LR"},{name:"Mondoul",shortCode:"MA"},{name:"Mayo-Kébbi-Est",shortCode:"ME"},{name:"Moyen-Chari",shortCode:"MC"},{name:"Ouaddai",shortCode:"OD"},{name:"Salamat",shortCode:"SA"},{name:"Sila",shortCode:"SI"},{name:"Tandjilé",shortCode:"TA"},{name:"Tibesti",shortCode:"TI"},{name:"Ville de Ndjamena",shortCode:"ND"},{name:"Wadi Fira",shortCode:"WF"}]},{countryName:"Chile",countryShortCode:"CL",regions:[{name:"Aisén del General Carlos Ibáñez del Campo",shortCode:"AI"},{name:"Antofagasta",shortCode:"AN"},{name:"Araucanía",shortCode:"AR"},{name:"Arica y Parinacota",shortCode:"AP"},{name:"Atacama",shortCode:"AT"},{name:"Bío-Bío",shortCode:"BI"},{name:"Coquimbo",shortCode:"CO"},{name:"Libertador General Bernardo O'Higgins",shortCode:"LI"},{name:"Los Lagos",shortCode:"LL"},{name:"Los Ríos",shortCode:"LR"},{name:"Magallanes y Antartica Chilena",shortCode:"MA"},{name:"Marga-Marga",shortCode:""},{name:"Maule",shortCode:"ML"},{name:"Ñuble",shortCode:"NB"},{name:"Región Metropolitana de Santiago",shortCode:"RM"},{name:"Tarapacá",shortCode:"TA"},{name:"Valparaíso",shortCode:"VS"}]},{countryName:"China",countryShortCode:"CN",regions:[{name:"Anhui",shortCode:"34"},{name:"Beijing",shortCode:"11"},{name:"Chongqing",shortCode:"50"},{name:"Fujian",shortCode:"35"},{name:"Gansu",shortCode:"62"},{name:"Guangdong",shortCode:"44"},{name:"Guangxi",shortCode:"45"},{name:"Guizhou",shortCode:"52"},{name:"Hainan",shortCode:"46"},{name:"Hebei",shortCode:"13"},{name:"Heilongjiang",shortCode:"23"},{name:"Henan",shortCode:"41"},{name:"Hong Kong",shortCode:"91"},{name:"Hubei",shortCode:"42"},{name:"Hunan",shortCode:"43"},{name:"Inner Mongolia",shortCode:"15"},{name:"Jiangsu",shortCode:"32"},{name:"Jiangxi",shortCode:"36"},{name:"Jilin",shortCode:"22"},{name:"Liaoning",shortCode:"21"},{name:"Macau",shortCode:"92"},{name:"Ningxia",shortCode:"64"},{name:"Qinghai",shortCode:"63"},{name:"Shaanxi",shortCode:"61"},{name:"Shandong",shortCode:"37"},{name:"Shanghai",shortCode:"31"},{name:"Shanxi",shortCode:"14"},{name:"Sichuan",shortCode:"51"},{name:"Tianjin",shortCode:"12"},{name:"Tibet",shortCode:"54"},{name:"Xinjiang",shortCode:"65"},{name:"Yunnan",shortCode:"53"},{name:"Zhejiang",shortCode:"33"}]},{countryName:"Christmas Island",countryShortCode:"CX",regions:[{name:"Christmas Island",shortCode:"CX"}]},{countryName:"Cocos (Keeling) Islands",countryShortCode:"CC",regions:[{name:"Direction Island",shortCode:"DI"},{name:"Home Island",shortCode:"HM"},{name:"Horsburgh Island",shortCode:"HR"},{name:"North Keeling Island",shortCode:"NK"},{name:"South Island",shortCode:"SI"},{name:"West Island",shortCode:"WI"}]},{countryName:"Colombia",countryShortCode:"CO",regions:[{name:"Amazonas",shortCode:"AMA"},{name:"Antioquia",shortCode:"ANT"},{name:"Arauca",shortCode:"ARA"},{name:"Archipiélago de San Andrés",shortCode:"SAP"},{name:"Atlántico",shortCode:"ATL"},{name:"Bogotá D.C.",shortCode:"DC"},{name:"Bolívar",shortCode:"BOL"},{name:"Boyacá",shortCode:"BOY"},{name:"Caldas",shortCode:"CAL"},{name:"Caquetá",shortCode:"CAQ"},{name:"Casanare",shortCode:"CAS"},{name:"Cauca",shortCode:"CAU"},{name:"Cesar",shortCode:"CES"},{name:"Chocó",shortCode:"CHO"},{name:"Córdoba",shortCode:"COR"},{name:"Cundinamarca",shortCode:"CUN"},{name:"Guainía",shortCode:"GUA"},{name:"Guaviare",shortCode:"GUV"},{name:"Huila",shortCode:"HUI"},{name:"La Guajira",shortCode:"LAG"},{name:"Magdalena",shortCode:"MAG"},{name:"Meta",shortCode:"MET"},{name:"Nariño",shortCode:"NAR"},{name:"Norte de Santander",shortCode:"NSA"},{name:"Putumayo",shortCode:"PUT"},{name:"Quindío",shortCode:"QUI"},{name:"Risaralda",shortCode:"RIS"},{name:"Santander",shortCode:"SAN"},{name:"Sucre",shortCode:"SUC"},{name:"Tolima",shortCode:"TOL"},{name:"Valle del Cauca",shortCode:"VAC"},{name:"Vaupés",shortCode:"VAU"},{name:"Vichada",shortCode:"VID"}]},{countryName:"Comoros",countryShortCode:"KM",regions:[{name:"Andjazîdja",shortCode:"G"},{name:"Andjouân",shortCode:"A"},{name:"Moûhîlî",shortCode:"M"}]},{countryName:"Congo, Republic of the (Brazzaville)",countryShortCode:"CG",regions:[{name:"Bouenza",shortCode:"11"},{name:"Brazzaville",shortCode:"BZV"},{name:"Cuvette",shortCode:"8"},{name:"Cuvette-Ouest",shortCode:"15"},{name:"Kouilou",shortCode:"5"},{name:"Lékoumou",shortCode:"2"},{name:"Likouala",shortCode:"7"},{name:"Niari",shortCode:"9"},{name:"Plateaux",shortCode:"14"},{name:"Pointe-Noire",shortCode:"16"},{name:"Pool",shortCode:"12"},{name:"Sangha",shortCode:"13"}]},{countryName:"Congo, the Democratic Republic of the (Kinshasa)",countryShortCode:"CD",regions:[{name:"Bandundu",shortCode:"BN"},{name:"Bas-Congo",shortCode:"BC"},{name:"Équateur",shortCode:"EQ"},{name:"Kasaï-Occidental",shortCode:"KE"},{name:"Kasaï-Oriental",shortCode:"KW"},{name:"Katanga",shortCode:"KA"},{name:"Kinshasa",shortCode:"KN"},{name:"Maniema",shortCode:"MA"},{name:"Nord-Kivu",shortCode:"NK"},{name:"Orientale",shortCode:"OR"},{name:"Sud-Kivu",shortCode:"SK"}]},{countryName:"Cook Islands",countryShortCode:"CK",regions:[{name:"Aitutaki"},{name:"Atiu"},{name:"Avarua"},{name:"Mangaia"},{name:"Manihiki"},{name:"Ma'uke"},{name:"Mitiaro"},{name:"Nassau"},{name:"Palmerston"},{name:"Penrhyn"},{name:"Pukapuka"},{name:"Rakahanga"}]},{countryName:"Costa Rica",countryShortCode:"CR",regions:[{name:"Alajuela",shortCode:"2"},{name:"Cartago",shortCode:"3"},{name:"Guanacaste",shortCode:"5"},{name:"Heredia",shortCode:"4"},{name:"Limón",shortCode:"7"},{name:"Puntarenas",shortCode:"6"},{name:"San José",shortCode:"1"}]},{countryName:"Côte d'Ivoire, Republic of",countryShortCode:"CI",regions:[{name:"Agnéby",shortCode:"16"},{name:"Bafing",shortCode:"17"},{name:"Bas-Sassandra",shortCode:"09"},{name:"Denguélé",shortCode:"10"},{name:"Dix-Huit Montagnes",shortCode:"06"},{name:"Fromager",shortCode:"18"},{name:"Haut-Sassandra",shortCode:"02"},{name:"Lacs",shortCode:"07"},{name:"Lagunes",shortCode:"01"},{name:"Marahoué",shortCode:"12"},{name:"Moyen-Cavally",shortCode:"19"},{name:"Moyen-Comoé",shortCode:"05"},{name:"N'zi-Comoé",shortCode:"11"},{name:"Savanes",shortCode:"03"},{name:"Sud-Bandama",shortCode:"15"},{name:"Sud-Comoé",shortCode:"13"},{name:"Vallée du Bandama",shortCode:"04"},{name:"Worodougou",shortCode:"14"},{name:"Zanzan",shortCode:"08"}]},{countryName:"Croatia",countryShortCode:"HR",regions:[{name:"Bjelovarsko-Bilogorska Županija",shortCode:"07"},{name:"Brodsko-Posavska Županija",shortCode:"12"},{name:"Dubrovačko-Neretvanska Županija",shortCode:"19"},{name:"Grad Zagreb",shortCode:"21"},{name:"Istarska Županija",shortCode:"18"},{name:"Karlovačka Županija",shortCode:"04"},{name:"Koprivničko-Krizevačka Županija",shortCode:"06"},{name:"Krapinsko-Zagorska Županija",shortCode:"02"},{name:"Ličko-Senjska Županija",shortCode:"09"},{name:"Međimurska Županija",shortCode:"20"},{name:"Osječko-Baranjska Županija",shortCode:"14"},{name:"Požeško-Slavonska Županija",shortCode:"11"},{name:"Primorsko-Goranska Županija",shortCode:"08"},{name:"Sisačko-Moslavačka Županija",shortCode:"03"},{name:"Splitsko-Dalmatinska Županija",shortCode:"17"},{name:"Sibensko-Kninska Županija",shortCode:"15"},{name:"Varaždinska Županija",shortCode:"05"},{name:"Virovitičko-Podravska Županija",shortCode:"10"},{name:"Vukovarsko-Srijemska Županija",shortCode:"16"},{name:"Zadarska Županija",shortCode:"13"},{name:"Zagrebacka Zupanija",shortCode:"01"}]},{countryName:"Cuba",countryShortCode:"CU",regions:[{name:"Artemisa",shortCode:"15"},{name:"Camagüey",shortCode:"09"},{name:"Ciego de Ávila",shortCode:"08"},{name:"Cienfuegos",shortCode:"06"},{name:"Granma",shortCode:"12"},{name:"Guantánamo",shortCode:"14"},{name:"Holguín",shortCode:"11"},{name:"Isla de la Juventud",shortCode:"99"},{name:"La Habana",shortCode:"03"},{name:"Las Tunas",shortCode:"10"},{name:"Matanzas",shortCode:"04"},{name:"Mayabeque",shortCode:"16"},{name:"Pinar del Río",shortCode:"01"},{name:"Sancti Spíritus",shortCode:"07"},{name:"Santiago de Cuba",shortCode:"13"},{name:"Villa Clara",shortCode:"05"}]},{countryName:"Curaçao",countryShortCode:"CW",regions:[{name:"Curaçao",shortCode:"CW"}]},{countryName:"Cyprus",countryShortCode:"CY",regions:[{name:"Ammochostos",shortCode:"04"},{name:"Keryneia",shortCode:"05"},{name:"Larnaka",shortCode:"03"},{name:"Lefkosia",shortCode:"01"},{name:"Lemesos",shortCode:"02"},{name:"Pafos",shortCode:"05"}]},{countryName:"Czech Republic",countryShortCode:"CZ",regions:[{name:"Hlavní město Praha",shortCode:"PR"},{name:"Jihočeský kraj",shortCode:"JC"},{name:"Jihomoravský kraj",shortCode:"JM"},{name:"Karlovarský kraj",shortCode:"KA"},{name:"Královéhradecký kraj",shortCode:"KR"},{name:"Liberecký kraj",shortCode:"LI"},{name:"Moravskoslezský kraj",shortCode:"MO"},{name:"Olomoucký kraj",shortCode:"OL"},{name:"Pardubický kraj",shortCode:"PA"},{name:"Plzeňský kraj",shortCode:"PL"},{name:"Středočeský kraj",shortCode:"ST"},{name:"Ústecký kraj",shortCode:"US"},{name:"Vysočina",shortCode:"VY"},{name:"Zlínský kraj",shortCode:"ZL"}]},{countryName:"Denmark",countryShortCode:"DK",regions:[{name:"Hovedstaden",shortCode:"84"},{name:"Kujalleq",shortCode:"GL-KU"},{name:"Midtjylland",shortCode:"82"},{name:"Norderøerne",shortCode:"FO-01"},{name:"Nordjylland",shortCode:"81"},{name:"Østerø",shortCode:"FO-06"},{name:"Qaasuitsup",shortCode:"GL-QA"},{name:"Qeqqata",shortCode:"GL-QE"},{name:"Sandø",shortCode:"FO-02"},{name:"Sermersooq",shortCode:"GL-SM"},{name:"Sjælland",shortCode:"85"},{name:"Strømø",shortCode:"FO-03"},{name:"Suderø",shortCode:"FO-04"},{name:"Syddanmark",shortCode:"83"},{name:"Vågø",shortCode:"FO-05"}]},{countryName:"Djibouti",countryShortCode:"DJ",regions:[{name:"Ali Sabieh",shortCode:"AS"},{name:"Arta",shortCode:"AR"},{name:"Dikhil",shortCode:"DI"},{name:"Obock",shortCode:"OB"},{name:"Tadjourah",shortCode:"TA"}]},{countryName:"Dominica",countryShortCode:"DM",regions:[{name:"Saint Andrew Parish",shortCode:"02"},{name:"Saint David Parish",shortCode:"03"},{name:"Saint George Parish",shortCode:"04"},{name:"Saint John Parish",shortCode:"05"},{name:"Saint Joseph Parish",shortCode:"06"},{name:"Saint Luke Parish",shortCode:"07"},{name:"Saint Mark Parish",shortCode:"08"},{name:"Saint Patrick Parish",shortCode:"09"},{name:"Saint Paul Parish",shortCode:"10"},{name:"Saint Peter Parish",shortCode:"11"}]},{countryName:"Dominican Republic",countryShortCode:"DO",regions:[{name:"Cibao Central",shortCode:"02"},{name:"Del Valle",shortCode:"37"},{name:"Distrito Nacional",shortCode:"01"},{name:"Enriquillo",shortCode:"38"},{name:"Norcentral",shortCode:"04"},{name:"Nordeste",shortCode:"34"},{name:"Noroeste",shortCode:"34"},{name:"Norte",shortCode:"35"},{name:"Valdesia",shortCode:"42"}]},{countryName:"Ecuador",countryShortCode:"EC",regions:[{name:"Azuay",shortCode:"A"},{name:"Bolívar",shortCode:"B"},{name:"Cañar",shortCode:"F"},{name:"Carchi",shortCode:"C"},{name:"Chimborazo",shortCode:"H"},{name:"Cotopaxi",shortCode:"X"},{name:"El Oro",shortCode:"O"},{name:"Esmeraldas",shortCode:"E"},{name:"Galápagos",shortCode:"W"},{name:"Guayas",shortCode:"G"},{name:"Imbabura",shortCode:"I"},{name:"Loja",shortCode:"L"},{name:"Los Ríos",shortCode:"R"},{name:"Manabí",shortCode:"M"},{name:"Morona-Santiago",shortCode:"S"},{name:"Napo",shortCode:"N"},{name:"Orellana",shortCode:"D"},{name:"Pastaza",shortCode:"Y"},{name:"Pichincha",shortCode:"P"},{name:"Santa Elena",shortCode:"SE"},{name:"Santo Domingo de los Tsáchilas",shortCode:"SD"},{name:"Sucumbíos",shortCode:"U"},{name:"Tungurahua",shortCode:"T"},{name:"Zamora-Chinchipe",shortCode:"Z"}]},{countryName:"Egypt",countryShortCode:"EG",regions:[{name:"Alexandria",shortCode:"ALX"},{name:"Aswan",shortCode:"ASN"},{name:"Asyout",shortCode:"AST"},{name:"Bani Sueif",shortCode:"BNS"},{name:"Beheira",shortCode:"BH"},{name:"Cairo",shortCode:"C"},{name:"Daqahlia",shortCode:"DK"},{name:"Dumiat",shortCode:"DT"},{name:"El Bahr El Ahmar",shortCode:"BA"},{name:"El Ismailia",shortCode:"IS"},{name:"El Suez",shortCode:"SUZ"},{name:"El Wadi El Gedeed",shortCode:"WAD"},{name:"Fayoum",shortCode:"FYM"},{name:"Gharbia",shortCode:"GH"},{name:"Giza",shortCode:"SUZ"},{name:"Helwan",shortCode:"HU"},{name:"Kafr El Sheikh",shortCode:"KFS"},{name:"Luxor",shortCode:"LX"},{name:"Matrouh",shortCode:"MT"},{name:"Menia",shortCode:"MN"},{name:"Menofia",shortCode:"MNF"},{name:"North Sinai",shortCode:"SIN"},{name:"Port Said",shortCode:"PTS"},{name:"Qalubia",shortCode:"KB"},{name:"Qena",shortCode:"KN"},{name:"Sharqia",shortCode:"SHR"},{name:"Sixth of October",shortCode:"SU"},{name:"Sohag",shortCode:"SHG"},{name:"South Sinai",shortCode:"JS"}]},{countryName:"El Salvador",countryShortCode:"SV",regions:[{name:"Ahuachapán",shortCode:"AH"},{name:"Cabañas",shortCode:"CA"},{name:"Cuscatlán",shortCode:"CU"},{name:"Chalatenango",shortCode:"CH"},{name:"La Libertad",shortCode:"LI"},{name:"La Paz",shortCode:"PA"},{name:"La Unión",shortCode:"UN"},{name:"Morazán",shortCode:"MO"},{name:"San Miguel",shortCode:"SM"},{name:"San Salvador",shortCode:"SS"},{name:"Santa Ana",shortCode:"SA"},{name:"San Vicente",shortCode:"SV"},{name:"Sonsonate",shortCode:"SO"},{name:"Usulután",shortCode:"US"}]},{countryName:"Equatorial Guinea",countryShortCode:"GQ",regions:[{name:"Annobón",shortCode:"AN"},{name:"Bioko Norte",shortCode:"BN"},{name:"Bioko Sur",shortCode:"BS"},{name:"Centro Sur",shortCode:"CS"},{name:"Kié-Ntem",shortCode:"KN"},{name:"Litoral",shortCode:"LI"},{name:"Wele-Nzas",shortCode:"WN"}]},{countryName:"Eritrea",countryShortCode:"ER",regions:[{name:"Anseba",shortCode:"AN"},{name:"Debub",shortCode:"DU"},{name:"Debub-Keih-Bahri",shortCode:"DK"},{name:"Gash-Barka",shortCode:"GB"},{name:"Maekel",shortCode:"MA"},{name:"Semien-Keih-Bahri",shortCode:"SK"}]},{countryName:"Estonia",countryShortCode:"EE",regions:[{name:"Harjumaa (Tallinn)",shortCode:"37"},{name:"Hiiumaa (Kardla)",shortCode:"39"},{name:"Ida-Virumaa (Johvi)",shortCode:"44"},{name:"Järvamaa (Paide)",shortCode:"41"},{name:"Jõgevamaa (Jogeva)",shortCode:"49"},{name:"Läänemaa",shortCode:"57"},{name:"Lääne-Virumaa (Rakvere)",shortCode:"59"},{name:"Pärnumaa (Parnu)",shortCode:"67"},{name:"Põlvamaa (Polva)",shortCode:"65"},{name:"Raplamaa (Rapla)",shortCode:"70"},{name:"Saaremaa (Kuessaare)",shortCode:"74"},{name:"Tartumaa (Tartu)",shortCode:"78"},{name:"Valgamaa (Valga)",shortCode:"82"},{name:"Viljandimaa (Viljandi)",shortCode:"84"},{name:"Võrumaa (Voru)",shortCode:"86"}]},{countryName:"Ethiopia",countryShortCode:"ET",regions:[{name:"Addis Ababa",shortCode:"AA"},{name:"Afar",shortCode:"AF"},{name:"Amhara",shortCode:"AM"},{name:"Benshangul-Gumaz",shortCode:"BE"},{name:"Dire Dawa",shortCode:"DD"},{name:"Gambela",shortCode:"GA"},{name:"Harari",shortCode:"HA"},{name:"Oromia",shortCode:"OR"},{name:"Somali",shortCode:"SO"},{name:"Southern Nations Nationalities and People's Region",shortCode:"SN"},{name:"Tigray",shortCode:"TI"}]},{countryName:"Falkland Islands (Islas Malvinas)",countryShortCode:"FK",regions:[{name:"Falkland Islands (Islas Malvinas)"}]},{countryName:"Faroe Islands",countryShortCode:"FO",regions:[{name:"Bordoy"},{name:"Eysturoy"},{name:"Mykines"},{name:"Sandoy"},{name:"Skuvoy"},{name:"Streymoy"},{name:"Suduroy"},{name:"Tvoroyri"},{name:"Vagar"}]},{countryName:"Fiji",countryShortCode:"FJ",regions:[{name:"Ba",shortCode:"01"},{name:"Bua",shortCode:"01"},{name:"Cakaudrove",shortCode:"03"},{name:"Kadavu",shortCode:"04"},{name:"Lau",shortCode:"05"},{name:"Lomaiviti",shortCode:"06"},{name:"Macuata",shortCode:"07"},{name:"Nadroga and Navosa",shortCode:"08"},{name:"Naitasiri",shortCode:"09"},{name:"Namosi",shortCode:"10"},{name:"Ra",shortCode:"011"},{name:"Rewa",shortCode:"12"},{name:"Rotuma",shortCode:"R"},{name:"Serua",shortCode:"12"},{name:"Tailevu",shortCode:"14"}]},{countryName:"Finland",countryShortCode:"FI",regions:[{name:"Ahvenanmaan lääni",shortCode:"AL"},{name:"Etelä-Suomen lääni",shortCode:"ES"},{name:"Itä-Suomen lääni",shortCode:"IS"},{name:"Länsi-Suomen lääni",shortCode:"LS"},{name:"Lapin lääni",shortCode:"LL"},{name:"Oulun lääni",shortCode:"OL"}]},{countryName:"France",countryShortCode:"FR",regions:[{name:"Auvergne-Rhône-Alpes",shortCode:"ARA"},{name:"Bourgogne-Franche-Comté",shortCode:"BFC"},{name:"Bretagne",shortCode:"BRE"},{name:"Centre-Val de Loire",shortCode:"CVL"},{name:"Corse",shortCode:"COR"},{name:"Grand Est",shortCode:"GES"},{name:"Hauts-de-France",shortCode:"HDF"},{name:"Île-de-France",shortCode:"IDF"},{name:"Normandie",shortCode:"NOR"},{name:"Nouvelle-Aquitaine",shortCode:"NAQ"},{name:"Occitanie",shortCode:"OCC"},{name:"Pays de la Loire",shortCode:"PDL"},{name:"Provence-Alpes-Cote d'Azur",shortCode:"PAC"},{name:"Clipperton",shortCode:"CP"},{name:"Guadeloupe",shortCode:"GP"},{name:"Guyane",shortCode:"GF"},{name:"Martinique",shortCode:"MQ"},{name:"Mayotte",shortCode:"YT"},{name:"Novelle-Calédonie",shortCode:"NC"},{name:"Polynésie",shortCode:"PF"},{name:"Saint-Pierre-et-Miquelon",shortCode:"PM"},{name:"Saint Barthélemy",shortCode:"BL"},{name:"Saint Martin",shortCode:"MF"},{name:"Réunion",shortCode:"RE"},{name:"Terres Australes Françaises",shortCode:"TF"},{name:"Wallis-et-Futuna",shortCode:"WF"}]},{countryName:"French Guiana",countryShortCode:"GF",regions:[{name:"French Guiana"}]},{countryName:"French Polynesia",countryShortCode:"PF",regions:[{name:"Archipel des Marquises"},{name:"Archipel des Tuamotu"},{name:"Archipel des Tubuai"},{name:"Iles du Vent"},{name:"Iles Sous-le-Vent"}]},{countryName:"French Southern and Antarctic Lands",countryShortCode:"TF",regions:[{name:"Adelie Land"},{name:"Ile Crozet"},{name:"Iles Kerguelen"},{name:"Iles Saint-Paul et Amsterdam"}]},{countryName:"Gabon",countryShortCode:"GA",regions:[{name:"Estuaire",shortCode:"1"},{name:"Haut-Ogooué",shortCode:"2"},{name:"Moyen-Ogooué",shortCode:"3"},{name:"Ngounié",shortCode:"4"},{name:"Nyanga",shortCode:"5"},{name:"Ogooué-Ivindo",shortCode:"6"},{name:"Ogooué-Lolo",shortCode:"7"},{name:"Ogooué-Maritime",shortCode:"8"},{name:"Woleu-Ntem",shortCode:"9"}]},{countryName:"Gambia, The",countryShortCode:"GM",regions:[{name:"Banjul",shortCode:"B"},{name:"Central River",shortCode:"M"},{name:"Lower River",shortCode:"L"},{name:"North Bank",shortCode:"N"},{name:"Upper River",shortCode:"U"},{name:"Western",shortCode:"W"}]},{countryName:"Georgia",countryShortCode:"GE",regions:[{name:"Abkhazia (Sokhumi)",shortCode:"AB"},{name:"Ajaria (Bat'umi)",shortCode:"AJ"},{name:"Guria",shortCode:"GU"},{name:"Imereti",shortCode:"IM"},{name:"K'akheti",shortCode:"KA"},{name:"Kvemo Kartli",shortCode:"KK"},{name:"Mtshkheta-Mtianeti",shortCode:"MM"},{name:"Rach'a-Lexhkumi-KvemoSvaneti",shortCode:"RL"},{name:"Samegrelo-Zemo Svaneti",shortCode:"SZ"},{name:"Samtskhe-Javakheti",shortCode:"SJ"},{name:"Shida Kartli",shortCode:"SK"},{name:"Tbilisi",shortCode:"TB"}]},{countryName:"Germany",countryShortCode:"DE",regions:[{name:"Baden-Württemberg",shortCode:"BW"},{name:"Bayern",shortCode:"BY"},{name:"Berlin",shortCode:"BE"},{name:"Brandenburg",shortCode:"BB"},{name:"Bremen",shortCode:"HB"},{name:"Hamburg",shortCode:"HH"},{name:"Hessen",shortCode:"HE"},{name:"Mecklenburg-Vorpommern",shortCode:"MV"},{name:"Niedersachsen",shortCode:"NI"},{name:"Nordrhein-Westfalen",shortCode:"NW"},{name:"Rheinland-Pfalz",shortCode:"RP"},{name:"Saarland",shortCode:"SL"},{name:"Sachsen",shortCode:"SN"},{name:"Sachsen-Anhalt",shortCode:"ST"},{name:"Schleswig-Holstein",shortCode:"SH"},{name:"Thüringen",shortCode:"TH"}]},{countryName:"Ghana",countryShortCode:"GH",regions:[{name:"Ahafo"},{name:"Ashanti",shortCode:"AH"},{name:"Bono"},{name:"Bono East"},{name:"Central",shortCode:"CP"},{name:"Eastern",shortCode:"EP"},{name:"Greater Accra",shortCode:"AA"},{name:"Northern",shortCode:"NP"},{name:"North East"},{name:"Oti"},{name:"Savannah"},{name:"Upper East",shortCode:"UE"},{name:"Upper West",shortCode:"UW"},{name:"Volta",shortCode:"TV"},{name:"Western",shortCode:"WP"},{name:"Western North"}]},{countryName:"Gibraltar",countryShortCode:"GI",regions:[{name:"Gibraltar"}]},{countryName:"Greece",countryShortCode:"GR",regions:[{name:"Anatolikí Makedonía kai Thráki",shortCode:"A"},{name:"Attikḯ",shortCode:"I"},{name:"Dytikí Elláda",shortCode:"G"},{name:"Dytikí Makedonía",shortCode:"C"},{name:"Ionía Nísia",shortCode:"F"},{name:"Kentrikí Makedonía",shortCode:"B"},{name:"Krítí",shortCode:"M"},{name:"Notío Aigaío",shortCode:"L"},{name:"Peloponnísos",shortCode:"J"},{name:"Stereá Elláda",shortCode:"H"},{name:"Thessalía",shortCode:"E"},{name:"Voreío Aigaío",shortCode:"K"},{name:"Ípeiros",shortCode:"D"},{name:"Ágion Óros",shortCode:"69"}]},{countryName:"Greenland",countryShortCode:"GL",regions:[{name:"Kommune Kujalleq",shortCode:"KU"},{name:"Kommuneqarfik Sermersooq",shortCode:"SM"},{name:"Qaasuitsup Kommunia",shortCode:"QA"},{name:"Qeqqata Kommunia",shortCode:"QE"}]},{countryName:"Grenada",countryShortCode:"GD",regions:[{name:"Saint Andrew",shortCode:"01"},{name:"Saint David",shortCode:"02"},{name:"Saint George",shortCode:"03"},{name:"Saint John",shortCode:"04"},{name:"Saint Mark",shortCode:"05"},{name:"Saint Patrick",shortCode:"06"},{name:"Southern Grenadine Islands",shortCode:"10"}]},{countryName:"Guadeloupe",countryShortCode:"GP",regions:[{name:"Guadeloupe"}]},{countryName:"Guam",countryShortCode:"GU",regions:[{name:"Guam"}]},{countryName:"Guatemala",countryShortCode:"GT",regions:[{name:"Alta Verapaz",shortCode:"AV"},{name:"Baja Verapaz",shortCode:"BV"},{name:"Chimaltenango",shortCode:"CM"},{name:"Chiquimula",shortCode:"CQ"},{name:"El Progreso",shortCode:"PR"},{name:"Escuintla",shortCode:"ES"},{name:"Guatemala",shortCode:"GU"},{name:"Huehuetenango",shortCode:"HU"},{name:"Izabal",shortCode:"IZ"},{name:"Jalapa",shortCode:"JA"},{name:"Jutiapa",shortCode:"JU"},{name:"Petén",shortCode:"PE"},{name:"Quetzaltenango",shortCode:"QZ"},{name:"Quiché",shortCode:"QC"},{name:"Retalhuleu",shortCode:"Re"},{name:"Sacatepéquez",shortCode:"SA"},{name:"San Marcos",shortCode:"SM"},{name:"Santa Rosa",shortCode:"SR"},{name:"Sololá",shortCode:"SO"},{name:"Suchitepéquez",shortCode:"SU"},{name:"Totonicapán",shortCode:"TO"},{name:"Zacapa",shortCode:"ZA"}]},{countryName:"Guernsey",countryShortCode:"GG",regions:[{name:"Castel"},{name:"Forest"},{name:"St. Andrew"},{name:"St. Martin"},{name:"St. Peter Port"},{name:"St. Pierre du Bois"},{name:"St. Sampson"},{name:"St. Saviour"},{name:"Torteval"},{name:"Vale"}]},{countryName:"Guinea",countryShortCode:"GN",regions:[{name:"Boké",shortCode:"B"},{name:"Conakry",shortCode:"C"},{name:"Faranah",shortCode:"F"},{name:"Kankan",shortCode:"K"},{name:"Kindia",shortCode:"D"},{name:"Labé",shortCode:"L"},{name:"Mamou",shortCode:"M"},{name:"Nzérékoré",shortCode:"N"}]},{countryName:"Guinea-Bissau",countryShortCode:"GW",regions:[{name:"Bafatá",shortCode:"BA"},{name:"Biombo",shortCode:"BM"},{name:"Bissau",shortCode:"BS"},{name:"Bolama-Bijagos",shortCode:"BL"},{name:"Cacheu",shortCode:"CA"},{name:"Gabú",shortCode:"GA"},{name:"Oio",shortCode:"OI"},{name:"Quinara",shortCode:"QU"},{name:"Tombali",shortCode:"TO"}]},{countryName:"Guyana",countryShortCode:"GY",regions:[{name:"Barima-Waini",shortCode:"BA"},{name:"Cuyuni-Mazaruni",shortCode:"CU"},{name:"Demerara-Mahaica",shortCode:"DE"},{name:"East Berbice-Corentyne",shortCode:"EB"},{name:"Essequibo Islands-West Demerara",shortCode:"ES"},{name:"Mahaica-Berbice",shortCode:"MA"},{name:"Pomeroon-Supenaam",shortCode:"PM"},{name:"Potaro-Siparuni",shortCode:"PT"},{name:"Upper Demerara-Berbice",shortCode:"UD"},{name:"Upper Takutu-Upper Essequibo",shortCode:"UT"}]},{countryName:"Haiti",countryShortCode:"HT",regions:[{name:"Artibonite",shortCode:"AR"},{name:"Centre",shortCode:"CE"},{name:"Grand'Anse",shortCode:"GA"},{name:"Nippes",shortCode:"NI"},{name:"Nord",shortCode:"ND"},{name:"Nord-Est",shortCode:"NE"},{name:"Nord-Ouest",shortCode:"NO"},{name:"Ouest",shortCode:"OU"},{name:"Sud",shortCode:"SD"},{name:"Sud-Est",shortCode:"SE"}]},{countryName:"Heard Island and McDonald Islands",countryShortCode:"HM",regions:[{name:"Heard Island and McDonald Islands"}]},{countryName:"Holy See (Vatican City)",countryShortCode:"VA",regions:[{name:"Holy See (Vatican City)",shortCode:"01"}]},{countryName:"Honduras",countryShortCode:"HN",regions:[{name:"Atlántida",shortCode:"AT"},{name:"Choluteca",shortCode:"CH"},{name:"Colón",shortCode:"CL"},{name:"Comayagua",shortCode:"CM"},{name:"Copán",shortCode:"CP"},{name:"Cortés",shortCode:"CR"},{name:"El Paraíso",shortCode:"EP"},{name:"Francisco Morazan",shortCode:"FM"},{name:"Gracias a Dios",shortCode:"GD"},{name:"Intibucá",shortCode:"IN"},{name:"Islas de la Bahía",shortCode:"IB"},{name:"La Paz",shortCode:"LP"},{name:"Lempira",shortCode:"LE"},{name:"Ocotepeque",shortCode:"OC"},{name:"Olancho",shortCode:"OL"},{name:"Santa Bárbara",shortCode:"SB"},{name:"Valle",shortCode:"VA"},{name:"Yoro",shortCode:"YO"}]},{countryName:"Hong Kong",countryShortCode:"HK",regions:[{name:"Hong Kong",shortCode:"HK"}]},{countryName:"Hungary",countryShortCode:"HU",regions:[{name:"Bács-Kiskun",shortCode:"BK"},{name:"Baranya",shortCode:"BA"},{name:"Békés",shortCode:"BE"},{name:"Békéscsaba",shortCode:"BC"},{name:"Borsod-Abauj-Zemplen",shortCode:"BZ"},{name:"Budapest",shortCode:"BU"},{name:"Csongrád",shortCode:"CS"},{name:"Debrecen",shortCode:"DE"},{name:"Dunaújváros",shortCode:"DU"},{name:"Eger",shortCode:"EG"},{name:"Érd",shortCode:"ER"},{name:"Fejér",shortCode:"FE"},{name:"Győr",shortCode:"GY"},{name:"Győr-Moson-Sopron",shortCode:"GS"},{name:"Hajdú-Bihar",shortCode:"HB"},{name:"Heves",shortCode:"HE"},{name:"Hódmezővásárhely",shortCode:"HV"},{name:"Jász-Nagykun-Szolnok",shortCode:"N"},{name:"Kaposvár",shortCode:"KV"},{name:"Kecskemét",shortCode:"KM"},{name:"Komárom-Esztergom",shortCode:"KE"},{name:"Miskolc",shortCode:"MI"},{name:"Nagykanizsa",shortCode:"NK"},{name:"Nógrád",shortCode:"NO"},{name:"Nyíregyháza",shortCode:"NY"},{name:"Pécs",shortCode:"PS"},{name:"Pest",shortCode:"PE"},{name:"Salgótarján",shortCode:"ST"},{name:"Somogy",shortCode:"SO"},{name:"Sopron",shortCode:"SN"},{name:"Szabolcs-á-Bereg",shortCode:"SZ"},{name:"Szeged",shortCode:"SD"},{name:"Székesfehérvár",shortCode:"SF"},{name:"Szekszárd",shortCode:"SS"},{name:"Szolnok",shortCode:"SK"},{name:"Szombathely",shortCode:"SH"},{name:"Tatabánya",shortCode:"TB"},{name:"Tolna",shortCode:"TO"},{name:"Vas",shortCode:"VA"},{name:"Veszprém",shortCode:"VE"},{name:"Veszprém (City)",shortCode:"VM"},{name:"Zala",shortCode:"ZA"},{name:"Zalaegerszeg",shortCode:"ZE"}]},{countryName:"Iceland",countryShortCode:"IS",regions:[{name:"Austurland",shortCode:"7"},{name:"Höfuðborgarsvæði utan Reykjavíkur",shortCode:"1"},{name:"Norðurland eystra",shortCode:"6"},{name:"Norðurland vestra",shortCode:"5"},{name:"Suðurland",shortCode:"8"},{name:"Suðurnes",shortCode:"2"},{name:"Vestfirðir",shortCode:"4"},{name:"Vesturland",shortCode:"3"}]},{countryName:"India",countryShortCode:"IN",regions:[{name:"Andaman and Nicobar Islands",shortCode:"AN"},{name:"Andhra Pradesh",shortCode:"AP"},{name:"Arunachal Pradesh",shortCode:"AR"},{name:"Assam",shortCode:"AS"},{name:"Bihar",shortCode:"BR"},{name:"Chandigarh",shortCode:"CH"},{name:"Chhattisgarh",shortCode:"CT"},{name:"Dadra and Nagar Haveli",shortCode:"DN"},{name:"Daman and Diu",shortCode:"DD"},{name:"Delhi",shortCode:"DL"},{name:"Goa",shortCode:"GA"},{name:"Gujarat",shortCode:"GJ"},{name:"Haryana",shortCode:"HR"},{name:"Himachal Pradesh",shortCode:"HP"},{name:"Jammu and Kashmir",shortCode:"JK"},{name:"Jharkhand",shortCode:"JH"},{name:"Karnataka",shortCode:"KA"},{name:"Kerala",shortCode:"KL"},{name:"Ladakh",shortCode:"LA"},{name:"Lakshadweep",shortCode:"LD"},{name:"Madhya Pradesh",shortCode:"MP"},{name:"Maharashtra",shortCode:"MH"},{name:"Manipur",shortCode:"MN"},{name:"Meghalaya",shortCode:"ML"},{name:"Mizoram",shortCode:"MZ"},{name:"Nagaland",shortCode:"NL"},{name:"Odisha",shortCode:"OR"},{name:"Puducherry",shortCode:"PY"},{name:"Punjab",shortCode:"PB"},{name:"Rajasthan",shortCode:"RJ"},{name:"Sikkim",shortCode:"WK"},{name:"Tamil Nadu",shortCode:"TN"},{name:"Telangana",shortCode:"TG"},{name:"Tripura",shortCode:"TR"},{name:"Uttarakhand",shortCode:"UT"},{name:"Uttar Pradesh",shortCode:"UP"},{name:"West Bengal",shortCode:"WB"}]},{countryName:"Indonesia",countryShortCode:"ID",regions:[{name:"Aceh",shortCode:"AC"},{name:"Bali",shortCode:"BA"},{name:"Bangka Belitung",shortCode:"BB"},{name:"Banten",shortCode:"BT"},{name:"Bengkulu",shortCode:"BE"},{name:"Gorontalo",shortCode:"GO"},{name:"Jakarta Raya",shortCode:"JK"},{name:"Jambi",shortCode:"JA"},{name:"Jawa Barat",shortCode:"JB"},{name:"Jawa Tengah",shortCode:"JT"},{name:"Jawa Timur",shortCode:"JI"},{name:"Kalimantan Barat",shortCode:"KB"},{name:"Kalimantan Selatan",shortCode:"KS"},{name:"Kalimantan Tengah",shortCode:"KT"},{name:"Kalimantan Timur",shortCode:"KI"},{name:"Kalimantan Utara",shortCode:"KU"},{name:"Kepulauan Riau",shortCode:"KR"},{name:"Lampung",shortCode:"LA"},{name:"Maluku",shortCode:"MA"},{name:"Maluku Utara",shortCode:"MU"},{name:"Nusa Tenggara Barat",shortCode:"NB"},{name:"Nusa Tenggara Timur",shortCode:"NT"},{name:"Papua",shortCode:"PA"},{name:"Papua Barat",shortCode:"PB"},{name:"Riau",shortCode:"RI"},{name:"Sulawesi Selatan",shortCode:"SR"},{name:"Sulawesi Tengah",shortCode:"ST"},{name:"Sulawesi Tenggara",shortCode:"SG"},{name:"Sulawesi Utara",shortCode:"SA"},{name:"Sumatera Barat",shortCode:"SB"},{name:"Sumatera Selatan",shortCode:"SS"},{name:"Sumatera Utara",shortCode:"SU"},{name:"Yogyakarta",shortCode:"YO"}]},{countryName:"Iran, Islamic Republic of",countryShortCode:"IR",regions:[{name:"Alborz",shortCode:"32"},{name:"Ardabīl",shortCode:"03"},{name:"Āz̄arbāyjān-e Gharbī",shortCode:"02"},{name:"Āz̄arbāyjān-e Sharqī",shortCode:"01"},{name:"Būshehr",shortCode:"06"},{name:"Chahār Maḩāl va Bakhtīārī",shortCode:"08"},{name:"Eşfahān",shortCode:"04"},{name:"Fārs",shortCode:"14"},{name:"Gīlān",shortCode:"19"},{name:"Golestān",shortCode:"27"},{name:"Hamadān",shortCode:"24"},{name:"Hormozgān",shortCode:"23"},{name:"Īlām",shortCode:"05"},{name:"Kermān",shortCode:"15"},{name:"Kermānshāh",shortCode:"17"},{name:"Khorāsān-e Jonūbī",shortCode:"29"},{name:"Khorāsān-e Raẕavī",shortCode:"30"},{name:"Khorāsān-e Shomālī",shortCode:"61"},{name:"Khūzestān",shortCode:"10"},{name:"Kohgīlūyeh va Bowyer Aḩmad",shortCode:"18"},{name:"Kordestān",shortCode:"16"},{name:"Lorestān",shortCode:"20"},{name:"Markazi",shortCode:"22"},{name:"Māzandarān",shortCode:"21"},{name:"Qazvīn",shortCode:"28"},{name:"Qom",shortCode:"26"},{name:"Semnān",shortCode:"12"},{name:"Sīstān va Balūchestān",shortCode:"13"},{name:"Tehrān",shortCode:"07"},{name:"Yazd",shortCode:"25"},{name:"Zanjān",shortCode:"11"}]},{countryName:"Iraq",countryShortCode:"IQ",regions:[{name:"Al Anbār",shortCode:"AN"},{name:"Al Başrah",shortCode:"BA"},{name:"Al Muthanná",shortCode:"MU"},{name:"Al Qādisīyah",shortCode:"QA"},{name:"An Najaf",shortCode:"NA"},{name:"Arbīl",shortCode:"AR"},{name:"As Sulaymānīyah",shortCode:"SU"},{name:"Bābil",shortCode:"BB"},{name:"Baghdād",shortCode:"BG"},{name:"Dohuk",shortCode:"DA"},{name:"Dhī Qār",shortCode:"DQ"},{name:"Diyālá",shortCode:"DI"},{name:"Karbalā'",shortCode:"KA"},{name:"Kirkuk",shortCode:"KI"},{name:"Maysān",shortCode:"MA"},{name:"Nīnawá",shortCode:"NI"},{name:"Şalāḩ ad Dīn",shortCode:"SD"},{name:"Wāsiţ",shortCode:"WA"}]},{countryName:"Ireland",countryShortCode:"IE",regions:[{name:"Carlow",shortCode:"CW"},{name:"Cavan",shortCode:"CN"},{name:"Clare",shortCode:"CE"},{name:"Cork",shortCode:"CO"},{name:"Donegal",shortCode:"DL"},{name:"Dublin",shortCode:"D"},{name:"Galway",shortCode:"G"},{name:"Kerry",shortCode:"KY"},{name:"Kildare",shortCode:"KE"},{name:"Kilkenny",shortCode:"KK"},{name:"Laois",shortCode:"LS"},{name:"Leitrim",shortCode:"LM"},{name:"Limerick",shortCode:"LK"},{name:"Longford",shortCode:"LD"},{name:"Louth",shortCode:"LH"},{name:"Mayo",shortCode:"MO"},{name:"Meath",shortCode:"MH"},{name:"Monaghan",shortCode:"MN"},{name:"Offaly",shortCode:"OY"},{name:"Roscommon",shortCode:"RN"},{name:"Sligo",shortCode:"SO"},{name:"Tipperary",shortCode:"TA"},{name:"Waterford",shortCode:"WD"},{name:"Westmeath",shortCode:"WH"},{name:"Wexford",shortCode:"WX"},{name:"Wicklow",shortCode:"WW"}]},{countryName:"Isle of Man",countryShortCode:"IM",regions:[{name:"Isle of Man"}]},{countryName:"Israel",countryShortCode:"IL",regions:[{name:"HaDarom",shortCode:"D"},{name:"HaMerkaz",shortCode:"M"},{name:"HaTsafon",shortCode:"Z"},{name:"H̱efa",shortCode:"HA"},{name:"Tel-Aviv",shortCode:"TA"},{name:"Yerushalayim",shortCode:"JM"}]},{countryName:"Italy",countryShortCode:"IT",regions:[{name:"Abruzzo",shortCode:"65"},{name:"Basilicata",shortCode:"77"},{name:"Calabria",shortCode:"78"},{name:"Campania",shortCode:"72"},{name:"Emilia-Romagna",shortCode:"45"},{name:"Friuli-Venezia Giulia",shortCode:"36"},{name:"Lazio",shortCode:"62"},{name:"Liguria",shortCode:"42"},{name:"Lombardia",shortCode:"25"},{name:"Marche",shortCode:"57"},{name:"Molise",shortCode:"67"},{name:"Piemonte",shortCode:"21"},{name:"Puglia",shortCode:"75"},{name:"Sardegna",shortCode:"88"},{name:"Sicilia",shortCode:"82"},{name:"Toscana",shortCode:"52"},{name:"Trentino-Alto Adige",shortCode:"32"},{name:"Umbria",shortCode:"55"},{name:"Valle d'Aosta",shortCode:"23"},{name:"Veneto",shortCode:"34"}]},{countryName:"Jamaica",countryShortCode:"JM",regions:[{name:"Clarendon",shortCode:"13"},{name:"Hanover",shortCode:"09"},{name:"Kingston",shortCode:"01"},{name:"Manchester",shortCode:"12"},{name:"Portland",shortCode:"04"},{name:"Saint Andrew",shortCode:"02"},{name:"Saint Ann",shortCode:"06"},{name:"Saint Catherine",shortCode:"14"},{name:"Saint Elizabeth",shortCode:"11"},{name:"Saint James",shortCode:"08"},{name:"Saint Mary",shortCode:"05"},{name:"Saint Thomas",shortCode:"03"},{name:"Trelawny",shortCode:"07"},{name:"Westmoreland",shortCode:"10"}]},{countryName:"Japan",countryShortCode:"JP",regions:[{name:"Aichi",shortCode:"23"},{name:"Akita",shortCode:"05"},{name:"Aomori",shortCode:"02"},{name:"Chiba",shortCode:"12"},{name:"Ehime",shortCode:"38"},{name:"Fukui",shortCode:"18"},{name:"Fukuoka",shortCode:"40"},{name:"Fukushima",shortCode:"07"},{name:"Gifu",shortCode:"21"},{name:"Gunma",shortCode:"10"},{name:"Hiroshima",shortCode:"34"},{name:"Hokkaido",shortCode:"01"},{name:"Hyogo",shortCode:"28"},{name:"Ibaraki",shortCode:"08"},{name:"Ishikawa",shortCode:"17"},{name:"Iwate",shortCode:"03"},{name:"Kagawa",shortCode:"37"},{name:"Kagoshima",shortCode:"46"},{name:"Kanagawa",shortCode:"14"},{name:"Kochi",shortCode:"39"},{name:"Kumamoto",shortCode:"43"},{name:"Kyoto",shortCode:"26"},{name:"Mie",shortCode:"24"},{name:"Miyagi",shortCode:"04"},{name:"Miyazaki",shortCode:"45"},{name:"Nagano",shortCode:"20"},{name:"Nagasaki",shortCode:"42"},{name:"Nara",shortCode:"29"},{name:"Niigata",shortCode:"15"},{name:"Oita",shortCode:"44"},{name:"Okayama",shortCode:"33"},{name:"Okinawa",shortCode:"47"},{name:"Osaka",shortCode:"27"},{name:"Saga",shortCode:"41"},{name:"Saitama",shortCode:"11"},{name:"Shiga",shortCode:"25"},{name:"Shimane",shortCode:"32"},{name:"Shizuoka",shortCode:"22"},{name:"Tochigi",shortCode:"09"},{name:"Tokushima",shortCode:"36"},{name:"Tokyo",shortCode:"13"},{name:"Tottori",shortCode:"31"},{name:"Toyama",shortCode:"16"},{name:"Wakayama",shortCode:"30"},{name:"Yamagata",shortCode:"06"},{name:"Yamaguchi",shortCode:"35"},{name:"Yamanashi",shortCode:"19"}]},{countryName:"Jersey",countryShortCode:"JE",regions:[{name:"Jersey"}]},{countryName:"Jordan",countryShortCode:"JO",regions:[{name:"‘Ajlūn",shortCode:"AJ"},{name:"Al 'Aqabah",shortCode:"AQ"},{name:"Al Balqā’",shortCode:"BA"},{name:"Al Karak",shortCode:"KA"},{name:"Al Mafraq",shortCode:"MA"},{name:"Al ‘A̅şimah",shortCode:"AM"},{name:"Aţ Ţafīlah",shortCode:"AT"},{name:"Az Zarqā’",shortCode:"AZ"},{name:"Irbid",shortCode:"IR"},{name:"Jarash",shortCode:"JA"},{name:"Ma‘ān",shortCode:"MN"},{name:"Mādabā",shortCode:"MD"}]},{countryName:"Kazakhstan",countryShortCode:"KZ",regions:[{name:"Almaty",shortCode:"ALA"},{name:"Aqmola",shortCode:"AKM"},{name:"Aqtobe",shortCode:"AKT"},{name:"Astana",shortCode:"AST"},{name:"Atyrau",shortCode:"ATY"},{name:"Batys Qazaqstan",shortCode:"ZAP"},{name:"Bayqongyr"},{name:"Mangghystau",shortCode:"MAN"},{name:"Ongtustik Qazaqstan",shortCode:"YUZ"},{name:"Pavlodar",shortCode:"PAV"},{name:"Qaraghandy",shortCode:"KAR"},{name:"Qostanay",shortCode:"KUS"},{name:"Qyzylorda",shortCode:"KZY"},{name:"Shyghys Qazaqstan",shortCode:"VOS"},{name:"Soltustik Qazaqstan",shortCode:"SEV"},{name:"Zhambyl",shortCode:"ZHA"}]},{countryName:"Kenya",countryShortCode:"KE",regions:[{name:"Baringo",shortCode:"01"},{name:"Bomet",shortCode:"02"},{name:"Bungoma",shortCode:"03"},{name:"Busia",shortCode:"04"},{name:"Eleyo/Marakwet",shortCode:"05"},{name:"Embu",shortCode:"06"},{name:"Garissa",shortCode:"07"},{name:"Homa Bay",shortCode:"08"},{name:"Isiolo",shortCode:"09"},{name:"Kajiado",shortCode:"10"},{name:"Kakamega",shortCode:"11"},{name:"Kericho",shortCode:"12"},{name:"Kiambu",shortCode:"13"},{name:"Kilifi",shortCode:"14"},{name:"Kirinyaga",shortCode:"15"},{name:"Kisii",shortCode:"16"},{name:"Kisumu",shortCode:"17"},{name:"Kitui",shortCode:"18"},{name:"Kwale",shortCode:"19"},{name:"Laikipia",shortCode:"20"},{name:"Lamu",shortCode:"21"},{name:"Machakos",shortCode:"22"},{name:"Makueni",shortCode:"23"},{name:"Mandera",shortCode:"24"},{name:"Marsabit",shortCode:"25"},{name:"Meru",shortCode:"26"},{name:"Migori",shortCode:"27"},{name:"Mombasa",shortCode:"28"},{name:"Murang'a",shortCode:"29"},{name:"Nairobi City",shortCode:"30"},{name:"Nakuru",shortCode:"31"},{name:"Nandi",shortCode:"32"},{name:"Narok",shortCode:"33"},{name:"Nyamira",shortCode:"34"},{name:"Nyandarua",shortCode:"35"},{name:"Nyeri",shortCode:"36"},{name:"Samburu",shortCode:"37"},{name:"Siaya",shortCode:"38"},{name:"Taita/Taveta",shortCode:"39"},{name:"Tana River",shortCode:"40"},{name:"Tharaka-Nithi",shortCode:"41"},{name:"Trans Nzoia",shortCode:"42"},{name:"Turkana",shortCode:"43"},{name:"Uasin Gishu",shortCode:"44"},{name:"Vihiga",shortCode:"45"},{name:"Wajir",shortCode:"46"},{name:"West Pokot",shortCode:"47"}]},{countryName:"Kiribati",countryShortCode:"KI",regions:[{name:"Abaiang"},{name:"Abemama"},{name:"Aranuka"},{name:"Arorae"},{name:"Banaba"},{name:"Beru"},{name:"Butaritari"},{name:"Central Gilberts"},{name:"Gilbert Islands",shortCode:"G"},{name:"Kanton"},{name:"Kiritimati"},{name:"Kuria"},{name:"Line Islands",shortCode:"L"},{name:"Maiana"},{name:"Makin"},{name:"Marakei"},{name:"Nikunau"},{name:"Nonouti"},{name:"Northern Gilberts"},{name:"Onotoa"},{name:"Phoenix Islands",shortCode:"P"},{name:"Southern Gilberts"},{name:"Tabiteuea"},{name:"Tabuaeran"},{name:"Tamana"},{name:"Tarawa"},{name:"Teraina"}]},{countryName:"Korea, Democratic People's Republic of",countryShortCode:"KP",regions:[{name:"Chagang-do (Chagang Province)",shortCode:"04"},{name:"Hamgyong-bukto (North Hamgyong Province)",shortCode:"09"},{name:"Hamgyong-namdo (South Hamgyong Province)",shortCode:"08"},{name:"Hwanghae-bukto (North Hwanghae Province)",shortCode:"06"},{name:"Hwanghae-namdo (South Hwanghae Province)",shortCode:"05"},{name:"Kangwon-do (Kangwon Province)",shortCode:"07"},{name:"Nasŏn (Najin-Sŏnbong)",shortCode:"13"},{name:"P'yongan-bukto (North P'yongan Province)",shortCode:"03"},{name:"P'yongan-namdo (South P'yongan Province)",shortCode:"02"},{name:"P'yongyang-si (P'yongyang City)",shortCode:"01"},{name:"Yanggang-do (Yanggang Province)",shortCode:"10"}]},{countryName:"Korea, Republic of",countryShortCode:"KR",regions:[{name:"Ch'ungch'ongbuk-do",shortCode:"43"},{name:"Ch'ungch'ongnam-do",shortCode:"44"},{name:"Cheju-do",shortCode:"49"},{name:"Chollabuk-do",shortCode:"45"},{name:"Chollanam-do",shortCode:"46"},{name:"Inch'on-Kwangyokhi",shortCode:"28"},{name:"Kang-won-do",shortCode:"42"},{name:"Kwangju-Kwangyokshi",shortCode:"28"},{name:"Kyonggi-do",shortCode:"41"},{name:"Kyongsangbuk-do",shortCode:"47"},{name:"Kyongsangnam-do",shortCode:"48"},{name:"Pusan-Kwangyokshi",shortCode:"26"},{name:"Seoul-T'ukpyolshi",shortCode:"11"},{name:"Sejong",shortCode:"50"},{name:"Taegu-Kwangyokshi",shortCode:"27"},{name:"Taejon-Kwangyokshi",shortCode:"30"},{name:"Ulsan-Kwangyokshi",shortCode:"31"}]},{countryName:"Kuwait",countryShortCode:"KW",regions:[{name:"Al Aḩmadi",shortCode:"AH"},{name:"Al Farwānīyah",shortCode:"FA"},{name:"Al Jahrā’",shortCode:"JA"},{name:"Al ‘Āşimah",shortCode:"KU"},{name:"Ḩawallī",shortCode:"HA"},{name:"Mubārak al Kabir",shortCode:"MU"}]},{countryName:"Kyrgyzstan",countryShortCode:"KG",regions:[{name:"Batken Oblasty",shortCode:"B"},{name:"Bishkek Shaary",shortCode:"GB"},{name:"Chuy Oblasty (Bishkek)",shortCode:"C"},{name:"Jalal-Abad Oblasty",shortCode:"J"},{name:"Naryn Oblasty",shortCode:"N"},{name:"Osh Oblasty",shortCode:"O"},{name:"Talas Oblasty",shortCode:"T"},{name:"Ysyk-Kol Oblasty (Karakol)",shortCode:"Y"}]},{countryName:"Laos",countryShortCode:"LA",regions:[{name:"Attapu",shortCode:"AT"},{name:"Bokèo",shortCode:"BK"},{name:"Bolikhamxai",shortCode:"BL"},{name:"Champasak",shortCode:"CH"},{name:"Houaphan",shortCode:"HO"},{name:"Khammouan",shortCode:"KH"},{name:"Louang Namtha",shortCode:"LM"},{name:"Louangphabang",shortCode:"LP"},{name:"Oudômxai",shortCode:"OU"},{name:"Phôngsali",shortCode:"PH"},{name:"Salavan",shortCode:"SL"},{name:"Savannakhét",shortCode:"SV"},{name:"Vientiane",shortCode:"VI"},{name:"Xaignabouli",shortCode:"XA"},{name:"Xékong",shortCode:"XE"},{name:"Xaisomboun",shortCode:"XS"},{name:"Xiangkhouang",shortCode:"XI"}]},{countryName:"Latvia",countryShortCode:"LV",regions:[{name:"Aglona",shortCode:"001"},{name:"Aizkraukle",shortCode:"002"},{name:"Aizpute",shortCode:"003"},{name:"Aknīste",shortCode:"004"},{name:"Aloja",shortCode:"005"},{name:"Alsunga",shortCode:"06"},{name:"Alūksne",shortCode:"007"},{name:"Amata",shortCode:"008"},{name:"Ape",shortCode:"009"},{name:"Auce",shortCode:"010"},{name:"Ādaži",shortCode:"011"},{name:"Babīte",shortCode:"012"},{name:"Baldone",shortCode:"013"},{name:"Baltinava",shortCode:"014"},{name:"Balvi",shortCode:"015"},{name:"Bauska",shortCode:"016"},{name:"Beverīna",shortCode:"017"},{name:"Brocēni",shortCode:"018"},{name:"Burtnieki",shortCode:"019"},{name:"Carnikava",shortCode:"020"},{name:"Cesvaine",shortCode:"021"},{name:"Cēsis",shortCode:"022"},{name:"Cibla",shortCode:"023"},{name:"Dagda",shortCode:"024"},{name:"Daugavpils",shortCode:"025"},{name:"Daugavpils (City)",shortCode:"DGV"},{name:"Dobele",shortCode:"026"},{name:"Dundaga",shortCode:"027"},{name:"Durbe",shortCode:"028"},{name:"Engure",shortCode:"029"},{name:"Ērgļi",shortCode:"030"},{name:"Garkalne",shortCode:"031"},{name:"Grobiņa",shortCode:"032"},{name:"Gulbene",shortCode:"033"},{name:"Iecava",shortCode:"034"},{name:"Ikšķile",shortCode:"035"},{name:"Ilūkste",shortCode:"036"},{name:"Inčukalns",shortCode:"037"},{name:"Jaunjelgava",shortCode:"038"},{name:"Jaunpiebalga",shortCode:"039"},{name:"Jaunpils",shortCode:"040"},{name:"Jelgava",shortCode:"041"},{name:"Jelgava (City)",shortCode:"JEL"},{name:"Jēkabpils",shortCode:"042"},{name:"Jēkabpils (City)",shortCode:"JKB"},{name:"Jūrmala (City)",shortCode:"JUR"},{name:"Kandava",shortCode:"043"},{name:"Kārsava",shortCode:"044"},{name:"Kocēni",shortCode:"045"},{name:"Koknese",shortCode:"046"},{name:"Krāslava",shortCode:"047"},{name:"Krimulda",shortCode:"048"},{name:"Krustpils",shortCode:"049"},{name:"Kuldīga",shortCode:"050"},{name:"Ķegums",shortCode:"051"},{name:"Ķekava",shortCode:"052"},{name:"Lielvārde",shortCode:"053"},{name:"Liepāja",shortCode:"LPX"},{name:"Limbaži",shortCode:"054"},{name:"Līgatne",shortCode:"055"},{name:"Līvāni",shortCode:"056"},{name:"Lubāna",shortCode:"057"},{name:"Ludza",shortCode:"058"},{name:"Madona",shortCode:"059"},{name:"Mazsalaca",shortCode:"060"},{name:"Mālpils",shortCode:"061"},{name:"Mārupe",shortCode:"062"},{name:"Mērsrags",shortCode:"063"},{name:"Naukšēni",shortCode:"064"},{name:"Nereta",shortCode:"065"},{name:"Nīca",shortCode:"066"},{name:"Ogre",shortCode:"067"},{name:"Olaine",shortCode:"068"},{name:"Ozolnieki",shortCode:"069"},{name:"Pārgauja",shortCode:"070"},{name:"Pāvilosta",shortCode:"071"},{name:"Pļaviņas",shortCode:"072"},{name:"Preiļi",shortCode:"073"},{name:"Priekule",shortCode:"074"},{name:"Priekuļi",shortCode:"075"},{name:"Rauna",shortCode:"076"},{name:"Rēzekne",shortCode:"077"},{name:"Rēzekne (City)",shortCode:"REZ"},{name:"Riebiņi",shortCode:"078"},{name:"Rīga",shortCode:"RIX"},{name:"Roja",shortCode:"079"},{name:"Ropaži",shortCode:"080"},{name:"Rucava",shortCode:"081"},{name:"Rugāji",shortCode:"082"},{name:"Rundāle",shortCode:"083"},{name:"Rūjiena",shortCode:"084"},{name:"Sala",shortCode:"085"},{name:"Salacgrīva",shortCode:"086"},{name:"Salaspils",shortCode:"087"},{name:"Saldus",shortCode:"088"},{name:"Saulkrasti",shortCode:"089"},{name:"Sēja",shortCode:"090"},{name:"Sigulda",shortCode:"091"},{name:"Skrīveri",shortCode:"092"},{name:"Skrunda",shortCode:"093"},{name:"Smiltene",shortCode:"094"},{name:"Stopiņi",shortCode:"095"},{name:"Strenči",shortCode:"096"},{name:"Talsi",shortCode:"097"},{name:"Tērvete",shortCode:"098"},{name:"Tukums",shortCode:"099"},{name:"Vaiņode",shortCode:"100"},{name:"Valka",shortCode:"101"},{name:"Valmiera",shortCode:"VMR"},{name:"Varakļāni",shortCode:"102"},{name:"Vārkava",shortCode:"103"},{name:"Vecpiebalga",shortCode:"104"},{name:"Vecumnieki",shortCode:"105"},{name:"Ventspils",shortCode:"106"},{name:"Ventspils (City)",shortCode:"VEN"},{name:"Viesīte",shortCode:"107"},{name:"Viļaka",shortCode:"108"},{name:"Viļāni",shortCode:"109"},{name:"Zilupe",shortCode:"110"}]},{countryName:"Lebanon",countryShortCode:"LB",regions:[{name:"Aakkâr",shortCode:"AK"},{name:"Baalbelk-Hermel",shortCode:"BH"},{name:"Béqaa",shortCode:"BI"},{name:"Beyrouth",shortCode:"BA"},{name:"Liban-Nord",shortCode:"AS"},{name:"Liban-Sud",shortCode:"JA"},{name:"Mont-Liban",shortCode:"JL"},{name:"Nabatîyé",shortCode:"NA"}]},{countryName:"Lesotho",countryShortCode:"LS",regions:[{name:"Berea",shortCode:"D"},{name:"Butha-Buthe",shortCode:"B"},{name:"Leribe",shortCode:"C"},{name:"Mafeteng",shortCode:"E"},{name:"Maseru",shortCode:"A"},{name:"Mohales Hoek",shortCode:"F"},{name:"Mokhotlong",shortCode:"J"},{name:"Qacha's Nek",shortCode:"H"},{name:"Quthing",shortCode:"G"},{name:"Thaba-Tseka",shortCode:"K"}]},{countryName:"Liberia",countryShortCode:"LR",regions:[{name:"Bomi",shortCode:"BM"},{name:"Bong",shortCode:"BG"},{name:"Gbarpolu",shortCode:"GP"},{name:"Grand Bassa",shortCode:"GB"},{name:"Grand Cape Mount",shortCode:"CM"},{name:"Grand Gedeh",shortCode:"GG"},{name:"Grand Kru",shortCode:"GK"},{name:"Lofa",shortCode:"LO"},{name:"Margibi",shortCode:"MG"},{name:"Maryland",shortCode:"MY"},{name:"Montserrado",shortCode:"MO"},{name:"Nimba",shortCode:"NI"},{name:"River Cess",shortCode:"RI"},{name:"River Geee",shortCode:"RG"},{name:"Sinoe",shortCode:"SI"}]},{countryName:"Libya",countryShortCode:"LY",regions:[{name:"Al Buţnān",shortCode:"BU"},{name:"Al Jabal al Akhḑar",shortCode:"JA"},{name:"Al Jabal al Gharbī",shortCode:"JG"},{name:"Al Jafārah",shortCode:"JA"},{name:"Al Jufrah",shortCode:"JU"},{name:"Al Kufrah",shortCode:"FK"},{name:"Al Marj",shortCode:"MJ"},{name:"Al Marquab",shortCode:"MB"},{name:"Al Wāḩāt",shortCode:"WA"},{name:"An Nuqaţ al Khams",shortCode:"NQ"},{name:"Az Zāwiyah",shortCode:"ZA"},{name:"Banghāzī",shortCode:"BA"},{name:"Darnah",shortCode:"DR"},{name:"Ghāt",shortCode:"GH"},{name:"Mişrātah",shortCode:"MI"},{name:"Murzuq",shortCode:"MQ"},{name:"Nālūt",shortCode:"NL"},{name:"Sabhā",shortCode:"SB"},{name:"Surt",shortCode:"SR"},{name:"Ţarābulus",shortCode:"TB"},{name:"Yafran",shortCode:"WD"},{name:"Wādī ash Shāţiʾ",shortCode:"WS"}]},{countryName:"Liechtenstein",countryShortCode:"LI",regions:[{name:"Balzers",shortCode:"01"},{name:"Eschen",shortCode:"02"},{name:"Gamprin",shortCode:"03"},{name:"Mauren",shortCode:"04"},{name:"Planken",shortCode:"05"},{name:"Ruggell",shortCode:"06"},{name:"Schaan",shortCode:"07"},{name:"Schellenberg",shortCode:"08"},{name:"Triesen",shortCode:"09"},{name:"Triesenberg",shortCode:"10"},{name:"Vaduz",shortCode:"11"}]},{countryName:"Lithuania",countryShortCode:"LT",regions:[{name:"Alytaus",shortCode:"AL"},{name:"Kauno",shortCode:"KU"},{name:"Klaipėdos",shortCode:"KL"},{name:"Marijampolės",shortCode:"MR"},{name:"Panevėžio",shortCode:"PN"},{name:"Šiaulių",shortCode:"SA"},{name:"Tauragės",shortCode:"TA"},{name:"Telšių",shortCode:"TE"},{name:"Utenos",shortCode:"UT"},{name:"Vilniaus",shortCode:"VL"}]},{countryName:"Luxembourg",countryShortCode:"LU",regions:[{name:"Capellen",shortCode:"CA"},{name:"Clevaux",shortCode:"CL"},{name:"Diekirch",shortCode:"DI"},{name:"Echternach",shortCode:"EC"},{name:"Esch-sur-Alzette",shortCode:"ES"},{name:"Grevenmacher",shortCode:"GR"},{name:"Luxembourg",shortCode:"LU"},{name:"Mersch",shortCode:"ME"},{name:"Redange",shortCode:"RD"},{name:"Remich",shortCode:"RM"},{name:"Vianden",shortCode:"VD"},{name:"Wiltz",shortCode:"WI"}]},{countryName:"Macao",countryShortCode:"MO",regions:[{name:"Macao"}]},{countryName:"Macedonia, Republic of",countryShortCode:"MK",regions:[{name:"Aračinovo",shortCode:"02"},{name:"Berovo",shortCode:"03"},{name:"Bitola",shortCode:"04"},{name:"Bogdanci",shortCode:"05"},{name:"Bogovinje",shortCode:"06"},{name:"Bosilovo",shortCode:"07"},{name:"Brvenica",shortCode:"08"},{name:"Centar Župa",shortCode:"78"},{name:"Čaška",shortCode:"08"},{name:"Češinovo-Obleševo",shortCode:"81"},{name:"Čučer Sandevo",shortCode:"82"},{name:"Debar",shortCode:"21"},{name:"Debarca",shortCode:"22"},{name:"Delčevo",shortCode:"23"},{name:"Demir Hisar",shortCode:"25"},{name:"Demir Kapija",shortCode:"24"},{name:"Doran",shortCode:"26"},{name:"Dolneni",shortCode:"27"},{name:"Gevgelija",shortCode:"18"},{name:"Gostivar",shortCode:"19"},{name:"Gradsko",shortCode:"20"},{name:"Ilinden",shortCode:"34"},{name:"Jegunovce",shortCode:"35"},{name:"Karbinci",shortCode:"37"},{name:"Kavadarci",shortCode:"36"},{name:"Kičevo",shortCode:"40"},{name:"Kočani",shortCode:"42"},{name:"Konče",shortCode:"41"},{name:"Kratovo",shortCode:"43"},{name:"Kriva Palanka",shortCode:"44"},{name:"Krivogaštani",shortCode:"45"},{name:"Kruševo",shortCode:"46"},{name:"Kumanovo",shortCode:"47"},{name:"Lipkovo",shortCode:"48"},{name:"Lozovo",shortCode:"49"},{name:"Makedonska Kamenica",shortCode:"51"},{name:"Makedonski Brod",shortCode:"52"},{name:"Mavrovo i Rostuša",shortCode:"50"},{name:"Mogila",shortCode:"53"},{name:"Negotino",shortCode:"54"},{name:"Novaci",shortCode:"55"},{name:"Novo Selo",shortCode:"56"},{name:"Ohrid",shortCode:"58"},{name:"Pehčevo",shortCode:"60"},{name:"Petrovec",shortCode:"59"},{name:"Plasnica",shortCode:"61"},{name:"Prilep",shortCode:"62"},{name:"Probištip",shortCode:"63"},{name:"Radoviš",shortCode:""},{name:"Rankovce",shortCode:"65"},{name:"Resen",shortCode:"66"},{name:"Rosoman",shortCode:"67"},{name:"Skopje",shortCode:"85"},{name:"Sopište",shortCode:"70"},{name:"Staro Nagoričane",shortCode:"71"},{name:"Struga",shortCode:"72"},{name:"Strumica",shortCode:"73"},{name:"Studeničani",shortCode:"74"},{name:"Sveti Nikole",shortCode:"69"},{name:"Štip",shortCode:"83"},{name:"Tearce",shortCode:"75"},{name:"Tetovo",shortCode:"76"},{name:"Valandovo",shortCode:"10"},{name:"Vasilevo",shortCode:"11"},{name:"Veles",shortCode:"13"},{name:"Vevčani",shortCode:"12"},{name:"Vinica",shortCode:"14"},{name:"Vrapčište",shortCode:"16"},{name:"Zelenikovo",shortCode:"32"},{name:"Zrnovci",shortCode:"33"},{name:"Želino",shortCode:"30"}]},{countryName:"Madagascar",countryShortCode:"MG",regions:[{name:"Antananarivo",shortCode:"T"},{name:"Antsiranana",shortCode:"D"},{name:"Fianarantsoa",shortCode:"F"},{name:"Mahajanga",shortCode:"M"},{name:"Toamasina",shortCode:"A"},{name:"Toliara",shortCode:"U"}]},{countryName:"Malawi",countryShortCode:"MW",regions:[{name:"Balaka",shortCode:"BA"},{name:"Blantyre",shortCode:"BL"},{name:"Chikwawa",shortCode:"CK"},{name:"Chiradzulu",shortCode:"CR"},{name:"Chitipa",shortCode:"CT"},{name:"Dedza",shortCode:"DE"},{name:"Dowa",shortCode:"DO"},{name:"Karonga",shortCode:"KR"},{name:"Kasungu",shortCode:"KS"},{name:"Likoma",shortCode:"LK"},{name:"Lilongwe",shortCode:"LI"},{name:"Machinga",shortCode:"MH"},{name:"Mangochi",shortCode:"MG"},{name:"Mchinji",shortCode:"MC"},{name:"Mulanje",shortCode:"MU"},{name:"Mwanza",shortCode:"MW"},{name:"Mzimba",shortCode:"MZ"},{name:"Nkhata Bay",shortCode:"NE"},{name:"Nkhotakota",shortCode:"NB"},{name:"Nsanje",shortCode:"NS"},{name:"Ntcheu",shortCode:"NU"},{name:"Ntchisi",shortCode:"NI"},{name:"Phalombe",shortCode:"PH"},{name:"Rumphi",shortCode:"RU"},{name:"Salima",shortCode:"SA"},{name:"Thyolo",shortCode:"TH"},{name:"Zomba",shortCode:"ZO"}]},{countryName:"Malaysia",countryShortCode:"MY",regions:[{name:"Johor",shortCode:"01"},{name:"Kedah",shortCode:"02"},{name:"Kelantan",shortCode:"03"},{name:"Melaka",shortCode:"04"},{name:"Negeri Sembilan",shortCode:"05"},{name:"Pahang",shortCode:"06"},{name:"Perak",shortCode:"08"},{name:"Perlis",shortCode:"09"},{name:"Pulau Pinang",shortCode:"07"},{name:"Sabah",shortCode:"12"},{name:"Sarawak",shortCode:"13"},{name:"Selangor",shortCode:"10"},{name:"Terengganu",shortCode:"11"},{name:"Wilayah Persekutuan (Kuala Lumpur)",shortCode:"14"},{name:"Wilayah Persekutuan (Labuan)",shortCode:"15"},{name:"Wilayah Persekutuan (Putrajaya)",shortCode:"16"}]},{countryName:"Maldives",countryShortCode:"MV",regions:[{name:"Alifu Alifu",shortCode:"02"},{name:"Alifu Dhaalu",shortCode:"00"},{name:"Baa",shortCode:"20"},{name:"Dhaalu",shortCode:"17"},{name:"Faafu",shortCode:"14"},{name:"Gaafu Alifu",shortCode:"27"},{name:"Gaafu Dhaalu",shortCode:"28"},{name:"Gnaviyani",shortCode:"29"},{name:"Haa Alifu",shortCode:"07"},{name:"Haa Dhaalu",shortCode:"23"},{name:"Kaafu",shortCode:"29"},{name:"Laamu",shortCode:"05"},{name:"Lhaviyani",shortCode:"03"},{name:"Malé",shortCode:"MLE"},{name:"Meemu",shortCode:"12"},{name:"Noonu",shortCode:"25"},{name:"Raa",shortCode:"13"},{name:"Seenu",shortCode:"01"},{name:"Shaviyani",shortCode:"24"},{name:"Thaa",shortCode:"08"},{name:"Vaavu",shortCode:"04"}]},{countryName:"Mali",countryShortCode:"ML",regions:[{name:"Bamako",shortCode:"BKO"},{name:"Gao",shortCode:"7"},{name:"Kayes",shortCode:"1"},{name:"Kidal",shortCode:"8"},{name:"Koulikoro",shortCode:"2"},{name:"Mopti",shortCode:"5"},{name:"Segou",shortCode:"4"},{name:"Sikasso",shortCode:"3"},{name:"Tombouctou",shortCode:"6"}]},{countryName:"Malta",countryShortCode:"MT",regions:[{name:"Attard",shortCode:"01"},{name:"Balzan",shortCode:"02"},{name:"Birgu",shortCode:"03"},{name:"Birkirkara",shortCode:"04"},{name:"Birżebbuġa",shortCode:"05"},{name:"Bormla",shortCode:"06"},{name:"Dingli",shortCode:"07"},{name:"Fgura",shortCode:"08"},{name:"Floriana",shortCode:"09"},{name:"Fontana",shortCode:"10"},{name:"Guda",shortCode:"11"},{name:"Gżira",shortCode:"12"},{name:"Għajnsielem",shortCode:"13"},{name:"Għarb",shortCode:"14"},{name:"Għargħur",shortCode:"15"},{name:"Għasri",shortCode:"16"},{name:"Għaxaq",shortCode:"17"},{name:"Ħamrun",shortCode:"18"},{name:"Iklin",shortCode:"19"},{name:"Isla",shortCode:"20"},{name:"Kalkara",shortCode:"21"},{name:"Kerċem",shortCode:"22"},{name:"Kirkop",shortCode:"23"},{name:"Lija",shortCode:"24"},{name:"Luqa",shortCode:"25"},{name:"Marsa",shortCode:"26"},{name:"Marsaskala",shortCode:"27"},{name:"Marsaxlokk",shortCode:"28"},{name:"Mdina",shortCode:"29"},{name:"Mellieħa",shortCode:"30"},{name:"Mġarr",shortCode:"31"},{name:"Mosta",shortCode:"32"},{name:"Mqabba",shortCode:"33"},{name:"Msida",shortCode:"34"},{name:"Mtarfa",shortCode:"35"},{name:"Munxar",shortCode:"36"},{name:"Nadur",shortCode:"37"},{name:"Naxxar",shortCode:"38"},{name:"Paola",shortCode:"39"},{name:"Pembroke",shortCode:"40"},{name:"Pietà",shortCode:"41"},{name:"Qala",shortCode:"42"},{name:"Qormi",shortCode:"43"},{name:"Qrendi",shortCode:"44"},{name:"Rabat Għawdex",shortCode:"45"},{name:"Rabat Malta",shortCode:"46"},{name:"Safi",shortCode:"47"},{name:"San Ġiljan",shortCode:"48"},{name:"San Ġwann",shortCode:"49"},{name:"San Lawrenz",shortCode:"50"},{name:"San Pawl il-Baħar",shortCode:"51"},{name:"Sannat",shortCode:"52"},{name:"Santa Luċija",shortCode:"53"},{name:"Santa Venera",shortCode:"54"},{name:"Siġġiewi",shortCode:"55"},{name:"Sliema",shortCode:"56"},{name:"Swieqi",shortCode:"57"},{name:"Tai Xbiex",shortCode:"58"},{name:"Tarzien",shortCode:"59"},{name:"Valletta",shortCode:"60"},{name:"Xagħra",shortCode:"61"},{name:"Xewkija",shortCode:"62"},{name:"Xgħajra",shortCode:"63"},{name:"Żabbar",shortCode:"64"},{name:"Żebbuġ Għawde",shortCode:"65"},{name:"Żebbuġ Malta",shortCode:"66"},{name:"Żejtun",shortCode:"67"},{name:"Żurrieq",shortCode:"68"}]},{countryName:"Marshall Islands",countryShortCode:"MH",regions:[{name:"Ailinglaplap",shortCode:"ALL"},{name:"Ailuk",shortCode:"ALK"},{name:"Arno",shortCode:"ARN"},{name:"Aur",shortCode:"AUR"},{name:"Bikini and Kili",shortCode:"KIL"},{name:"Ebon",shortCode:"EBO"},{name:"Jabat",shortCode:"JAB"},{name:"Jaluit",shortCode:"JAL"},{name:"Kwajalein",shortCode:"KWA"},{name:"Lae",shortCode:"LAE"},{name:"Lib",shortCode:"LIB"},{name:"Likiep",shortCode:"LIK"},{name:"Majuro",shortCode:"MAJ"},{name:"Maloelap",shortCode:"MAL"},{name:"Mejit",shortCode:"MEJ"},{name:"Namdrik",shortCode:"NMK"},{name:"Namu",shortCode:"NMU"},{name:"Rongelap",shortCode:"RON"},{name:"Ujae",shortCode:"UJA"},{name:"Utrik",shortCode:"UTI"},{name:"Wotho",shortCode:"WTH"},{name:"Wotje",shortCode:"WTJ"}]},{countryName:"Martinique",countryShortCode:"MQ",regions:[{name:"Martinique"}]},{countryName:"Mauritania",countryShortCode:"MR",regions:[{name:"Adrar",shortCode:"07"},{name:"Assaba",shortCode:"03"},{name:"Brakna",shortCode:"05"},{name:"Dakhlet Nouadhibou",shortCode:"08"},{name:"Gorgol",shortCode:"04"},{name:"Guidimaka",shortCode:"10"},{name:"Hodh Ech Chargui",shortCode:"01"},{name:"Hodh El Gharbi",shortCode:"02"},{name:"Inchiri",shortCode:"12"},{name:"Nouakchott Nord",shortCode:"14"},{name:"Nouakchott Ouest",shortCode:"13"},{name:"Nouakchott Sud",shortCode:"15"},{name:"Tagant",shortCode:"09"},{name:"Tiris Zemmour",shortCode:"11"},{name:"Trarza",shortCode:"06"}]},{countryName:"Mauritius",countryShortCode:"MU",regions:[{name:"Agalega Islands",shortCode:"AG"},{name:"Beau Bassin-Rose Hill",shortCode:"BR"},{name:"Black River",shortCode:"BL"},{name:"Cargados Carajos Shoals",shortCode:"CC"},{name:"Curepipe",shortCode:"CU"},{name:"Flacq",shortCode:"FL"},{name:"Grand Port",shortCode:"GP"},{name:"Moka",shortCode:"MO"},{name:"Pamplemousses",shortCode:"PA"},{name:"Plaines Wilhems",shortCode:"PW"},{name:"Port Louis (City)",shortCode:"PU"},{name:"Port Louis",shortCode:"PL"},{name:"Riviere du Rempart",shortCode:"RR"},{name:"Rodrigues Island",shortCode:"RO"},{name:"Savanne",shortCode:"SA"},{name:"Vacoas-Phoenix",shortCode:"CP"}]},{countryName:"Mayotte",countryShortCode:"YT",regions:[{name:"Dzaoudzi",shortCode:"01"},{name:"Pamandzi",shortCode:"02"},{name:"Mamoudzou",shortCode:"03"},{name:"Dembeni",shortCode:"04"},{name:"Bandrélé",shortCode:"05"},{name:"Kani-Kéli",shortCode:"06"},{name:"Bouéni",shortCode:"07"},{name:"Chirongui",shortCode:"08"},{name:"Sada",shortCode:"09"},{name:"Ouangani",shortCode:"10"},{name:"Chiconi",shortCode:"11"},{name:"Tsingoni",shortCode:"12"},{name:"M'Tsangamouji",shortCode:"13"},{name:"Acoua",shortCode:"14"},{name:"Mtsamboro",shortCode:"15"},{name:"Bandraboua",shortCode:"16"},{name:"Koungou",shortCode:"17"}]},{countryName:"Mexico",countryShortCode:"MX",regions:[{name:"Aguascalientes",shortCode:"AGU"},{name:"Baja California",shortCode:"BCN"},{name:"Baja California Sur",shortCode:"BCS"},{name:"Campeche",shortCode:"CAM"},{name:"Ciudad de México",shortCode:"DIF"},{name:"Chiapas",shortCode:"CHP"},{name:"Chihuahua",shortCode:"CHH"},{name:"Coahuila de Zaragoza",shortCode:"COA"},{name:"Colima",shortCode:"COL"},{name:"Durango",shortCode:"DUR"},{name:"Estado de México",shortCode:"MEX"},{name:"Guanajuato",shortCode:"GUA"},{name:"Guerrero",shortCode:"GRO"},{name:"Hidalgo",shortCode:"HID"},{name:"Jalisco",shortCode:"JAL"},{name:"Michoacán de Ocampo",shortCode:"MIC"},{name:"Morelos",shortCode:"MOR"},{name:"Nayarit",shortCode:"NAY"},{name:"Nuevo León",shortCode:"NLE"},{name:"Oaxaca",shortCode:"OAX"},{name:"Puebla",shortCode:"PUE"},{name:"Querétaro de Arteaga",shortCode:"QUE"},{name:"Quintana Roo",shortCode:"ROO"},{name:"San Luis Potosí",shortCode:"SLP"},{name:"Sinaloa",shortCode:"SIN"},{name:"Sonora",shortCode:"SON"},{name:"Tabasco",shortCode:"TAB"},{name:"Tamaulipas",shortCode:"TAM"},{name:"Tlaxcala",shortCode:"TLA"},{name:"Veracruz",shortCode:"VER"},{name:"Yucatán",shortCode:"YUC"},{name:"Zacatecas",shortCode:"ZAC"}]},{countryName:"Micronesia, Federated States of",countryShortCode:"FM",regions:[{name:"Chuuk (Truk)",shortCode:"TRK"},{name:"Kosrae",shortCode:"KSA"},{name:"Pohnpei",shortCode:"PNI"},{name:"Yap",shortCode:"YAP"}]},{countryName:"Moldova",countryShortCode:"MD",regions:[{name:"Aenii Noi",shortCode:"AN"},{name:"Basarabeasca",shortCode:"BS"},{name:"Bălți",shortCode:"BA"},{name:"Bender",shortCode:"BD"},{name:"Briceni",shortCode:"BR"},{name:"Cahul",shortCode:"CA"},{name:"Cantemir",shortCode:"CT"},{name:"Călărași",shortCode:"CL"},{name:"Căușeni",shortCode:"CS"},{name:"Chișinău",shortCode:"CU"},{name:"Cimișlia",shortCode:"CM"},{name:"Criuleni",shortCode:"CR"},{name:"Dondușeni",shortCode:"DO"},{name:"Drochia",shortCode:"DR"},{name:"Dubăsari",shortCode:"DU"},{name:"Edineț",shortCode:"ED"},{name:"Fălești",shortCode:"FA"},{name:"Florești",shortCode:"FL"},{name:"Găgăuzia",shortCode:"GA"},{name:"Glodeni",shortCode:"GL"},{name:"Hîncești",shortCode:"HI"},{name:"Ialoveni",shortCode:"IA"},{name:"Leova",shortCode:"LE"},{name:"Nisporeni",shortCode:"NI"},{name:"Ocnița",shortCode:"OC"},{name:"Orhei",shortCode:"OR"},{name:"Rezina",shortCode:"RE"},{name:"Rîșcani",shortCode:"RI"},{name:"Sîngerei",shortCode:"SI"},{name:"Soroca",shortCode:"SO"},{name:"Stînga Nistrului",shortCode:"SN"},{name:"Strășeni",shortCode:"ST"},{name:"Șoldănești",shortCode:"SD"},{name:"Ștefan Vodă",shortCode:"SV"},{name:"Taraclia",shortCode:"TA"},{name:"Telenești",shortCode:"TE"},{name:"Ungheni",shortCode:"UN"}]},{countryName:"Monaco",countryShortCode:"MC",regions:[{name:"Colle",shortCode:"CL"},{name:"Condamine",shortCode:"CO"},{name:"Fontvieille",shortCode:"FO"},{name:"Gare",shortCode:"GA"},{name:"Jardin Exotique",shortCode:"JE"},{name:"Larvotto",shortCode:"LA"},{name:"Malbousquet",shortCode:"MA"},{name:"Monaco-Ville",shortCode:"MO"},{name:"Moneghetti",shortCode:"MG"},{name:"Monte-Carlo",shortCode:"MC"},{name:"Moulins",shortCode:"MU"},{name:"Port-Hercule",shortCode:"PH"},{name:"Saint-Roman",shortCode:"SR"},{name:"Sainte-Dévote",shortCode:"SD"},{name:"Source",shortCode:"SO"},{name:"Spélugues",shortCode:"SP"},{name:"Vallon de la Rousse",shortCode:"VR"}]},{countryName:"Mongolia",countryShortCode:"MN",regions:[{name:"Arhangay",shortCode:"073"},{name:"Bayan-Olgiy",shortCode:"071"},{name:"Bayanhongor",shortCode:"069"},{name:"Bulgan",shortCode:"067"},{name:"Darhan",shortCode:"037"},{name:"Dornod",shortCode:"061"},{name:"Dornogovi",shortCode:"063"},{name:"Dundgovi",shortCode:"059"},{name:"Dzavhan",shortCode:"065"},{name:"Govi-Altay",shortCode:"065"},{name:"Govi-Sumber",shortCode:"064"},{name:"Hovd",shortCode:"043"},{name:"Hovsgol",shortCode:"041"},{name:"Omnogovi",shortCode:"053"},{name:"Ovorhangay",shortCode:"055"},{name:"Selenge",shortCode:"049"},{name:"Suhbaatar",shortCode:"051"},{name:"Tov",shortCode:"047"},{name:"Ulaanbaatar",shortCode:"1"},{name:"Uvs",shortCode:"046"}]},{countryName:"Montenegro",countryShortCode:"ME",regions:[{name:"Andrijevica",shortCode:"01"},{name:"Bar",shortCode:"02"},{name:"Berane",shortCode:"03"},{name:"Bijelo Polje",shortCode:"04"},{name:"Budva",shortCode:"05"},{name:"Cetinje",shortCode:"06"},{name:"Danilovgrad",shortCode:"07"},{name:"Gusinje",shortCode:"22"},{name:"Herceg Novi",shortCode:"08"},{name:"Kolašin",shortCode:"09"},{name:"Kotor",shortCode:"10"},{name:"Mojkovac",shortCode:"11"},{name:"Nikšić",shortCode:"12"},{name:"Petnica",shortCode:"23"},{name:"Plav",shortCode:"13"},{name:"Plužine",shortCode:"14"},{name:"Pljevlja",shortCode:"15"},{name:"Podgorica",shortCode:"16"},{name:"Rožaje",shortCode:"17"},{name:"Šavnik",shortCode:"18"},{name:"Tivat",shortCode:"19"},{name:"Ulcinj",shortCode:"20"},{name:"Žabljak",shortCode:"21"}]},{countryName:"Montserrat",countryShortCode:"MS",regions:[{name:"Saint Anthony"},{name:"Saint Georges"},{name:"Saint Peter's"}]},{countryName:"Morocco",countryShortCode:"MA",regions:[{name:"Chaouia-Ouardigha",shortCode:"09"},{name:"Doukhala-Abda",shortCode:"10"},{name:"Fès-Boulemane",shortCode:"05"},{name:"Gharb-Chrarda-Beni Hssen",shortCode:"02"},{name:"Grand Casablanca",shortCode:"08"},{name:"Guelmim-Es Semara",shortCode:"14"},{name:"Laâyoune-Boujdour-Sakia el Hamra",shortCode:"15"},{name:"Marrakech-Tensift-Al Haouz",shortCode:"11"},{name:"Meknès-Tafilalet",shortCode:"06"},{name:"Oriental",shortCode:"04"},{name:"Oued ed Dahab-Lagouira",shortCode:"16"},{name:"Souss-Massa-Drâa",shortCode:"13"},{name:"Tadla-Azilal",shortCode:"12"},{name:"Tanger-Tétouan",shortCode:"01"},{name:"Taza-Al Hoceima-Taounate",shortCode:"03"}]},{countryName:"Mozambique",countryShortCode:"MZ",regions:[{name:"Cabo Delgado",shortCode:"P"},{name:"Gaza",shortCode:"G"},{name:"Inhambane",shortCode:"I"},{name:"Manica",shortCode:"B"},{name:"Maputo",shortCode:"L"},{name:"Maputo (City)",shortCode:"MPM"},{name:"Nampula",shortCode:"N"},{name:"Niassa",shortCode:"A"},{name:"Sofala",shortCode:"S"},{name:"Tete",shortCode:"T"},{name:"Zambezia",shortCode:"Q"}]},{countryName:"Myanmar",countryShortCode:"MM",regions:[{name:"Ayeyarwady",shortCode:"07"},{name:"Bago",shortCode:"02"},{name:"Chin",shortCode:"14"},{name:"Kachin",shortCode:"11"},{name:"Kayah",shortCode:"12"},{name:"Kayin",shortCode:"13"},{name:"Magway",shortCode:"03"},{name:"Mandalay",shortCode:"04"},{name:"Mon",shortCode:"15"},{name:"Nay Pyi Taw",shortCode:"18"},{name:"Rakhine",shortCode:"16"},{name:"Sagaing",shortCode:"01"},{name:"Shan",shortCode:"17"},{name:"Tanintharyi",shortCode:"05"},{name:"Yangon",shortCode:"06"}]},{countryName:"Namibia",countryShortCode:"NA",regions:[{name:"Erongo",shortCode:"ER"},{name:"Hardap",shortCode:"HA"},{name:"Kavango East",shortCode:"KE"},{name:"Kavango West",shortCode:"KW"},{name:"Karas",shortCode:"KA"},{name:"Khomas",shortCode:"KH"},{name:"Kunene",shortCode:"KU"},{name:"Ohangwena",shortCode:"OW"},{name:"Omaheke",shortCode:"OH"},{name:"Omusati",shortCode:"OS"},{name:"Oshana",shortCode:"ON"},{name:"Oshikoto",shortCode:"OT"},{name:"Otjozondjupa",shortCode:"OD"},{name:"Zambezi",shortCode:"CA"}]},{countryName:"Nauru",countryShortCode:"NR",regions:[{name:"Aiwo",shortCode:"01"},{name:"Anabar",shortCode:"02"},{name:"Anetan",shortCode:"03"},{name:"Anibare",shortCode:"04"},{name:"Baiti",shortCode:"05"},{name:"Boe",shortCode:"06"},{name:"Buada",shortCode:"07"},{name:"Denigomodu",shortCode:"08"},{name:"Ewa",shortCode:"09"},{name:"Ijuw",shortCode:"10"},{name:"Meneng",shortCode:"11"},{name:"Nibok",shortCode:"12"},{name:"Uaboe",shortCode:"13"},{name:"Yaren",shortCode:"14"}]},{countryName:"Nepal",countryShortCode:"NP",regions:[{name:"Bagmati",shortCode:"BA"},{name:"Bheri",shortCode:"BH"},{name:"Dhawalagiri",shortCode:"DH"},{name:"Gandaki",shortCode:"GA"},{name:"Janakpur",shortCode:"JA"},{name:"Karnali",shortCode:"KA"},{name:"Kosi",shortCode:"KO"},{name:"Lumbini",shortCode:"LU"},{name:"Mahakali",shortCode:"MA"},{name:"Mechi",shortCode:"ME"},{name:"Narayani",shortCode:"NA"},{name:"Rapti",shortCode:"RA"},{name:"Sagarmatha",shortCode:"SA"},{name:"Seti",shortCode:"SE"}]},{countryName:"Netherlands",countryShortCode:"NL",regions:[{name:"Drenthe",shortCode:"DR"},{name:"Flevoland",shortCode:"FL"},{name:"Friesland",shortCode:"FR"},{name:"Gelderland",shortCode:"GE"},{name:"Groningen",shortCode:"GR"},{name:"Limburg",shortCode:"LI"},{name:"Noord-Brabant",shortCode:"NB"},{name:"Noord-Holland",shortCode:"NH"},{name:"Overijssel",shortCode:"OV"},{name:"Utrecht",shortCode:"UT"},{name:"Zeeland",shortCode:"ZE"},{name:"Zuid-Holland",shortCode:"ZH"}]},{countryName:"New Caledonia",countryShortCode:"NC",regions:[{name:"Iles Loyaute"},{name:"Nord"},{name:"Sud"}]},{countryName:"New Zealand",countryShortCode:"NZ",regions:[{name:"Auckland",shortCode:"AUK"},{name:"Bay of Plenty",shortCode:"BOP"},{name:"Canterbury",shortCode:"CAN"},{name:"Gisborne",shortCode:"GIS"},{name:"Hawke's Bay",shortCode:"HKB"},{name:"Marlborough",shortCode:"MBH"},{name:"Manawatu-Wanganui",shortCode:"MWT"},{name:"Northland",shortCode:"NTL"},{name:"Nelson",shortCode:"NSN"},{name:"Otago",shortCode:"OTA"},{name:"Southland",shortCode:"STL"},{name:"Taranaki",shortCode:"TKI"},{name:"Tasman",shortCode:"TAS"},{name:"Waikato",shortCode:"WKO"},{name:"Wellington",shortCode:"WGN"},{name:"West Coast",shortCode:"WTC"},{name:"Chatham Islands Territory",shortCode:"CIT"}]},{countryName:"Nicaragua",countryShortCode:"NI",regions:[{name:"Boaco",shortCode:"BO"},{name:"Carazo",shortCode:"CA"},{name:"Chinandega",shortCode:"CI"},{name:"Chontales",shortCode:"CO"},{name:"Estelí",shortCode:"ES"},{name:"Granada",shortCode:"GR"},{name:"Jinotega",shortCode:"JI"},{name:"León",shortCode:"LE"},{name:"Madriz",shortCode:"MD"},{name:"Managua",shortCode:"MN"},{name:"Masaya",shortCode:"MS"},{name:"Matagalpa",shortCode:"MT"},{name:"Nueva Segovia",shortCode:"NS"},{name:"Río San Juan",shortCode:"SJ"},{name:"Rivas",shortCode:"RI"},{name:"Atlántico Norte",shortCode:"AN"},{name:"Atlántico Sur",shortCode:"AS"}]},{countryName:"Niger",countryShortCode:"NE",regions:[{name:"Agadez",shortCode:"1"},{name:"Diffa",shortCode:"2"},{name:"Dosso",shortCode:"3"},{name:"Maradi",shortCode:"4"},{name:"Niamey",shortCode:"8"},{name:"Tahoua",shortCode:"5"},{name:"Tillabéri",shortCode:"6"},{name:"Zinder",shortCode:"7"}]},{countryName:"Nigeria",countryShortCode:"NG",regions:[{name:"Abia",shortCode:"AB"},{name:"Abuja Federal Capital Territory",shortCode:"FC"},{name:"Adamawa",shortCode:"AD"},{name:"Akwa Ibom",shortCode:"AK"},{name:"Anambra",shortCode:"AN"},{name:"Bauchi",shortCode:"BA"},{name:"Bayelsa",shortCode:"BY"},{name:"Benue",shortCode:"BE"},{name:"Borno",shortCode:"BO"},{name:"Cross River",shortCode:"CR"},{name:"Delta",shortCode:"DE"},{name:"Ebonyi",shortCode:"EB"},{name:"Edo",shortCode:"ED"},{name:"Ekiti",shortCode:"EK"},{name:"Enugu",shortCode:"EN"},{name:"Gombe",shortCode:"GO"},{name:"Imo",shortCode:"IM"},{name:"Jigawa",shortCode:"JI"},{name:"Kaduna",shortCode:"KD"},{name:"Kano",shortCode:"KN"},{name:"Katsina",shortCode:"KT"},{name:"Kebbi",shortCode:"KE"},{name:"Kogi",shortCode:"KO"},{name:"Kwara",shortCode:"KW"},{name:"Lagos",shortCode:"LA"},{name:"Nassarawa",shortCode:"NA"},{name:"Niger",shortCode:"NI"},{name:"Ogun",shortCode:"OG"},{name:"Ondo",shortCode:"ON"},{name:"Osun",shortCode:"OS"},{name:"Oyo",shortCode:"OY"},{name:"Plateau",shortCode:"PL"},{name:"Rivers",shortCode:"RI"},{name:"Sokoto",shortCode:"SO"},{name:"Taraba",shortCode:"TA"},{name:"Yobe",shortCode:"YO"},{name:"Zamfara",shortCode:"ZA"}]},{countryName:"Niue",countryShortCode:"NU",regions:[{name:"Niue"}]},{countryName:"Norfolk Island",countryShortCode:"NF",regions:[{name:"Norfolk Island"}]},{countryName:"Northern Mariana Islands",countryShortCode:"MP",regions:[{name:"Northern Islands"},{name:"Rota"},{name:"Saipan"},{name:"Tinian"}]},{countryName:"Norway",countryShortCode:"NO",regions:[{name:"Akershus",shortCode:"02"},{name:"Aust-Agder",shortCode:"09"},{name:"Buskerud",shortCode:"06"},{name:"Finnmark",shortCode:"20"},{name:"Hedmark",shortCode:"04"},{name:"Hordaland",shortCode:"12"},{name:"Møre og Romsdal",shortCode:"15"},{name:"Nordland",shortCode:"18"},{name:"Nord-Trøndelag",shortCode:"17"},{name:"Oppland",shortCode:"05"},{name:"Oslo",shortCode:"03"},{name:"Rogaland",shortCode:"11"},{name:"Sogn og Fjordane",shortCode:"14"},{name:"Sør-Trøndelag",shortCode:"16"},{name:"Telemark",shortCode:"08"},{name:"Troms",shortCode:"19"},{name:"Vest-Agder",shortCode:"10"},{name:"Vestfold",shortCode:"07"},{name:"Østfold",shortCode:"01"},{name:"Jan Mayen",shortCode:"22"},{name:"Svalbard",shortCode:"21"}]},{countryName:"Oman",countryShortCode:"OM",regions:[{name:"Ad Dakhiliyah",shortCode:"DA"},{name:"Al Buraymi",shortCode:"BU"},{name:"Al Wusta",shortCode:"WU"},{name:"Az Zahirah",shortCode:"ZA"},{name:"Janub al Batinah",shortCode:"BS"},{name:"Janub ash Sharqiyah",shortCode:"SS"},{name:"Masqat",shortCode:"MA"},{name:"Musandam",shortCode:"MU"},{name:"Shamal al Batinah",shortCode:"BJ"},{name:"Shamal ash Sharqiyah",shortCode:"SJ"},{name:"Zufar",shortCode:"ZU"}]},{countryName:"Pakistan",countryShortCode:"PK",regions:[{name:"Āzād Kashmīr",shortCode:"JK"},{name:"Balōchistān",shortCode:"BA"},{name:"Gilgit-Baltistān",shortCode:"GB"},{name:"Islāmābād",shortCode:"IS"},{name:"Khaībar Pakhtūnkhwās",shortCode:"KP"},{name:"Punjāb",shortCode:"PB"},{name:"Sindh",shortCode:"SD"},{name:"Federally Administered Tribal Areas",shortCode:"TA"}]},{countryName:"Palau",countryShortCode:"PW",regions:[{name:"Aimeliik",shortCode:"002"},{name:"Airai",shortCode:"004"},{name:"Angaur",shortCode:"010"},{name:"Hatobohei",shortCode:"050"},{name:"Kayangel",shortCode:"100"},{name:"Koror",shortCode:"150"},{name:"Melekeok",shortCode:"212"},{name:"Ngaraard",shortCode:"214"},{name:"Ngarchelong",shortCode:"218"},{name:"Ngardmau",shortCode:"222"},{name:"Ngatpang",shortCode:"224"},{name:"Ngchesar",shortCode:"226"},{name:"Ngeremlengui",shortCode:"227"},{name:"Ngiwal",shortCode:"228"},{name:"Peleliu",shortCode:"350"},{name:"Sonsoral",shortCode:"350"}]},{countryName:"Palestine, State of",countryShortCode:"PS",regions:[{name:"Ak Khalīl",shortCode:"HBN"},{name:"Al Quds",shortCode:"JEM"},{name:"Arīḩā wal Aghwār",shortCode:"JRH"},{name:"Bayt Laḩm",shortCode:"BTH"},{name:"Dayr al Balaḩ",shortCode:"DEB"},{name:"Ghazzah",shortCode:"GZA"},{name:"Janīn",shortCode:"JEN"},{name:"Khān Yūnis",shortCode:"KYS"},{name:"Nāblus",shortCode:"NBS"},{name:"Qalqīyah",shortCode:"QQA"},{name:"Rafaḩ",shortCode:"RFH"},{name:"Rām Allāh wal Bīrah",shortCode:"RBH"},{name:"Salfīt",shortCode:"SLT"},{name:"Shamāl Ghazzah",shortCode:"NGZ"},{name:"Ţūbās",shortCode:"TBS"},{name:"Ţūlkarm",shortCode:"TKM"}]},{countryName:"Panama",countryShortCode:"PA",regions:[{name:"Bocas del Toro",shortCode:"1"},{name:"Chiriquí",shortCode:"4"},{name:"Coclé",shortCode:"2"},{name:"Colón",shortCode:"3"},{name:"Darién",shortCode:"5"},{name:"Emberá",shortCode:"EM"},{name:"Herrera",shortCode:"6"},{name:"Kuna Yala",shortCode:"KY"},{name:"Los Santos",shortCode:"7"},{name:"Ngäbe-Buglé",shortCode:"NB"},{name:"Panamá",shortCode:"8"},{name:"Panamá Oeste",shortCode:"10"},{name:"Veraguas",shortCode:"9"}]},{countryName:"Papua New Guinea",countryShortCode:"PG",regions:[{name:"Bougainville",shortCode:"NSB"},{name:"Central",shortCode:"CPM"},{name:"Chimbu",shortCode:"CPK"},{name:"East New Britain",shortCode:"EBR"},{name:"East Sepik",shortCode:"ESW"},{name:"Eastern Highlands",shortCode:"EHG"},{name:"Enga",shortCode:"EPW"},{name:"Gulf",shortCode:"GPK"},{name:"Hela",shortCode:"HLA"},{name:"Jiwaka",shortCode:"JWK"},{name:"Madang",shortCode:"MOM"},{name:"Manus",shortCode:"MRL"},{name:"Milne Bay",shortCode:"MBA"},{name:"Morobe",shortCode:"MPL"},{name:"Port Moresby",shortCode:"NCD"},{name:"New Ireland",shortCode:"NIK"},{name:"Northern",shortCode:"NPP"},{name:"Southern Highlands",shortCode:"SHM"},{name:"West New Britain",shortCode:"WBK"},{name:"West Sepik",shortCode:"SAN"},{name:"Western",shortCode:"WPD"},{name:"Western Highlands",shortCode:"WHM"}]},{countryName:"Paraguay",countryShortCode:"PY",regions:[{name:"Alto Paraguay",shortCode:"16"},{name:"Alto Parana",shortCode:"10"},{name:"Amambay",shortCode:"13"},{name:"Asuncion",shortCode:"ASU"},{name:"Caaguazu",shortCode:"5"},{name:"Caazapa",shortCode:"6"},{name:"Canindeyu",shortCode:"14"},{name:"Central",shortCode:"11"},{name:"Concepcion",shortCode:"1"},{name:"Cordillera",shortCode:"3"},{name:"Guaira",shortCode:"4"},{name:"Itapua",shortCode:"7"},{name:"Misiones",shortCode:"8"},{name:"Neembucu",shortCode:"12"},{name:"Paraguari",shortCode:"9"},{name:"Presidente Hayes",shortCode:"15"},{name:"San Pedro",shortCode:"2"}]},{countryName:"Peru",countryShortCode:"PE",regions:[{name:"Amazonas",shortCode:"AMA"},{name:"Ancash",shortCode:"ANC"},{name:"Apurimac",shortCode:"APU"},{name:"Arequipa",shortCode:"ARE"},{name:"Ayacucho",shortCode:"AYA"},{name:"Cajamarca",shortCode:"CAJ"},{name:"Callao",shortCode:"CAL"},{name:"Cusco",shortCode:"CUS"},{name:"Huancavelica",shortCode:"HUV"},{name:"Huanuco",shortCode:"HUC"},{name:"Ica",shortCode:"ICA"},{name:"Junin",shortCode:"JUN"},{name:"La Libertad",shortCode:"LAL"},{name:"Lambayeque",shortCode:"LAM"},{name:"Lima",shortCode:"LIM"},{name:"Loreto",shortCode:"LOR"},{name:"Madre de Dios",shortCode:"MDD"},{name:"Moquegua",shortCode:"MOQ"},{name:"Municipalidad Metropolitana de Lima",shortCode:"LMA"},{name:"Pasco",shortCode:"PAS"},{name:"Piura",shortCode:"PIU"},{name:"Puno",shortCode:"PUN"},{name:"San Martin",shortCode:"SAM"},{name:"Tacna",shortCode:"TAC"},{name:"Tumbes",shortCode:"TUM"},{name:"Ucayali",shortCode:"UCA"}]},{countryName:"Philippines",countryShortCode:"PH",regions:[{name:"Abra",shortCode:"ABR"},{name:"Agusan del Norte",shortCode:"AGN"},{name:"Agusan del Sur",shortCode:"AGS"},{name:"Aklan",shortCode:"AKL"},{name:"Albay",shortCode:"ALB"},{name:"Antique",shortCode:"ANT"},{name:"Apayao",shortCode:"APA"},{name:"Aurora",shortCode:"AUR"},{name:"Basilan",shortCode:"BAS"},{name:"Bataan",shortCode:"BAN"},{name:"Batanes",shortCode:"BTN"},{name:"Batangas",shortCode:"BTG"},{name:"Benguet",shortCode:"BEN"},{name:"Biliran",shortCode:"BIL"},{name:"Bohol",shortCode:"BOH"},{name:"Bukidnon",shortCode:"BUK"},{name:"Bulacan",shortCode:"BUL"},{name:"Cagayan",shortCode:"CAG"},{name:"Camarines Norte",shortCode:"CAN"},{name:"Camarines Sur",shortCode:"CAS"},{name:"Camiguin",shortCode:"CAM"},{name:"Capiz",shortCode:"CAP"},{name:"Catanduanes",shortCode:"CAT"},{name:"Cavite",shortCode:"CAV"},{name:"Cebu",shortCode:"CEB"},{name:"Compostela",shortCode:"COM"},{name:"Cotabato",shortCode:"NCO"},{name:"Davao del Norte",shortCode:"DAV"},{name:"Davao del Sur",shortCode:"DAS"},{name:"Davao Occidental",shortCode:"DVO"},{name:"Davao Oriental",shortCode:"DAO"},{name:"Dinagat Islands",shortCode:"DIN"},{name:"Eastern Samar",shortCode:"EAS"},{name:"Guimaras",shortCode:"GUI"},{name:"Ifugao",shortCode:"IFU"},{name:"Ilocos Norte",shortCode:"ILN"},{name:"Ilocos Sur",shortCode:"ILS"},{name:"Iloilo",shortCode:"ILI"},{name:"Isabela",shortCode:"ISA"},{name:"Kalinga",shortCode:"KAL"},{name:"La Union",shortCode:"LUN"},{name:"Laguna",shortCode:"LAG"},{name:"Lanao del Norte",shortCode:"LAN"},{name:"Lanao del Sur",shortCode:"LAS"},{name:"Leyte",shortCode:"LEY"},{name:"Maguindanao",shortCode:"MAG"},{name:"Masbate",shortCode:"MAS"},{name:"Metro Manila",shortCode:"00"},{name:"Mindoro Occidental",shortCode:"MDC"},{name:"Mindoro Oriental",shortCode:"MDR"},{name:"Misamis Occidental",shortCode:"MSC"},{name:"Misamis Oriental",shortCode:"MSR"},{name:"Mountain Province",shortCode:"MOU"},{name:"Negros Occidental",shortCode:"NEC"},{name:"Negros Oriental",shortCode:"NER"},{name:"Northern Samar",shortCode:"NSA"},{name:"Nueva Ecija",shortCode:"NUE"},{name:"Nueva Vizcaya",shortCode:"NUV"},{name:"Palawan",shortCode:"PLW"},{name:"Pampanga",shortCode:"PAM"},{name:"Pangasinan",shortCode:"PAN"},{name:"Quezon",shortCode:"QUE"},{name:"Quirino",shortCode:"QUI"},{name:"Rizal",shortCode:"RIZ"},{name:"Romblon",shortCode:"ROM"},{name:"Samar",shortCode:"WSA"},{name:"Sarangani",shortCode:"SAR"},{name:"Siquijor",shortCode:"SIG"},{name:"Sorsogon",shortCode:"SOR"},{name:"Southern Leyte",shortCode:"SLE"},{name:"Sultan Kudarat",shortCode:"AUK"},{name:"Sulu",shortCode:"SLU"},{name:"Surigao del Norte",shortCode:"SUN"},{name:"Surigao del Sur",shortCode:"SUR"},{name:"Tarlac",shortCode:"TAR"},{name:"Tawi-Tawi",shortCode:"TAW"},{name:"Zambales",shortCode:"ZMB"},{name:"Zamboanga del Norte",shortCode:"ZAN"},{name:"Zamboanga del Sur",shortCode:"ZAS"},{name:"Zamboanga Sibugay",shortCode:"ZSI"}]},{countryName:"Pitcairn",countryShortCode:"PN",regions:[{name:"Pitcairn Islands"}]},{countryName:"Poland",countryShortCode:"PL",regions:[{name:"Dolnośląskie",shortCode:"DS"},{name:"Kujawsko-pomorskie",shortCode:"KP"},{name:"Łódzkie",shortCode:"LD"},{name:"Lubelskie",shortCode:"LU"},{name:"Lubuskie",shortCode:"LB"},{name:"Malopolskie",shortCode:"MA"},{name:"Mazowieckie",shortCode:"MZ"},{name:"Opolskie",shortCode:"OP"},{name:"Podkarpackie",shortCode:"PK"},{name:"Podlaskie",shortCode:"PD"},{name:"Pomorskie",shortCode:"PM"},{name:"Śląskie",shortCode:"SL"},{name:"Świętokrzyskie",shortCode:"SK"},{name:"Warmińsko-mazurskie",shortCode:"WN"},{name:"Wielkopolskie",shortCode:"WP"},{name:"Zachodniopomorskie",shortCode:"ZP"}]},{countryName:"Portugal",countryShortCode:"PT",regions:[{name:"Açores",shortCode:"20"},{name:"Aveiro",shortCode:"01"},{name:"Beja",shortCode:"02"},{name:"Braga",shortCode:"03"},{name:"Bragança",shortCode:"04"},{name:"Castelo Branco",shortCode:"05"},{name:"Coimbra",shortCode:"06"},{name:"Évora",shortCode:"07"},{name:"Faro",shortCode:"08"},{name:"Guarda",shortCode:"09"},{name:"Leiria",shortCode:"10"},{name:"Lisboa",shortCode:"11"},{name:"Madeira",shortCode:"30"},{name:"Portalegre",shortCode:"12"},{name:"Porto",shortCode:"13"},{name:"Santarém",shortCode:"14"},{name:"Setúbal",shortCode:"15"},{name:"Viana do Castelo",shortCode:"16"},{name:"Vila Real",shortCode:"17"},{name:"Viseu",shortCode:"18"}]},{countryName:"Puerto Rico",countryShortCode:"PR",regions:[{name:"Adjuntas"},{name:"Aguada"},{name:"Aguadilla"},{name:"Aguas Buenas"},{name:"Aibonito"},{name:"Anasco"},{name:"Arecibo"},{name:"Arroyo"},{name:"Barceloneta"},{name:"Barranquitas"},{name:"Bayamon"},{name:"Cabo Rojo"},{name:"Caguas"},{name:"Camuy"},{name:"Canovanas"},{name:"Carolina"},{name:"Cat"},{name:"Ceiba"},{name:"Ciales"},{name:"Cidra"},{name:"Coamo"},{name:"Comerio"},{name:"Corozal"},{name:"Culebra"},{name:"Dorado"},{name:"Fajardo"},{name:"Florida"},{name:"Guanica"},{name:"Guayama"},{name:"Guayanilla"},{name:"Guaynabo"},{name:"Gurabo"},{name:"Hatillo"},{name:"Hormigueros"},{name:"Humacao"},{name:"Isabe"},{name:"Juana Diaz"},{name:"Juncos"},{name:"Lajas"},{name:"Lares"},{name:"Las Marias"},{name:"Las oiza"},{name:"Luquillo"},{name:"Manati"},{name:"Maricao"},{name:"Maunabo"},{name:"Mayaguez"},{name:"Moca"},{name:"Morovis"},{name:"Naguabo"},{name:"Naranjito"},{name:"Orocovis"},{name:"Patillas"},{name:"Penuelas"},{name:"Ponce"},{name:"Quebradillas"},{name:"Rincon"},{name:"Rio Grande"},{name:"Sabana linas"},{name:"San German"},{name:"San Juan"},{name:"San Lorenzo"},{name:"San Sebastian"},{name:"Santa Isabel"},{name:"Toa Alta"},{name:"Toa Baja"},{name:"Trujillo Alto"},{name:"Utuado"},{name:"Vega Alta"},{name:"Vega ues"},{name:"Villalba"},{name:"Yabucoa"},{name:"Yauco"}]},{countryName:"Qatar",countryShortCode:"QA",regions:[{name:"Ad Dawḩah",shortCode:"DA"},{name:"Al Khawr wa adh Dhakhīrah",shortCode:"KH"},{name:"Al Wakrah",shortCode:"WA"},{name:"Ar Rayyān",shortCode:"RA"},{name:"Ash Shamāl",shortCode:"MS"},{name:"Az̧ Za̧`āyin",shortCode:"ZA"},{name:"Umm Şalāl",shortCode:"US"}]},{countryName:"Réunion",countryShortCode:"RE",regions:[{name:"Réunion"}]},{countryName:"Romania",countryShortCode:"RO",regions:[{name:"Alba",shortCode:"AB"},{name:"Arad",shortCode:"AR"},{name:"Arges",shortCode:"AG"},{name:"Bacau",shortCode:"BC"},{name:"Bihor",shortCode:"BH"},{name:"Bistrita-Nasaud",shortCode:"BN"},{name:"Botosani",shortCode:"BT"},{name:"Braila",shortCode:"BR"},{name:"Brasov",shortCode:"BV"},{name:"Bucuresti",shortCode:"B"},{name:"Buzau",shortCode:"BZ"},{name:"Calarasi",shortCode:"CL"},{name:"Caras-Severin",shortCode:"CS"},{name:"Cluj",shortCode:"CJ"},{name:"Constanta",shortCode:"CT"},{name:"Covasna",shortCode:"CV"},{name:"Dambovita",shortCode:"DB"},{name:"Dolj",shortCode:"DJ"},{name:"Galati",shortCode:"GL"},{name:"Giurgiu",shortCode:"GR"},{name:"Gorj",shortCode:"GJ"},{name:"Harghita",shortCode:"HR"},{name:"Hunedoara",shortCode:"HD"},{name:"Ialomita",shortCode:"IL"},{name:"Iasi",shortCode:"IS"},{name:"Maramures",shortCode:"MM"},{name:"Mehedinti",shortCode:"MH"},{name:"Mures",shortCode:"MS"},{name:"Neamt",shortCode:"NT"},{name:"Olt",shortCode:"OT"},{name:"Prahova",shortCode:"PH"},{name:"Salaj",shortCode:"SJ"},{name:"Satu Mare",shortCode:"SM"},{name:"Sibiu",shortCode:"SB"},{name:"Suceava",shortCode:"SV"},{name:"Teleorman",shortCode:"TR"},{name:"Timis",shortCode:"TM"},{name:"Tulcea",shortCode:"TL"},{name:"Valcea",shortCode:"VL"},{name:"Vaslui",shortCode:"VS"},{name:"Vrancea",shortCode:"VN"}]},{countryName:"Russian Federation",countryShortCode:"RU",regions:[{name:"Republic of Adygea",shortCode:"AD"},{name:"Republic of Altai (Gorno-Altaysk)",shortCode:"AL"},{name:"Altai Krai",shortCode:"ALT"},{name:"Amur Oblast",shortCode:"AMU"},{name:"Arkhangelsk Oblast",shortCode:"ARK"},{name:"Astrakhan Oblast",shortCode:"AST"},{name:"Republic of Bashkortostan",shortCode:"BA"},{name:"Belgorod Oblast",shortCode:"BEL"},{name:"Bryansk Oblast",shortCode:"BRY"},{name:"Republic of Buryatia",shortCode:"BU"},{name:"Chechen Republic",shortCode:"CE"},{name:"Chelyabinsk Oblast",shortCode:"CHE"},{name:"Chukotka Autonomous Okrug",shortCode:"CHU"},{name:"Chuvash Republic",shortCode:"CU"},{name:"Republic of Dagestan",shortCode:"DA"},{name:"Republic of Ingushetia",shortCode:"IN"},{name:"Irkutsk Oblast",shortCode:"IRK"},{name:"Ivanovo Oblast",shortCode:"IVA"},{name:"Jewish Autonomous Oblast",shortCode:"JEW"},{name:"Kabardino-Balkar Republic",shortCode:"KB"},{name:"Kaliningrad Oblast",shortCode:"KLN"},{name:"Republic of Kalmykia",shortCode:"KL"},{name:"Kaluga Oblast",shortCode:"KLU"},{name:"Kamchatka Krai",shortCode:"KAM"},{name:"Karachay-Cherkess Republic",shortCode:"KC"},{name:"Republic of Karelia",shortCode:"KR"},{name:"Khabarovsk Krai",shortCode:"KHA"},{name:"Republic of Khakassia",shortCode:"KK"},{name:"Khanty-Mansi Autonomous Okrug - Yugra",shortCode:"KHM"},{name:"Kemerovo Oblast",shortCode:"KEM"},{name:"Kirov Oblast",shortCode:"KIR"},{name:"Komi Republic",shortCode:"KO"},{name:"Kostroma Oblast",shortCode:"KOS"},{name:"Krasnodar Krai",shortCode:"KDA"},{name:"Krasnoyarsk Krai",shortCode:"KYA"},{name:"Kurgan Oblast",shortCode:"KGN"},{name:"Kursk Oblast",shortCode:"KRS"},{name:"Leningrad Oblast",shortCode:"LEN"},{name:"Lipetsk Oblast",shortCode:"LIP"},{name:"Magadan Oblast",shortCode:"MAG"},{name:"Mari El Republic",shortCode:"ME"},{name:"Republic of Mordovia",shortCode:"MO"},{name:"Moscow Oblast",shortCode:"MOS"},{name:"Moscow",shortCode:"MOW"},{name:"Murmansk Oblast",shortCode:"MU"},{name:"Nenets Autonomous Okrug",shortCode:"NEN"},{name:"Nizhny Novgorod Oblast",shortCode:"NIZ"},{name:"Novgorod Oblast",shortCode:"NGR"},{name:"Novosibirsk Oblast",shortCode:"NVS"},{name:"Omsk Oblast",shortCode:"OMS"},{name:"Orenburg Oblast",shortCode:"ORE"},{name:"Oryol Oblast",shortCode:"ORL"},{name:"Penza Oblast",shortCode:"PNZ"},{name:"Perm Krai",shortCode:"PER"},{name:"Primorsky Krai",shortCode:"PRI"},{name:"Pskov Oblast",shortCode:"PSK"},{name:"Rostov Oblast",shortCode:"ROS"},{name:"Ryazan Oblast",shortCode:"RYA"},{name:"Saint Petersburg",shortCode:"SPE"},{name:"Sakha (Yakutia) Republic",shortCode:"SA"},{name:"Sakhalin Oblast",shortCode:"SAK"},{name:"Samara Oblast",shortCode:"SAM"},{name:"Saratov Oblast",shortCode:"SAR"},{name:"Republic of North Ossetia-Alania",shortCode:"NOA"},{name:"Smolensk Oblast",shortCode:"SMO"},{name:"Stavropol Krai",shortCode:"STA"},{name:"Sverdlovsk Oblast",shortCode:"SVE"},{name:"Tambov Oblast",shortCode:"TAM"},{name:"Republic of Tatarstan",shortCode:"TA"},{name:"Tomsk Oblast",shortCode:"TOM"},{name:"Tuva Republic",shortCode:"TU"},{name:"Tula Oblast",shortCode:"TUL"},{name:"Tver Oblast",shortCode:"TVE"},{name:"Tyumen Oblast",shortCode:"TYU"},{name:"Udmurt Republic",shortCode:"UD"},{name:"Ulyanovsk Oblast",shortCode:"ULY"},{name:"Vladimir Oblast",shortCode:"VLA"},{name:"Volgograd Oblast",shortCode:"VGG"},{name:"Vologda Oblast",shortCode:"VLG"},{name:"Voronezh Oblast",shortCode:"VOR"},{name:"Yamalo-Nenets Autonomous Okrug",shortCode:"YAN"},{name:"Yaroslavl Oblast",shortCode:"YAR"},{name:"Zabaykalsky Krai",shortCode:"ZAB"}]},{countryName:"Rwanda",countryShortCode:"RW",regions:[{name:"Kigali",shortCode:"01"},{name:"Eastern",shortCode:"02"},{name:"Northern",shortCode:"03"},{name:"Western",shortCode:"04"},{name:"Southern",shortCode:"05"}]},{countryName:"Saint Barthélemy",countryShortCode:"BL",regions:[{name:"Au Vent",shortCode:"02"},{name:"Sous le Vent",shortCode:"01"}]},{countryName:"Saint Helena, Ascension and Tristan da Cunha",countryShortCode:"SH",regions:[{name:"Ascension",shortCode:"AC"},{name:"Saint Helena",shortCode:"HL"},{name:"Tristan da Cunha",shortCode:"TA"}]},{countryName:"Saint Kitts and Nevis",countryShortCode:"KN",regions:[{name:"Saint Kitts",shortCode:"K"},{name:"Nevis",shortCode:"N"}]},{countryName:"Saint Lucia",countryShortCode:"LC",regions:[{name:"Anse-la-Raye",shortCode:"01"},{name:"Canaries",shortCode:"12"},{name:"Castries",shortCode:"02"},{name:"Choiseul",shortCode:"03"},{name:"Dennery",shortCode:"05"},{name:"Gros Islet",shortCode:"06"},{name:"Laborie",shortCode:"07"},{name:"Micoud",shortCode:"08"},{name:"Soufriere",shortCode:"10"},{name:"Vieux Fort",shortCode:"11"}]},{countryName:"Saint Martin",countryShortCode:"MF",regions:[{name:"Saint Martin"}]},{countryName:"Saint Pierre and Miquelon",countryShortCode:"PM",regions:[{name:"Miquelon"},{name:"Saint Pierre"}]},{countryName:"Saint Vincent and the Grenadines",countryShortCode:"VC",regions:[{name:"Charlotte",shortCode:"01"},{name:"Grenadines",shortCode:"06"},{name:"Saint Andrew",shortCode:"02"},{name:"Saint David",shortCode:"03"},{name:"Saint George",shortCode:"04"},{name:"Saint Patrick",shortCode:"05"}]},{countryName:"Samoa",countryShortCode:"WS",regions:[{name:"A'ana",shortCode:"AA"},{name:"Aiga-i-le-Tai",shortCode:"AL"},{name:"Atua",shortCode:"AT"},{name:"Fa'asaleleaga",shortCode:"FA"},{name:"Gaga'emauga",shortCode:"GE"},{name:"Gagaifomauga",shortCode:"GI"},{name:"Palauli",shortCode:"PA"},{name:"Satupa'itea",shortCode:"SA"},{name:"Tuamasaga",shortCode:"TU"},{name:"Va'a-o-Fonoti",shortCode:"VF"},{name:"Vaisigano",shortCode:"VS"}]},{countryName:"San Marino",countryShortCode:"SM",regions:[{name:"Acquaviva",shortCode:"01"},{name:"Borgo Maggiore",shortCode:"06"},{name:"Chiesanuova",shortCode:"02"},{name:"Domagnano",shortCode:"03"},{name:"Faetano",shortCode:"04"},{name:"Fiorentino",shortCode:"05"},{name:"Montegiardino",shortCode:"08"},{name:"San Marino",shortCode:"07"},{name:"Serravalle",shortCode:"09"}]},{countryName:"Sao Tome and Principe",countryShortCode:"ST",regions:[{name:"Principe",shortCode:"P"},{name:"Sao Tome",shortCode:"S"}]},{countryName:"Saudi Arabia",countryShortCode:"SA",regions:[{name:"'Asir",shortCode:"14"},{name:"Al Bahah",shortCode:"11"},{name:"Al Hudud ash Shamaliyah",shortCode:"08"},{name:"Al Jawf",shortCode:"12"},{name:"Al Madinah al Munawwarah",shortCode:"03"},{name:"Al Qasim",shortCode:"05"},{name:"Ar Riyad",shortCode:"01"},{name:"Ash Sharqiyah",shortCode:"04"},{name:"Ha'il",shortCode:"06"},{name:"Jazan",shortCode:"09"},{name:"Makkah al Mukarramah",shortCode:"02"},{name:"Najran",shortCode:"10"},{name:"Tabuk",shortCode:"07"}]},{countryName:"Senegal",countryShortCode:"SN",regions:[{name:"Dakar",shortCode:"DK"},{name:"Diourbel",shortCode:"DB"},{name:"Fatick",shortCode:"FK"},{name:"Kaffrine",shortCode:"KA"},{name:"Kaolack",shortCode:"KL"},{name:"Kedougou",shortCode:"KE"},{name:"Kolda",shortCode:"KD"},{name:"Louga",shortCode:"LG"},{name:"Matam",shortCode:"MT"},{name:"Saint-Louis",shortCode:"SL"},{name:"Sedhiou",shortCode:"SE"},{name:"Tambacounda",shortCode:"TC"},{name:"Thies",shortCode:"TH"},{name:"Ziguinchor",shortCode:"ZG"}]},{countryName:"Serbia",countryShortCode:"RS",regions:[{name:"Beograd (Belgrade)",shortCode:"00"},{name:"Borski",shortCode:"14"},{name:"Braničevski",shortCode:"11"},{name:"Jablanički",shortCode:"23"},{name:"Južnobački",shortCode:"06"},{name:"Južnobanatski",shortCode:"04"},{name:"Kolubarski",shortCode:"09"},{name:"Kosovski",shortCode:"25"},{name:"Kosovsko-Mitrovački",shortCode:"28"},{name:"Kosovsko-Pomoravski",shortCode:"29"},{name:"Mačvanski",shortCode:"08"},{name:"Moravički",shortCode:"17"},{name:"Nišavski",shortCode:"20"},{name:"Pčinjski",shortCode:"24"},{name:"Pećki",shortCode:"26"},{name:"Pirotski",shortCode:"22"},{name:"Podunavski",shortCode:"10"},{name:"Pomoravski",shortCode:"13"},{name:"Prizrenski",shortCode:"27"},{name:"Rasinski",shortCode:"19"},{name:"Raški",shortCode:"18"},{name:"Severnobački",shortCode:"01"},{name:"Severnobanatski",shortCode:"03"},{name:"Srednjebanatski",shortCode:"02"},{name:"Sremski",shortCode:"07"},{name:"Šumadijski",shortCode:"12"},{name:"Toplički",shortCode:"21"},{name:"Zaječarski",shortCode:"15"},{name:"Zapadnobački",shortCode:"05"},{name:"Zlatiborski",shortCode:"16"}]},{countryName:"Seychelles",countryShortCode:"SC",regions:[{name:"Anse aux Pins",shortCode:"01"},{name:"Anse Boileau",shortCode:"02"},{name:"Anse Etoile",shortCode:"03"},{name:"Anse Royale",shortCode:"05"},{name:"Anu Cap",shortCode:"04"},{name:"Baie Lazare",shortCode:"06"},{name:"Baie Sainte Anne",shortCode:"07"},{name:"Beau Vallon",shortCode:"08"},{name:"Bel Air",shortCode:"09"},{name:"Bel Ombre",shortCode:"10"},{name:"Cascade",shortCode:"11"},{name:"Glacis",shortCode:"12"},{name:"Grand'Anse Mahe",shortCode:"13"},{name:"Grand'Anse Praslin",shortCode:"14"},{name:"La Digue",shortCode:"15"},{name:"La Riviere Anglaise",shortCode:"16"},{name:"Les Mamelles",shortCode:"24"},{name:"Mont Buxton",shortCode:"17"},{name:"Mont Fleuri",shortCode:"18"},{name:"Plaisance",shortCode:"19"},{name:"Pointe La Rue",shortCode:"20"},{name:"Port Glaud",shortCode:"21"},{name:"Roche Caiman",shortCode:"25"},{name:"Saint Louis",shortCode:"22"},{name:"Takamaka",shortCode:"23"}]},{countryName:"Sierra Leone",countryShortCode:"SL",regions:[{name:"Eastern",shortCode:"E"},{name:"Northern",shortCode:"N"},{name:"Southern",shortCode:"S"},{name:"Western",shortCode:"W"}]},{countryName:"Singapore",countryShortCode:"SG",regions:[{name:"Central Singapore",shortCode:"01"},{name:"North East",shortCode:"02"},{name:"North West",shortCode:"03"},{name:"South East",shortCode:"04"},{name:"South West",shortCode:"05"}]},{countryName:"Sint Maarten (Dutch part)",countryShortCode:"SX",regions:[{name:"Sint Maarten"}]},{countryName:"Slovakia",countryShortCode:"SK",regions:[{name:"Banskobystricky",shortCode:"BC"},{name:"Bratislavsky",shortCode:"BL"},{name:"Kosicky",shortCode:"KI"},{name:"Nitriansky",shortCode:"NI"},{name:"Presovsky",shortCode:"PV"},{name:"Trenciansky",shortCode:"TC"},{name:"Trnavsky",shortCode:"TA"},{name:"Zilinsky",shortCode:"ZI"}]},{countryName:"Slovenia",countryShortCode:"SI",regions:[{name:"Ajdovscina",shortCode:"001"},{name:"Apace",shortCode:"195"},{name:"Beltinci",shortCode:"002"},{name:"Benedikt",shortCode:"148"},{name:"Bistrica ob Sotli",shortCode:"149"},{name:"Bled",shortCode:"003"},{name:"Bloke",shortCode:"150"},{name:"Bohinj",shortCode:"004"},{name:"Borovnica",shortCode:"005"},{name:"Bovec",shortCode:"006"},{name:"Braslovce",shortCode:"151"},{name:"Brda",shortCode:"007"},{name:"Brezice",shortCode:"009"},{name:"Brezovica",shortCode:"008"},{name:"Cankova",shortCode:"152"},{name:"Celje",shortCode:"011"},{name:"Cerklje na Gorenjskem",shortCode:"012"},{name:"Cerknica",shortCode:"013"},{name:"Cerkno",shortCode:"014"},{name:"Cerkvenjak",shortCode:"153"},{name:"Cirkulane",shortCode:"196"},{name:"Crensovci",shortCode:"015"},{name:"Crna na Koroskem",shortCode:"016"},{name:"Crnomelj",shortCode:"017"},{name:"Destrnik",shortCode:"018"},{name:"Divaca",shortCode:"019"},{name:"Dobje",shortCode:"154"},{name:"Dobrepolje",shortCode:"020"},{name:"Dobrna",shortCode:"155"},{name:"Dobrova-Polhov Gradec",shortCode:"021"},{name:"Dobrovnik",shortCode:"156"},{name:"Dol pri Ljubljani",shortCode:"022"},{name:"Dolenjske Toplice",shortCode:"157"},{name:"Domzale",shortCode:"023"},{name:"Dornava",shortCode:"024"},{name:"Dravograd",shortCode:"025"},{name:"Duplek",shortCode:"026"},{name:"Gorenja Vas-Poljane",shortCode:"027"},{name:"Gorisnica",shortCode:"028"},{name:"Gorje",shortCode:"207"},{name:"Gornja Radgona",shortCode:"029"},{name:"Gornji Grad",shortCode:"030"},{name:"Gornji Petrovci",shortCode:"031"},{name:"Grad",shortCode:"158"},{name:"Grosuplje",shortCode:"032"},{name:"Hajdina",shortCode:"159"},{name:"Hoce-Slivnica",shortCode:"160"},{name:"Hodos",shortCode:"161"},{name:"Horjul",shortCode:"162"},{name:"Hrastnik",shortCode:"034"},{name:"Hrpelje-Kozina",shortCode:"035"},{name:"Idrija",shortCode:"036"},{name:"Ig",shortCode:"037"},{name:"Ilirska Bistrica",shortCode:"038"},{name:"Ivancna Gorica",shortCode:"039"},{name:"Izola",shortCode:"040s"},{name:"Jesenice",shortCode:"041"},{name:"Jursinci",shortCode:"042"},{name:"Kamnik",shortCode:"043"},{name:"Kanal",shortCode:"044"},{name:"Kidricevo",shortCode:"045"},{name:"Kobarid",shortCode:"046"},{name:"Kobilje",shortCode:"047"},{name:"Kocevje",shortCode:"048"},{name:"Komen",shortCode:"049"},{name:"Komenda",shortCode:"164"},{name:"Koper",shortCode:"050"},{name:"Kodanjevica na Krki",shortCode:"197"},{name:"Kostel",shortCode:"165"},{name:"Kozje",shortCode:"051"},{name:"Kranj",shortCode:"052"},{name:"Kranjska Gora",shortCode:"053"},{name:"Krizevci",shortCode:"166"},{name:"Krsko",shortCode:"054"},{name:"Kungota",shortCode:"055"},{name:"Kuzma",shortCode:"056"},{name:"Lasko",shortCode:"057"},{name:"Lenart",shortCode:"058"},{name:"Lendava",shortCode:"059"},{name:"Litija",shortCode:"068"},{name:"Ljubljana",shortCode:"061"},{name:"Ljubno",shortCode:"062"},{name:"Ljutomer",shortCode:"063"},{name:"Log-Dragomer",shortCode:"208"},{name:"Logatec",shortCode:"064"},{name:"Loska Dolina",shortCode:"065"},{name:"Loski Potok",shortCode:"066"},{name:"Lovrenc na Pohorju",shortCode:"167"},{name:"Lukovica",shortCode:"068"},{name:"Luce",shortCode:"067"},{name:"Majsperk",shortCode:"069"},{name:"Makole",shortCode:"198"},{name:"Maribor",shortCode:"070"},{name:"Markovci",shortCode:"168"},{name:"Medvode",shortCode:"071"},{name:"Menges",shortCode:"072"},{name:"Metlika",shortCode:"073"},{name:"Mezica",shortCode:"074"},{name:"Miklavz na Dravskem Polju",shortCode:"169"},{name:"Miren-Kostanjevica",shortCode:"075"},{name:"Mirna",shortCode:"212"},{name:"Mirna Pec",shortCode:"170"},{name:"Mislinja",shortCode:"076"},{name:"Mokronog-Trebelno",shortCode:"199"},{name:"Moravce",shortCode:"077"},{name:"Moravske Toplice",shortCode:"078"},{name:"Mozirje",shortCode:"079"},{name:"Murska Sobota",shortCode:"080"},{name:"Naklo",shortCode:"082"},{name:"Nazarje",shortCode:"083"},{name:"Nova Gorica",shortCode:"084"},{name:"Novo Mesto",shortCode:"085"},{name:"Odranci",shortCode:"086"},{name:"Ormoz",shortCode:"087"},{name:"Osilnica",shortCode:"088"},{name:"Pesnica",shortCode:"089"},{name:"Piran",shortCode:"090"},{name:"Pivka",shortCode:"091"},{name:"Podcetrtek",shortCode:"092"},{name:"Podlehnik",shortCode:"172"},{name:"Podvelka",shortCode:"093"},{name:"Poljcane",shortCode:"200"},{name:"Postojna",shortCode:"094"},{name:"Prebold",shortCode:"174"},{name:"Preddvor",shortCode:"095"},{name:"Prevalje",shortCode:"175"},{name:"Ptuj",shortCode:"096"},{name:"Race-Fram",shortCode:"098"},{name:"Radece",shortCode:"099"},{name:"Radenci",shortCode:"100"},{name:"Radlje ob Dravi",shortCode:"101"},{name:"Radovljica",shortCode:"102"},{name:"Ravne na Koroskem",shortCode:"103"},{name:"Razkrizje",shortCode:"176"},{name:"Recica ob Savinji",shortCode:"209"},{name:"Rence-Vogrsko",shortCode:"201"},{name:"Ribnica",shortCode:"104"},{name:"Ribnica na Poboriu",shortCode:"177"},{name:"Rogaska Slatina",shortCode:"106"},{name:"Rogasovci",shortCode:"105"},{name:"Rogatec",shortCode:"107"},{name:"Ruse",shortCode:"108"},{name:"Salovci",shortCode:"033"},{name:"Selnica ob Dravi",shortCode:"178"},{name:"Semic",shortCode:"109"},{name:"Sempeter-Vrtojba",shortCode:"183"},{name:"Sencur",shortCode:"117"},{name:"Sentilj",shortCode:"118"},{name:"Sentjernej",shortCode:"119"},{name:"Sentjur",shortCode:"120"},{name:"Sentrupert",shortCode:"211"},{name:"Sevnica",shortCode:"110"},{name:"Sezana",shortCode:"111"},{name:"Skocjan",shortCode:"121"},{name:"Skofja Loka",shortCode:"122"},{name:"Skofljica",shortCode:"123"},{name:"Slovenj Gradec",shortCode:"112"},{name:"Slovenska Bistrica",shortCode:"113"},{name:"Slovenske Konjice",shortCode:"114"},{name:"Smarje pri elsah",shortCode:"124"},{name:"Smarjeske Toplice",shortCode:"206"},{name:"Smartno ob Paki",shortCode:"125"},{name:"Smartno pri Litiji",shortCode:"194"},{name:"Sodrazica",shortCode:"179"},{name:"Solcava",shortCode:"180"},{name:"Sostanj",shortCode:"126"},{name:"Sredisce ob Dravi",shortCode:"202"},{name:"Starse",shortCode:"115"},{name:"Store",shortCode:"127"},{name:"Straza",shortCode:"203"},{name:"Sveta Ana",shortCode:"181"},{name:"Sveta Trojica v Slovenskih Goricah",shortCode:"204"},{name:"Sveta Andraz v Slovenskih Goricah",shortCode:"182"},{name:"Sveti Jurij",shortCode:"116"},{name:"Sveti Jurij v Slovenskih Goricah",shortCode:"210"},{name:"Sveti Tomaz",shortCode:"205"},{name:"Tabor",shortCode:"184"},{name:"Tisina",shortCode:"128"},{name:"Tolmin",shortCode:"128"},{name:"Trbovlje",shortCode:"129"},{name:"Trebnje",shortCode:"130"},{name:"Trnovska Vas",shortCode:"185"},{name:"Trzin",shortCode:"186"},{name:"Trzic",shortCode:"131"},{name:"Turnisce",shortCode:"132"},{name:"Velenje",shortCode:"133"},{name:"Velika Polana",shortCode:"187"},{name:"Velike Lasce",shortCode:"134"},{name:"Verzej",shortCode:"188"},{name:"Videm",shortCode:"135"},{name:"Vipava",shortCode:"136"},{name:"Vitanje",shortCode:"137"},{name:"Vodice",shortCode:"138"},{name:"Vojnik",shortCode:"139"},{name:"Vransko",shortCode:"189"},{name:"Vrhnika",shortCode:"140"},{name:"Vuzenica",shortCode:"141"},{name:"Zagorje ob Savi",shortCode:"142"},{name:"Zavrc",shortCode:"143"},{name:"Zrece",shortCode:"144"},{name:"Zalec",shortCode:"190"},{name:"Zelezniki",shortCode:"146"},{name:"Zetale",shortCode:"191"},{name:"Ziri",shortCode:"147"},{name:"Zirovnica",shortCode:"192"},{name:"Zuzemberk",shortCode:"193"}]},{countryName:"Solomon Islands",countryShortCode:"SB",regions:[{name:"Central",shortCode:"CE"},{name:"Choiseul",shortCode:"CH"},{name:"Guadalcanal",shortCode:"GU"},{name:"Honiara",shortCode:"CT"},{name:"Isabel",shortCode:"IS"},{name:"Makira-Ulawa",shortCode:"MK"},{name:"Malaita",shortCode:"ML"},{name:"Rennell and Bellona",shortCode:"RB"},{name:"Temotu",shortCode:"TE"},{name:"Western",shortCode:"WE"}]},{countryName:"Somalia",countryShortCode:"SO",regions:[{name:"Awdal",shortCode:"AW"},{name:"Bakool",shortCode:"BK"},{name:"Banaadir",shortCode:"BN"},{name:"Bari",shortCode:"BR"},{name:"Bay",shortCode:"BY"},{name:"Galguduud",shortCode:"GA"},{name:"Gedo",shortCode:"GE"},{name:"Hiiraan",shortCode:"HI"},{name:"Jubbada Dhexe",shortCode:"JD"},{name:"Jubbada Hoose",shortCode:"JH"},{name:"Mudug",shortCode:"MU"},{name:"Nugaal",shortCode:"NU"},{name:"Sanaag",shortCode:"SA"},{name:"Shabeellaha Dhexe",shortCode:"SD"},{name:"Shabeellaha Hoose",shortCode:"SH"},{name:"Sool",shortCode:"SO"},{name:"Togdheer",shortCode:"TO"},{name:"Woqooyi Galbeed",shortCode:"WO"}]},{countryName:"South Africa",countryShortCode:"ZA",regions:[{name:"Eastern Cape",shortCode:"EC"},{name:"Free State",shortCode:"FS"},{name:"Gauteng",shortCode:"GT"},{name:"KwaZulu-Natal",shortCode:"NL"},{name:"Limpopo",shortCode:"LP"},{name:"Mpumalanga",shortCode:"MP"},{name:"Northern Cape",shortCode:"NC"},{name:"North West",shortCode:"NW"},{name:"Western Cape",shortCode:"WC"}]},{countryName:"South Georgia and South Sandwich Islands",countryShortCode:"GS",regions:[{name:"Bird Island"},{name:"Bristol Island"},{name:"Clerke Rocks"},{name:"Montagu Island"},{name:"Saunders Island"},{name:"South Georgia"},{name:"Southern Thule"},{name:"Traversay Islands"}]},{countryName:"South Sudan",countryShortCode:"SS",regions:[{name:"Central Equatoria",shortCode:"CE"},{name:"Eastern Equatoria",shortCode:"EE"},{name:"Jonglei",shortCode:"JG"},{name:"Lakes",shortCode:"LK"},{name:"Northern Bahr el Ghazal",shortCode:"BN"},{name:"Unity",shortCode:"UY"},{name:"Upper Nile",shortCode:"NU"},{name:"Warrap",shortCode:"WR"},{name:"Western Bahr el Ghazal",shortCode:"BW"},{name:"Western Equatoria",shortCode:"EW"}]},{countryName:"Spain",countryShortCode:"ES",regions:[{name:"Albacete",shortCode:"CM"},{name:"Alicante",shortCode:"VC"},{name:"Almería",shortCode:"AN"},{name:"Araba/Álava",shortCode:"VI"},{name:"Asturias",shortCode:"O"},{name:"Ávila",shortCode:"AV"},{name:"Badajoz",shortCode:"BA"},{name:"Barcelona",shortCode:"B"},{name:"Bizkaia",shortCode:"BI"},{name:"Burgos",shortCode:"BU"},{name:"Cáceres",shortCode:"CC"},{name:"Cádiz",shortCode:"CA"},{name:"Cantabria",shortCode:"S"},{name:"Castellón",shortCode:"CS"},{name:"Cueta",shortCode:"CU"},{name:"Ciudad Real",shortCode:"CR"},{name:"Córdoba",shortCode:"CO"},{name:"A Coruña",shortCode:"C"},{name:"Cuenca",shortCode:"CU"},{name:"Gipuzkoa",shortCode:"SS"},{name:"Girona",shortCode:"GI"},{name:"Granada",shortCode:"GR"},{name:"Guadalajara",shortCode:"GU"},{name:"Huelva",shortCode:"H"},{name:"Huesca",shortCode:"HU"},{name:"Illes Balears",shortCode:"PM"},{name:"Jaén",shortCode:"J"},{name:"León",shortCode:"LE"},{name:"Lleida",shortCode:"L"},{name:"Lugo",shortCode:"LU"},{name:"Madrid",shortCode:"M"},{name:"Málaga",shortCode:"MA"},{name:"Melilla",shortCode:"ML"},{name:"Murcia",shortCode:"MU"},{name:"Navarre",shortCode:"NA"},{name:"Ourense",shortCode:"OR"},{name:"Palencia",shortCode:"P"},{name:"Las Palmas",shortCode:"GC"},{name:"Pontevedra",shortCode:"PO"},{name:"La Rioja",shortCode:"LO"},{name:"Salamanca",shortCode:"SA"},{name:"Santa Cruz de Tenerife",shortCode:"TF"},{name:"Segovia",shortCode:"SG"},{name:"Sevilla",shortCode:"SE"},{name:"Soria",shortCode:"SO"},{name:"Tarragona",shortCode:"T"},{name:"Teruel",shortCode:"TE"},{name:"Toledo",shortCode:"TO"},{name:"Valencia",shortCode:"V"},{name:"Valladolid",shortCode:"VA"},{name:"Zamora",shortCode:"ZA"},{name:"Zaragoza",shortCode:"Z"}]},{countryName:"Sri Lanka",countryShortCode:"LK",regions:[{name:"Basnahira",shortCode:"1"},{name:"Dakunu",shortCode:"3"},{name:"Madhyama",shortCode:"2"},{name:"Naegenahira",shortCode:"5"},{name:"Sabaragamuwa",shortCode:"9"},{name:"Uturu",shortCode:"4"},{name:"Uturumaeda",shortCode:"7"},{name:"Vayamba",shortCode:"6"},{name:"Uva",shortCode:"8"}]},{countryName:"Sudan",countryShortCode:"SD",regions:[{name:"Al Bahr al Ahmar",shortCode:"RS"},{name:"Al Jazirah",shortCode:"GZ"},{name:"Al Khartum",shortCode:"KH"},{name:"Al Qadarif",shortCode:"GD"},{name:"An Nil al Abyad",shortCode:"NW"},{name:"An Nil al Azraq",shortCode:"NB"},{name:"Ash Shamaliyah",shortCode:"NO"},{name:"Gharb Darfur",shortCode:"DW"},{name:"Gharb Kurdufan",shortCode:"GK"},{name:"Janub Darfur",shortCode:"DS"},{name:"Janub Kurdufan",shortCode:"KS"},{name:"Kassala",shortCode:"KA"},{name:"Nahr an Nil",shortCode:"NR"},{name:"Shamal Darfur",shortCode:"DN"},{name:"Sharq Darfur",shortCode:"DE"},{name:"Shiamal Kurdufan",shortCode:"KN"},{name:"Sinnar",shortCode:"SI"},{name:"Wasat Darfur Zalinjay",shortCode:"DC"}]},{countryName:"Suriname",countryShortCode:"SR",regions:[{name:"Brokopondo",shortCode:"BR"},{name:"Commewijne",shortCode:"CM"},{name:"Coronie",shortCode:"CR"},{name:"Marowijne",shortCode:"MA"},{name:"Nickerie",shortCode:"NI"},{name:"Para",shortCode:"PR"},{name:"Paramaribo",shortCode:"PM"},{name:"Saramacca",shortCode:"SA"},{name:"Sipaliwini",shortCode:"SI"},{name:"Wanica",shortCode:"WA"}]},{countryName:"Swaziland",countryShortCode:"SZ",regions:[{name:"Hhohho",shortCode:"HH"},{name:"Lubombo",shortCode:"LU"},{name:"Manzini",shortCode:"MA"},{name:"Shiselweni",shortCode:"SH"}]},{countryName:"Sweden",countryShortCode:"SE",regions:[{name:"Blekinge",shortCode:"K"},{name:"Dalarna",shortCode:"W"},{name:"Gävleborg",shortCode:"X"},{name:"Gotland",shortCode:"I"},{name:"Halland",shortCode:"N"},{name:"Jämtland",shortCode:"Z"},{name:"Jönköping",shortCode:"F"},{name:"Kalmar",shortCode:"H"},{name:"Kronoberg",shortCode:"G"},{name:"Norrbotten",shortCode:"BD"},{name:"Örebro",shortCode:"T"},{name:"Östergötland",shortCode:"E"},{name:"Skåne",shortCode:"M"},{name:"Södermanland",shortCode:"D"},{name:"Stockholm",shortCode:"AB"},{name:"Uppsala",shortCode:"C"},{name:"Värmland",shortCode:"S"},{name:"Västerbotten",shortCode:"AC"},{name:"Västernorrland",shortCode:"Y"},{name:"Västmanland",shortCode:"U"},{name:"Västra Götaland",shortCode:"O"}]},{countryName:"Switzerland",countryShortCode:"CH",regions:[{name:"Aargau",shortCode:"AG"},{name:"Appenzell Ausserrhoden",shortCode:"AR"},{name:"Appenzell Innerhoden",shortCode:"AI"},{name:"Basel-Landschaft",shortCode:"BL"},{name:"Basel-Stadt",shortCode:"BS"},{name:"Bern",shortCode:"BE"},{name:"Fribourg",shortCode:"FR"},{name:"Genève",shortCode:"GE"},{name:"Glarus",shortCode:"GL"},{name:"Graubünden",shortCode:"GR"},{name:"Jura",shortCode:"JU"},{name:"Luzern",shortCode:"LU"},{name:"Neuchâtel",shortCode:"NE"},{name:"Nidwalden",shortCode:"NW"},{name:"Obwalden",shortCode:"OW"},{name:"Sankt Gallen",shortCode:"SG"},{name:"Schaffhausen",shortCode:"SH"},{name:"Schwyz",shortCode:"SZ"},{name:"Solothurn",shortCode:"SO"},{name:"Thurgau",shortCode:"TG"},{name:"Ticino",shortCode:"TI"},{name:"Uri",shortCode:"UR"},{name:"Valais",shortCode:"VS"},{name:"Vaud",shortCode:"VD"},{name:"Zug",shortCode:"ZG"},{name:"Zürich",shortCode:"ZH"}]},{countryName:"Syrian Arab Republic",countryShortCode:"SY",regions:[{name:"Al Hasakah",shortCode:"HA"},{name:"Al Ladhiqiyah",shortCode:"LA"},{name:"Al Qunaytirah",shortCode:"QU"},{name:"Ar Raqqah",shortCode:"RA"},{name:"As Suwayda'",shortCode:"SU"},{name:"Dar'a",shortCode:"DR"},{name:"Dayr az Zawr",shortCode:"DY"},{name:"Dimashq",shortCode:"DI"},{name:"Halab",shortCode:"HL"},{name:"Hamah",shortCode:"HM"},{name:"Hims",shortCode:"HI"},{name:"Idlib",shortCode:"ID"},{name:"Rif Dimashq",shortCode:"RD"},{name:"Tartus",shortCode:"TA"}]},{countryName:"Taiwan",countryShortCode:"TW",regions:[{name:"Chang-hua",shortCode:"CHA"},{name:"Chia-i",shortCode:"CYQ"},{name:"Hsin-chu",shortCode:"HSQ"},{name:"Hua-lien",shortCode:"HUA"},{name:"Kao-hsiung",shortCode:"KHH"},{name:"Keelung",shortCode:"KEE"},{name:"Kinmen",shortCode:"KIN"},{name:"Lienchiang",shortCode:"LIE"},{name:"Miao-li",shortCode:"MIA"},{name:"Nan-t'ou",shortCode:"NAN"},{name:"P'eng-hu",shortCode:"PEN"},{name:"New Taipei",shortCode:"NWT"},{name:"P'ing-chung",shortCode:"PIF"},{name:"T'ai-chung",shortCode:"TXG"},{name:"T'ai-nan",shortCode:"TNN"},{name:"T'ai-pei",shortCode:"TPE"},{name:"T'ai-tung",shortCode:"TTT"},{name:"T'ao-yuan",shortCode:"TAO"},{name:"Yi-lan",shortCode:"ILA"},{name:"Yun-lin",shortCode:"YUN"}]},{countryName:"Tajikistan",countryShortCode:"TJ",regions:[{name:"Dushanbe",shortCode:"DU"},{name:"Kŭhistoni Badakhshon",shortCode:"GB"},{name:"Khatlon",shortCode:"KT"},{name:"Sughd",shortCode:"SU"}]},{countryName:"Tanzania, United Republic of",countryShortCode:"TZ",regions:[{name:"Arusha",shortCode:"01"},{name:"Coast",shortCode:"19"},{name:"Dar es Salaam",shortCode:"02"},{name:"Dodoma",shortCode:"03"},{name:"Iringa",shortCode:"04"},{name:"Kagera",shortCode:"05"},{name:"Kigoma",shortCode:"08"},{name:"Kilimanjaro",shortCode:"09"},{name:"Lindi",shortCode:"12"},{name:"Manyara",shortCode:"26"},{name:"Mara",shortCode:"13"},{name:"Mbeya",shortCode:"14"},{name:"Morogoro",shortCode:"16"},{name:"Mtwara",shortCode:"17"},{name:"Mwanza",shortCode:"18"},{name:"Pemba North",shortCode:"06"},{name:"Pemba South",shortCode:"10"},{name:"Rukwa",shortCode:"20"},{name:"Ruvuma",shortCode:"21"},{name:"Shinyanga",shortCode:"22"},{name:"Singida",shortCode:"23"},{name:"Tabora",shortCode:"24"},{name:"Tanga",shortCode:"25"},{name:"Zanzibar North",shortCode:"07"},{name:"Zanzibar Central/South",shortCode:"11"},{name:"Zanzibar Urban/West",shortCode:"15"}]},{countryName:"Thailand",countryShortCode:"TH",regions:[{name:"Amnat Charoen",shortCode:"37"},{name:"Ang Thong",shortCode:"15"},{name:"Bueng Kan",shortCode:"38"},{name:"Buri Ram",shortCode:"31"},{name:"Chachoengsao",shortCode:"24"},{name:"Chai Nat",shortCode:"18"},{name:"Chaiyaphum",shortCode:"36"},{name:"Chanthaburi",shortCode:"22"},{name:"Chiang Mai",shortCode:"50"},{name:"Chiang Rai",shortCode:"57"},{name:"Chon Buri",shortCode:"20"},{name:"Chumphon",shortCode:"86"},{name:"Kalasin",shortCode:"46"},{name:"Kamphaeng Phet",shortCode:"62"},{name:"Kanchanaburi",shortCode:"71"},{name:"Khon Kaen",shortCode:"40"},{name:"Krabi",shortCode:"81"},{name:"Krung Thep Mahanakhon (Bangkok)",shortCode:"10"},{name:"Lampang",shortCode:"52"},{name:"Lamphun",shortCode:"51"},{name:"Loei",shortCode:"42"},{name:"Lop Buri",shortCode:"16"},{name:"Mae Hong Son",shortCode:"58"},{name:"Maha Sarakham",shortCode:"44"},{name:"Mukdahan",shortCode:"49"},{name:"Nakhon Nayok",shortCode:"26"},{name:"Nakhon Phathom",shortCode:"73"},{name:"Nakhon Phanom",shortCode:"48"},{name:"Nakhon Ratchasima",shortCode:"30"},{name:"Nakhon Sawan",shortCode:"60"},{name:"Nakhon Si Thammarat",shortCode:"80"},{name:"Nan",shortCode:"55"},{name:"Narathiwat",shortCode:"96"},{name:"Nong Bua Lam Phu",shortCode:"39"},{name:"Nong Khai",shortCode:"43"},{name:"Nonthaburi",shortCode:"12"},{name:"Pathum Thani",shortCode:"13"},{name:"Pattani",shortCode:"94"},{name:"Phangnga",shortCode:"82"},{name:"Phatthalung",shortCode:"93"},{name:"Phayao",shortCode:"56"},{name:"Phetchabun",shortCode:"76"},{name:"Phetchaburi",shortCode:"76"},{name:"Phichit",shortCode:"66"},{name:"Phitsanulok",shortCode:"65"},{name:"Phra Nakhon Si Ayutthaya",shortCode:"14"},{name:"Phrae",shortCode:"54"},{name:"Phuket",shortCode:"83"},{name:"Prachin Buri",shortCode:"25"},{name:"Prachuap Khiri Khan",shortCode:"77"},{name:"Ranong",shortCode:"85"},{name:"Ratchaburi",shortCode:"70"},{name:"Rayong",shortCode:"21"},{name:"Roi Et",shortCode:"45"},{name:"Sa Kaeo",shortCode:"27"},{name:"Sakon Nakhon",shortCode:"47"},{name:"Samut Prakan",shortCode:"11"},{name:"Samut Sakhon",shortCode:"74"},{name:"Samut Songkhram",shortCode:"75"},{name:"Saraburi",shortCode:"19"},{name:"Satun",shortCode:"91"},{name:"Sing Buri",shortCode:"17"},{name:"Si Sa ket",shortCode:"33"},{name:"Songkhla",shortCode:"90"},{name:"Sukhothai",shortCode:"64"},{name:"Suphan Buri",shortCode:"72"},{name:"Surat Thani",shortCode:"84"},{name:"Surin",shortCode:"32"},{name:"Tak",shortCode:"63"},{name:"Trang",shortCode:"92"},{name:"Trat",shortCode:"23"},{name:"Ubon Ratchathani",shortCode:"34"},{name:"Udon Thani",shortCode:"41"},{name:"Uthai Thani",shortCode:"61"},{name:"Uttaradit",shortCode:"53"},{name:"Yala",shortCode:"95"},{name:"Yasothon",shortCode:"35"}]},{countryName:"Timor-Leste",countryShortCode:"TL",regions:[{name:"Aileu",shortCode:"AL"},{name:"Ainaro",shortCode:"AN"},{name:"Baucau",shortCode:"BA"},{name:"Bobonaro",shortCode:"BO"},{name:"Cova Lima",shortCode:"CO"},{name:"Dili",shortCode:"DI"},{name:"Ermera",shortCode:"ER"},{name:"Lautem",shortCode:"LA"},{name:"Liquica",shortCode:"LI"},{name:"Manatuto",shortCode:"MT"},{name:"Manufahi",shortCode:"MF"},{name:"Oecussi",shortCode:"OE"},{name:"Viqueque",shortCode:"VI"}]},{countryName:"Togo",countryShortCode:"TG",regions:[{name:"Centre",shortCode:"C"},{name:"Kara",shortCode:"K"},{name:"Maritime",shortCode:"M"},{name:"Plateaux",shortCode:"P"},{name:"Savannes",shortCode:"S"}]},{countryName:"Tokelau",countryShortCode:"TK",regions:[{name:"Atafu"},{name:"Fakaofo"},{name:"Nukunonu"}]},{countryName:"Tonga",countryShortCode:"TO",regions:[{name:"'Eua",shortCode:"01"},{name:"Ha'apai",shortCode:"02"},{name:"Niuas",shortCode:"03"},{name:"Tongatapu",shortCode:"04"},{name:"Vava'u",shortCode:"05"}]},{countryName:"Trinidad and Tobago",countryShortCode:"TT",regions:[{name:"Arima",shortCode:"ARI"},{name:"Chaguanas",shortCode:"CHA"},{name:"Couva-Tabaquite-Talparo",shortCode:"CTT"},{name:"Diefo Martin",shortCode:"DMN"},{name:"Mayaro-Rio Claro",shortCode:"MRC"},{name:"Penal-Debe",shortCode:"PED"},{name:"Point Fortin",shortCode:"PTF"},{name:"Port-of-Spain",shortCode:"POS"},{name:"Princes Town",shortCode:"PRT"},{name:"San Fernando",shortCode:"SFO"},{name:"San Juan-Laventille",shortCode:"SJL"},{name:"Sangre Grande",shortCode:"SGE"},{name:"Siparia",shortCode:"SIP"},{name:"Tobago",shortCode:"TOB"},{name:"Tunapuna-Piarco",shortCode:"TUP"}]},{countryName:"Tunisia",countryShortCode:"TN",regions:[{name:"Ariana",shortCode:"12"},{name:"Beja",shortCode:"31"},{name:"Ben Arous",shortCode:"13"},{name:"Bizerte",shortCode:"23"},{name:"Gabes",shortCode:"81"},{name:"Gafsa",shortCode:"71"},{name:"Jendouba",shortCode:"32"},{name:"Kairouan",shortCode:"41"},{name:"Kasserine",shortCode:"42"},{name:"Kebili",shortCode:"73"},{name:"Kef",shortCode:"33"},{name:"Mahdia",shortCode:"53"},{name:"Medenine",shortCode:"82"},{name:"Monastir",shortCode:"52"},{name:"Nabeul",shortCode:"21"},{name:"Sfax",shortCode:"61"},{name:"Sidi Bouzid",shortCode:"43"},{name:"Siliana",shortCode:"34"},{name:"Sousse",shortCode:"51"},{name:"Tataouine",shortCode:"83"},{name:"Tozeur",shortCode:"72"},{name:"Tunis",shortCode:"11"},{name:"Zaghouan",shortCode:"22"}]},{countryName:"Turkey",countryShortCode:"TR",regions:[{name:"Adana",shortCode:"01"},{name:"Adiyaman",shortCode:"02"},{name:"Afyonkarahisar",shortCode:"03"},{name:"Agri",shortCode:"04"},{name:"Aksaray",shortCode:"68"},{name:"Amasya",shortCode:"05"},{name:"Ankara",shortCode:"06"},{name:"Antalya",shortCode:"07"},{name:"Ardahan",shortCode:"75"},{name:"Artvin",shortCode:"08"},{name:"Aydin",shortCode:"09"},{name:"Balikesir",shortCode:"10"},{name:"Bartin",shortCode:"74"},{name:"Batman",shortCode:"72"},{name:"Bayburt",shortCode:"69"},{name:"Bilecik",shortCode:"11"},{name:"Bingol",shortCode:"12"},{name:"Bitlis",shortCode:"13"},{name:"Bolu",shortCode:"14"},{name:"Burdur",shortCode:"15"},{name:"Bursa",shortCode:"16"},{name:"Canakkale",shortCode:"17"},{name:"Cankiri",shortCode:"18"},{name:"Corum",shortCode:"19"},{name:"Denizli",shortCode:"20"},{name:"Diyarbakir",shortCode:"21"},{name:"Duzce",shortCode:"81"},{name:"Edirne",shortCode:"22"},{name:"Elazig",shortCode:"23"},{name:"Erzincan",shortCode:"24"},{name:"Erzurum",shortCode:"25"},{name:"Eskisehir",shortCode:"26"},{name:"Gaziantep",shortCode:"27"},{name:"Giresun",shortCode:"28"},{name:"Gumushane",shortCode:"29"},{name:"Hakkari",shortCode:"30"},{name:"Hatay",shortCode:"31"},{name:"Igdir",shortCode:"76"},{name:"Isparta",shortCode:"32"},{name:"Istanbul",shortCode:"34"},{name:"Izmir",shortCode:"35"},{name:"Kahramanmaras",shortCode:"46"},{name:"Karabuk",shortCode:"78"},{name:"Karaman",shortCode:"70"},{name:"Kars",shortCode:"36"},{name:"Kastamonu",shortCode:"37"},{name:"Kayseri",shortCode:"38"},{name:"Kilis",shortCode:"79"},{name:"Kirikkale",shortCode:"71"},{name:"Kirklareli",shortCode:"39"},{name:"Kirsehir",shortCode:"40"},{name:"Kocaeli",shortCode:"41"},{name:"Konya",shortCode:"42"},{name:"Kutahya",shortCode:"43"},{name:"Malatya",shortCode:"44"},{name:"Manisa",shortCode:"45"},{name:"Mardin",shortCode:"47"},{name:"Mersin",shortCode:"33"},{name:"Mugla",shortCode:"48"},{name:"Mus",shortCode:"49"},{name:"Nevsehir",shortCode:"50"},{name:"Nigde",shortCode:"51"},{name:"Ordu",shortCode:"52"},{name:"Osmaniye",shortCode:"80"},{name:"Rize",shortCode:"53"},{name:"Sakarya",shortCode:"54"},{name:"Samsun",shortCode:"55"},{name:"Sanliurfa",shortCode:"63"},{name:"Siirt",shortCode:"56"},{name:"Sinop",shortCode:"57"},{name:"Sirnak",shortCode:"73"},{name:"Sivas",shortCode:"58"},{name:"Tekirdag",shortCode:"59"},{name:"Tokat",shortCode:"60"},{name:"Trabzon",shortCode:"61"},{name:"Tunceli",shortCode:"62"},{name:"Usak",shortCode:"64"},{name:"Van",shortCode:"65"},{name:"Yalova",shortCode:"77"},{name:"Yozgat",shortCode:"66"},{name:"Zonguldak",shortCode:"67"}]},{countryName:"Turkmenistan",countryShortCode:"TM",regions:[{name:"Ahal",shortCode:"A"},{name:"Asgabat",shortCode:"S"},{name:"Balkan",shortCode:"B"},{name:"Dashoguz",shortCode:"D"},{name:"Lebap",shortCode:"L"},{name:"Mary",shortCode:"M"}]},{countryName:"Turks and Caicos Islands",countryShortCode:"TC",regions:[{name:"Turks and Caicos Islands"}]},{countryName:"Tuvalu",countryShortCode:"TV",regions:[{name:"Funafuti",shortCode:"FUN"},{name:"Nanumanga",shortCode:"NMG"},{name:"Nanumea",shortCode:"NMA"},{name:"Niutao",shortCode:"NIT"},{name:"Nui",shortCode:"NUI"},{name:"Nukufetau",shortCode:"NKF"},{name:"Nukulaelae",shortCode:"NKL"},{name:"Vaitupu",shortCode:"VAU"}]},{countryName:"Uganda",countryShortCode:"UG",regions:[{name:"Abim",shortCode:"317"},{name:"Adjumani",shortCode:"301"},{name:"Amolatar",shortCode:"314"},{name:"Amuria",shortCode:"216"},{name:"Amuru",shortCode:"319"},{name:"Apac",shortCode:"302"},{name:"Arua",shortCode:"303"},{name:"Budaka",shortCode:"217"},{name:"Bududa",shortCode:"223"},{name:"Bugiri",shortCode:"201"},{name:"Bukedea",shortCode:"224"},{name:"Bukwa",shortCode:"218"},{name:"Buliisa",shortCode:"419"},{name:"Bundibugyo",shortCode:"401"},{name:"Bushenyi",shortCode:"402"},{name:"Busia",shortCode:"202"},{name:"Butaleja",shortCode:"219"},{name:"Dokolo",shortCode:"318"},{name:"Gulu",shortCode:"304"},{name:"Hoima",shortCode:"403"},{name:"Ibanda",shortCode:"416"},{name:"Iganga",shortCode:"203"},{name:"Isingiro",shortCode:"417"},{name:"Jinja",shortCode:"204"},{name:"Kaabong",shortCode:"315"},{name:"Kabale",shortCode:"404"},{name:"Kabarole",shortCode:"405"},{name:"Kaberamaido",shortCode:"213"},{name:"Kalangala",shortCode:"101"},{name:"Kaliro",shortCode:"220"},{name:"Kampala",shortCode:"102"},{name:"Kamuli",shortCode:"205"},{name:"Kamwenge",shortCode:"413"},{name:"Kanungu",shortCode:"414"},{name:"Kapchorwa",shortCode:"206"},{name:"Kasese",shortCode:"406"},{name:"Katakwi",shortCode:"207"},{name:"Kayunga",shortCode:"112"},{name:"Kibaale",shortCode:"407"},{name:"Kiboga",shortCode:"103"},{name:"Kiruhura",shortCode:"418"},{name:"Kisoro",shortCode:"408"},{name:"Kitgum",shortCode:"305"},{name:"Koboko",shortCode:"316"},{name:"Kotido",shortCode:"306"},{name:"Kumi",shortCode:"208"},{name:"Kyenjojo",shortCode:"415"},{name:"Lira",shortCode:"307"},{name:"Luwero",shortCode:"104"},{name:"Lyantonde",shortCode:"116"},{name:"Manafwa",shortCode:"221"},{name:"Maracha",shortCode:"320"},{name:"Masaka",shortCode:"105"},{name:"Masindi",shortCode:"409"},{name:"Mayuge",shortCode:"214"},{name:"Mbale",shortCode:"209"},{name:"Mbarara",shortCode:"410"},{name:"Mityana",shortCode:"114"},{name:"Moroto",shortCode:"308"},{name:"Moyo",shortCode:"309"},{name:"Mpigi",shortCode:"106"},{name:"Mubende",shortCode:"107"},{name:"Mukono",shortCode:"108"},{name:"Nakapiripirit",shortCode:"311"},{name:"Nakaseke",shortCode:"115"},{name:"Nakasongola",shortCode:"109"},{name:"Namutumba",shortCode:"222"},{name:"Nebbi",shortCode:"310"},{name:"Ntungamo",shortCode:"411"},{name:"Oyam",shortCode:"321"},{name:"Pader",shortCode:"312"},{name:"Pallisa",shortCode:"210"},{name:"Rakai",shortCode:"110"},{name:"Rukungiri",shortCode:"412"},{name:"Sembabule",shortCode:"111"},{name:"Sironko",shortCode:"215"},{name:"Soroti",shortCode:"211"},{name:"Tororo",shortCode:"212"},{name:"Wakiso",shortCode:"113"},{name:"Yumbe",shortCode:"313"}]},{countryName:"Ukraine",countryShortCode:"UA",regions:[{name:"Cherkasy",shortCode:"71"},{name:"Chernihiv",shortCode:"74"},{name:"Chernivtsi",shortCode:"77"},{name:"Dnipropetrovsk",shortCode:"12"},{name:"Donetsk",shortCode:"14"},{name:"Ivano-Frankivsk",shortCode:"26"},{name:"Kharkiv",shortCode:"63"},{name:"Kherson",shortCode:"65"},{name:"Khmelnytskyi",shortCode:"68"},{name:"Kiev",shortCode:"32"},{name:"Kirovohrad",shortCode:"35"},{name:"Luhansk",shortCode:"09"},{name:"Lviv",shortCode:"46"},{name:"Mykolaiv",shortCode:"48"},{name:"Odessa",shortCode:"51"},{name:"Poltava",shortCode:"53"},{name:"Rivne",shortCode:"56"},{name:"Sumy",shortCode:"59"},{name:"Ternopil",shortCode:"61"},{name:"Vinnytsia",shortCode:"05"},{name:"Volyn",shortCode:"07"},{name:"Zakarpattia",shortCode:"21"},{name:"Zaporizhia",shortCode:"23"},{name:"Zhytomyr",shortCode:"18"},{name:"Avtonomna Respublika Krym",shortCode:"43"},{name:"Kyïv",shortCode:"30"},{name:"Sevastopol",shortCode:"40"}]},{countryName:"United Arab Emirates",countryShortCode:"AE",regions:[{name:"Abu Dhabi",shortCode:"AZ"},{name:"Ajman",shortCode:"AJ"},{name:"Dubai",shortCode:"DU"},{name:"Fujairah",shortCode:"FU"},{name:"Ras al Khaimah",shortCode:"RK"},{name:"Sharjah",shortCode:"SH"},{name:"Umm Al Quwain",shortCode:"UQ"}]},{countryName:"United Kingdom",countryShortCode:"GB",regions:[{name:"Avon",shortCode:"AVN"},{name:"Bedfordshire",shortCode:"BDF"},{name:"Berkshire",shortCode:"BRK"},{name:"Bristol, City of",shortCode:"COB"},{name:"Buckinghamshire",shortCode:"BKM"},{name:"Cambridgeshire",shortCode:"CAM"},{name:"Cheshire",shortCode:"CHS"},{name:"Cleveland",shortCode:"CLV"},{name:"Cornwall",shortCode:"CON"},{name:"Cumbria",shortCode:"CMA"},{name:"Derbyshire",shortCode:"DBY"},{name:"Devon",shortCode:"DEV"},{name:"Dorset",shortCode:"DOR"},{name:"Durham",shortCode:"DUR"},{name:"East Sussex",shortCode:"SXE"},{name:"Essex",shortCode:"ESS"},{name:"Gloucestershire",shortCode:"GLS"},{name:"Greater London",shortCode:"LND"},{name:"Greater Manchester",shortCode:"GTM"},{name:"Hampshire",shortCode:"HAM"},{name:"Hereford and Worcester",shortCode:"HWR"},{name:"Herefordshire",shortCode:"HEF"},{name:"Hertfordshire",shortCode:"HRT"},{name:"Isle of Wight",shortCode:"IOW"},{name:"Kent",shortCode:"KEN"},{name:"Lancashire",shortCode:"LAN"},{name:"Leicestershire",shortCode:"LEI"},{name:"Lincolnshire",shortCode:"LIN"},{name:"London",shortCode:"LDN"},{name:"Merseyside",shortCode:"MSY"},{name:"Middlesex",shortCode:"MDX"},{name:"Norfolk",shortCode:"NFK"},{name:"Northamptonshire",shortCode:"NTH"},{name:"Northumberland",shortCode:"NBL"},{name:"North Humberside",shortCode:"NHM"},{name:"North Yorkshire",shortCode:"NYK"},{name:"Nottinghamshire",shortCode:"NTT"},{name:"Oxfordshire",shortCode:"OXF"},{name:"Rutland",shortCode:"RUT"},{name:"Shropshire",shortCode:"SAL"},{name:"Somerset",shortCode:"SOM"},{name:"South Humberside",shortCode:"SHM"},{name:"South Yorkshire",shortCode:"SYK"},{name:"Staffordshire",shortCode:"STS"},{name:"Suffolk",shortCode:"SFK"},{name:"Surrey",shortCode:"SRY"},{name:"Tyne and Wear",shortCode:"TWR"},{name:"Warwickshire",shortCode:"WAR"},{name:"West Midlands",shortCode:"WMD"},{name:"West Sussex",shortCode:"SXW"},{name:"West Yorkshire",shortCode:"WYK"},{name:"Wiltshire",shortCode:"WIL"},{name:"Worcestershire",shortCode:"WOR"},{name:"Antrim",shortCode:"ANT"},{name:"Armagh",shortCode:"ARM"},{name:"Belfast, City of",shortCode:"BLF"},{name:"Down",shortCode:"DOW"},{name:"Fermanagh",shortCode:"FER"},{name:"Londonderry",shortCode:"LDY"},{name:"Derry, City of",shortCode:"DRY"},{name:"Tyrone",shortCode:"TYR"},{name:"Aberdeen, City of",shortCode:"AN"},{name:"Aberdeenshire",shortCode:"ABD"},{name:"Angus (Forfarshire)",shortCode:"ANS"},{name:"Argyll",shortCode:"AGB"},{name:"Ayrshire",shortCode:"ARG"},{name:"Banffshire",shortCode:"BAN"},{name:"Berwickshire",shortCode:"BEW"},{name:"Bute",shortCode:"BUT"},{name:"Caithness",shortCode:"CAI"},{name:"Clackmannanshire",shortCode:"CLK"},{name:"Cromartyshire",shortCode:"COC"},{name:"Dumfriesshire",shortCode:"DFS"},{name:"Dunbartonshire (Dumbarton)",shortCode:"DNB"},{name:"Dundee, City of",shortCode:"DD"},{name:"East Lothian (Haddingtonshire)",shortCode:"ELN"},{name:"Edinburgh, City of",shortCode:"EB"},{name:"Fife",shortCode:"FIF"},{name:"Glasgow, City of",shortCode:"GLA"},{name:"Inverness-shire",shortCode:"INV"},{name:"Kincardineshire",shortCode:"KCD"},{name:"Kinross-shire",shortCode:"KRS"},{name:"Kirkcudbrightshire",shortCode:"KKD"},{name:"Lanarkshire",shortCode:"LKS"},{name:"Midlothian (County of Edinburgh)",shortCode:"MLN"},{name:"Moray (Elginshire)",shortCode:"MOR"},{name:"Nairnshire",shortCode:"NAI"},{name:"Orkney",shortCode:"OKI"},{name:"Peeblesshire",shortCode:"PEE"},{name:"Perthshire",shortCode:"PER"},{name:"Renfrewshire",shortCode:"RFW"},{name:"Ross and Cromarty",shortCode:"ROC"},{name:"Ross-shire",shortCode:"ROS"},{name:"Roxburghshire",shortCode:"ROX"},{name:"Selkirkshire",shortCode:"SEL"},{name:"Shetland (Zetland)",shortCode:"SHI"},{name:"Stirlingshire",shortCode:"STI"},{name:"Sutherland",shortCode:"SUT"},{name:"West Lothian (Linlithgowshire)",shortCode:"WLN"},{name:"Wigtownshire",shortCode:"WIG"},{name:"Clwyd",shortCode:"CWD"},{name:"Dyfed",shortCode:"DFD"},{name:"Gwent",shortCode:"GNT"},{name:"Gwynedd",shortCode:"GWN"},{name:"Mid Glamorgan",shortCode:"MGM"},{name:"Powys",shortCode:"POW"},{name:"South Glamorgan",shortCode:"SGM"},{name:"West Glamorgan",shortCode:"WGM"}]},{countryName:"United States",countryShortCode:"US",regions:[{name:"Alabama",shortCode:"AL"},{name:"Alaska",shortCode:"AK"},{name:"American Samoa",shortCode:"AS"},{name:"Arizona",shortCode:"AZ"},{name:"Arkansas",shortCode:"AR"},{name:"California",shortCode:"CA"},{name:"Colorado",shortCode:"CO"},{name:"Connecticut",shortCode:"CT"},{name:"Delaware",shortCode:"DE"},{name:"District of Columbia",shortCode:"DC"},{name:"Micronesia",shortCode:"FM"},{name:"Florida",shortCode:"FL"},{name:"Georgia",shortCode:"GA"},{name:"Guam",shortCode:"GU"},{name:"Hawaii",shortCode:"HI"},{name:"Idaho",shortCode:"ID"},{name:"Illinois",shortCode:"IL"},{name:"Indiana",shortCode:"IN"},{name:"Iowa",shortCode:"IA"},{name:"Kansas",shortCode:"KS"},{name:"Kentucky",shortCode:"KY"},{name:"Louisiana",shortCode:"LA"},{name:"Maine",shortCode:"ME"},{name:"Marshall Islands",shortCode:"MH"},{name:"Maryland",shortCode:"MD"},{name:"Massachusetts",shortCode:"MA"},{name:"Michigan",shortCode:"MI"},{name:"Minnesota",shortCode:"MN"},{name:"Mississippi",shortCode:"MS"},{name:"Missouri",shortCode:"MO"},{name:"Montana",shortCode:"MT"},{name:"Nebraska",shortCode:"NE"},{name:"Nevada",shortCode:"NV"},{name:"New Hampshire",shortCode:"NH"},{name:"New Jersey",shortCode:"NJ"},{name:"New Mexico",shortCode:"NM"},{name:"New York",shortCode:"NY"},{name:"North Carolina",shortCode:"NC"},{name:"North Dakota",shortCode:"ND"},{name:"Northern Mariana Islands",shortCode:"MP"},{name:"Ohio",shortCode:"OH"},{name:"Oklahoma",shortCode:"OK"},{name:"Oregon",shortCode:"OR"},{name:"Palau",shortCode:"PW"},{name:"Pennsylvania",shortCode:"PA"},{name:"Puerto Rico",shortCode:"PR"},{name:"Rhode Island",shortCode:"RI"},{name:"South Carolina",shortCode:"SC"},{name:"South Dakota",shortCode:"SD"},{name:"Tennessee",shortCode:"TN"},{name:"Texas",shortCode:"TX"},{name:"Utah",shortCode:"UT"},{name:"Vermont",shortCode:"VT"},{name:"Virgin Islands",shortCode:"VI"},{name:"Virginia",shortCode:"VA"},{name:"Washington",shortCode:"WA"},{name:"West Virginia",shortCode:"WV"},{name:"Wisconsin",shortCode:"WI"},{name:"Wyoming",shortCode:"WY"},{name:"Armed Forces Americas",shortCode:"AA"},{name:"Armed Forces Europe, Canada, Africa and Middle East",shortCode:"AE"},{name:"Armed Forces Pacific",shortCode:"AP"}]},{countryName:"United States Minor Outlying Islands",countryShortCode:"UM",regions:[{name:"Baker Island",shortCode:"81"},{name:"Howland Island",shortCode:"84"},{name:"Jarvis Island",shortCode:"86"},{name:"Johnston Atoll",shortCode:"67"},{name:"Kingman Reef",shortCode:"89"},{name:"Midway Islands",shortCode:"71"},{name:"Navassa Island",shortCode:"76"},{name:"Palmyra Atoll",shortCode:"95"},{name:"Wake Island",shortCode:"79"},{name:"Bajo Nuevo Bank",shortCode:"BN"},{name:"Serranilla Bank",shortCode:"SB"}]},{countryName:"Uruguay",countryShortCode:"UY",regions:[{name:"Artigas",shortCode:"AR"},{name:"Canelones",shortCode:"CA"},{name:"Cerro Largo",shortCode:"CL"},{name:"Colonia",shortCode:"CO"},{name:"Durazno",shortCode:"DU"},{name:"Flores",shortCode:"FS"},{name:"Florida",shortCode:"FD"},{name:"Lavalleja",shortCode:"LA"},{name:"Maldonado",shortCode:"MA"},{name:"Montevideo",shortCode:"MO"},{name:"Paysandú",shortCode:"PA"},{name:"Río Negro",shortCode:"RN"},{name:"Rivera",shortCode:"RV"},{name:"Rocha",shortCode:"RO"},{name:"Salto",shortCode:"SA"},{name:"San José",shortCode:"SJ"},{name:"Soriano",shortCode:"SO"},{name:"Tacuarembó",shortCode:"TA"},{name:"Treinta y Tres",shortCode:"TT"}]},{countryName:"Uzbekistan",countryShortCode:"UZ",regions:[{name:"Toshkent shahri",shortCode:"TK"},{name:"Andijon",shortCode:"AN"},{name:"Buxoro",shortCode:"BU"},{name:"Farg‘ona",shortCode:"FA"},{name:"Jizzax",shortCode:"JI"},{name:"Namangan",shortCode:"NG"},{name:"Navoiy",shortCode:"NW"},{name:"Qashqadaryo (Qarshi)",shortCode:"QA"},{name:"Samarqand",shortCode:"SA"},{name:"Sirdaryo (Guliston)",shortCode:"SI"},{name:"Surxondaryo (Termiz)",shortCode:"SU"},{name:"Toshkent wiloyati",shortCode:"TO"},{name:"Xorazm (Urganch)",shortCode:"XO"},{name:"Qoraqalpog‘iston Respublikasi (Nukus)",shortCode:"QR"}]},{countryName:"Vanuatu",countryShortCode:"VU",regions:[{name:"Malampa",shortCode:"MAP"},{name:"Pénama",shortCode:"PAM"},{name:"Sanma",shortCode:"SAM"},{name:"Shéfa",shortCode:"SEE"},{name:"Taféa",shortCode:"TAE"},{name:"Torba",shortCode:"TOB"}]},{countryName:"Venezuela, Bolivarian Republic of",countryShortCode:"VE",regions:[{name:"Dependencias Federales",shortCode:"W"},{name:"Distrito Federal",shortCode:"A"},{name:"Amazonas",shortCode:"Z"},{name:"Anzoátegui",shortCode:"B"},{name:"Apure",shortCode:"C"},{name:"Aragua",shortCode:"D"},{name:"Barinas",shortCode:"E"},{name:"Bolívar",shortCode:"F"},{name:"Carabobo",shortCode:"G"},{name:"Cojedes",shortCode:"H"},{name:"Delta Amacuro",shortCode:"Y"},{name:"Falcón",shortCode:"I"},{name:"Guárico",shortCode:"J"},{name:"Lara",shortCode:"K"},{name:"Mérida",shortCode:"L"},{name:"Miranda",shortCode:"M"},{name:"Monagas",shortCode:"N"},{name:"Nueva Esparta",shortCode:"O"},{name:"Portuguesa",shortCode:"P"},{name:"Sucre",shortCode:"R"},{name:"Táchira",shortCode:"S"},{name:"Trujillo",shortCode:"T"},{name:"Vargas",shortCode:"X"},{name:"Yaracuy",shortCode:"U"},{name:"Zulia",shortCode:"V"}]},{countryName:"Vietnam",countryShortCode:"VN",regions:[{name:"Đồng Nai",shortCode:"39"},{name:"Đồng Tháp",shortCode:"45"},{name:"Gia Lai",shortCode:"30"},{name:"Hà Giang",shortCode:"03"},{name:"Hà Nam",shortCode:"63"},{name:"Hà Tây",shortCode:"15"},{name:"Hà Tĩnh",shortCode:"23"},{name:"Hải Dương",shortCode:"61"},{name:"Hậu Giang",shortCode:"73"},{name:"Hòa Bình",shortCode:"14"},{name:"Hưng Yên",shortCode:"66"},{name:"Khánh Hòa",shortCode:"34"},{name:"Kiên Giang",shortCode:"47"},{name:"Kon Tum",shortCode:"28"},{name:"Lai Châu",shortCode:"01"},{name:"Lâm Đồng",shortCode:"35"},{name:"Lạng Sơn",shortCode:"09"},{name:"Lào Cai",shortCode:"02"},{name:"Long An",shortCode:"41"},{name:"Nam Định",shortCode:"67"},{name:"Nghệ An",shortCode:"22"},{name:"Ninh Bình",shortCode:"18"},{name:"Ninh Thuận",shortCode:"36"},{name:"Phú Thọ",shortCode:"68"},{name:"Phú Yên",shortCode:"32"},{name:"Quảng Bình",shortCode:"24"},{name:"Quảng Nam",shortCode:"27"},{name:"Quảng Ngãi",shortCode:"29"},{name:"Quảng Ninh",shortCode:"13"},{name:"Quảng Trị",shortCode:"25"},{name:"Sóc Trăng",shortCode:"52"},{name:"Sơn La",shortCode:"05"},{name:"Tây Ninh",shortCode:"37"},{name:"Thái Bình",shortCode:"20"},{name:"Thái Nguyên",shortCode:"69"},{name:"Thanh Hóa",shortCode:"21"},{name:"Thừa Thiên–Huế",shortCode:"26"},{name:"Tiền Giang",shortCode:"46"},{name:"Trà Vinh",shortCode:"51"},{name:"Tuyên Quang",shortCode:"07"},{name:"Vĩnh Long",shortCode:"49"},{name:"Vĩnh Phúc",shortCode:"70"},{name:"Yên Bái",shortCode:"06"},{name:"Cần Thơ",shortCode:"CT"},{name:"Đà Nẵng",shortCode:"DN"},{name:"Hà Nội",shortCode:"HN"},{name:"Hải Phòng",shortCode:"HP"},{name:"Hồ Chí Minh (Sài Gòn)",shortCode:"SG"}]},{countryName:"Virgin Islands, British",countryShortCode:"VG",regions:[{name:"Anegada",shortCode:"ANG"},{name:"Jost Van Dyke",shortCode:"JVD"},{name:"Tortola",shortCode:"TTA"},{name:"Virgin Gorda",shortCode:"VGD"}]},{countryName:"Virgin Islands, U.S.",countryShortCode:"VI",regions:[{name:"St. Thomas",shortCode:"STH"},{name:"St. John",shortCode:"SJO"},{name:"St. Croix",shortCode:"SCR"}]},{countryName:"Wallis and Futuna",countryShortCode:"WF",regions:[{name:"Alo",shortCode:"ALO"},{name:"Sigave",shortCode:"SIG"},{name:"Wallis",shortCode:"WAL"}]},{countryName:"Western Sahara",countryShortCode:"EH",regions:[{name:"Es Smara",shortCode:"ESM"},{name:"Boujdour",shortCode:"BOD"},{name:"Laâyoune",shortCode:"LAA"},{name:"Aousserd",shortCode:"AOU"},{name:"Oued ed Dahab",shortCode:"OUD"}]},{countryName:"Yemen",countryShortCode:"YE",regions:[{name:"Abyān",shortCode:"AB"},{name:"'Adan",shortCode:"AD"},{name:"Aḑ Ḑāli'",shortCode:"DA"},{name:"Al Bayḑā'",shortCode:"BA"},{name:"Al Ḩudaydah",shortCode:"HU"},{name:"Al Jawf",shortCode:"JA"},{name:"Al Mahrah",shortCode:"MR"},{name:"Al Maḩwīt",shortCode:"MW"},{name:"'Amrān",shortCode:"AM"},{name:"Dhamār",shortCode:"DH"},{name:"Ḩaḑramawt",shortCode:"HD"},{name:"Ḩajjah",shortCode:"HJ"},{name:"Ibb",shortCode:"IB"},{name:"Laḩij",shortCode:"LA"},{name:"Ma'rib",shortCode:"MA"},{name:"Raymah",shortCode:"RA"},{name:"Şā‘dah",shortCode:"SD"},{name:"Şan‘ā'",shortCode:"SN"},{name:"Shabwah",shortCode:"SH"},{name:"Tā‘izz",shortCode:"TA"}]},{countryName:"Zambia",countryShortCode:"ZM",regions:[{name:"Central",shortCode:"02"},{name:"Copperbelt",shortCode:"08"},{name:"Eastern",shortCode:"03"},{name:"Luapula",shortCode:"04"},{name:"Lusaka",shortCode:"09"},{name:"Northern",shortCode:"05"},{name:"North-Western",shortCode:"06"},{name:"Southern",shortCode:"07"},{name:"Western",shortCode:"01"}]},{countryName:"Zimbabwe",countryShortCode:"ZW",regions:[{name:"Bulawayo",shortCode:"BU"},{name:"Harare",shortCode:"HA"},{name:"Manicaland",shortCode:"MA"},{name:"Mashonaland Central",shortCode:"MC"},{name:"Mashonaland East",shortCode:"ME"},{name:"Mashonaland West",shortCode:"MW"},{name:"Masvingo",shortCode:"MV"},{name:"Matabeleland North",shortCode:"MN"},{name:"Matabeleland South",shortCode:"MS"},{name:"Midlands",shortCode:"MI"}]}],i={name:"CountrySelect",props:{country:String,countryName:Boolean,whiteList:Array,blackList:Array,className:String,shortCodeDropdown:Boolean,autocomplete:Boolean,topCountry:{type:String,default:""},placeholder:{type:String,default:"Select Country"},disablePlaceholder:{type:Boolean,default:!1},removePlaceholder:{type:Boolean,default:!1},usei18n:{type:Boolean,default:!0}},data:function(){return{ran:!1}},computed:{countries:function(){var e=this,o=C.filter((function(o){return e.countryName?o.countryName!==e.firstCountry:o.countryShortCode!==e.firstCountry}));if(this.whiteList&&(o=o.filter((function(o){return e.whiteList.includes(o.countryShortCode)}))),this.blackList&&(o=o.filter((function(o){return!e.blackList.includes(o.countryShortCode)}))),this.$i18n&&this.usei18n&&(o=o.map((function(o){var a=Object.assign({},o);return a.countryName=e.$t(o.countryName),a})),o.sort((function(e,o){return e.countryName>o.countryName?1:-1}))),this.removePlaceholder){var a=this.firstCountry||o[0][this.valueType];this.onChange(a)}return o},firstCountry:function(){var e=this;if(this.countryName){if(2===this.topCountry.length){var o=C.find((function(o){return o.countryShortCode===e.topCountry}));return o.countryName}return this.topCountry}return this.topCountry?this.topCountry:""},name:function(){return this.name},value:function(){return this.country},valueType:function(){return this.countryName?"countryName":"countryShortCode"},autocompleteAttr:function(){var e=function(e){return e?"country-name":"country"};return this.autocomplete?e(this.countryName):"off"}},methods:{onChange:function(e){this.$emit("update:modelValue",e)},topCountryName:function(){var e=this,o=C.find((function(o){return e.countryName?o.countryName===e.firstCountry:o.countryShortCode===e.firstCountry}));return this.$i18n&&this.usei18n?this.$t(o.countryName):this.shortCodeDropdown?o.countryShortCode:o.countryName}}};i.render=m;var u=i,l={key:0,value:""},c={key:1,value:"",disabled:"",selected:""};function S(e,o,a,n,r,t){return Object(s["openBlock"])(),Object(s["createBlock"])("select",{onChange:o[1]||(o[1]=function(e){return t.onChange(e.target.value)}),class:a.className,autocomplete:t.autocompleteAttr},[a.disablePlaceholder||a.removePlaceholder?Object(s["createCommentVNode"])("",!0):(Object(s["openBlock"])(),Object(s["createBlock"])("option",l,Object(s["toDisplayString"])(a.placeholder),1)),a.disablePlaceholder&&!a.removePlaceholder?(Object(s["openBlock"])(),Object(s["createBlock"])("option",c,Object(s["toDisplayString"])(a.placeholder),1)):Object(s["createCommentVNode"])("",!0),(Object(s["openBlock"])(!0),Object(s["createBlock"])(s["Fragment"],null,Object(s["renderList"])(e.shownRegions,(function(e,o){return Object(s["openBlock"])(),Object(s["createBlock"])("option",{key:o,value:e[t.valueType],selected:a.region===e[t.valueType]},Object(s["toDisplayString"])(a.shortCodeDropdown?e.shortCode:e.name),9,["value","selected"])})),128))],42,["autocomplete"])}var g={name:"RegionSelect",props:{country:String,region:String,defaultRegion:String,countryName:Boolean,whiteList:Array,blackList:Array,regionName:Boolean,className:String,shortCodeDropdown:Boolean,placeholder:{type:String,default:"Select Region"},disablePlaceholder:{type:Boolean,default:!1},removePlaceholder:{type:Boolean,default:!1},usei18n:{type:Boolean,default:!0}},data:function(){return{shownRegions:[],regions:C,ran:!1}},mounted:function(){if(this.country)this.getRegionWithCountry();else{var e="";e=this.countryName?this.defaultRegion?this.defaultRegion:"United States":this.defaultRegion?this.defaultRegion:"US",this.getRegionWithCountry(e)}},computed:{name:function(){return this.name},value:function(){return this.region},valueType:function(){return this.regionName?"name":"shortCode"},autocompleteAttr:function(){return this.autocomplete?"address-level1":"off"}},methods:{onChange:function(e){this.$emit("update:modelValue",e)},getRegionWithCountry:function(e){var o=this;e=e||this.country;var a=C.find((function(a){return o.countryName?a.countryName===e:a.countryShortCode===e})).regions;this.$i18n&&this.usei18n&&(a=a.map((function(e){var a=Object.assign({},e);return a.name=o.$t(e.name),a})),a.sort((function(e,o){return e.name>o.name?1:-1}))),this.whiteList&&(a=a.filter((function(e){return o.whiteList.includes(e.shortCode)}))),this.blackList&&(a=a.filter((function(e){return!o.blackList.includes(e.shortCode)}))),this.shownRegions=a,this.disablePlaceholder&&this.ran&&this.onChange(this.shownRegions[0][this.valueType]),this.removePlaceholder&&this.onChange(this.shownRegions[0][this.valueType]),this.ran=!0}},watch:{country:function(e,o){""!==o&&this.onChange(""),this.country?this.getRegionWithCountry():this.shownRegions=[]}}};g.render=S;var y=g,A=function(e){var o={CountrySelect:u,RegionSelect:y};Object.keys(o).forEach((function(a){e.component(a,o[a])}))},N={CountrySelect:u,RegionSelect:y,install:A},b=N;o["default"]=b},fc6a:function(e,o,a){var n=a("44ad"),r=a("1d80");e.exports=function(e){return n(r(e))}},fdbc:function(e,o){e.exports={CSSRuleList:0,CSSStyleDeclaration:0,CSSValueList:0,ClientRectList:0,DOMRectList:0,DOMStringList:0,DOMTokenList:1,DataTransferItemList:0,FileList:0,HTMLAllCollection:0,HTMLCollection:0,HTMLFormElement:0,HTMLSelectElement:0,MediaList:0,MimeTypeArray:0,NamedNodeMap:0,NodeList:1,PaintRequestList:0,Plugin:0,PluginArray:0,SVGLengthList:0,SVGNumberList:0,SVGPathSegList:0,SVGPointList:0,SVGStringList:0,SVGTransformList:0,SourceBufferList:0,StyleSheetList:0,TextTrackCueList:0,TextTrackList:0,TouchList:0}},fdbf:function(e,o,a){var n=a("4930");e.exports=n&&!Symbol.sham&&"symbol"==typeof Symbol.iterator}})}));
 //# sourceMappingURL=vueCountryRegionSelect.umd.min.js.map
+
+/***/ }),
+
+/***/ "./node_modules/vue3-smooth-scroll/dist/vue-smooth-scroll.min.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/vue3-smooth-scroll/dist/vue-smooth-scroll.min.js ***!
+  \***********************************************************************/
+/***/ (function(module) {
+
+!function(e,t){ true?module.exports=t():0}(this,(function(){return function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";function o(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function r(e){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}var i;n.r(t);var u=function(e){return e<.5?4*e*e*e:(e-1)*(2*e-2)*(2*e-2)+1},c=function(){return{duration:500,offset:0,container:window,updateHistory:!0,easingFunction:null}},l=Symbol("smoothScrollCtx"),f=function(e){var t=e.scrollTo,n=e.offset,o=e.duration,r=e.container,c=e.updateHistory,l=e.hash,f=e.easingFunction;i||(i=window.requestAnimationFrame||function(e){return window.setTimeout(e,16)}),c&&window.history.pushState&&location.hash!==l&&window.history.pushState("","",l);var a,s,d="number"==typeof t,p=r.scrollTop||window.pageYOffset,y=(d?t:(s=p,"HTML"===(a=t).nodeName?-s:a.getBoundingClientRect().top+s))+n,b="function"==typeof f?f:u,m=Date.now();!function e(){var n=Date.now()-m,u=n<o,l=u?p+(y-p)*b(n/o):y;u?i(e):c&&!d&&location.replace("#"+t.id),r===window?r.scrollTo(0,l):r.scrollTop=l}()},a={install:function(e,t){var n,i=!e.version.startsWith("3"),u=function(){return t?Object.assign(c(),t):c()};e.directive("smooth-scroll",(o(n={},i?"inserted":"mounted",(function(e,t,n){if("object"===("undefined"==typeof window?"undefined":r(window))&&void 0!==window.pageYOffset){var o=Object.assign(u(),t.value);"string"==typeof o.container&&(o.container=document.querySelector(o.container));var c=function(e){e.preventDefault();var t=i?n.data.attrs.href:n.props.href,r=document.getElementById(t.substring(1));r&&f(Object.assign(o,{scrollTo:r,hash:t}))};e.addEventListener("click",c),e[l]={clickHandler:c}}})),o(n,i?"unbind":"unmounted",(function(e){e.removeEventListener("click",e[l].clickHandler),e[l]=null})),n));var a=function(e){var t=Object.assign(u(),e);return f(t)};(i?e.prototype:e.config.globalProperties).$smoothScroll=a,i||e.provide("smoothScroll",a)}};t.default=a}]).default}));
 
 /***/ }),
 
@@ -37870,8 +39349,12 @@ var map = {
 	"./Products/Index.vue": "./resources/js/Pages/Products/Index.vue",
 	"./Settings": "./resources/js/Pages/Settings.vue",
 	"./Settings.vue": "./resources/js/Pages/Settings.vue",
+	"./Users/Create": "./resources/js/Pages/Users/Create.vue",
+	"./Users/Create.vue": "./resources/js/Pages/Users/Create.vue",
 	"./Users/Index": "./resources/js/Pages/Users/Index.vue",
-	"./Users/Index.vue": "./resources/js/Pages/Users/Index.vue"
+	"./Users/Index.vue": "./resources/js/Pages/Users/Index.vue",
+	"./Users/Show": "./resources/js/Pages/Users/Show.vue",
+	"./Users/Show.vue": "./resources/js/Pages/Users/Show.vue"
 };
 
 
@@ -37915,7 +39398,9 @@ var map = {
 	"./Menu/Index.vue": "./resources/js/Pages/Menu/Index.vue",
 	"./Products/Index.vue": "./resources/js/Pages/Products/Index.vue",
 	"./Settings.vue": "./resources/js/Pages/Settings.vue",
-	"./Users/Index.vue": "./resources/js/Pages/Users/Index.vue"
+	"./Users/Create.vue": "./resources/js/Pages/Users/Create.vue",
+	"./Users/Index.vue": "./resources/js/Pages/Users/Index.vue",
+	"./Users/Show.vue": "./resources/js/Pages/Users/Show.vue"
 };
 
 
@@ -37968,7 +39453,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"kweider":"قويدر","email":"البريد الألكتروني","password":"كلمة المرور","login":"تسجيل الدخول","rememberme":"تذكرني لاحقاً","forgotpassword":"نسيت كلمة المرور؟","slogan":"قويدر للحلويات الدمشقية","home":"الصفحة الرئيسية","products":"المنتجات","menu":"القائمة","about":"نبذة عنا","contact":"للتواصل","incoming":"!قيد الأنجاز","users":"المستخدمون","settings":"أعدادات حسابي","logout":"تسجيل الخروج","register":"أنشاء حساب","firstname":"الأسم الأول","lastname":"اسم العائلة","enterpassword":"ادخل كلمة المرور","confirmpassword":"تأكيد كلمة المرور","name":"الأسم","country":"البلد","region":"المنطقة","lastlogin":"تسجيل الدخول الأخير","phone":"رقم الهاتف","none":"غير موجود","edit":"تعديل","registered":"لديك حساب؟","manageusers":"ادارة المستخدمين","search":"بحث...","Select Country":"اختر البلد","Select Region":"اختر المنطقة","Syrian Arab Republic":"الجمهورية العربية السورية","Afghanistan":"أفغانستان","Aland Islands":"جزر آلاند","Albania":"ألبانيا","Algeria":"الجزائر","American Samoa":"ساموا الأمريكية","Andorra":"أندورا","Angola":"أنغولا","Anguilla":"أنغويلا","Antarctica":"أنتاركتيكا","Antigua and Barbuda":"أنتيغوا وبربودا","Argentina":"الأرجنتين","Armenia":"أرمينيا","Aruba":"أروبا","Australia":"أستراليا","Austria":"النمسا","Azerbaijan":"أذربيجان","Bahamas":"جزر البهاما","Bahrain":"البحرين","Bangladesh":"بنغلاديش","Barbados":"بربادوس","Belarus":"بيلاروس","Belgium":"بلجيكا","Belize":"بليز","Benin":"بنين","Bermuda":"برمودا","Bhutan":"بوتان","Bolivia":"بوليفيا","Bolivia, Plurinational State of":"بوليفيا","Bonaire, Sint Eustatius and Saba":"بونير، سانت يوستاتيوس وسابا","Bosnia And Herzegovina":"البوسنة والهرسك","Bosnia and Herzegovina":"البوسنة والهرسك","Botswana":"بوتسوانا","Bouvet Island":"جزيرة بوفيه","Brazil":"البرازيل","British Indian Ocean Territory":"الإقليم البريطاني في المحيط الهندي","Brunei Darussalam":"بروناي","Bulgaria":"بلغاريا","Burkina Faso":"بوركينا فاسو","Burundi":"بروندي","Cambodia":"كمبوديا","Cameroon":"الكاميرون","Canada":"كندا","Cape Verde":"الرأس الأخضر","Cayman Islands":"جزر كايمان","Central African Republic":"جمهورية أفريقيا الوسطى","Chad":"تشاد","Chile":"تشيلي","China":"الصين","Christmas Island":"جزيرة كريسماس","Cocos (Keeling) Islands":"جزر كوكوس (كيلينغ)","Colombia":"كولومبيا","Comoros":"جزر القمر","Congo":"الكونغو","Congo, the Democratic Republic of the (Kinshasa)":"جمهورية الكونغو الديمقراطية","Congo, Republic of the (Brazzaville)":"جمهورية الكونغو الديمقراطية","Cook Islands":"جزر كوك","Costa Rica":"كوستا ريكا","Cote D\'Ivoire":"ساحل العاج","Croatia":"كرواتيا","Cuba":"كوبا","Curaçao":"كوراساو","Cyprus":"قبرص","Czech Republic":"التشيك","Côte d\'Ivoire, Republic of":"ساحل العاج","Denmark":"الدانمارك","Djibouti":"جيبوتي","Dominica":"دومينيكا","Dominican Republic":"جمهورية الدومينيكان","Ecuador":"الإكوادور","Equatorial Guinea":"غينيا الاستوائية","Eritrea":"إريتريا","Estonia":"إستونيا","Ethiopia":"إثيوبيا","Egypt":"مصر","El Salvador":"السلفادور","Falkland Islands (Islas Malvinas)":"جزر فوكلاند","Faroe Islands":"جزر فارو","Fiji":"فيجي","Finland":"فنلندا","France":"فرنسا","French Guiana":"غويانا الفرنسية","French Polynesia":"بولينيزيا الفرنسية","French Southern and Antarctic Lands":"الأقاليم الجنوبية الفرنسية","Gabon":"الغابون","Gambia, The":"غامبيا","Georgia":"جورجيا","Germany":"ألمانيا","Ghana":"غانا","Gibraltar":"جبل طارق","Greece":"اليونان","Greenland":"غرينلاند","Grenada":"غرينادا","Guadeloupe":"غوادلوب","Guam":"غوام","Guatemala":"غواتيمالا","Guernsey":"غيرنزي","Guinea":"غينيا","Guinea-Bissau":"غينيا بيساو","Guyana":"غيانا","Haiti":"هايتي","Heard Island and McDonald Islands":"جزيرة هيرد وجزر ماكدونالد","Holy See (Vatican City)":"مدينة الفاتيكان","Honduras":"هندوراس","Hong Kong":"هونغ كونغ","Hungary":"هنغاريا","Iceland":"آيسلندا","India":"الهند","Indonesia":"إندونيسيا","Iran, Islamic Republic Of":"إيران","Iran, Islamic Republic of":"إيران","Iraq":"العراق","Ireland":"إيرلندا","Isle Of Man":"جزيرة مان","Isle of Man":"جزيرة مان","Israel":"إسرائيل","Italy":"إيطاليا","Jamaica":"جامايكا","Japan":"اليابان","Jersey":"جيرسي","Jordan":"الأردن","Kazakhstan":"كازاخستان","Kenya":"كينيا","Kiribati":"كيريباتي","Korea":"كوريا الجنوبية","Korea, Democratic People\'s Republic of":"كوريا الشمالية","Korea, Republic of":"كوريا الجنوبية","Kosovo":"كوسوفو","Kuwait":"الكويت","Kyrgyzstan":"قيرغيزستان","Laos":"لاوس","Latvia":"ﻻتفيا","Lebanon":"لبنان","Lesotho":"ليسوتو","Liberia":"ليبيريا","Libya":"ليبيا","Liechtenstein":"ليختنشتاين","Lithuania":"ليتوانيا","Luxembourg":"لوكسمبورغ","Macao":"ماكاو","Macedonia":"مقدونيا الشمالية","Macedonia, Republic of":"مقدونيا الشمالية","Madagascar":"مدغشقر","Malawi":"ملاوي","Malaysia":"ماليزيا","Maldives":"جزر المالديف","Mali":"مالي","Malta":"مالطا","Marshall Islands":"جزر مارشال","Martinique":"جزر المارتينيك","Mauritania":"موريتانيا","Mauritius":"موريشيوس","Mayotte":"مايوت","Mexico":"المكسيك","Micronesia, Federated States Of":"ميكرونيزيا","Micronesia, Federated States of":"ولايات ميكرونيسيا المتحدة","Moldova":"مولدوفا","Moldova, Republic of":"مولدوفا","Monaco":"موناكو","Mongolia":"منغوليا","Montenegro":"الجبل الأسود","Montserrat":"مونتسرات","Morocco":"المغرب","Mozambique":"موزمبيق","Myanmar":"ميانمار","Namibia":"ناميبيا","Nauru":"ناورو","Nepal":"نيبال","Netherlands":"هولندا","Netherlands Antilles":"جزر الأنتيل الهولندية","New Caledonia":"كاليدونيا الجديدة","New Zealand":"نيوزلندا","Nicaragua":"نيكاراغوا","Niger":"النجير","Nigeria":"نيجيريا","Niue":"نيوي","Norfolk Island":"جزيرة نورفولك","Northern Mariana Islands":"جزر ماريانا الشمالية","Norway":"النرويج","Oman":"عمان","Pakistan":"باكستان","Palau":"بالاو","Palestine, State of":"فلسطين","Panama":"بنما","Papua New Guinea":"بابوا غينيا الجديدة","Paraguay":"باراغواي","Peru":"بيرو","Philippines":"الفلبين","Pitcairn":"جزر بيتكيرن","Poland":"بولندا","Portugal":"البرتغال","Puerto Rico":"بورتوريكو","Qatar":"قطر","Reunion":"روينيون","Romania":"رومانيا","Russian Federation":"روسيا","Rwanda":"رواندا","Réunion":"روينيون","Saint Barthelemy":"سانت بارتيليمي","Saint Barthélemy":"سانت بارتيليمي","Saint Helena, Ascension and Tristan da Cunha":"سانت هيليناؤ","Saint Kitts And Nevis":"سانت كيتس ونيفيس","Saint Kitts and Nevis":"سانت كيتس ونيفيس","Saint Lucia":"سانت لوسيا","Saint Martin":"سانت مارتن","Saint Martin (French part)":"سانت مارتن","Saint Pierre And Miquelon":"سانت بيار وميكلون","Saint Pierre and Miquelon":"سانت بيار وميكلون","Saint Vincent And Grenadines":"سانت فنسنت والجرينادينز","Saint Vincent and the Grenadines":"سانت فنسنت والجرينادينز","Samoa":"ساموا","San Marino":"سان مارينو","Sao Tome And Principe":"ساو تومي وبرينسيبي","Sao Tome and Principe":"ساو تومي وبرينسيبي","Saudi Arabia":"المملكة العربية السعودية","Senegal":"السنغال","Serbia":"صربيا","Seychelles":"سيشل","Sierra Leone":"سيراليون","Singapore":"سنغافورة","Sint Maarten (Dutch part)":"سينت مارتن","Slovakia":"سلوفاكيا","Slovenia":"سلوفينيا","Solomon Islands":"جزر سليمان","Somalia":"الصومال","South Africa":"جنوب أفريقيا","South Georgia and South Sandwich Islands":"جورجيا الجنوبية وجزر ساندويتش الجنوبية","South Sudan":"جنوب السودان","Spain":"إسبانيا","Sri Lanka":"سريلانكا","Sudan":"السودان","Suriname":"سورينام","Svalbard And Jan Mayen":"سفالبارد وجان ماين","Svalbard and Jan Mayen":"سفالبارد ويان ماين","Swaziland":"إسواتيني","Sweden":"السويد","Switzerland":"سويسرا","Taiwan":"تايوان","Taiwan, Province of China":"تايوان","Tajikistan":"طاجيكستان","Tanzania":"تنزانيا","Tanzania, United Republic of":"تنزانيا","Thailand":"تايلاند","Timor-Leste":"تيمور - ليشتي","Togo":"توغو","Tokelau":"توكيلو","Tonga":"تونغا","Trinidad And Tobago":"ترينيداد وتوباغو","Trinidad and Tobago":"ترينيداد وتوباغو","Tunisia":"تونس","Turkey":"تركيا","Turkmenistan":"تركمانستان","Turks And Caicos Islands":"جزر توركس وكايكوس","Turks and Caicos Islands":"جزر توركس وكايكو","Tuvalu":"توفالو","Uganda":"أوغندا","Ukraine":"أوكرانيا","United Arab Emirates":"الإمارات العربية المتحدة","United Kingdom":"المملكة المتحدة","United States":"الولايات المتحدة","United States Minor Outlying Islands":"جزر الولايات المتحدة النائية","United States Outlying Islands":"جزر الولايات المتحدة النائية","Uruguay":"أورغواي","Uzbekistan":"أوزبكستان","Vanuatu":"فانواتو","Venezuela":"فنزويلا","Venezuela, Bolivarian Republic of":"فنزويلا","Vietnam":"فيتنام","Virgin Islands, British":"جزر فيرجن البريطانية","Virgin Islands, U.S.":"جزر فيرجن التابعة للولايات المتحدة","Wallis And Futuna":"جزر والس وفوتونا","Wallis and Futuna":"جزر والس وفوتونا","Western Sahara":"الصحراء الغربية","Yemen":"اليمن","Zambia":"زامبيا","Zimbabwe":"زيمبابوي","Åland Islands":"جزر آلاند"}');
+module.exports = JSON.parse('{"kweider":"قويدر","email":"البريد الألكتروني","password":"كلمة المرور","login":"تسجيل الدخول","remember me":"تذكرني لاحقاً","forgotpassword":"نسيت كلمة المرور؟","slogan":"قويدر للحلويات الدمشقية","home":"الصفحة الرئيسية","products":"المنتجات","menu":"القائمة","about":"نبذة عنا","contact":"للتواصل","incoming":"!قيد الأنجاز","users":"المستخدمون","settings":"أعدادات حسابي","logout":"تسجيل الخروج","create user":"انشاء مستخدم جديد","register":"أنشاء حساب","first name":"الأسم الأول","last name":"اسم العائلة","enter password":"ادخل كلمة المرور","confirm password":"تأكيد كلمة المرور","name":"الأسم","country":"البلد","region":"المنطقة","last login":"تسجيل الدخول الأخير","phone":"رقم الهاتف","none":"غير موجود","edit":"تعديل","registered":"لديك حساب؟","manageusers":"ادارة المستخدمين","search":"بحث...","select country":"اختر البلد","select region":"اختر المنطقة","create":"انشئ","back":"العودة.","Syrian Arab Republic":"الجمهورية العربية السورية","Afghanistan":"أفغانستان","Aland Islands":"جزر آلاند","Albania":"ألبانيا","Algeria":"الجزائر","American Samoa":"ساموا الأمريكية","Andorra":"أندورا","Angola":"أنغولا","Anguilla":"أنغويلا","Antarctica":"أنتاركتيكا","Antigua and Barbuda":"أنتيغوا وبربودا","Argentina":"الأرجنتين","Armenia":"أرمينيا","Aruba":"أروبا","Australia":"أستراليا","Austria":"النمسا","Azerbaijan":"أذربيجان","Bahamas":"جزر البهاما","Bahrain":"البحرين","Bangladesh":"بنغلاديش","Barbados":"بربادوس","Belarus":"بيلاروس","Belgium":"بلجيكا","Belize":"بليز","Benin":"بنين","Bermuda":"برمودا","Bhutan":"بوتان","Bolivia":"بوليفيا","Bolivia, Plurinational State of":"بوليفيا","Bonaire, Sint Eustatius and Saba":"بونير، سانت يوستاتيوس وسابا","Bosnia And Herzegovina":"البوسنة والهرسك","Bosnia and Herzegovina":"البوسنة والهرسك","Botswana":"بوتسوانا","Bouvet Island":"جزيرة بوفيه","Brazil":"البرازيل","British Indian Ocean Territory":"الإقليم البريطاني في المحيط الهندي","Brunei Darussalam":"بروناي","Bulgaria":"بلغاريا","Burkina Faso":"بوركينا فاسو","Burundi":"بروندي","Cambodia":"كمبوديا","Cameroon":"الكاميرون","Canada":"كندا","Cape Verde":"الرأس الأخضر","Cayman Islands":"جزر كايمان","Central African Republic":"جمهورية أفريقيا الوسطى","Chad":"تشاد","Chile":"تشيلي","China":"الصين","Christmas Island":"جزيرة كريسماس","Cocos (Keeling) Islands":"جزر كوكوس (كيلينغ)","Colombia":"كولومبيا","Comoros":"جزر القمر","Congo":"الكونغو","Congo, the Democratic Republic of the (Kinshasa)":"جمهورية الكونغو الديمقراطية","Congo, Republic of the (Brazzaville)":"جمهورية الكونغو الديمقراطية","Cook Islands":"جزر كوك","Costa Rica":"كوستا ريكا","Cote D\'Ivoire":"ساحل العاج","Croatia":"كرواتيا","Cuba":"كوبا","Curaçao":"كوراساو","Cyprus":"قبرص","Czech Republic":"التشيك","Côte d\'Ivoire, Republic of":"ساحل العاج","Denmark":"الدانمارك","Djibouti":"جيبوتي","Dominica":"دومينيكا","Dominican Republic":"جمهورية الدومينيكان","Ecuador":"الإكوادور","Equatorial Guinea":"غينيا الاستوائية","Eritrea":"إريتريا","Estonia":"إستونيا","Ethiopia":"إثيوبيا","Egypt":"مصر","El Salvador":"السلفادور","Falkland Islands (Islas Malvinas)":"جزر فوكلاند","Faroe Islands":"جزر فارو","Fiji":"فيجي","Finland":"فنلندا","France":"فرنسا","French Guiana":"غويانا الفرنسية","French Polynesia":"بولينيزيا الفرنسية","French Southern and Antarctic Lands":"الأقاليم الجنوبية الفرنسية","Gabon":"الغابون","Gambia, The":"غامبيا","Georgia":"جورجيا","Germany":"ألمانيا","Ghana":"غانا","Gibraltar":"جبل طارق","Greece":"اليونان","Greenland":"غرينلاند","Grenada":"غرينادا","Guadeloupe":"غوادلوب","Guam":"غوام","Guatemala":"غواتيمالا","Guernsey":"غيرنزي","Guinea":"غينيا","Guinea-Bissau":"غينيا بيساو","Guyana":"غيانا","Haiti":"هايتي","Heard Island and McDonald Islands":"جزيرة هيرد وجزر ماكدونالد","Holy See (Vatican City)":"مدينة الفاتيكان","Honduras":"هندوراس","Hong Kong":"هونغ كونغ","Hungary":"هنغاريا","Iceland":"آيسلندا","India":"الهند","Indonesia":"إندونيسيا","Iran, Islamic Republic Of":"إيران","Iran, Islamic Republic of":"إيران","Iraq":"العراق","Ireland":"إيرلندا","Isle Of Man":"جزيرة مان","Isle of Man":"جزيرة مان","Israel":"إسرائيل","Italy":"إيطاليا","Jamaica":"جامايكا","Japan":"اليابان","Jersey":"جيرسي","Jordan":"الأردن","Kazakhstan":"كازاخستان","Kenya":"كينيا","Kiribati":"كيريباتي","Korea":"كوريا الجنوبية","Korea, Democratic People\'s Republic of":"كوريا الشمالية","Korea, Republic of":"كوريا الجنوبية","Kosovo":"كوسوفو","Kuwait":"الكويت","Kyrgyzstan":"قيرغيزستان","Laos":"لاوس","Latvia":"ﻻتفيا","Lebanon":"لبنان","Lesotho":"ليسوتو","Liberia":"ليبيريا","Libya":"ليبيا","Liechtenstein":"ليختنشتاين","Lithuania":"ليتوانيا","Luxembourg":"لوكسمبورغ","Macao":"ماكاو","Macedonia":"مقدونيا الشمالية","Macedonia, Republic of":"مقدونيا الشمالية","Madagascar":"مدغشقر","Malawi":"ملاوي","Malaysia":"ماليزيا","Maldives":"جزر المالديف","Mali":"مالي","Malta":"مالطا","Marshall Islands":"جزر مارشال","Martinique":"جزر المارتينيك","Mauritania":"موريتانيا","Mauritius":"موريشيوس","Mayotte":"مايوت","Mexico":"المكسيك","Micronesia, Federated States Of":"ميكرونيزيا","Micronesia, Federated States of":"ولايات ميكرونيسيا المتحدة","Moldova":"مولدوفا","Moldova, Republic of":"مولدوفا","Monaco":"موناكو","Mongolia":"منغوليا","Montenegro":"الجبل الأسود","Montserrat":"مونتسرات","Morocco":"المغرب","Mozambique":"موزمبيق","Myanmar":"ميانمار","Namibia":"ناميبيا","Nauru":"ناورو","Nepal":"نيبال","Netherlands":"هولندا","Netherlands Antilles":"جزر الأنتيل الهولندية","New Caledonia":"كاليدونيا الجديدة","New Zealand":"نيوزلندا","Nicaragua":"نيكاراغوا","Niger":"النجير","Nigeria":"نيجيريا","Niue":"نيوي","Norfolk Island":"جزيرة نورفولك","Northern Mariana Islands":"جزر ماريانا الشمالية","Norway":"النرويج","Oman":"عمان","Pakistan":"باكستان","Palau":"بالاو","Palestine, State of":"فلسطين","Panama":"بنما","Papua New Guinea":"بابوا غينيا الجديدة","Paraguay":"باراغواي","Peru":"بيرو","Philippines":"الفلبين","Pitcairn":"جزر بيتكيرن","Poland":"بولندا","Portugal":"البرتغال","Puerto Rico":"بورتوريكو","Qatar":"قطر","Reunion":"روينيون","Romania":"رومانيا","Russian Federation":"روسيا","Rwanda":"رواندا","Réunion":"روينيون","Saint Barthelemy":"سانت بارتيليمي","Saint Barthélemy":"سانت بارتيليمي","Saint Helena, Ascension and Tristan da Cunha":"سانت هيليناؤ","Saint Kitts And Nevis":"سانت كيتس ونيفيس","Saint Kitts and Nevis":"سانت كيتس ونيفيس","Saint Lucia":"سانت لوسيا","Saint Martin":"سانت مارتن","Saint Martin (French part)":"سانت مارتن","Saint Pierre And Miquelon":"سانت بيار وميكلون","Saint Pierre and Miquelon":"سانت بيار وميكلون","Saint Vincent And Grenadines":"سانت فنسنت والجرينادينز","Saint Vincent and the Grenadines":"سانت فنسنت والجرينادينز","Samoa":"ساموا","San Marino":"سان مارينو","Sao Tome And Principe":"ساو تومي وبرينسيبي","Sao Tome and Principe":"ساو تومي وبرينسيبي","Saudi Arabia":"المملكة العربية السعودية","Senegal":"السنغال","Serbia":"صربيا","Seychelles":"سيشل","Sierra Leone":"سيراليون","Singapore":"سنغافورة","Sint Maarten (Dutch part)":"سينت مارتن","Slovakia":"سلوفاكيا","Slovenia":"سلوفينيا","Solomon Islands":"جزر سليمان","Somalia":"الصومال","South Africa":"جنوب أفريقيا","South Georgia and South Sandwich Islands":"جورجيا الجنوبية وجزر ساندويتش الجنوبية","South Sudan":"جنوب السودان","Spain":"إسبانيا","Sri Lanka":"سريلانكا","Sudan":"السودان","Suriname":"سورينام","Svalbard And Jan Mayen":"سفالبارد وجان ماين","Svalbard and Jan Mayen":"سفالبارد ويان ماين","Swaziland":"إسواتيني","Sweden":"السويد","Switzerland":"سويسرا","Taiwan":"تايوان","Taiwan, Province of China":"تايوان","Tajikistan":"طاجيكستان","Tanzania":"تنزانيا","Tanzania, United Republic of":"تنزانيا","Thailand":"تايلاند","Timor-Leste":"تيمور - ليشتي","Togo":"توغو","Tokelau":"توكيلو","Tonga":"تونغا","Trinidad And Tobago":"ترينيداد وتوباغو","Trinidad and Tobago":"ترينيداد وتوباغو","Tunisia":"تونس","Turkey":"تركيا","Turkmenistan":"تركمانستان","Turks And Caicos Islands":"جزر توركس وكايكوس","Turks and Caicos Islands":"جزر توركس وكايكو","Tuvalu":"توفالو","Uganda":"أوغندا","Ukraine":"أوكرانيا","United Arab Emirates":"الإمارات العربية المتحدة","United Kingdom":"المملكة المتحدة","United States":"الولايات المتحدة","United States Minor Outlying Islands":"جزر الولايات المتحدة النائية","United States Outlying Islands":"جزر الولايات المتحدة النائية","Uruguay":"أورغواي","Uzbekistan":"أوزبكستان","Vanuatu":"فانواتو","Venezuela":"فنزويلا","Venezuela, Bolivarian Republic of":"فنزويلا","Vietnam":"فيتنام","Virgin Islands, British":"جزر فيرجن البريطانية","Virgin Islands, U.S.":"جزر فيرجن التابعة للولايات المتحدة","Wallis And Futuna":"جزر والس وفوتونا","Wallis and Futuna":"جزر والس وفوتونا","Western Sahara":"الصحراء الغربية","Yemen":"اليمن","Zambia":"زامبيا","Zimbabwe":"زيمبابوي","Åland Islands":"جزر آلاند","Dimashq":"دمشق"}');
 
 /***/ }),
 
@@ -37979,7 +39464,7 @@ module.exports = JSON.parse('{"kweider":"قويدر","email":"البريد ال�
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"email":"Email","password":"Password","login":"Log in","rememberme":"Remember me","forgotpassword":"Forgot your password?","slogan":"Qwaider For Damascene Sweets","home":"Home","products":"Products","menu":"Menu","about":"About us","contact":"Contact us","incoming":"Coming Soon!","users":"Users","settings":"Profile and Settings","logout":"Log out","register":"Register","firstname":"First name","lastname":"Last name","enterpassword":"Enter password","confirmpassword":"Confirm password","name":"Name","country":"Country","region":"Region","lastlogin":"Last Login","phone":"Phone","none":"None","edit":"Edit","registered":"Already regiesterd?","manageusers":"Manage Users","search":"Search..."}');
+module.exports = JSON.parse('{"email":"Email","password":"Password","login":"Log in","remember me":"Remember me","forgotpassword":"Forgot your password?","slogan":"Qwaider For Damascene Sweets","home":"Home","products":"Products","menu":"Menu","about":"About us","contact":"Contact us","incoming":"Coming Soon!","users":"Users","settings":"Profile and Settings","logout":"Log out","register":"Register","first name":"First name","last name":"Last name","create user":"Create New User","enter password":"Enter password","confirm password":"Confirm password","name":"Name","country":"Country","region":"Region","lastlogin":"Last Login","phone":"Phone","none":"None","edit":"Edit","registered":"Already regiesterd?","manageusers":"Manage Users","search":"Search...","select country":"Select Country","select region":"Select Region","create":"Create","back":"Go back."}');
 
 /***/ })
 

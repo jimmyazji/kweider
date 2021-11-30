@@ -24,9 +24,8 @@
               leading-4
               font-medium
               rounded-md
-              text-oyster-500
-              bg-lonestar-500
-              hover:text-oyster-300
+              text-almond-500
+              hover:text-almond-300
               focus:outline-none
               transition
               ease-in-out
@@ -36,7 +35,7 @@
             {{ $page.props.auth.user.first_name }}
             {{ $page.props.auth.user.last_name }}
             <svg
-              class="ml-2 -mr-0.5 h-4 w-4"
+              class="mx-2 h-4 w-4"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
@@ -51,7 +50,7 @@
         </span>
       </template>
       <template #content>
-        <BreezeDropdownLink :href="route('users')">
+        <BreezeDropdownLink :href="route('users.index')">
           <span class="flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +62,7 @@
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="w-4 h-auto mr-1"
+              class="w-4 h-auto mx-1"
             >
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
               <circle cx="9" cy="7" r="4" />
@@ -84,7 +83,7 @@
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class=" w-4 h-auto mr-1"
+              class=" w-4 h-auto mx-1"
             >
               <circle cx="12" cy="12" r="3" />
               <path
@@ -106,7 +105,7 @@
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="w-4 h-auto mr-1"
+              class="w-4 h-auto mx-1"
             >
               <path
                 d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"

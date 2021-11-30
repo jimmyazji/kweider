@@ -1,7 +1,7 @@
 <template>
   <div class="pt-4 pb-1 border-t border-gray-200">
     <div class="px-4">
-      <div class="font-medium text-base text-oyster-500">
+      <div class="font-medium text-base text-almond-500">
         {{ $page.props.auth.user.first_name }}
         {{ $page.props.auth.user.last_name }}
       </div>

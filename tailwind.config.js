@@ -12,17 +12,17 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                oyster: {
-                    '50': '#fefdfd',
-                    '100': '#fdfbfb',
-                    '200': '#fbf5f5',
-                    '300': '#f8efef',
-                    '400': '#f2e2e2',
-                    '500': '#edd6d6',
-                    '600': '#d5c1c1',
-                    '700': '#b2a1a1',
-                    '800': '#8e8080',
-                    '900': '#746969'
+                almond: {
+                    '50': '#fefdfc', 
+                    '100': '#fdfcfa', 
+                    '200': '#fbf7f2', 
+                    '300': '#f9f2ea', 
+                    '400': '#f4e8da', 
+                    '500': '#EFDECA', 
+                    '600': '#d7c8b6', 
+                    '700': '#b3a798', 
+                    '800': '#8f8579', 
+                    '900': '#756d63'
                 },
                 lonestar: {
                     '50': '#f8f2f2',
@@ -61,8 +61,10 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms'),
+    plugins: [
+        require('@tailwindcss/forms'),
         require('daisyui'),
+        require('@tailwindcss/aspect-ratio')
     ],
     daisyui: {
         themes: [

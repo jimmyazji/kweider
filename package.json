@@ -29,16 +29,9 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
+        "@tailwindcss/aspect-ratio": "^0.3.0",
         "daisyui": "^1.16.2",
-        "vue3-country-region-select": "^1.0.0"
-    },
-    "engines": {
-        "name": "myapp",
-        "description": "a really cool app",
-        "version": "1.0.0",
-        "engines": {
-            "node": "17.0.1",
-            "npm": "6.x"
-        }
+        "vue3-country-region-select": "^1.0.0",
+        "vue3-smooth-scroll": "^0.8.1"
     }
 }

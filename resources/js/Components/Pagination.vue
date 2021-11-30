@@ -6,7 +6,7 @@
       :href="link.url"
       v-html="link.label"
       class="px-2 btn btn-accent btn-sm"
-      :class="{ 'bg-oyster-500 border-oyster-500 btn-disabled': !link.url, 'btn-active': link.active }"
+      :class="{ 'bg-almond-500 border-almond-500 btn-disabled': !link.url, 'btn-active': link.active }"
       preserve-scroll
     />
   </div>

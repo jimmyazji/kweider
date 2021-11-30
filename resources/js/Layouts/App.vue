@@ -1,9 +1,24 @@
 <template>
-  <div>
-    <div class="min-h-screen bg-oyster-200">
-      <nav class="bg-lonestar-500 border-b border-gray-100">
+  <div :dir="locale === 'ar' ? 'rtl' : 'ltr'">
+    <div
+      class="min-h-screen bg-almond-400"
+      :style="{
+        backgroundImage: `url('~@/../images/pattern.png')`,
+        backgroundPosition: '600px 200px',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }"
+    >
+      <nav class="bg-lonestar-500 border-b border-almond-100 sticky top-0 z-50"
+      :style="{
+        backgroundImage: `url('~@/../images/pattern.png')`,
+        backgroundPosition: 'left center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }">
         <!-- Primary Navigation Menu -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
           <div class="flex justify-between h-16">
             <div class="flex">
               <!-- Logo -->
@@ -12,18 +27,19 @@
                   :href="route('home')"
                   class="
                     block
-                    focus:outline-none focus:border-oyster-200
-                    hover:text-oyster-300
-                    focus:text-oyster-300
-                    text-oyster-500
+                    focus:outline-none focus:border-almond-200
+                    hover:text-almond-300
+                    focus:text-almond-300
+                    text-almond-500
                   "
                 >
-                  <BreezeApplicationLogo class="h-24 w-auto fill-current" />
+                  <BreezeApplicationLogo class="h-8 w-auto fill-current" />
                 </Link>
               </div>
               <!-- Navigation Links -->
-              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+              <div class="hidden space-x-8 sm:-my-px sm:mx-10 sm:flex">
                 <BreezeNavLink
+                  :class="locale === 'ar' ? 'ml-8' : ''"
                   :href="route('products')"
                   :active="route().current('products')"
                 >
@@ -52,16 +68,7 @@
 
             <div class="flex">
               <!-- Language Selector -->
-              <div
-                class="
-                  hidden
-                  ml-3
-                  items-center
-                  relative
-                  space-x-8
-                  sm:-my-px sm:ml-10 sm:flex
-                "
-              >
+              <div class="hidden items-center relative sm:flex">
                 <LanguageSelector>
                   <span class="inline-flex rounded-md">
                     <button
@@ -76,8 +83,8 @@
                         leading-4
                         font-medium
                         rounded-md
-                        text-oyster-500
-                        hover:text-oyster-300
+                        text-almond-500
+                        hover:text-almond-300
                         focus:outline-none
                         transition
                         ease-in-out
@@ -86,7 +93,7 @@
                     >
                       {{ $i18n.locale.toUpperCase() }}
                       <svg
-                        class="ml-2 -mr-0.5 h-4 w-4"
+                        class="mx-2 h-4 w-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -103,11 +110,11 @@
               </div>
               <!-- Auth -->
               <template v-if="!$page.props.auth.user">
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                  <BreezeNavLink :href="route('login')">
+                <div class="hidden sm:-my-px sm:flex">
+                  <BreezeNavLink class="mx-8" :href="route('login')">
                     {{ $t("login") }}
                   </BreezeNavLink>
-                  <BreezeNavLink :href="route('register')">
+                  <BreezeNavLink class="" :href="route('register')">
                     {{ $t("register") }}
                   </BreezeNavLink>
                 </div>
@@ -116,7 +123,7 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
+            <div class="flex items-center sm:hidden">
               <button
                 @click="showingNavigationDropdown = !showingNavigationDropdown"
                 class="
@@ -125,8 +132,8 @@
                   justify-center
                   p-2
                   rounded-md
-                  text-oyster-500
-                  hover:text-lonestar-500 hover:bg-oyster-300
+                  text-almond-500
+                  hover:text-lonestar-500 hover:bg-almond-300
                   focus:outline-none focus:bg-gray-100 focus:text-gray-500
                   transition
                   duration-150
@@ -224,6 +231,7 @@
       </nav>
       <!-- Page Content -->
       <main class="text-lonestar-800">
+        <FlashMessage :flash="$page.props.flash" :errors="$page.props.errors" />
         <slot />
       </main>
     </div>
@@ -239,7 +247,9 @@ import BreezeResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 import AuthLinks from "@/Components/AuthLinks.vue";
 import ResponsiveAuthLinks from "@/Components/ResponsiveAuthLinks.vue";
 import LanguageSelector from "@/Components/LanguageSelector.vue";
+import FlashMessage from "@/Components/FlashMessage.vue";
 defineProps({
   showingNavigationDropdown: false,
 });
+let locale = localStorage.getItem("lang");
 </script>
