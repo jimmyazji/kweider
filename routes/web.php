@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MenuController;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\App;
@@ -18,6 +19,11 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('locale/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+})->name('locale');
 
 Route::get('/', function () {
     return Inertia::render(
@@ -35,9 +41,10 @@ Route::get('/settings', function () {
 Route::get('/products', function () {
     return Inertia::render('Products/Index');
 })->name('products');
-Route::get('/menu', function () {
-    return Inertia::render('Menu/Index');
-})->name('menu');
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+Route::get('/blog', function () {
+    return Inertia::render('Blog/Index');
+})->name('blog');
 Route::get('/about', function () {
     return Inertia::render('About/Index');
 })->name('about');

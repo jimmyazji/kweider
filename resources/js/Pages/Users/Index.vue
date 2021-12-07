@@ -53,7 +53,8 @@
               </div>
             </div>
             <table
-              class="table w-full table-compact table-zebra text-lonestar-800"
+              class="table w-full table-compact table-zebra text-lonestar-800 mt-4"
+              dir="ltr"
             >
               <thead>
                 <tr>

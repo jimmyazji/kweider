@@ -105,6 +105,9 @@ return [
     | localized telephone numbers, street address information and more.
     |
     */
+
+    'faker_locale' => 'en_US',
+
     /*
     |--------------------------------------------------------------------------
     | Available locales
@@ -113,12 +116,12 @@ return [
     | List all locales that your application works with
     |
     */
+    
     'available_locales' => [
         'English' => 'en',
         'Arabic' => 'ar',
     ],
 
-    'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
