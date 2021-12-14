@@ -15,23 +15,7 @@
               <span class="mx-4 py-1 inline-flex rounded-md">
                 <button
                   type="button"
-                  class="
-                    inline-flex
-                    items-center
-                    px-3
-                    py-2
-                    border border-transparent
-                    text-sm
-                    leading-4
-                    font-medium
-                    rounded-md
-                    text-lonestar-800
-                    hover:text-lonestar-500
-                    focus:outline-none
-                    transition
-                    ease-in-out
-                    duration-150
-                  "
+                  class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-lonestar-800 hover:text-lonestar-500 focus:outline-none transition ease-in-out duration-150"
                 >
                   {{ $i18n.locale.toUpperCase() }}
                   <svg
@@ -49,44 +33,25 @@
                 </button>
               </span>
             </LanguageSelector>
+            <div class="flex text-sm">
+              <Link :href="route('login')" class="flex items-center mx-4"
+              :class="{'font-bold' : route().current('login')}">{{ $t('login') }}</Link>
+              <Link :href="route('register')" class="flex items-center mx-4"
+              :class="{'font-bold' : route().current('register')}">{{ $t('register') }}</Link>
+            </div>
           </div>
         </nav>
         <div class="text-lonestar-500">
           <Link
             href="/"
-            class="
-              focus:outline-none
-              text-lonestar-500
-              transition
-              ease-in-out
-              duration-150
-            "
+            class="focus:outline-none text-lonestar-500 transition ease-in-out duration-150"
           >
             <BreezeApplicationLogo
-              class="
-                mx-auto
-                w-52
-                h-52
-                fill-current
-                transform
-                transition
-                ease-in-out
-                duration-150
-                hover:scale-110
-              "
+              class="mx-auto w-52 h-52 fill-current transform transition ease-in-out duration-150 hover:scale-110"
             />
             <div
-              class="
-                text-center text-base
-                md:text-3xl
-                transform
-                transition
-                ease-in-out
-                duration-150
-              "
-            >
-              {{ $t("slogan") }}
-            </div>
+              class="text-center text-base md:text-3xl transform transition ease-in-out duration-150"
+            >{{ $t("slogan") }}</div>
           </Link>
         </div>
       </div>
@@ -107,5 +72,5 @@ import BreezeApplicationLogo from "@/Components/ApplicationLogo.vue";
 import LanguageSelector from "@/Components/LanguageSelector.vue";
 import FlashMessage from "@/Components/FlashMessage.vue";
 
-let locale = localStorage.getItem("lang");
+let locale = localStorage.getItem("locale");
 </script>

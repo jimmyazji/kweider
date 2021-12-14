@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\MenuController;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MenuCatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,16 +41,16 @@ Route::get('/settings', function () {
 })->name('settings');
 Route::get('/products', function () {
     return Inertia::render('Products/Index');
-})->name('products');
-Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+})->name('products.index');
+Route::resource('menu', MenuController::class);
 Route::get('/blog', function () {
     return Inertia::render('Blog/Index');
-})->name('blog');
+})->name('blog.index');
 Route::get('/about', function () {
     return Inertia::render('About/Index');
-})->name('about');
+})->name('about.index');
 Route::get('/contact', function () {
     return Inertia::render('Contact/Index');
-})->name('contact');
-
+})->name('contact.index');
+Route::resource('menucats',MenuCatController::class);
 require __DIR__ . '/auth.php';

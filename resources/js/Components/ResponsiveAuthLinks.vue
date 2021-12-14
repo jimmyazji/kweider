@@ -16,7 +16,7 @@
         method="post"
         as="button"
       >
-        Log Out
+        {{ $t('logout') }}
       </BreezeResponsiveNavLink>
     </div>
   </div>

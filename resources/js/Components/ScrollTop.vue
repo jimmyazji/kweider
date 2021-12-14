@@ -1,18 +1,10 @@
 <template>
   <div v-cloak>
-    <Transition
-      enter-active-class="transition ease-out duration-200"
-      enter-from-class="transform opacity-0 scale-95"
-      enter-to-class="transform opacity-100 scale-100"
-      leave-active-class="transition ease-in duration-75"
-      leave-from-class="transform opacity-100 scale-100"
-      leave-to-class="transform opacity-0 scale-95"
-    >
       <div
         id="pagetop"
-        class="fixed right-4 bottom-8 btn btn-primary shadow-sm border-2 border-almond-500 h-20 z-50"
+        class="fixed right-4 bottom-16 btn btn-primary btn-sm shadow-sm border-2 border-almond-500 h-16 w-16 z-50"
         v-show="scY > 300"
-        @click="toTop"
+        @click.prevent="toTop"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +20,6 @@
           <path d="M18 15l-6-6-6 6" />
         </svg>
       </div>
-    </Transition>
   </div>
 </template>
 

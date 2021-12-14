@@ -25,8 +25,11 @@ const messages = {
     ar: AR,
     en: EN
 };
+if (!localStorage.getItem('locale')){
+    localStorage.setItem('locale','en')
+}
 const i18n = createI18n({
-    locale: localStorage.getItem('lang'),
+    locale: localStorage.getItem('locale'),
     fallbackLocale: 'en',
     register: global,
     messages,

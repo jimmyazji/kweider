@@ -190,7 +190,7 @@ layout: BreezeAuthenticatingLayout,
 
   data() {
     return {
-      locale: localStorage.getItem("lang"),
+      locale: localStorage.getItem("locale"),
       form: this.$inertia.form({
         first_name: "",
         last_name: "",

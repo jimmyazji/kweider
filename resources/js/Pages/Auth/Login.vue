@@ -154,7 +154,7 @@ export default {
   data() {
     return {
       passwordFieldType: "password",
-      locale: localStorage.getItem("lang"),
+      locale: localStorage.getItem("locale"),
       form: this.$inertia.form({
         email: "",
         password: "",

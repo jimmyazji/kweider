@@ -153,6 +153,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'en_name' => 'english name',
+        'ar_name' => 'arabic name',
+        'cat_id' => 'category',
+        'en_desc'=> 'english description',
+        'ar_desc'=> 'arabic description',
+    ],
 
 ];

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Models\MenuProduct;
 
 class MenuCat extends Model
 {
@@ -14,8 +13,8 @@ class MenuCat extends Model
         'en_name',
         'ar_name',
     ];
-    public function menuProducts()
+    public function products()
     {
-        return $this->hasMany(MenuProduct::class, 'cat_id');
+        return $this->hasMany(MenuProduct::class, 'cat_id', 'id');
     }
 }

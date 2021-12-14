@@ -2,9 +2,7 @@
   <Head :title="$t('create user')" />
   <header class="bg-almond-200 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ $t("create user") }}
-      </h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $t("create user") }}</h2>
     </div>
   </header>
   <div class="py-12">
@@ -83,14 +81,7 @@
               <div class="grid grid-cols-2 gap-2">
                 <div>
                   <country-select
-                    class="
-                      block
-                      mt-1
-                      w-full
-                      select select-bordered
-                      focus:border-transparent
-                      font-normal
-                    "
+                    class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
                     topCountry="SY"
                     v-model="form.country"
                     :class="[
@@ -109,14 +100,7 @@
                 </div>
                 <div>
                   <region-select
-                    class="
-                      block
-                      mt-1
-                      w-full
-                      select select-bordered
-                      focus:border-transparent
-                      font-normal
-                    "
+                    class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
                     v-model="form.region"
                     :country="form.country"
                     disablePlaceholder
@@ -171,23 +155,14 @@
               <div class="flex items-center justify-between mt-4">
                 <Link
                   :href="route('users.index')"
-                  class="
-                    text-sm
-                    underline
-                    hover:text-lonestar-500
-                    font-semibold
-                    mx-1
-                  "
-                  >{{ $t("back") }}</Link
-                >
+                  class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
+                >{{ $t("back") }}</Link>
                 <Button
                   type="submit"
                   class="px-5"
                   :class="{ 'opacity-25': form.processing }"
                   :disabled="form.processing"
-                >
-                  {{ $t("create") }}
-                </Button>
+                >{{ $t("create") }}</Button>
               </div>
             </div>
           </form>
@@ -215,10 +190,10 @@ let form = useForm({
 });
 
 let submit = () => {
-  form.post(route("users.index")),
+  form.post(route('users.index'),
     {
       preserveScroll: true,
       onFinish: () => this.form.reset("password", "password_confirmation"),
-    };
+    });
 };
 </script>
