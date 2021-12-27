@@ -17,8 +17,7 @@ class MenuCatController extends Controller
                     function ($cat) {
                         return [
                             'id' => $cat->id,
-                            'en_name' => $cat->en_name,
-                            'ar_name' => $cat->ar_name,
+                            'name' => $cat->getTranslations('name'),
                         ];
                     }
                 )
@@ -28,14 +27,15 @@ class MenuCatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'en_name' => 'required|unique:menu_cats,en_name',
-            'ar_name' => 'required|unique:menu_cats,ar_name'
+            'name.*' => 'required| unique_translation:menu_cats',
         ]);
         MenuCat::create([
-            'en_name' => ucfirst(strtolower($request->en_name)),
-            'ar_name' => $request->ar_name
+            'name' => [
+                'en' => ucfirst(strtolower($request['name.en'])),
+                'ar' => $request['name.ar']
+            ],
         ]);
-        return redirect()->route('menucats.index')->with('success','Category Created Successfully.');
+        return redirect()->route('menucats.index')->with('success', 'Category Created Successfully.');
     }
 
     public function show($id)
@@ -64,14 +64,15 @@ class MenuCatController extends Controller
     {
         $cat = MenuCat::find($id);
         $request->validate([
-            'en_name' => 'required|unique:menu_cats,en_name,'.$id,
-            'ar_name' => 'required|unique:menu_cats,ar_name,'.$id,
+            'name.*' => 'required| unique_translation:menu_cats,name,' . $id
         ]);
         $cat->update([
-            'en_name' => $request->en_name,
-            'ar_name' => $request->ar_name
+            'name' => [
+                'en' => ucfirst(strtolower($request['name.en'])),
+                'ar' => $request['name.ar']
+            ],
         ]);
-        return redirect()->back()->with('success','Category updated successfully');
+        return redirect()->back()->with('success', 'Category updated successfully');
     }
 
     /**
@@ -84,7 +85,6 @@ class MenuCatController extends Controller
     {
         $menuCat = MenuCat::find($id);
         $menuCat->delete();
-        return redirect()->route('menucats.index')->with('success','Category Deleted Successfully.');
+        return redirect()->route('menucats.index')->with('success', 'Category Deleted Successfully.');
     }
 }
-

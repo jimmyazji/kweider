@@ -39,7 +39,7 @@ export default {
             default: '48'
         },
         contentClasses: {
-            default: () => ['py-1', 'bg-almond-200']
+            default: () => ['py-1', 'bg-almond-50']
         }
     },
 

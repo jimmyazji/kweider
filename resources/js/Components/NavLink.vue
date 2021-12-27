@@ -17,8 +17,8 @@ export default {
     computed: {
         classes() {
             return this.active
-                ? 'inline-flex items-center px-1 pt-1 border-b-4 border-almond-500 text-sm font-medium leading-5 text-almond-300 focus:outline-none focus:border-almond-200 transition  duration-150 ease-in-out font-bold'
-                : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-almond-500 hover:text-almond-300 hover:border-almond-300 focus:outline-none focus:text-almond-300 focus:border-almond-300 font-bold transition hover:scale duration-150 ease-in-out'
+                ? 'inline-flex items-center px-1 pt-1 -my-2 border-b-4 border-almond-500 text leading-5 text-almond-200 focus:outline-none focus:border-almond-200 transition  duration-150 ease-in-out font-bold'
+                : 'inline-flex items-center px-1 pt-1 -my-2 border-b-2 border-transparent text leading-5 text-almond-400 hover:text-almond-300 hover:border-almond-300 focus:outline-none focus:text-almond-300 focus:border-almond-300 font-bold hover:scale-110 focus:scale-110 hover-translate-y-2 transform transition duration-150 ease-in-out'
         }
     }
 }

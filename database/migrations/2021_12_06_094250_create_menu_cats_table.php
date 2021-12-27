@@ -15,8 +15,7 @@ class CreateMenuCatsTable extends Migration
     {
         Schema::create('menu_cats', function (Blueprint $table) {
             $table->id();
-            $table->string('en_name');
-            $table->string('ar_name');
+            $table->json('name');
             $table->timestamps();
         });
     }

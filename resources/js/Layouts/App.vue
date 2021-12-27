@@ -11,7 +11,7 @@
       }"
     >
       <nav
-        class="bg-primary sticky top-0 z-50"
+        class="bg-primary sticky top-0 z-50 p-2"
         :style="{
           backgroundImage: `url('/../images/pattern.png')`,
           backgroundPosition: 'left center',
@@ -29,7 +29,7 @@
                   :href="route('home')"
                   class="block focus:outline-none focus:border-almond-200 hover:text-almond-300 focus:text-almond-300 text-almond-500"
                 >
-                  <BreezeApplicationLogo class="h-8 w-auto fill-current" />
+                  <BreezeApplicationLogo class="h-10 mb-3 w-auto fill-current" />
                 </Link>
               </div>
               <!-- Navigation Links -->
@@ -65,7 +65,7 @@
                   <span class="inline-flex rounded-md">
                     <button
                       type="button"
-                      class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-almond-500 hover:text-almond-300 focus:outline-none transition ease-in-out duration-150"
+                      class="inline-flex font-semibold items-center px-3 py-2 border border-transparent leading-4 rounded-md text-almond-500 hover:text-almond-300 focus:outline-none hover:scale-110 focus:scale-110 transform transition ease-in-out duration-150"
                     >
                       <svg
                         class="mx-2 h-4 w-4"
@@ -129,7 +129,7 @@
               </LanguageSelector>
               <button
                 @click="showingNavigationDropdown = !showingNavigationDropdown"
-                class="inline-flex items-center justify-center p-2 rounded-md text-almond-500 hover:text-lonestar-500 hover:bg-almond-300 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                class="inline-flex items-center font-bold justify-center p-2 rounded-md text-almond-500 hover:text-lonestar-500 hover:bg-almond-300 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
               >
                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                   <path
@@ -254,7 +254,7 @@
             />
           </svg>
         </a>
-        <a href="">
+        <a href="https://www.facebook.com/kweidersy">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -295,6 +295,6 @@ if (usePage().props.locale === undefined) {
 
   url = url.replace(":locale", localStorage.getItem("locale"));
 
-  Inertia.visit(url);
+  Inertia.visit(url, { replace: true });
 }
 </script>

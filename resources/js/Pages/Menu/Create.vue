@@ -122,12 +122,12 @@
                             <div class="grid grid-cols-2 gap-2">
                                 <div>
                                     <textarea
-                                        id="en_desc"
+                                        id="en_description"
                                         class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none px-5"
-                                        autocomplete="en_desc"
-                                        v-model="form.en_desc"
+                                        autocomplete="en_description"
+                                        v-model="form.en_description"
                                         :placeholder="$t('product desc en')"
-                                        :class="{ 'input-error': $page.props.errors.en_desc }"
+                                        :class="{ 'input-error': $page.props.errors.en_description }"
                                     />
                                     <div
                                         v-if="$page.props.errors.en_desc"
@@ -137,16 +137,16 @@
                                 </div>
                                 <div>
                                     <textarea
-                                        id="ar_desc"
-                                        v-model="form.ar_desc"
+                                        id="ar_description"
+                                        v-model="form.ar_description"
                                         class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none"
-                                        autocomplete="ar_desc"
+                                        autocomplete="ar_description"
                                         :placeholder="$t('product desc ar')"
-                                        :class="{ 'input-error': $page.props.errors.ar_desc }"
+                                        :class="{ 'input-error': $page.props.errors.ar_description }"
                                     />
                                     <div
-                                        v-if="$page.props.errors.ar_desc"
-                                        v-text="$page.props.errors.ar_desc"
+                                        v-if="$page.props.errors.ar_description"
+                                        v-text="$page.props.errors.ar_description"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
@@ -187,19 +187,19 @@
                                     <th>{{ $t("ar type") }}</th>
                                     <th>{{ $t("en desc") }}</th>
                                     <th>{{ $t("ar desc") }}</th>
-                                    <th>{{ $t("cat name") }}</th>
+                                    <th>{{ $t("cat") }}</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="product in products" :key="product.id">
-                                    <td>{{ product.en_name }}</td>
-                                    <td>{{ product.ar_name }}</td>
-                                    <td>{{ product.en_type }}</td>
-                                    <td>{{ product.ar_type }}</td>
-                                    <td>{{ product.en_desc }}</td>
-                                    <td>{{ product.ar_desc }}</td>
-                                    <td>{{ product.cat_name }}</td>
+                                    <td>{{ product.name.en }}</td>
+                                    <td>{{ product.name.ar }}</td>
+                                    <td>{{ product.type.en }}</td>
+                                    <td>{{ product.type.ar }}</td>
+                                    <td>{{ product.description.en }}</td>
+                                    <td>{{ product.description.ar }}</td>
+                                    <td>{{ product.category }}</td>
                                     <td>
                                         <div class="flex justify-end">
                                             <button @click="edit(product)">
@@ -262,8 +262,8 @@ let form = useForm({
     en_type: "",
     ar_type: "",
     cat_id: "",
-    en_desc: "",
-    ar_desc: "",
+    en_description: "",
+    ar_description: "",
     img: ""
 });
 let prod_id = ""

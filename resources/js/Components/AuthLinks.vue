@@ -20,16 +20,18 @@
               px-3
               py-2
               border border-transparent
-              text-sm
               leading-4
-              font-medium
               rounded-md
               text-almond-500
               hover:text-almond-300
               focus:outline-none
+              hover:scale-110
+              focus:scale-110
+              transform
               transition
               ease-in-out
               duration-150
+              font-semibold
             "
           >
             {{ $page.props.auth.user.first_name }}

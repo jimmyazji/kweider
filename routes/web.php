@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ExportCatContoller;
+use App\Http\Controllers\ExportProductController;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\App;
@@ -9,6 +11,8 @@ use Illuminate\Foundation\Application;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuCatController;
+use App\Models\ExportCat;
+use App\Models\ExportProduct;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +24,7 @@ use App\Http\Controllers\MenuCatController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('locale/{locale}', function ($locale) {
     app()->setLocale($locale);
     session()->put('locale', $locale);
@@ -39,9 +44,7 @@ Route::get('/settings', function () {
         'Settings'
     );
 })->name('settings');
-Route::get('/products', function () {
-    return Inertia::render('Products/Index');
-})->name('products.index');
+Route::resource('products', ExportProductController::class);
 Route::resource('menu', MenuController::class);
 Route::get('/blog', function () {
     return Inertia::render('Blog/Index');
@@ -52,5 +55,6 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return Inertia::render('Contact/Index');
 })->name('contact.index');
-Route::resource('menucats',MenuCatController::class);
+Route::resource('menucats', MenuCatController::class);
+Route::resource('exportcats', ExportCatContoller::class);
 require __DIR__ . '/auth.php';

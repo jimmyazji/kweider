@@ -2,9 +2,7 @@
   <Head :title="$t('manageusers')" />
   <header class="bg-almond-200 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ $t("manageusers") }}
-      </h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $t("manageusers") }}</h2>
     </div>
   </header>
   <div class="py-12">
@@ -17,22 +15,12 @@
               <div class="flex items-center">
                 <Input
                   type="text"
-                  class="
-                    input
-                    md:w-96
-                    w-full
-                    mr-1
-                    placeholder-lonestar-400
-                    text-lonestar-800
-                  "
+                  class="input md:w-96 w-full mr-1 placeholder-lonestar-400 text-lonestar-800"
                   :placeholder="$t('search')"
                   v-model="search"
                   autofocus
                 />
-                <Link
-                  :href="route('users.create')"
-                  class="relative btn btn-primary mx-2"
-                >
+                <Link :href="route('users.create')" class="relative btn btn-primary mx-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="48"
@@ -52,10 +40,7 @@
                 </Link>
               </div>
             </div>
-            <table
-              class="table w-full table-compact table-zebra text-lonestar-800 mt-4"
-              dir="ltr"
-            >
+            <table class="table w-full table-compact table-zebra text-lonestar-800 mt-4" dir="ltr">
               <thead>
                 <tr>
                   <th></th>
@@ -68,27 +53,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="user in users.data" :key="user.id">
+                <tr v-if="!users.data.length == 0" v-for="user in users.data" :key="user.id">
                   <td>
-                    <Link
-                      class="hover:underline"
-                      :href="route('users.show', user)"
-                      >{{ user.id }}</Link
-                    >
+                    <Link class="hover:underline" :href="route('users.show', user)">{{ user.id }}</Link>
                   </td>
                   <td>
                     <Link
                       class="hover:underline"
                       :href="route('users.show', user)"
-                      >{{ user.first_name }} {{ user.last_name }}</Link
-                    >
+                    >{{ user.first_name }} {{ user.last_name }}</Link>
                   </td>
                   <td>
-                    <Link
-                      class="hover:underline"
-                      :href="route('users.show', user)"
-                      >{{ user.email }}</Link
-                    >
+                    <Link class="hover:underline" :href="route('users.show', user)">{{ user.email }}</Link>
                   </td>
                   <td v-t="user.country"></td>
                   <td v-t="user.region"></td>
@@ -98,9 +74,21 @@
                     <Link
                       class="focus:outline-none hover:underline"
                       :href="route('users.edit', user.id)"
-                      >{{ $t("edit") }}</Link
-                    >
+                    >{{ $t("edit") }}</Link>
                   </td>
+                </tr>
+                <tr v-else>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                  <div class="flex justify-center opacity-70">
+                  No Match Found
+                  </div>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                 </tr>
               </tbody>
               <tfoot>

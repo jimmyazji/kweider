@@ -2,24 +2,27 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class MenuProduct extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
-
+    use HasTranslations;
     protected $fillable = [
-        'en_name',
-        'ar_name',
-        'en_type',
-        'ar_type',
+        'name',
+        'type',
         'cat_id',
-        'en_description',
-        'ar_description',
+        'description',
+    ];
+    public $translatable = [
+        'name',
+        'type',
+        'description'
     ];
     public function cat()
     {
