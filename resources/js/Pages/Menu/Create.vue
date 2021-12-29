@@ -23,11 +23,11 @@
                                         :placeholder="$t('product name en')"
                                         autofocus
                                         autocomplete="en_name"
-                                        :class="{ 'input-error': $page.props.errors.en_name }"
+                                        :class="{ 'input-error': form.errors.en_name }"
                                     />
                                     <div
-                                        v-if="$page.props.errors.en_name"
-                                        v-text="$page.props.errors.en_name"
+                                        v-if="form.errors.en_name"
+                                        v-text="form.errors.en_name"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
@@ -39,11 +39,11 @@
                                         class="block mt-1 w-full"
                                         autocomplete="ar_name"
                                         :placeholder="$t('product name ar')"
-                                        :class="{ 'input-error': $page.props.errors.ar_name }"
+                                        :class="{ 'input-error': form.errors.ar_name }"
                                     />
                                     <div
-                                        v-if="$page.props.errors.ar_name"
-                                        v-text="$page.props.errors.ar_name"
+                                        v-if="form.errors.ar_name"
+                                        v-text="form.errors.ar_name"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
@@ -57,11 +57,11 @@
                                         v-model="form.en_type"
                                         :placeholder="$t('product type en')"
                                         autocomplete="en_type"
-                                        :class="{ 'input-error': $page.props.errors.en_type }"
+                                        :class="{ 'input-error': form.errors.en_type }"
                                     />
                                     <div
-                                        v-if="$page.props.errors.en_type"
-                                        v-text="$page.props.errors.en_type"
+                                        v-if="form.errors.en_type"
+                                        v-text="form.errors.en_type"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
@@ -73,11 +73,11 @@
                                         class="block mt-1 w-full"
                                         autocomplete="ar_type"
                                         :placeholder="$t('product type ar')"
-                                        :class="{ 'input-error': $page.props.errors.ar_type }"
+                                        :class="{ 'input-error': form.errors.ar_type }"
                                     />
                                     <div
-                                        v-if="$page.props.errors.ar_type"
-                                        v-text="$page.props.errors.ar_type"
+                                        v-if="form.errors.ar_type"
+                                        v-text="form.errors.ar_type"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
@@ -87,7 +87,7 @@
                                     <select
                                         id="cat_id"
                                         class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
-                                        :class="{ 'text-gray-500': !form.cat_id, 'input-error': $page.props.errors.cat_id }"
+                                        :class="{ 'text-gray-500': !form.cat_id, 'select-error': form.errors.cat_id }"
                                         v-model="form.cat_id"
                                         autocomplete="cat_id"
                                     >
@@ -99,8 +99,8 @@
                                         >{{ category.name }}</option>
                                     </select>
                                     <div
-                                        v-if="$page.props.errors.cat_id"
-                                        v-text="$page.props.errors.cat_id"
+                                        v-if="form.errors.cat_id"
+                                        v-text="form.errors.cat_id"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
@@ -111,15 +111,16 @@
                                         :value="form.progress.percentage"
                                         max="100"
                                     >{{ form.progress.percentage }}</progress>
-                                    <input v-else
+                                    <input
+                                        v-else
                                         type="file"
-                                        @input="form.img = $event.target.files[0]"
-                                        @change="onFileChange"
+                                        @change="previewImage"
+                                        ref="photo"
                                         class="w-full px-4 py-2 mt-1 input input-bordered"
                                     />
                                     <div
-                                        v-if="$page.props.errors.image"
-                                        v-text="$page.props.errors.image"
+                                        v-if="form.errors.image"
+                                        v-text="form.errors.image"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
@@ -132,11 +133,11 @@
                                         autocomplete="en_description"
                                         v-model="form.en_description"
                                         :placeholder="$t('product desc en')"
-                                        :class="{ 'input-error': $page.props.errors.en_description }"
+                                        :class="{ 'textarea-error': form.errors.en_description }"
                                     />
                                     <div
-                                        v-if="$page.props.errors.en_desc"
-                                        v-text="$page.props.errors.en_desc"
+                                        v-if="form.errors.en_description"
+                                        v-text="form.errors.en_description"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
@@ -147,17 +148,19 @@
                                         class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none"
                                         autocomplete="ar_description"
                                         :placeholder="$t('product desc ar')"
-                                        :class="{ 'input-error': $page.props.errors.ar_description }"
+                                        :class="{ 'textarea-error': form.errors.ar_description }"
                                     />
                                     <div
-                                        v-if="$page.props.errors.ar_description"
-                                        v-text="$page.props.errors.ar_description"
+                                        v-if="form.errors.ar_description"
+                                        v-text="form.errors.ar_description"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                             </div>
                         </div>
-                        <img v-if="form.img" :src="url" class="w-full mt-4 h-80" />
+                        <div class="flex justify-center">
+                        <img v-if="form.imgUrl" :src="form.imgUrl" class="rounded-lg h-60 w-auto mt-4" />
+                        </div>
                         <div class="flex items-center justify-between mt-4">
                             <Link
                                 :href="route('menu.index')"
@@ -263,6 +266,7 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia"
 
 
+
 let form = useForm({
     en_name: "",
     ar_name: "",
@@ -271,24 +275,34 @@ let form = useForm({
     cat_id: "",
     en_description: "",
     ar_description: "",
-    img: null
+    img: null,
+    imgUrl: null
 });
 let prod_id = ""
 let submit = () => {
-    form.post(route('menu.index'), {
-        preserveScroll: true,
-        onSuccess: () => form.reset(),
-    })
+    if (!prod_id) {
+        form.post(route('menu.index'), {
+            preserveScroll: true,
+            onSuccess: () => form.reset(),
+        })
+    }
+    else {
+        form.put(route('menu.update', prod_id), {
+            preserveScroll: true,
+            onSuccess: () => form.reset(),
+        })
+
+    }
 };
 let edit = (prod) => {
     prod_id = prod.id
-    form.en_name = prod.en_name
-    form.ar_name = prod.ar_name
-    form.en_type = prod.en_type
+    form.en_name = prod.name.en
+    form.ar_name = prod.name.ar
+    form.en_type = prod.type.en
+    form.ar_type = prod.type.ar
     form.cat_id = prod.cat_id
-    form.ar_type = prod.ar_type
-    form.en_desc = prod.en_desc
-    form.ar_desc = prod.ar_desc
+    form.en_description = prod.description.en
+    form.ar_description = prod.description.ar
 };
 let clear = () => {
     prod_id = ''
@@ -301,11 +315,10 @@ let destroy = (id) => {
     })
 };
 
-let url = '';
-let onFileChange = (e) => {
-      const file = e.target.files[0];
-      url = URL.createObjectURL(file);
-    }
+let previewImage = (e) => {
+    form.img = e.target.files[0];
+    form.imgUrl = URL.createObjectURL(form.img);
+}
 defineProps({
     categories: Object,
     products: Object,

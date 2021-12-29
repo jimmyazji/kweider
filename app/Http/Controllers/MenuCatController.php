@@ -64,12 +64,12 @@ class MenuCatController extends Controller
     {
         $cat = MenuCat::find($id);
         $request->validate([
-            'name.*' => 'required| unique_translation:menu_cats,name,' . $id
+            '*_name' => 'required| unique_translation:menu_cats,name,' . $id
         ]);
         $cat->update([
             'name' => [
-                'en' => ucfirst(strtolower($request['name.en'])),
-                'ar' => $request['name.ar']
+                'en' => ucfirst(strtolower($request['en_name'])),
+                'ar' => $request['ar_name']
             ],
         ]);
         return redirect()->back()->with('success', 'Category updated successfully');

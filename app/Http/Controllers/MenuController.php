@@ -62,7 +62,6 @@ class MenuController extends Controller
     }
     public function store(Request $request)
     {
-        dd($request->img);
         $request->validate([
             'en_name' => 'required',
             'ar_name' => 'required',
@@ -89,6 +88,31 @@ class MenuController extends Controller
         ]);
 
         return redirect()->route('menu.create')->with('success', 'Product added successfully.');
+    }
+    public function update(Request $request, $id){
+        $prod = MenuProduct::find($id);
+        $request->validate([
+            '*_name' => 'required',
+            '*_type' => 'max:255|nullable',
+            '*_description' => 'required',
+            'cat_id' => 'required'
+        ]);
+        $prod->update([
+            'name' => [
+                'en' => ucfirst(strtolower($request->en_name)),
+                'ar' => $request->ar_name
+            ],
+            'type' => [
+                'en' => ucfirst(strtolower($request->en_type)),
+                'ar' => $request->ar_type
+            ],
+            'description' => [
+                'en' => ucfirst(strtolower($request->en_description)),
+                'ar' => $request->ar_description
+            ],
+            'cat_id' => $request->cat_id
+        ]);
+        return redirect()->back()->with('success', 'Product updated successfully');
     }
     public function destroy($id)
     {

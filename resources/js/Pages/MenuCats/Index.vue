@@ -17,11 +17,11 @@
                     id="en_name"
                     type="text"
                     class="block mt-1 w-full"
-                    v-model="form.name.en"
+                    v-model="form.en_name"
                     :placeholder="$t('cat name en')"
                     autofocus
                     autocomplete="en_name"
-                    :class="{ 'input-error': $page.props.errors.en_name }"
+                    :class=" $page.props.errors.en_name ? 'input-error' : '' "
                   />
                   <div
                     v-if="$page.props.errors.en_name"
@@ -33,7 +33,7 @@
                   <Input
                     id="ar_name"
                     type="text"
-                    v-model="form.name.ar"
+                    v-model="form.ar_name"
                     class="block mt-1 w-full"
                     :placeholder="$t('cat name ar')"
                     :class="{ 'input-error': $page.props.errors.ar_name }"
@@ -135,11 +135,8 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia"
 
 let form = useForm({
-  name: {
-    en: "",
-    ar: ""
-  },
-  ar_name: "",
+  en_name: '',
+  ar_name: ''
 });
 
 let cat_id = ""
@@ -160,8 +157,8 @@ let submit = () => {
 };
 let edit = (category) => {
   cat_id = category.id
-  form.name.en = category.name.en
-  form.name.ar = category.name.ar
+  form.en_name = category.name.en
+  form.ar_name = category.name.ar
 }
 let clear = () => {
   cat_id = ''
