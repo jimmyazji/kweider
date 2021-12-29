@@ -62,6 +62,7 @@ class MenuController extends Controller
     }
     public function store(Request $request)
     {
+        dd($request->img);
         $request->validate([
             'en_name' => 'required',
             'ar_name' => 'required',

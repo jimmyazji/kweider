@@ -393,7 +393,7 @@
                                     <th>{{ $t("weight") }}</th>
                                     <th>{{ $t("width") }}</th>
                                     <th>{{ $t("length") }}</th>
-                                    <th>{{ $t("hight") }}</th>
+                                    <th>{{ $t("height") }}</th>
                                     <th>{{ $t("quantity") }}</th>
                                     <th>{{ $t("clear weight") }}</th>
                                     <th>{{ $t("actual weight") }}</th>
@@ -508,12 +508,12 @@ let form = useForm({
 });
 let edit = (prod) => {
     prod_id = prod.id
-    form.en_name = prod.en_name
-    form.ar_name = prod.ar_name
+    form.en_name = prod.name.en
+    form.ar_name = prod.name.ar
     form.weight = prod.weight
     form.cat_id = prod.cat_id
-    form.en_description = prod.en_description
-    form.ar_description = prod.ar_description
+    form.en_description = prod.description.en
+    form.ar_description = prod.description.ar
     form.box_l = prod.box_l
     form.box_w = prod.box_w
     form.box_h = prod.box_h
@@ -526,6 +526,12 @@ let edit = (prod) => {
     form.pack_q = prod.pack_q
     form.pack_w_c = prod.pack_w_c
     form.pack_w_a = prod.pack_w_a
+    if (prod.box_l) {
+        form.box = true;
+    }
+    if (prod.pack_l) {
+        form.pack = true;
+    }
 };
 let prod_id = ""
 let submit = () => {

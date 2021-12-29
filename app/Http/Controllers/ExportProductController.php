@@ -61,7 +61,8 @@ class ExportProductController extends Controller
                         return [
                             'name' => $prod->getTranslations('name'),
                             'description' => $prod->getTranslations('description'),
-                            'category' => $prod->category->getTranslation('name',App::getLocale()),
+                            'category' => $prod->category->getTranslation('name', App::getLocale()),
+                            'cat_id' => $prod->category->id,
                             'weight' => $prod->weight,
                             'box_w_c' => $prod->box_w_c,
                             'box_w_a' => $prod->box_w_a,

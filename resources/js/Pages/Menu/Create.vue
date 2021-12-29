@@ -105,13 +105,18 @@
                                     ></div>
                                 </div>
                                 <div>
-                                    <label
-                                        class="input input-bordered flex w-full mt-1 items-center px-5 cursor-pointer"
-                                        for="img"
-                                    >
-                                        <span>Upload an image</span>
-                                        <input id="img" type="file" class="sr-only" />
-                                    </label>
+                                    <progress
+                                        v-if="form.progress"
+                                        class="progress"
+                                        :value="form.progress.percentage"
+                                        max="100"
+                                    >{{ form.progress.percentage }}</progress>
+                                    <input v-else
+                                        type="file"
+                                        @input="form.img = $event.target.files[0]"
+                                        @change="onFileChange"
+                                        class="w-full px-4 py-2 mt-1 input input-bordered"
+                                    />
                                     <div
                                         v-if="$page.props.errors.image"
                                         v-text="$page.props.errors.image"
@@ -152,6 +157,7 @@
                                 </div>
                             </div>
                         </div>
+                        <img v-if="form.img" :src="url" class="w-full mt-4 h-80" />
                         <div class="flex items-center justify-between mt-4">
                             <Link
                                 :href="route('menu.index')"
@@ -256,6 +262,7 @@ import Button from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia"
 
+
 let form = useForm({
     en_name: "",
     ar_name: "",
@@ -264,7 +271,7 @@ let form = useForm({
     cat_id: "",
     en_description: "",
     ar_description: "",
-    img: ""
+    img: null
 });
 let prod_id = ""
 let submit = () => {
@@ -284,8 +291,8 @@ let edit = (prod) => {
     form.ar_desc = prod.ar_desc
 };
 let clear = () => {
-  prod_id = ''
-  form.reset()
+    prod_id = ''
+    form.reset()
 };
 let destroy = (id) => {
     Inertia.delete(`/menu/${id}`, {
@@ -293,6 +300,12 @@ let destroy = (id) => {
         preserveScroll: true
     })
 };
+
+let url = '';
+let onFileChange = (e) => {
+      const file = e.target.files[0];
+      url = URL.createObjectURL(file);
+    }
 defineProps({
     categories: Object,
     products: Object,
