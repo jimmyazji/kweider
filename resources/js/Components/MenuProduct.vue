@@ -1,15 +1,16 @@
 <template>
+    <transition name="fade">
         <a
             href="#"
-            class=" container rounded-lg border-2 bg-almond-300 border-lonestar-300 p-2  focus:outline-none focus:-translate-y-1 hover:scale-95 focus:scale-100 transition-all transform ease-in-out duration-300"
-            :class="toggled ? 'md:col-span-2 sm:w-140 h-120 sm:h-auto' : 'sm:w-68 h-106 mx-0'"
+            class="container rounded-lg border-2 bg-almond-300 border-lonestar-300 p-2 focus:outline-none transition-all transform ease-in-out duration-500"
+            :class="toggled ? 'sm:w-140 h-120 sm:h-auto' : 'sm:w-68 h-106 sm:h-auto focus:-translate-y-1 hover:scale-95 focus:scale-100'"
             @click.prevent="toggleElement()"
         >
             <div
                 class="w-full min-h-80 aspect-w-1 aspect-h-1 rounded-md overflow-hidden md:h-80 md:aspect-none flex"
             >
                 <img
-                    src="https://dummyimage.com/450x400"
+                    :src="product.image"
                     :alt="product.description"
                     class="h-full object-center object-cover rounded-lg"
                 />
@@ -28,25 +29,20 @@
                 <p class="font-medium text-lonestar-900">$35</p>
             </div>
             <p
-                class="text-sm my-4 mx-4 opacity-80 transform transition-all delay-200 duration-100"
+                class="text-sm my-4 md:mx-4 opacity-80 transform transition-all delay-200 duration-100"
                 :class="toggled ? 'flex md:hidden' : 'hidden'"
             >{{ product.description }}</p>
         </a>
+    </transition>
 </template>
-<script >
-export default {
-    data() {
-        return {
-            toggled: false,
-            rand: Math.random(),
-        };
-    },
-    props: { product: Object, }
-    ,
-    methods: {
-        toggleElement() {
-            this.toggled = !this.toggled;
-        },
-    },
+<script setup>
+import { ref } from 'vue';
+const toggled = ref(false);
+defineProps({
+    product: Object,
+});
+const toggleElement = () => {
+    toggled.value = !toggled.value;
 };
+
 </script>

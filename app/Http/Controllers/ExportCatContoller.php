@@ -110,6 +110,8 @@ class ExportCatContoller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $exportCat = ExportCat::find($id);
+        $exportCat->delete();
+        return redirect()->route('exportcat.index')->with('success', 'Category Deleted Successfully.');
     }
 }

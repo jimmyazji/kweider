@@ -7,7 +7,7 @@
   </header>
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="flex justify-center md:justify-end text-lonestar-600 mx-4">
+      <div class="flex justify-center lg:justify-end text-lonestar-600 mx-4">
         <Link
           class="mx-4 hover:underline focus:outline-none focus:underline"
           :href="route('menucats.index')"
@@ -18,7 +18,7 @@
         >{{ $t('manage products') }}</Link>
       </div>
 
-      <div class="max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8p">
+      <div class="max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8  justify-center items-center">
         <div class="flex flex-wrap justify-center">
           <a
             v-for="category in categories"
@@ -30,9 +30,9 @@
         </div>
         <section v-for="category in categories" :id="category.name">
           <div class="divider font-bold opacity-50" dir="ltr">{{ category.name }}</div>
-          <div class="sm:flex container justify-evenly mt-6">
+          <div class="flex justify-center items-center mt-6">
             <div
-              class="grid grid-cols-1 gap-y-10 gap-x-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-4"
+              class="flex flex-wrap gap-4"
             >
               <MenuProduct
                 v-for="product in category.products"

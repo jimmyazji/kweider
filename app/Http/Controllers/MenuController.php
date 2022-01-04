@@ -23,6 +23,7 @@ class MenuController extends Controller
                             'name' => $prod->getTranslation('name', App::getLocale()),
                             'type' => $prod->getTranslation('type', App::getLocale()),
                             'description' => $prod->getTranslation('description', App::getLocale()),
+                            'image' => $prod->getFirstMedia('menu')->getUrl('menu')
                         ];
                     });
                     return [
@@ -69,7 +70,8 @@ class MenuController extends Controller
             'ar_type' => 'max:255|nullable',
             'cat_id' => 'required',
             'en_description' => 'required|max:255',
-            'ar_description' => 'required|max:255'
+            'ar_description' => 'required|max:255',
+            'image' => 'required|mimes:jpg,jpeg,png|max:10240'
         ]);
         $product = MenuProduct::create([
             'name' => [
@@ -86,10 +88,12 @@ class MenuController extends Controller
                 'ar' => $request->ar_description
             ],
         ]);
-
+        $product->addMediaFromRequest('image')
+            ->toMediaCollection('menu');
         return redirect()->route('menu.create')->with('success', 'Product added successfully.');
     }
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $prod = MenuProduct::find($id);
         $request->validate([
             '*_name' => 'required',

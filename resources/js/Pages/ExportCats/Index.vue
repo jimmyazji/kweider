@@ -118,7 +118,20 @@
                     </div>
                   </td>
                 </tr>
+                <tr v-if="categories.length == 0">
+                  <td colspan="5">
+                    <span class="flex justify-center">{{ $t('no results') }}</span>
+                  </td>
+                </tr>
               </tbody>
+              <tfoot>
+                <tr>
+                  <th></th>
+                  <th>{{ $t("en name") }}</th>
+                  <th>{{ $t("ar name") }}</th>
+                  <th></th>
+                </tr>
+              </tfoot>
             </table>
           </div>
         </div>

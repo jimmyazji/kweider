@@ -1,29 +1,46 @@
 <template>
   <Head :title="$t('home')" />
-  <header class="shadow bg-almond-200">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl leading-tight text-lonestar-800">
-        {{ $t('home') }}
-      </h2>
-    </div>
-  </header>
-  <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-almond-200 overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 bg-almond-200 border-b border-gray-200">
-          {{ $t('incoming') }}
+
+  <div class="h-140 overflow-hidden">
+    <Carousel :autoplay="true" class="carousel-1" v-slot="{ currentSlide }">
+      <Slide>
+        <div v-show="currentSlide === 1">
+          <img
+            class="min-w-full h-full object-cover rounded-lg"
+            src="../../../public/images/IMG_1.jpg"
+            alt
+          />
         </div>
-      </div>
-    </div>
+      </Slide>
+      <Slide>
+        <div v-show="currentSlide === 2">
+          <img
+            class="min-w-full h-full object-cover rounded-lg"
+            src="../../../public/images/IMG_2.jpg"
+            alt
+          />
+        </div>
+      </Slide>
+      <Slide>
+        <div v-show="currentSlide === 3">
+          <img
+            class="min-w-full h-full object-cover rounded-lg"
+            src="../../../public/images/IMG_3.jpg"
+            alt
+          />
+        </div>
+      </Slide>
+    </Carousel>
   </div>
 </template>
 
 <script>
 import { Head } from "@inertiajs/inertia-vue3";
-
+import Carousel from "@/Components/Carousel.vue";
+import Slide from "@/Components/Slide.vue";
 export default {
   components: {
-    Head,
+    Head, Carousel, Slide,
   },
 };
 </script>

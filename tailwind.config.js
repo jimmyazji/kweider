@@ -14,14 +14,18 @@ module.exports = {
             transitionProperty: {
                 'width': 'width',
                 'height': 'height',
-                'spacing': 'margin, padding',
             },
             spacing: {
                 '68': '17rem',
                 '104': '26rem',
                 '120': '30rem',
                 '140': '35rem',
-                '240': '60rem'
+                '240': '60rem',
+                'full': '100%'
+
+            },
+            minHeight: {
+                '24': '6rem',
             },
             colors: {
                 almond: {
@@ -76,7 +80,8 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms'),
         require('daisyui'),
-        require('@tailwindcss/aspect-ratio')
+        require('@tailwindcss/aspect-ratio'),
+        require("tailwindcss-flip")
     ],
     daisyui: {
         themes: [{

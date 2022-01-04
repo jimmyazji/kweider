@@ -20,7 +20,7 @@
         }"
       >
         <!-- Primary Navigation Menu -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div class="flex justify-between h-16">
             <div class="flex">
               <!-- Logo -->
@@ -33,9 +33,9 @@
                 </Link>
               </div>
               <!-- Navigation Links -->
-              <div class="hidden space-x-8 sm:-my-px sm:mx-10 sm:flex">
+              <div class="hidden space-x-4 lg:space-x-8 md:-my-px md:mx-4 lg:mx-10 md:flex">
                 <BreezeNavLink
-                  :class="locale === 'ar' ? 'ml-8' : ''"
+                  :class="locale === 'ar' ? 'mr-4 lg:mr-8' : ''"
                   :href="route('products.index')"
                   :active="route().current('products.index')"
                 >{{ $t("products") }}</BreezeNavLink>
@@ -60,25 +60,13 @@
 
             <div class="flex">
               <!-- Language Selector -->
-              <div class="hidden items-center relative sm:flex">
+              <div class="hidden items-center relative md:flex">
                 <LanguageSelector>
                   <span class="inline-flex rounded-md">
                     <button
                       type="button"
                       class="inline-flex font-semibold items-center px-3 py-2 border border-transparent leading-4 rounded-md text-almond-500 hover:text-almond-300 focus:outline-none hover:scale-110 focus:scale-110 transform transition ease-in-out duration-150"
                     >
-                      <svg
-                        class="mx-2 h-4 w-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
                       {{ $i18n.locale.toUpperCase() }}
                       <img
                         :src="'/../images/' + $i18n.locale.toUpperCase() + '.png'"
@@ -91,15 +79,14 @@
               </div>
               <!-- Auth -->
               <template v-if="!$page.props.auth.user">
-                <div class="hidden sm:-my-px sm:flex">
+                <div class="hidden md:-my-px md:flex">
                   <BreezeNavLink class="mx-8" :href="route('login')">{{ $t("login") }}</BreezeNavLink>
-                  <BreezeNavLink class :href="route('register')">{{ $t("register") }}</BreezeNavLink>
                 </div>
               </template>
               <AuthLinks v-else />
             </div>
             <!-- Hamburger -->
-            <div class="flex items-center sm:hidden">
+            <div class="flex items-center md:hidden">
               <LanguageSelector>
                 <span class="inline-flex rounded-md">
                   <button
@@ -163,7 +150,7 @@
             block: showingNavigationDropdown,
             hidden: !showingNavigationDropdown,
           }"
-          class="sm:hidden"
+          class="md:hidden"
         >
           <div class="pt-2 pb-3 space-y-1">
             <BreezeResponsiveNavLink
@@ -206,7 +193,7 @@
       <main class="text-lonestar-800">
         <FlashMessage :flash="$page.props.flash" :errors="$page.props.errors" />
         <ScrollTop />
-        <slot />
+          <slot />
       </main>
     </div>
   </div>

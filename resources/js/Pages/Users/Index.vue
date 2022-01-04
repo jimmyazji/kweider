@@ -53,7 +53,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-if="!users.data.length == 0" v-for="user in users.data" :key="user.id">
+                <tr v-for="user in users.data" :key="user.id">
                   <td>
                     <Link class="hover:underline" :href="route('users.show', user)">{{ user.id }}</Link>
                   </td>
@@ -77,18 +77,10 @@
                     >{{ $t("edit") }}</Link>
                   </td>
                 </tr>
-                <tr v-else>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                  <div class="flex justify-center opacity-70">
-                  No Match Found
-                  </div>
+                <tr v-if="users.data.length == 0">
+                  <td colspan="7">
+                    <div class="flex justify-center opacity-70">{{ $t('no results') }}</div>
                   </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
                 </tr>
               </tbody>
               <tfoot>

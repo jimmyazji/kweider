@@ -111,13 +111,20 @@
                                         :value="form.progress.percentage"
                                         max="100"
                                     >{{ form.progress.percentage }}</progress>
-                                    <input
+                                    <label
                                         v-else
-                                        type="file"
-                                        @change="previewImage"
-                                        ref="photo"
-                                        class="w-full px-4 py-2 mt-1 input input-bordered"
-                                    />
+                                        class="input input-bordered flex w-full mt-1 items-center px-5 cursor-pointer"
+                                        for="image"
+                                    >
+                                        <span v-text="form.image ? form.image.name : $t('upload image')"></span>
+                                        <input
+                                            id="image"
+                                            type="file"
+                                            @change="previewImage"
+                                            ref="photo"
+                                            class="sr-only"
+                                        />
+                                    </label>
                                     <div
                                         v-if="form.errors.image"
                                         v-text="form.errors.image"
@@ -159,7 +166,11 @@
                             </div>
                         </div>
                         <div class="flex justify-center">
-                        <img v-if="form.imgUrl" :src="form.imgUrl" class="rounded-lg h-60 w-auto mt-4" />
+                            <img
+                                v-if="form.imgUrl"
+                                :src="form.imgUrl"
+                                class="rounded-lg h-60 w-auto mt-4"
+                            />
                         </div>
                         <div class="flex items-center justify-between mt-4">
                             <Link
@@ -275,7 +286,7 @@ let form = useForm({
     cat_id: "",
     en_description: "",
     ar_description: "",
-    img: null,
+    image: null,
     imgUrl: null
 });
 let prod_id = ""
@@ -316,8 +327,8 @@ let destroy = (id) => {
 };
 
 let previewImage = (e) => {
-    form.img = e.target.files[0];
-    form.imgUrl = URL.createObjectURL(form.img);
+    form.image = e.target.files[0];
+    form.imgUrl = URL.createObjectURL(form.image);
 }
 defineProps({
     categories: Object,

@@ -27,12 +27,12 @@ class MenuCatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name.*' => 'required| unique_translation:menu_cats',
+            '*_name' => 'required| unique_translation:menu_cats,name',
         ]);
         MenuCat::create([
             'name' => [
-                'en' => ucfirst(strtolower($request['name.en'])),
-                'ar' => $request['name.ar']
+                'en' => ucfirst(strtolower($request['en_name'])),
+                'ar' => $request['ar_name']
             ],
         ]);
         return redirect()->route('menucats.index')->with('success', 'Category Created Successfully.');

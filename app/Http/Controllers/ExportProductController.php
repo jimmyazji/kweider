@@ -24,9 +24,11 @@ class ExportProductController extends Controller
                 'products' => ExportProduct::all()->map(
                     function ($prod) {
                         return [
+                            'id' => $prod->id,
                             'name' => $prod->getTranslation('name', App::getLocale()),
                             'description' => $prod->getTranslation('description', App::getLocale()),
                             'weight' => $prod->weight,
+                            'category' => $prod->category->getTranslation('name', App::getLocale()),
                             'box_w_c' => $prod->box_w_c,
                             'box_w_a' => $prod->box_w_a,
                             'box_l' => $prod->box_l,
@@ -39,6 +41,14 @@ class ExportProductController extends Controller
                             'pack_w' => $prod->pack_w,
                             'pack_h' => $prod->pack_h,
                             'pack_q' => $prod->pack_q,
+                        ];
+                    }
+                ),
+                'categories' => ExportCat::all()->map(
+                    function ($cat) {
+                        return [
+                            'id' => $cat->id,
+                            'name' => $cat->getTranslation('name', App::getLocale())
                         ];
                     }
                 )
@@ -59,6 +69,7 @@ class ExportProductController extends Controller
                 'products' => ExportProduct::all()->map(
                     function ($prod) {
                         return [
+                            'id' => $prod->id,
                             'name' => $prod->getTranslations('name'),
                             'description' => $prod->getTranslations('description'),
                             'category' => $prod->category->getTranslation('name', App::getLocale()),
@@ -105,19 +116,19 @@ class ExportProductController extends Controller
             'cat_id' => 'required',
             'en_description' => 'required',
             'ar_description' => 'required',
-            'weight' => 'nullable|numeric',
-            'box_w' => 'required_if:box,true|numeric|nullable',
-            'box_h' => 'required_if:box,true|numeric|nullable',
-            'box_l' => 'required_if:box,true|numeric|nullable',
-            'box_q' => 'required_if:box,true|integer|nullable',
-            'box_w_c' => 'required_if:box,true|numeric|nullable',
-            'box_w_a' => 'required_if:box,true|numeric|nullable',
-            'pack_w' => 'required_if:package,true|numeric|nullable',
-            'pack_h' => 'required_if:package,true|numeric|nullable',
-            'pack_l' => 'required_if:package,true|numeric|nullable',
-            'pack_q' => 'required_if:package,true|integer|nullable',
-            'pack_w_c' => 'required_if:package,true|numeric|nullable',
-            'pack_w_a' => 'required_if:package,true|numeric|nullable',
+            'weight' => 'nullable|numeric|min:0',
+            'box_w' => 'required_if:box,true|numeric|nullable|min:0',
+            'box_h' => 'required_if:box,true|numeric|nullable|min:0',
+            'box_l' => 'required_if:box,true|numeric|nullable|min:0',
+            'box_q' => 'required_if:box,true|integer|nullable|min:0',
+            'box_w_c' => 'required_if:box,true|numeric|nullable|min:0',
+            'box_w_a' => 'required_if:box,true|numeric|nullable|min:0',
+            'pack_w' => 'required_if:package,true|numeric|nullable|min:0',
+            'pack_h' => 'required_if:package,true|numeric|nullable|min:0',
+            'pack_l' => 'required_if:package,true|numeric|nullable|min:0',
+            'pack_q' => 'required_if:package,true|integer|nullable|min:0',
+            'pack_w_c' => 'required_if:package,true|numeric|nullable|min:0',
+            'pack_w_a' => 'required_if:package,true|numeric|nullable|min:0',
         ]);
         $product = ExportProduct::create([
             'name' => [
