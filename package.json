@@ -30,7 +30,8 @@
         "vue-loader": "^16.1.2"
     },
     "engines": {
-        "node": ">=17.0.1"
+        "node": ">=17.0.1",
+        "npm": ">=8.1.0"
     },
     "dependencies": {
         "@tailwindcss/aspect-ratio": "^0.3.0",
