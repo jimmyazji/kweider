@@ -25,19 +25,19 @@
                             :class="selectInfo === 'pack' ? 'text-lonestar-500  border-lonestar-500' : 'border-lonestar-300'"
                         >{{ $t('package') }}</span>
                     </div>
-                    <div class="leading-relaxed mb-4 h-20">
+                    <div class="leading-relaxed mb-4 h-30">
                         <p>{{ product.description }}</p>
                     </div>
 
                     <div
-                        class="relative transform transition-height delay-200 duration-100"
-                        :class="selectInfo === 'prod' ? 'h-40' : 'h-64'"
+                        class="relative transform transition-all delay-200 duration-100"
+                        :class="selectInfo === 'prod' ? 'h-40' : 'h-64 mb-2'"
                     >
                         <!-- Product info -->
                         <transition name="fade">
                             <div
                                 v-show="selectInfo === 'prod'"
-                                class="absolute top-0 left-0 w-full h-full "
+                                class="absolute top-14 left-0 w-full h-full "
                             >
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('weight') }}</span>
@@ -47,10 +47,7 @@
                                     <span class="text-lonestar-500">{{ $t('cat') }}</span>
                                     <span class="ml-auto text-lonestar-900">{{ product.category }}</span>
                                 </div>
-                                <div class="flex border-t border-b mb-6 border-lonestar-200 py-2">
-                                    <span class="text-lonestar-500">{{ $t('quantity') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.quantity }} p</span>
-                                </div>
+                                
                             </div>
                         </transition>
 
@@ -62,23 +59,23 @@
                             >
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('clear weight') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.box_w_c }} g</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.box_w_c/1000 }} kg</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('actual weight') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.box_w_a }} g</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.box_w_a/1000 }} kg</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('width') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.box_w }} cm</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.box_w/10 }} cm</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('length') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.box_l }} cm</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.box_l/10 }} cm</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('height') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.box_h }} cm</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.box_h/10 }} cm</span>
                                 </div>
                                 <div class="flex border-t border-b mb-6 border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('quantity') }}</span>
@@ -95,23 +92,23 @@
                             >
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('clear weight') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.pack_w_c }} g</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.pack_w_c/1000 }} kg</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('actual weight') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.pack_w_a }} g</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.pack_w_a/1000 }} kg</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('width') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.pack_w }} cm</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.pack_w/10 }} cm</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('length') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.pack_l }} cm</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.pack_l/10 }} cm</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('height') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.pack_h }} cm</span>
+                                    <span class="ml-auto text-lonestar-900">{{ product.pack_h/10 }} cm</span>
                                 </div>
                                 <div class="flex border-t border-b mb-6 border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('quantity') }}</span>
@@ -143,7 +140,7 @@
                     </div>
                 </div>
                 <div
-                    class="mt-10 max-w-screen lg:w-104 lg:h-104 mx-auto p-4 w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md"
+                    class=" max-w-screen lg:w-104 lg:h-104 mx-auto p-4 w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md"
                 >
                     <Carousel
                         :id="product.id"

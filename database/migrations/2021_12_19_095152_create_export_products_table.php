@@ -20,7 +20,6 @@ class CreateExportProductsTable extends Migration
             $table->json('description');
             
             $table->unsignedInteger('weight')->nullable();
-            $table->unsignedInteger('quantity');
             $table->unsignedBigInteger('cat_id');
             $table->foreign('cat_id')
             ->references('id')

@@ -19,7 +19,6 @@ class ExportProduct extends Model implements HasMedia
         'name',
         'description',
         'weight',
-        'quantity',
         'cat_id',
         'box_w_c',
         'box_w_a',

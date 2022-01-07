@@ -18,7 +18,7 @@
         >{{ $t('manage products') }}</Link>
       </div>
 
-      <div class="max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8  justify-center items-center">
+      <div class="max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="flex flex-wrap justify-center">
           <a
             v-for="category in categories"
@@ -30,7 +30,7 @@
         </div>
         <section v-for="category in categories" :id="category.name">
           <div class="divider font-bold opacity-50" dir="ltr">{{ category.name }}</div>
-          <div class="flex justify-center items-center mt-6">
+          <div class="flex justify-center items-center lg:ml-2 mt-6">
             <div
               class="flex flex-wrap gap-4"
             >

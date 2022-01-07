@@ -15,7 +15,8 @@
                     class="h-full object-center object-cover rounded-lg"
                 />
                 <p
-                    class="hidden md:flex text-lonestar-400 text-sm mx-2 mt-8"
+                    class="hidden md:flex text-lonestar-400 text-sm mx-2 mt-8  ease-in-out"
+                    :class="toggled ? 'opacity-100 transition delay-300 duration-500' : 'opacity-0' "
                 >{{ product.description }}</p>
             </div>
             <div class="mt-4 flex justify-between">

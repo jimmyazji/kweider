@@ -37,11 +37,6 @@ export default {
   methods: {
     setLocale(locale) {
       localStorage.setItem("locale", locale);
-      var url = "/locale/:locale";
-
-      url = url.replace(':locale', locale);
-
-      Inertia.visit(url);
       location.reload();
     },
   },

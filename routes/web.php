@@ -26,7 +26,7 @@ use App\Models\ExportProduct;
 */
 
 Route::get('locale/{locale}', function ($locale) {
-    app()->setLocale($locale);
+    App::setLocale($locale);
     session()->put('locale', $locale);
     return redirect()->back();
 })->name('locale');

@@ -1,29 +1,42 @@
 <template>
   <Head title="About us" />
-  <header class="bg-almond-200 shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ $t('about') }}
-      </h2>
-    </div>
-  </header>
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-almond-200 overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 bg-almond-200 border-b border-gray-200">
-          {{ $t("incoming") }}
-        </div>
+      <div class="p-6 text-lonestar-500">
+        <h1 class="font-serif text-6xl">{{ $t('about kweider') }}</h1>
+        <p class="flex text-xl mt-5">
+          <Bullet />
+          {{ $t('about p1') }}
+        </p>
+        <p class="flex text-xl mt-2 ml-10">{{ $t('about p2') }}</p>
+        <p class="flex text-xl mt-2 ml-10">{{ $t('about p3') }}</p>
+        <p class="flex text-xl mt-2 ml-10">{{ $t('about p4') }}</p>
+        <h1 class="font-serif mt-20 text-6xl">{{ $t('certificates and awards') }}</h1>
+        <p class="flex text-xl mt-5">
+          <Bullet />
+          {{ $t('certificates p1') }}
+        </p>
+        <p class="flex text-xl mt-5">
+          <Bullet />
+          {{ $t('certificates p2') }}
+        </p>
+        <p class="flex text-xl mt-5">
+          <Bullet />
+          {{ $t('certificates p3') }}
+        </p>
+        <h1 class="font-serif mt-20 text-6xl">{{ $t('Global Reach') }}</h1>
+        <p class="flex text-xl mt-5">
+          <Bullet />
+          {{ $t('global p1') }}
+        </p>
+        <p class="flex text-xl mt-5 ml-10">{{ $t('global p2') }}</p>
+        <p class="flex text-xl mt-5 ml-10">{{ $t('global p3') }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import { Head } from "@inertiajs/inertia-vue3";
-
-export default {
-  components: {
-    Head,
-  },
-};
+import Bullet from "@/Components/Bullet.vue";
 </script>

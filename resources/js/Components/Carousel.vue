@@ -4,7 +4,7 @@
         <!--  Navigation  -->
         <div
             v-if="navigationEnabled && getSlideCount > 1"
-            class="hidden py-4 h-full w-full absolute lg:flex justify-between items-center"
+            class="hidden py-4 h-full w-full absolute lg:flex justify-between items-center opacity-70"
         >
             <i
                 @click="prevSlide"

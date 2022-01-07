@@ -7,16 +7,14 @@ use App\Models\MenuCat;
 use App\Models\MenuProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 
 class MenuController extends Controller
 {
     public function index()
     {
-        $locale = Session::get('locale');
         return Inertia::render('Menu/Index', [
             'categories' => MenuCat::all()->map(
-                function ($cat) use ($locale) {
+                function ($cat) {
                     $products = $cat->products->map(function ($prod) {
                         return [
                             'id' => $prod->id,
@@ -56,6 +54,7 @@ class MenuController extends Controller
                         'description' => $prod->getTranslations('description'),
                         'category' => $prod->cat->getTranslation('name', App::getLocale()),
                         'cat_id' => $prod->cat_id,
+                        'imgUrl'=> $prod->getFirstMedia('menu')->getUrl()
                     ];
                 }
             )
@@ -64,13 +63,10 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'en_name' => 'required',
-            'ar_name' => 'required',
-            'en_type' => 'max:255|nullable',
-            'ar_type' => 'max:255|nullable',
+            '*_name' => 'required',
+            '*_type' => 'max:255|nullable',
             'cat_id' => 'required',
-            'en_description' => 'required|max:255',
-            'ar_description' => 'required|max:255',
+            '*_description' => 'required|max:255',
             'image' => 'required|mimes:jpg,jpeg,png|max:10240'
         ]);
         $product = MenuProduct::create([
@@ -94,14 +90,18 @@ class MenuController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $prod = MenuProduct::find($id);
+        $product = MenuProduct::find($id);
         $request->validate([
-            '*_name' => 'required',
-            '*_type' => 'max:255|nullable',
-            '*_description' => 'required',
-            'cat_id' => 'required'
+            'en_name' => 'required',
+            'ar_name' => 'required',
+            'en_type' => 'max:255|nullable',
+            'ar_type' => 'max:255|nullable',
+            'en_description' => 'required',
+            'ar_description' => 'required',
+            'cat_id' => 'required',
+            'image' => 'nullable|mimes:jpg,jpeg,png|max:10240'
         ]);
-        $prod->update([
+        $product->update([
             'name' => [
                 'en' => ucfirst(strtolower($request->en_name)),
                 'ar' => $request->ar_name
@@ -116,6 +116,10 @@ class MenuController extends Controller
             ],
             'cat_id' => $request->cat_id
         ]);
+        if($request->image !== $product->image){
+            $product->addMediaFromRequest('image')
+            ->toMediaCollection('menu');
+        }
         return redirect()->back()->with('success', 'Product updated successfully');
     }
     public function destroy($id)

@@ -11,11 +11,6 @@ use phpDocumentor\Reflection\PseudoTypes\LowercaseString;
 
 class ExportProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return Inertia::render(
@@ -55,12 +50,6 @@ class ExportProductController extends Controller
             ]
         );
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return Inertia::render(
@@ -101,13 +90,6 @@ class ExportProductController extends Controller
             ]
         );
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -156,49 +138,59 @@ class ExportProductController extends Controller
         ]);
         return redirect()->back()->with('success', 'Product added successfully.');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $prod = ExportProduct::find($id);
+        $request->validate([
+            'en_name' => 'required',
+            'ar_name' => 'required',
+            'cat_id' => 'required',
+            'en_description' => 'required',
+            'ar_description' => 'required',
+            'weight' => 'nullable|numeric|min:0',
+            'box_w' => 'required_if:box,true|numeric|nullable|min:0',
+            'box_h' => 'required_if:box,true|numeric|nullable|min:0',
+            'box_l' => 'required_if:box,true|numeric|nullable|min:0',
+            'box_q' => 'required_if:box,true|integer|nullable|min:0',
+            'box_w_c' => 'required_if:box,true|numeric|nullable|min:0',
+            'box_w_a' => 'required_if:box,true|numeric|nullable|min:0',
+            'pack_w' => 'required_if:package,true|numeric|nullable|min:0',
+            'pack_h' => 'required_if:package,true|numeric|nullable|min:0',
+            'pack_l' => 'required_if:package,true|numeric|nullable|min:0',
+            'pack_q' => 'required_if:package,true|integer|nullable|min:0',
+            'pack_w_c' => 'required_if:package,true|numeric|nullable|min:0',
+            'pack_w_a' => 'required_if:package,true|numeric|nullable|min:0',
+        ]);
+        $prod->update([
+            'name' => [
+                'en' => ucfirst(strtolower($request->en_name)),
+                'ar' => $request->ar_name,
+            ],
+            'description' => [
+                'en' => $request->en_description,
+                'ar' => $request->ar_description,
+            ],
+            'weight' => $request->weight,
+            'cat_id' => $request->cat_id,
+            'box_w' => $request->box_w,
+            'box_h' => $request->box_h,
+            'box_l' => $request->box_l,
+            'box_q' => $request->box_q,
+            'box_w_c' => $request->box_w_c,
+            'box_w_a' => $request->box_w_a,
+            'pack_w' => $request->pack_w,
+            'pack_l' => $request->pack_l,
+            'pack_h' => $request->pack_h,
+            'pack_q' => $request->pack_q,
+            'pack_w_c' => $request->pack_w_c,
+            'pack_w_a' => $request->pack_w_a,
+        ]);
+        return redirect()->back()->with('success', 'Product updated successfully.');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $product = ExportProduct::find($id);
+        $product->delete();
+        return redirect()->route('products.create')->with('success', 'Product deleted successfully');
     }
 }

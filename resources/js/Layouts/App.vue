@@ -193,7 +193,7 @@
       <main class="text-lonestar-800">
         <FlashMessage :flash="$page.props.flash" :errors="$page.props.errors" />
         <ScrollTop />
-          <slot />
+        <slot />
       </main>
     </div>
   </div>
@@ -272,16 +272,17 @@ import LanguageSelector from "@/Components/LanguageSelector.vue";
 import FlashMessage from "@/Components/FlashMessage.vue";
 import ScrollTop from "@/Components/ScrollTop.vue";
 import { usePage } from "@inertiajs/inertia-vue3";
-import { Inertia } from "@inertiajs/inertia";
+import { onMounted, ref } from "vue";
 defineProps({
   showingNavigationDropdown: false,
 });
-let locale = localStorage.getItem("locale");
-if (usePage().props.locale === undefined) {
-  var url = "/locale/:locale";
-
-  url = url.replace(":locale", localStorage.getItem("locale"));
-
-  Inertia.visit(url, { replace: true });
-}
+const locale = localStorage.getItem("locale");
+onMounted(() => {
+  if (usePage().props.value.locale !== locale) {
+    var url = "/locale/:locale";
+    url = url.replace(":locale", locale);
+    console.log(url)
+    window.location.replace(url)
+  }
+})
 </script>

@@ -91,7 +91,7 @@
                                         v-model="form.cat_id"
                                         autocomplete="cat_id"
                                     >
-                                        <option disabled value>{{ $t('select category') }}</option>
+                                        <option disabled value="">{{ $t('select category') }}</option>
                                         <option
                                             v-for="category in categories"
                                             :key="category.id"
@@ -114,9 +114,12 @@
                                     <label
                                         v-else
                                         class="input input-bordered flex w-full mt-1 items-center px-5 cursor-pointer"
+                                        :class="{'input-error' : form.errors.image}"
                                         for="image"
                                     >
-                                        <span v-text="form.image ? form.image.name : $t('upload image')"></span>
+                                        <span
+                                            v-text="form.image ? form.image.name : $t('upload image')"
+                                        ></span>
                                         <input
                                             id="image"
                                             type="file"
@@ -275,10 +278,9 @@ import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia"
+import { ref } from "vue";
 
-
-
-let form = useForm({
+const form = useForm({
     en_name: "",
     ar_name: "",
     en_type: "",
@@ -287,26 +289,13 @@ let form = useForm({
     en_description: "",
     ar_description: "",
     image: null,
-    imgUrl: null
+    imgUrl: null,
+    _method: 'POST'
 });
-let prod_id = ""
-let submit = () => {
-    if (!prod_id) {
-        form.post(route('menu.index'), {
-            preserveScroll: true,
-            onSuccess: () => form.reset(),
-        })
-    }
-    else {
-        form.put(route('menu.update', prod_id), {
-            preserveScroll: true,
-            onSuccess: () => form.reset(),
-        })
-
-    }
-};
-let edit = (prod) => {
-    prod_id = prod.id
+const prod_id = ref(null);
+const edit = (prod) => {
+    clear()
+    prod_id.value = prod.id
     form.en_name = prod.name.en
     form.ar_name = prod.name.ar
     form.en_type = prod.type.en
@@ -314,19 +303,36 @@ let edit = (prod) => {
     form.cat_id = prod.cat_id
     form.en_description = prod.description.en
     form.ar_description = prod.description.ar
+    form.imgUrl = prod.imgUrl
 };
-let clear = () => {
-    prod_id = ''
+const submit = () => {
+  if (!prod_id.value) {
+    form.post(route('menu.index'), {
+      preserveScroll: true,
+      onSuccess: () => clear(),
+    })
+  }
+  else {
+    form._method='PUT'
+    form.post(route('menu.update', prod_id.value), {
+      preserveScroll: true,
+      onSuccess: () => clear(),
+    })
+  }
+};
+
+const clear = () => {
+    prod_id.value = null;
     form.reset()
 };
-let destroy = (id) => {
+const destroy = (id) => {
     Inertia.delete(`/menu/${id}`, {
         onBefore: () => confirm('Are you sure you want to delete this product? this cannot be undone'),
         preserveScroll: true
     })
 };
 
-let previewImage = (e) => {
+const previewImage = (e) => {
     form.image = e.target.files[0];
     form.imgUrl = URL.createObjectURL(form.image);
 }
