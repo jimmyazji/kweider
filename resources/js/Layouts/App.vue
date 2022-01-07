@@ -285,4 +285,5 @@ onMounted(() => {
     window.location.replace(url)
   }
 })
+
 </script>

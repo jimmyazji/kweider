@@ -77,9 +77,12 @@
                     >{{ $t("edit") }}</Link>
                   </td>
                 </tr>
-                <tr v-if="users.data.length == 0">
+                <tr
+                  v-if="users.data.length === 0"
+                  :class="users.data.length === 0 ? 'opacity-70' : 'opacity-0'"
+                >
                   <td colspan="7">
-                    <div class="flex justify-center opacity-70">{{ $t('no results') }}</div>
+                    <div class="flex justify-center transition duration-500">{{ $t('no results') }}</div>
                   </td>
                 </tr>
               </tbody>

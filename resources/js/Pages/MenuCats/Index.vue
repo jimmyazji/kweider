@@ -21,7 +21,7 @@
                     :placeholder="$t('cat name en')"
                     autofocus
                     autocomplete="en_name"
-                    :class=" $page.props.errors.en_name ? 'input-error' : '' "
+                    :class="$page.props.errors.en_name ? 'input-error' : ''"
                   />
                   <div
                     v-if="$page.props.errors.en_name"
@@ -116,6 +116,11 @@
                         </svg>
                       </button>
                     </div>
+                  </td>
+                </tr>
+                <tr v-if="categories.length === 0">
+                  <td colspan="12">
+                    <div class="flex justify-center items-center">{{ $t('no results') }}</div>
                   </td>
                 </tr>
               </tbody>

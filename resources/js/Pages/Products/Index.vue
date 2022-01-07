@@ -1,19 +1,14 @@
 <template>
   <Head :title="$t('products')" />
-  <header class="bg-almond-200 shadow-sm">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl text-lonestar-800 leading-tight">{{ $t("products") }}</h2>
-    </div>
-  </header>
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="flex justify-center md:justify-end text-lonestar-600 mx-4">
         <Link
-          class="mx-4 hover:underline whitespace-nowrap "
+          class="mx-4 hover:underline whitespace-nowrap"
           :href="route('exportcats.index')"
         >{{ $t('manage categories') }}</Link>
         <Link
-          class="mx-4 mb-2 hover:underline whitespace-nowrap "
+          class="mx-4 mb-2 hover:underline whitespace-nowrap"
           :href="route('products.create')"
         >{{ $t('manage products') }}</Link>
       </div>
@@ -22,7 +17,7 @@
           <div class="lg:w-1/4 text-lonestar-700 mt-4">
             <h2 class="font-bold">{{ $t('categories') }}</h2>
             <div class="mx-1 mt-1">
-              <a href=# class="block whitespace-nowrap text-sm">{{ $t('all') }}</a>
+              <a href="#" class="block whitespace-nowrap text-sm">{{ $t('all') }}</a>
               <a
                 href="#"
                 class="block whitespace-nowrap text-sm"
@@ -31,11 +26,13 @@
             </div>
           </div>
         </div>
-        <div
-          class="flex-wrap"
-        >
-          
-          <ExportProduct v-for="product in products" :key="product.id" class="mt-4" :product="product" />
+        <div class="flex-wrap">
+          <ExportProduct
+            v-for="product in products"
+            :key="product.id"
+            class="mt-4"
+            :product="product"
+          />
         </div>
       </div>
     </div>

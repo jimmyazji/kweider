@@ -1,5 +1,5 @@
 <template>
-    <transition name="fade">
+    <transition appear name="fade-expand">
         <a
             href="#"
             class="container rounded-lg border-2 bg-almond-300 border-lonestar-300 p-2 focus:outline-none transition-all transform ease-in-out duration-500"
@@ -15,8 +15,8 @@
                     class="h-full object-center object-cover rounded-lg"
                 />
                 <p
-                    class="hidden md:flex text-lonestar-400 text-sm mx-2 mt-8  ease-in-out"
-                    :class="toggled ? 'opacity-100 transition delay-300 duration-500' : 'opacity-0' "
+                    class="hidden md:flex text-lonestar-400 text-sm mx-2 mt-8 ease-in-out"
+                    :class="toggled ? 'opacity-100 transition delay-300 duration-500' : 'opacity-0'"
                 >{{ product.description }}</p>
             </div>
             <div class="mt-4 flex justify-between">
@@ -47,3 +47,21 @@ const toggleElement = () => {
 };
 
 </script>
+<style>
+.fade-expand-enter-active {
+    transition: all 0.5s ease-in-out;
+}
+.fade-expand-leave-active {
+    transition: all 0.2s ease-in-out;
+}
+.fade-expand-enter-from,
+.fade-expand-leave-to {
+    opacity: 0;
+    transform: scale(0.5,0.5);
+}
+.fade-expand-enter-to,
+.fade-expand-leave-from {
+    opacity: 1;
+    transform: scale(1,1);
+}
+</style>

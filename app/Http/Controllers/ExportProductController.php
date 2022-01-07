@@ -7,10 +7,18 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\ExportProduct;
 use Illuminate\Support\Facades\App;
-use phpDocumentor\Reflection\PseudoTypes\LowercaseString;
+use Spatie\Permission\Models\Role;
 
 class ExportProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:export-list', ['only' => ['create']]);
+        $this->middleware('permission:export-create', ['only' => ['store']]);
+        $this->middleware('permission:export-edit', ['only' => ['update']]);
+        $this->middleware('permission:export-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         return Inertia::render(

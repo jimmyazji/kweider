@@ -89,6 +89,7 @@
                       { 'border-error': $page.props.errors.country },
                     ]"
                     disablePlaceholder
+                    :usei18n="false"
                     :placeholder="$t('select country')"
                     :countryName="true"
                   />
@@ -102,6 +103,7 @@
                   <region-select
                     class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
                     v-model="form.region"
+                    :usei18n="false"
                     :country="form.country"
                     disablePlaceholder
                     :class="[

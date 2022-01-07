@@ -13,8 +13,13 @@ class MenuController extends Controller
     public function index()
     {
         return Inertia::render('Menu/Index', [
-            'categories' => MenuCat::all()->map(
-                function ($cat) {
+            'categories' => MenuCat::query()
+                ->when(request('search'), function ($query, $search) {
+                    $query->where('name', 'like', "%{$search}%");
+                })
+                ->paginate(20)
+                ->withQuerystring()
+                ->through(fn ($cat) => [
                     $products = $cat->products->map(function ($prod) {
                         return [
                             'id' => $prod->id,
@@ -23,14 +28,12 @@ class MenuController extends Controller
                             'description' => $prod->getTranslation('description', App::getLocale()),
                             'image' => $prod->getFirstMedia('menu')->getUrl('menu')
                         ];
-                    });
-                    return [
-                        'id' => $cat->id,
-                        'name' => $cat->getTranslation('name', App::getLocale()),
-                        'products' => $products,
-                    ];
-                }
-            )
+                    }),
+                    'id' => $cat->id,
+                    'name' => $cat->getTranslation('name', App::getLocale()),
+                    'products' => $products,
+                ]),
+            'filters' => request(['search'])
         ]);
     }
     public function create()
@@ -54,7 +57,7 @@ class MenuController extends Controller
                         'description' => $prod->getTranslations('description'),
                         'category' => $prod->cat->getTranslation('name', App::getLocale()),
                         'cat_id' => $prod->cat_id,
-                        'imgUrl'=> $prod->getFirstMedia('menu')->getUrl()
+                        'imgUrl' => $prod->getFirstMedia('menu')->getUrl()
                     ];
                 }
             )
@@ -116,9 +119,9 @@ class MenuController extends Controller
             ],
             'cat_id' => $request->cat_id
         ]);
-        if($request->image !== $product->image){
+        if ($request->image !== $product->image) {
             $product->addMediaFromRequest('image')
-            ->toMediaCollection('menu');
+                ->toMediaCollection('menu');
         }
         return redirect()->back()->with('success', 'Product updated successfully');
     }

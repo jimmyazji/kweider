@@ -1,25 +1,20 @@
 <template>
   <Head :title="$t('contact')" />
-  <header class="bg-almond-100 shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $t('contact') }}</h2>
-    </div>
-  </header>
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="tabs">
         <span
-          class="tab tab-lifted transition duration-500"
+          class="tab tab-lifted tab-lg transition duration-500"
           @click="selectTab(1)"
           :class="(selectedTab === 1) ? 'tab-active' : ''"
-        >Tab 1</span>
+        >{{ $t('al-midan branch') }}</span>
         <span
-          class="tab tab-lifted transition duration-500"
+          class="tab tab-lifted tab-lg transition duration-500"
           @click="selectTab(2)"
           :class="(selectedTab === 2) ? 'tab-active' : ''"
         >Tab 2</span>
         <span
-          class="tab tab-lifted transition duration-500"
+          class="tab tab-lifted tab-lg transition duration-500"
           @click="selectTab(3)"
           :class="(selectedTab === 3) ? 'tab-active' : ''"
         >Tab 3</span>
@@ -83,8 +78,8 @@
               </div>
               <Button class="btn-md">{{ $t('submit') }}</Button>
               <p class="text-xs text-gray-500 mt-3">
-                Or contact us on WhatsApp by clicking on
-                <a class="text-green-500" href>this link</a>.
+                Or contact us on
+                <a class="text-green-500" href>WhatsApp</a>.
               </p>
             </div>
           </div>
