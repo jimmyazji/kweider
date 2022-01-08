@@ -26387,7 +26387,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$i18n.locale.toUpperCase()) + " ", 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        src: '/../images/' + _ctx.$i18n.locale.toUpperCase() + '.png',
+        src: '/../images/' + _ctx.$i18n.locale + '.png',
         alt: "EN",
         "class": "w-6 h-6 mx-1 rounded-full"
       }, null, 8

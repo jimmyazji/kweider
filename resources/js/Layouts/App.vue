@@ -69,7 +69,7 @@
                     >
                       {{ $i18n.locale.toUpperCase() }}
                       <img
-                        :src="'/../images/' + $i18n.locale.toUpperCase() + '.png'"
+                        :src="'/../images/' + $i18n.locale + '.png'"
                         alt="EN"
                         class="w-6 h-6 mx-1 rounded-full"
                       />
