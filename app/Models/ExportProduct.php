@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -33,6 +34,16 @@ class ExportProduct extends Model implements HasMedia
         'pack_h',
         'pack_q',
     ];
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, fn ($query, $search) =>
+        $query
+            ->where(DB::raw('lower(name)'), 'LIKE', '%' . strtolower($search) . '%')
+            ->orWhere(DB::raw('lower(description)'), 'LIKE', '%' . strtolower($search) . '%'));
+        $query->when($filters['category'] ?? false, fn ($query, $category) =>
+        $query->whereHas('category', fn ($query) =>
+        $query->where(DB::raw('lower(name)'), 'LIKE', '%' . strtolower($category) . '%')));
+    }
     public function category()
     {
         return $this->belongsTo(ExportCat::class, 'cat_id', 'id');

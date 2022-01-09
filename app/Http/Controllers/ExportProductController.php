@@ -24,14 +24,17 @@ class ExportProductController extends Controller
         return Inertia::render(
             'Products/Index',
             [
-                'products' => ExportProduct::all()->map(
-                    function ($prod) {
-                        return [
+                'products' => ExportProduct::query()
+                    ->filter(request(['search','category']))
+                    ->paginate(20)
+                    ->withQueryString()
+                    ->through(
+                        fn ($prod) => [
                             'id' => $prod->id,
-                            'name' => $prod->getTranslation('name', App::getLocale()),
-                            'description' => $prod->getTranslation('description', App::getLocale()),
+                            'name' => $prod->name,
+                            'description' => $prod->description,
                             'weight' => $prod->weight,
-                            'category' => $prod->category->getTranslation('name', App::getLocale()),
+                            'category' => $prod->category->name,
                             'box_w_c' => $prod->box_w_c,
                             'box_w_a' => $prod->box_w_a,
                             'box_l' => $prod->box_l,
@@ -44,17 +47,17 @@ class ExportProductController extends Controller
                             'pack_w' => $prod->pack_w,
                             'pack_h' => $prod->pack_h,
                             'pack_q' => $prod->pack_q,
-                        ];
-                    }
-                ),
+                        ]
+                    ),
                 'categories' => ExportCat::all()->map(
                     function ($cat) {
                         return [
                             'id' => $cat->id,
-                            'name' => $cat->getTranslation('name', App::getLocale())
+                            'name' => $cat->name
                         ];
                     }
-                )
+                ),
+                'filters' => request(['search'])
             ]
         );
     }
@@ -69,7 +72,7 @@ class ExportProductController extends Controller
                             'id' => $prod->id,
                             'name' => $prod->getTranslations('name'),
                             'description' => $prod->getTranslations('description'),
-                            'category' => $prod->category->getTranslation('name', App::getLocale()),
+                            'category' => $prod->category->name,
                             'cat_id' => $prod->category->id,
                             'weight' => $prod->weight,
                             'box_w_c' => $prod->box_w_c,
@@ -91,7 +94,7 @@ class ExportProductController extends Controller
                     function ($cat) {
                         return [
                             'id' => $cat->id,
-                            'name' => $cat->getTranslation('name', App::getLocale()),
+                            'name' => $cat->name,
                         ];
                     }
                 )

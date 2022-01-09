@@ -15,9 +15,9 @@ class CreateMenuProductsTable extends Migration
     {
         Schema::create('menu_products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('type')->nullable();
-            $table->string('description');
+            $table->json('name');
+            $table->json('type')->nullable();
+            $table->json('description');
             $table->unsignedBigInteger('cat_id');
             $table->foreign('cat_id')
             ->references('id')

@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Models\MenuCat;
 use App\Models\MenuProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 
 class MenuController extends Controller
@@ -14,23 +15,21 @@ class MenuController extends Controller
     {
         return Inertia::render('Menu/Index', [
             'categories' => MenuCat::query()
-                ->when(request('search'), function ($query, $search) {
-                    $query->where('name', 'like', "%{$search}%");
-                })
+                ->filter(request(['search']))
                 ->paginate(20)
                 ->withQuerystring()
                 ->through(fn ($cat) => [
                     $products = $cat->products->map(function ($prod) {
                         return [
                             'id' => $prod->id,
-                            'name' => $prod->getTranslation('name', App::getLocale()),
-                            'type' => $prod->getTranslation('type', App::getLocale()),
-                            'description' => $prod->getTranslation('description', App::getLocale()),
+                            'name' => $prod->name,
+                            'type' => $prod->type,
+                            'description' => $prod->description,
                             'image' => $prod->getFirstMedia('menu')->getUrl('menu')
                         ];
                     }),
                     'id' => $cat->id,
-                    'name' => $cat->getTranslation('name', App::getLocale()),
+                    'name' => $cat->name,
                     'products' => $products,
                 ]),
             'filters' => request(['search'])
@@ -44,7 +43,7 @@ class MenuController extends Controller
                 function ($cat) {
                     return [
                         'id' => $cat->id,
-                        'name' => $cat->getTranslation('name', App::getLocale()),
+                        'name' => $cat->name,
                     ];
                 }
             ),
@@ -55,7 +54,7 @@ class MenuController extends Controller
                         'name' => $prod->getTranslations('name'),
                         'type' => $prod->getTranslations('type'),
                         'description' => $prod->getTranslations('description'),
-                        'category' => $prod->cat->getTranslation('name', App::getLocale()),
+                        'category' => $prod->cat->name,
                         'cat_id' => $prod->cat_id,
                         'imgUrl' => $prod->getFirstMedia('menu')->getUrl()
                     ];

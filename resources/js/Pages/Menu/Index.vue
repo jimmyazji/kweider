@@ -9,10 +9,9 @@
             class="input md:w-96 w-full ml-5 placeholder-lonestar-400 text-lonestar-600"
             :placeholder="$t('search')"
             v-model="search"
-            autofocus
           />
           <svg
-            class="absolute fill-current text-lonestar-500 opacity-70 -translate-y-1/2 transform top-1/2 right-5 w-3.5 h-3.5"
+            class="absolute fill-current text-lonestar-500 opacity-60 -translate-y-1/2 transform top-1/2 right-5 w-3.5 h-3.5"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 92 92"
           >
@@ -22,7 +21,6 @@
           </svg>
         </div>
         <div class="flex justify-between items-center">
-        
           <Link
             class="mx-4 hover:underline focus:outline-none focus:underline"
             :href="route('menucats.index')"
@@ -35,28 +33,36 @@
       </div>
       <div class="max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="flex flex-wrap justify-center">
-          <a
-            v-for="category in categories.data"
-            :key="category.id"
-            :href="'#' + category.name"
-            v-smooth-scroll
-            class="btn btn-primary btn-sm mx-0.5 my-0.5 text-almond-300 hover:scale-105 focus:scale-105 transform transition ease-in-out duration-150"
-          >{{ category.name }}</a>
+          <transition-group appear class="relative" name="list">
+            <a
+              v-for="category in categories.data"
+              :key="category.id"
+              :href="'#' + category.name"
+              v-smooth-scroll
+              class="btn btn-primary btn-sm mx-0.5 my-0.5 text-almond-300 hover:scale-105 focus:scale-105 transform transition ease-in-out duration-150"
+            >{{ category.name }}</a>
+          </transition-group>
         </div>
         <section v-for="category in categories.data" :id="category.name">
-          <div class="divider font-bold opacity-50" dir="ltr">{{ category.name }}</div>
-          <div class="flex justify-center items-center lg:ml-2 mt-6">
+          <transition appear name="fade-expand">
+            <div class="divider font-bold opacity-50" dir="ltr">{{ category.name }}</div>
+          </transition>
+          <div class="flex justify-start items-center lg:ml-2 mt-6">
             <div class="flex flex-wrap gap-4">
-              <MenuProduct
-                v-for="product in category.products"
-                :key="product.id"
-                :product="product"
-              />
+              <transition-group appear class="relative" name="list">
+                <MenuProduct
+                  v-for="product in category.products"
+                  :key="product.id"
+                  :product="product"
+                />
+              </transition-group>
             </div>
           </div>
         </section>
         <div v-if="categories.data.length === 0">
-          <div class="divider font-bold opacity-50" dir="ltr">{{ $t('no results') }}</div>
+          <transition appear name="fade-expand">
+            <div class="divider font-bold opacity-50" dir="ltr">{{ $t('no results') }}</div>
+          </transition>
         </div>
       </div>
     </div>
@@ -92,3 +98,47 @@ watch(
   }, 300)
 );
 </script>
+<style>
+.list-enter-from {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.list-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
+.list-enter-active {
+  transition: all 0.5s ease-in-out;
+}
+.list-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+.list-leave-to {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.list-leave-active {
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+}
+.list-move {
+  transition: all 0.4s ease-in-out;
+}
+.fade-expand-enter-active {
+  transition: all 0.5s ease-in-out;
+}
+.fade-expand-leave-active {
+  transition: all 0.2s ease-in-out;
+}
+.fade-expand-enter-from,
+.fade-expand-leave-to {
+  opacity: 0;
+  transform: scale(0.5, 0.5);
+}
+.fade-expand-enter-to,
+.fade-expand-leave-from {
+  opacity: 0.5;
+  transform: scale(1, 1);
+}
+</style>
