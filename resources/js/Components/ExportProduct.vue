@@ -160,7 +160,7 @@
                     </div>
                 </div>
                 <div
-                    class="max-w-screen lg:w-104 lg:h-104 mx-auto p-4 w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md"
+                    class="max-w-screen lg:w-104 lg:h-104 mx-auto p-4 w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md mt-10 lg:mt-0"
                 >
                     <Carousel
                         :id="product.id"

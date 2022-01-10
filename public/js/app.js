@@ -25416,7 +25416,7 @@ var _hoisted_55 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_56 = {
-  "class": "max-w-screen lg:w-104 lg:h-104 mx-auto p-4 w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md"
+  "class": "max-w-screen lg:w-104 lg:h-104 mx-auto p-4 w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md mt-10 lg:mt-0"
 };
 
 var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
@@ -28984,7 +28984,7 @@ var _hoisted_2 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
 };
 var _hoisted_3 = {
-  "class": "flex justify-between text-lonestar-600 mx-4"
+  "class": "flex-wrap sm:flex sm:justify-between text-lonestar-600 mx-4"
 };
 var _hoisted_4 = {
   "class": "relative"
@@ -28998,7 +28998,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_6 = [_hoisted_5];
 var _hoisted_7 = {
-  "class": "flex justify-between items-center"
+  "class": "mt-5 sm:mt-0 flex justify-between items-center"
 };
 var _hoisted_8 = {
   "class": "max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8"
@@ -29034,7 +29034,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
     type: "text",
-    "class": "input md:w-96 w-full ml-5 placeholder-lonestar-400 text-lonestar-600",
+    "class": "input w-96 sm:ml-5 placeholder-lonestar-400 text-lonestar-600",
     placeholder: _ctx.$t('search'),
     modelValue: $setup.search,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -30201,7 +30201,7 @@ var _hoisted_2 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
 };
 var _hoisted_3 = {
-  "class": "flex justify-between text-lonestar-600 mx-4"
+  "class": "flex-wrap sm:flex sm:justify-between text-lonestar-600 mx-4"
 };
 var _hoisted_4 = {
   "class": "relative"
@@ -30215,7 +30215,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_6 = [_hoisted_5];
 var _hoisted_7 = {
-  "class": "flex justify-between"
+  "class": "mt-5 sm:mt-0 flex justify-between"
 };
 var _hoisted_8 = {
   "class": "xl:flex justify-start"
@@ -30250,7 +30250,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Input"], {
     type: "text",
-    "class": "input md:w-96 w-full ml-5 placeholder-lonestar-400 text-lonestar-600",
+    "class": "input w-96 sm:ml-5 placeholder-lonestar-400 text-lonestar-600",
     placeholder: _ctx.$t('search'),
     modelValue: $setup.search,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {

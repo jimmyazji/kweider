@@ -2,11 +2,11 @@
   <Head :title="$t('menu')" />
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="flex justify-between text-lonestar-600 mx-4">
+      <div class="flex-wrap sm:flex sm:justify-between text-lonestar-600 mx-4">
         <div class="relative">
           <Input
             type="text"
-            class="input md:w-96 w-full ml-5 placeholder-lonestar-400 text-lonestar-600"
+            class="input w-96 sm:ml-5 placeholder-lonestar-400 text-lonestar-600"
             :placeholder="$t('search')"
             v-model="search"
           />
@@ -21,7 +21,7 @@
             />
           </svg>
         </div>
-        <div class="flex justify-between items-center">
+        <div class="mt-5 sm:mt-0 flex justify-between items-center">
           <Link
             class="mx-4 hover:underline focus:outline-none focus:underline"
             :href="route('menucats.index')"
