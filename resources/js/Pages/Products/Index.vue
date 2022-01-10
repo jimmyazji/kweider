@@ -11,7 +11,8 @@
             v-model="search"
           />
           <svg
-            class="absolute fill-current text-lonestar-500 opacity-60 -translate-y-1/2 transform top-1/2 right-5 w-3.5 h-3.5"
+            class="absolute fill-current text-lonestar-500 opacity-60 -translate-y-1/2 transform top-1/2 w-3.5 h-3.5"
+            :class="(locale === 'ar') ? 'left-5' : 'right-5'"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 92 92"
           >
@@ -76,7 +77,7 @@ import { Link } from "@inertiajs/inertia-vue3";
 import Input from "@/Components/Input";
 import debounce from "lodash/debounce";
 import { Inertia } from "@inertiajs/inertia";
-
+const locale = localStorage.getItem("locale");
 let props = defineProps({ categories: Object, products: Object, filters: Object });
 let search = ref(props.filters.search)
 let category = ref(props.filters.category)

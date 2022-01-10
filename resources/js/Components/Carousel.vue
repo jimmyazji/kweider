@@ -2,7 +2,7 @@
     <div class="relative w-full h-full">
         <slot :currentSlide="currentSlide" />
         <!--  Navigation  -->
-        <div
+        <div dir="ltr"
             v-if="navigationEnabled && getSlideCount > 1"
             class="hidden py-4 h-full w-full absolute lg:flex justify-between items-center opacity-70"
         >
@@ -16,7 +16,7 @@
             ></i>
         </div>
         <!-- Pagination -->
-        <div
+        <div dir="ltr"
             v-if="paginationEnabled"
             class="absolute bottom-6 w-full flex justify-center items-center gap-4"
         >

@@ -11,7 +11,8 @@
             v-model="search"
           />
           <svg
-            class="absolute fill-current text-lonestar-500 opacity-60 -translate-y-1/2 transform top-1/2 right-5 w-3.5 h-3.5"
+            class="absolute fill-current text-lonestar-500 opacity-60 -translate-y-1/2 transform top-1/2 w-3.5 h-3.5"
+            :class="(locale === 'ar') ? 'left-5' : 'right-5'"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 92 92"
           >
@@ -85,6 +86,7 @@ const scrollToMyEl = () => {
     scrollTo: refs.myEl,
   });
 };
+const locale = localStorage.getItem("locale");
 let props = defineProps({ categories: Object, filters: Object })
 let search = ref(props.filters.search);
 watch(
@@ -98,47 +100,4 @@ watch(
   }, 300)
 );
 </script>
-<style>
-.list-enter-from {
-  opacity: 0;
-  transform: scale(0.6);
-}
-.list-enter-to {
-  opacity: 1;
-  transform: scale(1);
-}
-.list-enter-active {
-  transition: all 0.5s ease-in-out;
-}
-.list-leave-from {
-  opacity: 1;
-  transform: scale(1);
-}
-.list-leave-to {
-  opacity: 0;
-  transform: scale(0.6);
-}
-.list-leave-active {
-  transition: all 0.5s ease-in-out;
-  position: absolute;
-}
-.list-move {
-  transition: all 0.4s ease-in-out;
-}
-.fade-expand-enter-active {
-  transition: all 0.5s ease-in-out;
-}
-.fade-expand-leave-active {
-  transition: all 0.2s ease-in-out;
-}
-.fade-expand-enter-from,
-.fade-expand-leave-to {
-  opacity: 0;
-  transform: scale(0.5, 0.5);
-}
-.fade-expand-enter-to,
-.fade-expand-leave-from {
-  opacity: 0.5;
-  transform: scale(1, 1);
-}
-</style>
+
