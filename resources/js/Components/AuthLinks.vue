@@ -5,7 +5,7 @@
       relative
       hidden
       space-x-8
-      sm:-my-px sm:ml-10 sm:flex
+      md:-my-px sm:ml-10 md:flex
       items-center
     "
   >
@@ -52,7 +52,9 @@
         </span>
       </template>
       <template #content>
-        <BreezeDropdownLink :href="route('users.index')">
+        <BreezeDropdownLink 
+        v-if="$page.props.can.userList"
+        :href="route('users.index')">
           <span class="flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"

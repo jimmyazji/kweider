@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -15,6 +17,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('permission:user-list', ['only' => ['index']]);
+        $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+    }
     public function index()
     {
         return Inertia::render('Users/Index', [
@@ -47,7 +56,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Users/Create');
+        return Inertia::render('Users/Create', [
+            'roles' => Role::pluck('name')->all(),
+            'permissions' => Permission::pluck('name')->all()
+        ]);
     }
 
     /**
@@ -77,7 +89,8 @@ class UserController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
-        
+        $user->syncPermissions($request->permissions);
+        $user->assignRole($request->roles);
         return redirect()->route('users.index')
             ->with('success', 'User created successfully');
     }
@@ -101,7 +114,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return Inertia::render('Users/Edit', [
+            'user' => $user->only('id', 'first_name', 'last_name', 'email', 'phone', 'country', 'region'),
+            'roles' => Role::pluck('name')->all(),
+            'permissions' => Permission::pluck('name')->all(),
+            'userRoles' => $user->roles->pluck('name','name')->all(),
+            'userPermissions' => $user->permissions->pluck('name','name')->all(),
+        ]);
     }
 
     /**
@@ -113,7 +133,28 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'country' => 'required',
+            'region' => 'required',
+            'phone' => 'nullable|digits:10',
+            'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
+        ]);
+        $user->update([
+            'first_name' => ucfirst(strtolower($request->first_name)),
+            'last_name' => ucfirst(strtolower($request->last_name)),
+            'email' => strtolower($request->email),
+            'country' => $request->country,
+            'region' => $request->region,
+            'phone' => $request->phone,
+            'password' => Hash::make($request->password),
+        ]);
+        $user->syncPermissions($request->permissions);
+        $user->syncRoles($request->roles);
+        return redirect()->back()->with('success','User Edited Successfully');
     }
 
     /**

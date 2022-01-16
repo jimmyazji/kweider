@@ -20,8 +20,8 @@ class AdminUserSeeder extends Seeder
             'first_name' => 'Jimmy',
             'last_name' => 'Yazji',
             'email' => 'jimmy@gmail.com',
-            'country' => 'SY',
-            'region' => 'DI',
+            'country' => 'Syrian Arab Republic',
+            'region' => 'Dimashq',
             'phone' => '0937954758',
             'password' => bcrypt('12345678'),
         ]);

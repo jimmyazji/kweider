@@ -9,20 +9,20 @@
                     <div class="flex mb-4">
                         <span
                             @click="setInfo('prod')"
-                            class="flex-grow border-b-2 py-2 text-lg px-1 cursor-pointer transition-color duration-500 delay-200 ease-in-out"
-                            :class="selectInfo === 'prod' ? 'text-lonestar-500  border-lonestar-500' : 'border-lonestar-300'"
+                            class="flex-grow border-b-2 py-2 text-lg px-1 cursor-pointer transition-color duration-500  ease-in-out"
+                            :class="selectInfo === 'prod' ? 'text-lonestar-500  border-lonestar-500 ' : 'border-lonestar-300 delay-200'"
                         >{{ $t('prod') }}</span>
                         <span
                             v-if="product.box_w"
                             @click="setInfo('box')"
-                            class="flex-grow border-b-2 border-lonestar-300 py-2 text-lg px-1 cursor-pointer transition-color duration-300 ease-in-out"
-                            :class="selectInfo === 'box' ? 'text-lonestar-500  border-lonestar-500' : 'border-lonestar-300'"
+                            class="flex-grow border-b-2 py-2 text-lg px-1 cursor-pointer transition-color duration-300 ease-in-out"
+                            :class="selectInfo === 'box' ? 'text-lonestar-500  border-lonestar-500' : 'border-lonestar-300 delay-200'"
                         >{{ $t('box') }}</span>
                         <span
                             v-if="product.pack_w"
                             @click="setInfo('pack')"
                             class="flex-grow border-b-2 border-lonestar-300 py-2 text-lg px-1 cursor-pointer transition-color duration-300 ease-in-out"
-                            :class="selectInfo === 'pack' ? 'text-lonestar-500  border-lonestar-500' : 'border-lonestar-300'"
+                            :class="selectInfo === 'pack' ? 'text-lonestar-500  border-lonestar-500' : 'border-lonestar-300 delay-200'"
                         >{{ $t('package') }}</span>
                     </div>
                     <div class="leading-relaxed mb-4 h-30">
@@ -41,7 +41,9 @@
                             >
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('weight') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.weight }} g</span>
+                                    <span
+                                        class="ml-auto text-lonestar-900"
+                                    >{{ (product.weight < 800) ? product.weight + ' ' + $t('g') : product.weight / 1000 + ' ' + $t('kg') }}</span>
                                 </div>
                                 <div class="flex border-b border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('cat') }}</span>
@@ -60,35 +62,37 @@
                                     <span class="text-lonestar-500">{{ $t('clear weight') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.box_w_c / 1000 }} kg</span>
+                                    >{{ (product.box_w_c < 800) ? product.box_w_c + ' ' + $t('g') : product.box_w_c / 1000 + ' ' + $t('kg') }}</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('actual weight') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.box_w_a / 1000 }} kg</span>
+                                    >{{ (product.box_w_a < 800) ? product.box_w_a + ' ' + $t('g') : product.box_w_a / 1000 + ' ' + $t('kg') }}</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('width') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.box_w / 10 }} cm</span>
+                                    >{{ (product.box_w < 10) ? product.box_w + ' ' + $t('mm') : product.box_w / 10 + ' ' + $t('cm') }}</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('length') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.box_l / 10 }} cm</span>
+                                    >{{ (product.box_l < 10) ? product.box_l + ' ' + $t('mm') : product.box_l / 10 + ' ' + $t('cm') }}</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('height') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.box_h / 10 }} cm</span>
+                                    >{{ (product.box_h < 10) ? product.box_h + ' ' + $t('mm') : product.box_h / 10 + ' ' + $t('cm') }}</span>
                                 </div>
                                 <div class="flex border-t border-b mb-6 border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('quantity') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.box_q }} p</span>
+                                    <span
+                                        class="ml-auto text-lonestar-900"
+                                    >{{ product.box_q + ' ' + $t('p') }}</span>
                                 </div>
                             </div>
                         </transition>
@@ -103,35 +107,37 @@
                                     <span class="text-lonestar-500">{{ $t('clear weight') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.pack_w_c / 1000 }} kg</span>
+                                    >{{ (product.pack_w_c < 800) ? product.pack_w_c + ' ' + $t('g') : product.pack_w_c / 1000 + ' ' + $t('kg') }}</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('actual weight') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.pack_w_a / 1000 }} kg</span>
+                                    >{{ (product.pack_w_a < 800) ? product.pack_w_a + ' ' + $t('g') : product.pack_w_a / 1000 + ' ' + $t('kg') }}</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('width') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.pack_w / 10 }} cm</span>
+                                    >{{ (product.pack_w < 10) ? product.pack_w + ' ' + $t('mm') : product.pack_w / 10 + ' ' + $t('cm') }}</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('length') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.pack_l / 10 }} cm</span>
+                                    >{{ (product.pack_l < 10) ? product.pack_l + ' ' + $t('mm') : product.pack_l / 10 + ' ' + $t('cm') }}</span>
                                 </div>
                                 <div class="flex border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('height') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.pack_h / 10 }} cm</span>
+                                    >{{ (product.pack_h < 10) ? product.pack_h + ' ' + $t('mm') : product.pack_h / 10 + ' ' + $t('cm') }}</span>
                                 </div>
                                 <div class="flex border-t border-b mb-6 border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('quantity') }}</span>
-                                    <span class="ml-auto text-lonestar-900">{{ product.pack_q }} p</span>
+                                    <span
+                                        class="ml-auto text-lonestar-900"
+                                    >{{ (product.box_l) ? product.pack_q + ' ' + $t('box') : product.pack_q + ' ' + $t('p') }}</span>
                                 </div>
                             </div>
                         </transition>
@@ -141,8 +147,24 @@
                         <span class="title-font font-medium text-2xl text-lonestar-900">$58.00</span>
                         <Button
                             type="button"
-                            class="flex ml-auto text-almond-400 border-0 py-2 px-6 focus:outline-none"
-                        >{{ $t('add to cart') }}</Button>
+                            class="flex ml-auto text-almond-400 border-0 py-2 focus:outline-none"
+                        >
+                            {{ $t('add to cart') }}
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2px"
+                                class="w-4 h-4 ml-2"
+                                viewBox="0 0 24 24"
+                            >
+                                <circle cx="9" cy="21" r="1" />
+                                <circle cx="20" cy="21" r="1" />
+                                <path d="M1 1h4l3 13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2l2-8H6" />
+                            </svg>
+                        </Button>
                         <button class="btn btn-circle btn-primary btn-sm ml-2">
                             <svg
                                 fill="currentColor"
@@ -167,30 +189,30 @@
                         :class="'carousel-' + product.id"
                         v-slot="{ currentSlide }"
                     >
-                        <Slide>
+                        <Slide v-if="product.prod_url">
                             <div v-show="currentSlide === 1">
                                 <img
                                     alt="ecommerce"
                                     class="min-w-full h-full object-cover rounded-lg"
-                                    src="https://dummyimage.com/400x400"
+                                    :src="product.prod_url"
                                 />
                             </div>
                         </Slide>
-                        <Slide>
+                        <Slide v-if="product.box_url">
                             <div v-show="currentSlide === 2">
                                 <img
                                     alt="ecommerce"
                                     class="min-w-full h-full object-cover rounded-lg"
-                                    src="https://dummyimage.com/401x401"
+                                    :src="product.box_url"
                                 />
                             </div>
                         </Slide>
-                        <Slide>
-                            <div v-show="currentSlide === 3">
+                        <Slide v-if="product.pack_url">
+                            <div v-show="product.box_url ? (currentSlide === 3) : (currentSlide === 2) ">
                                 <img
                                     alt="ecommerce"
                                     class="min-w-full h-full object-cover rounded-lg"
-                                    src="https://dummyimage.com/402x402"
+                                    :src="product.pack_url"
                                 />
                             </div>
                         </Slide>

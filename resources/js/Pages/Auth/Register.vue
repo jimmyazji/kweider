@@ -51,14 +51,7 @@
         class="text-error text-sm ml-2 mt-1"
       ></div>
       <country-select
-        class="
-          block
-          mt-1
-          w-full
-          select select-bordered
-          focus:border-transparent
-          font-normal
-        "
+        class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
         topCountry="SY"
         v-model="form.country"
         :class="[
@@ -66,6 +59,8 @@
           { 'border-error': $page.props.errors.country },
         ]"
         disablePlaceholder
+        :usei18n="false"
+        :countryName="true"
         :placeholder="$t('select country')"
       />
       <div
@@ -74,14 +69,7 @@
         class="text-error text-sm ml-2 mt-1"
       ></div>
       <region-select
-        class="
-          block
-          mt-1
-          w-full
-          select select-bordered
-          focus:border-transparent
-          font-normal
-        "
+        class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
         v-model="form.region"
         :country="form.country"
         disablePlaceholder
@@ -90,6 +78,9 @@
           { 'border-error': $page.props.errors.region },
         ]"
         :placeholder="$t('select region')"
+        :usei18n="false"
+        :countryName="true"
+        :regionName="true"
       />
       <div
         v-if="$page.props.errors.region"
@@ -148,22 +139,14 @@
       <div>
         <Link
           :href="route('login')"
-          class="
-            hover:underline
-            text-sm text-lonestar-500
-            hover:text-lonestar-700
-          "
-        >
-          {{ $t("registered") }}
-        </Link>
+          class="hover:underline text-sm text-lonestar-500 hover:text-lonestar-700"
+        >{{ $t("registered") }}</Link>
       </div>
       <div :class="locale === 'ar' ? 'mr-4' : 'ml-4'">
         <BreezeButton
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
-        >
-          {{ $t("register") }}
-        </BreezeButton>
+        >{{ $t("register") }}</BreezeButton>
       </div>
     </div>
   </form>
@@ -177,7 +160,7 @@ import BreezeLabel from "@/Components/Label.vue";
 import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 export default {
-layout: BreezeAuthenticatingLayout,
+  layout: BreezeAuthenticatingLayout,
 
   components: {
     BreezeButton,

@@ -156,9 +156,23 @@ return [
     'attributes' => [
         'en_name' => 'english name',
         'ar_name' => 'arabic name',
+        'en_type' => 'english type',
+        'ar_type' => 'arabic type',
         'cat_id' => 'category',
         'en_description'=> 'english description',
         'ar_description'=> 'arabic description',
+        'box_w' => 'box width',
+        'box_l' => 'box length',
+        'box_h' => 'box height',
+        'box_q' => 'product\'s quantity',
+        'box_w_c' => 'box clear weight',
+        'box_w_a' => 'box actual weight',
+        'pack_w' => 'package width',
+        'pack_l' => 'package length',
+        'pack_h' => 'package height',
+        'pack_q' => 'box\'s quantity',
+        'pack_w_c' => 'package clear weight',
+        'pack_w_a' => 'package actual weight',
     ],
 
 ];

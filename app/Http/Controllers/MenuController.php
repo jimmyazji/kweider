@@ -8,11 +8,22 @@ use App\Models\MenuProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:menu-list', ['only' => ['create']]);
+        $this->middleware('permission:menu-create', ['only' => ['store']]);
+        $this->middleware('permission:menu-edit', ['only' => ['update']]);
+        $this->middleware('permission:menu-delete', ['only' => ['destroy']]);
+    }
     public function index()
     {
+        $user = Auth::user();
+        $canList = $user ? $user->can('export-list') : false;
+        $canListCat = $user ? $user->can('export-cat-list') : false;
         return Inertia::render('Menu/Index', [
             'categories' => MenuCat::query()
                 ->filter(request(['search']))
@@ -32,7 +43,9 @@ class MenuController extends Controller
                     'name' => $cat->name,
                     'products' => $products,
                 ]),
-            'filters' => request(['search'])
+            'filters' => request(['search']),
+            'canList' => $canList,
+            'canListCat' => $canListCat
         ]);
     }
     public function create()
@@ -56,7 +69,7 @@ class MenuController extends Controller
                         'description' => $prod->getTranslations('description'),
                         'category' => $prod->cat->name,
                         'cat_id' => $prod->cat_id,
-                        'imgUrl' => $prod->getFirstMedia('menu')->getUrl()
+                        'img_url' => $prod->getFirstMedia('menu')->getUrl()
                     ];
                 }
             )
@@ -118,7 +131,7 @@ class MenuController extends Controller
             ],
             'cat_id' => $request->cat_id
         ]);
-        if ($request->image !== $product->image) {
+        if ($request->image) {
             $product->addMediaFromRequest('image')
                 ->toMediaCollection('menu');
         }

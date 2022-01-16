@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class MenuCatController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:menu-cat-list', ['only' => ['index']]);
+        $this->middleware('permission:menu-cat-create', ['only' => ['store']]);
+        $this->middleware('permission:menu-cat-edit', ['only' => ['update']]);
+        $this->middleware('permission:menu-cat-delete', ['only' => ['delete']]);
+    }
     public function index()
     {
         return Inertia::render(

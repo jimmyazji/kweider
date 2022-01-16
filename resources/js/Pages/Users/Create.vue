@@ -7,11 +7,11 @@
   </header>
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+      <div class="bg-whit shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white border-b border-gray-200">
           <form @submit.prevent="submit">
             <div class="grid grid-row-3 gap-1">
-              <div class="grid grid-cols-2 gap-2">
+              <div class="grid sm:grid-cols-2 gap-2">
                 <div>
                   <Input
                     id="first_name"
@@ -45,7 +45,7 @@
                   ></div>
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-2">
+              <div class="grid sm:grid-cols-2 gap-2">
                 <div>
                   <Input
                     id="email"
@@ -78,7 +78,7 @@
                   ></div>
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-2">
+              <div class="grid sm:grid-cols-2 gap-2">
                 <div>
                   <country-select
                     class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
@@ -121,7 +121,31 @@
                   ></div>
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-2">
+              <div class="grid sm:grid-cols-2 gap-2">
+                <Multiselect
+                  id="roles"
+                  mode="tags"
+                  :classes="classes"
+                  autocomplete="roles"
+                  :options="roles"
+                  v-model="form.roles"
+                  placeholder="Select roles"
+                  searchable
+                  label
+                />
+                <Multiselect
+                  id="permissions"
+                  mode="tags"
+                  :classes="classes"
+                  autocomplete="permissions"
+                  :options="permissions"
+                  v-model="form.permissions"
+                  placeholder="Select permissions"
+                  searchable
+                  label
+                />
+              </div>
+              <div class="grid sm:grid-cols-2 gap-2">
                 <div>
                   <Input
                     class="block mt-1 w-full"
@@ -179,7 +203,17 @@ import { Head } from "@inertiajs/inertia-vue3";
 import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-
+import Multiselect from '@vueform/multiselect'
+defineProps({ roles: Object, permissions: Object });
+let classes = {
+  tag: 'bg-lonestar-500 text-white text-sm font-semibold py-0.5 pl-2 rounded mr-1 mb-1 flex items-center whitespace-nowrap',
+  container: 'relative mx-auto w-full flex items-center justify-end rounded-lg cursor-pointer border border-gray-300 rounded text-sm bg-white outline-none min-h-12 transition duration-200',
+  placeholder: 'flex items-center h-full absolute left-0 top-0 pointer-events-none bg-transparent pl-4 text-gray-500',
+  tagsSearchWrapper: 'inline-block relative mx-1 mb-1 flex-grow flex-shrink h-full',
+  tagsSearch: 'absolute inset-0 border-0 outline-none focus:ring-0 focus:outline-none appearance-none p-0 text-base font-sans box-border w-full',
+  containerActive: 'ring-1 border-transparent ring-almond-600',
+  caret: 'bg-multiselect-caret bg-center bg-no-repeat w-2 h-3 py-px box-content mr-4 relative z-10 opacity-40 flex-shrink-0 flex-grow-0 transition-transform transform pointer-events-none',
+}
 let form = useForm({
   first_name: "",
   last_name: "",
@@ -187,10 +221,11 @@ let form = useForm({
   phone: "",
   country: "",
   region: "",
+  roles: [],
+  permissions: [],
   password: "",
   password_confirmation: "",
 });
-
 let submit = () => {
   form.post(route('users.index'),
     {
@@ -199,3 +234,4 @@ let submit = () => {
     });
 };
 </script>
+<style src="@vueform/multiselect/themes/default.css"></style>

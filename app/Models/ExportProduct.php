@@ -50,10 +50,12 @@ class ExportProduct extends Model implements HasMedia
     }
     public function registerMediaConversions(?Media $media = null): void
     {
-        $this->addMediaConversion('export')->crop(['crop-center', 450, 400]);
+        $this->addMediaConversion('export')->crop('crop-center', 400, 400);
     }
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('export')->onlyKeepLatest(4);
+        $this->addMediaCollection('prod')->singleFile();
+        $this->addMediaCollection('box')->singleFile();
+        $this->addMediaCollection('package')->singleFile();
     }
 }

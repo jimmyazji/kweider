@@ -1,7 +1,7 @@
 <template>
   <Head :title="$t('contact')" />
   <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-2 sm:mx-auto sm:px-6 lg:px-8">
       <div class="tabs">
         <span
           class="tab tab-lifted tab-lg transition duration-500"
@@ -19,46 +19,51 @@
           :class="(selectedTab === 3) ? 'tab-active' : ''"
         >Tab 3</span>
       </div>
-      <div class="p-4 bg-white rounded-lg" :class="(selectedTab === 1) ? ' rounded-tl-none' : ''">
+      <div
+        class="p-4 bg-white rounded-lg"
+        :class="(selectedTab === 1) ? ((locale === 'ar') ? 'rounded-tr-none' : 'rounded-tl-none') : ''"
+      >
         <section class="text-lonestar-600 body-font relative">
           <div class="absolute inset-0 bg-gray-300">
-            <iframe
-              v-if="selectedTab === 1"
-              width="100%"
-              height="100%"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              title="map"
-              scrolling="no"
-              src="https://maps.google.com/maps?q=Kweider%20Sweets,%20Al%20Midan,%20Damascus,%20Syria&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            ></iframe>
-            <iframe
-              v-if="selectedTab === 2"
-              width="100%"
-              height="100%"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              title="map"
-              scrolling="no"
-              src="https://maps.google.com/maps?q=Kweider%20Sweets,%20Al%20Midan,%20Damascus,%20Syria&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            ></iframe>
-            <iframe
-              v-if="selectedTab === 3"
-              width="100%"
-              height="100%"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              title="map"
-              scrolling="no"
-              src="https://maps.google.com/maps?q=Kweider%20Sweets,%20Al%20Midan,%20Damascus,%20Syria&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            ></iframe>
+            <transition-group appear name="fade">
+              <iframe
+                v-if="selectedTab === 1"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                title="map"
+                scrolling="no"
+                src="https://maps.google.com/maps?q=Kweider%20Sweets,%20Al%20Midan,%20Damascus,%20Syria&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              ></iframe>
+              <iframe
+                v-if="selectedTab === 2"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                title="map"
+                scrolling="no"
+                src="https://maps.google.com/maps?q=Kweider%20Sweets,%20Al%20Midan,%20Damascus,%20Syria&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              ></iframe>
+              <iframe
+                v-if="selectedTab === 3"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                title="map"
+                scrolling="no"
+                src="https://maps.google.com/maps?q=Kweider%20Sweets,%20Al%20Midan,%20Damascus,%20Syria&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              ></iframe>
+            </transition-group>
           </div>
-          <div class="container px-5 py-24 mx-auto flex">
+          <div class="container px-5 py-24 mx-auto flex h-screen">
             <div
-              class="lg:w-1/3 md:w-1/2 bg-almond-50 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 relative z-10 shadow-md"
+              class="hidden lg:w-1/3 md:w-1/2 bg-almond-50 rounded-lg p-8 sm:flex flex-col md:ml-auto w-full mt-10 relative z-10 shadow-md"
             >
               <h2 class="text-lonestar-900 text-lg mb-1 font-medium title-font">{{ $t('feedback') }}</h2>
               <p class="leading-relaxed mb-2 text-lonestar-600">{{ $t('contact message') }}</p>
@@ -82,6 +87,29 @@
             </div>
           </div>
         </section>
+      </div>
+      <div
+        class="sm:hidden mx-2 bg-almond-50 rounded-lg p-8 flex flex-col mt-10 shadow-md"
+      >
+        <h2 class="text-lonestar-900 text-lg mb-1 font-medium title-font">{{ $t('feedback') }}</h2>
+        <p class="leading-relaxed mb-2 text-lonestar-600">{{ $t('contact message') }}</p>
+        <div class="relative mb-4">
+          <Input class="w-full" v-model="form.email" :placeholder="$t('email')"></Input>
+        </div>
+        <div class="relative mb-4">
+          <textarea
+            v-model="form.message"
+            :placeholder="$t('message')"
+            id="message"
+            name="message"
+            class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none px-5"
+          ></textarea>
+        </div>
+        <Button @click="submit()" class="btn-md">{{ $t('send') }}</Button>
+        <p class="text-xs text-gray-500 mt-3">
+          {{ $t('or contact') }}
+          <a class="text-green-500" href="#">{{ $t('whatsapp') }}</a>.
+        </p>
       </div>
     </div>
   </div>

@@ -23,10 +23,12 @@
         </div>
         <div class="mt-5 sm:mt-0 flex justify-between items-center">
           <Link
+            v-if="canListCat"
             class="mx-4 hover:underline focus:outline-none focus:underline"
             :href="route('menucats.index')"
           >{{ $t('manage categories') }}</Link>
           <Link
+            v-if="canList"
             class="mx-4 hover:underline focus:outline-none focus:underline"
             :href="route('menu.create')"
           >{{ $t('manage products') }}</Link>
@@ -34,23 +36,25 @@
       </div>
       <div class="max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="flex flex-wrap justify-center">
-          <transition-group appear class="relative" name="list">
-            <a
-              v-for="category in categories.data"
-              :key="category.id"
-              :href="'#' + category.name"
-              v-smooth-scroll
-              class="btn btn-primary btn-sm mx-0.5 my-0.5 text-almond-300 hover:scale-105 focus:scale-105 transform transition ease-in-out duration-150"
-            >{{ category.name }}</a>
-          </transition-group>
+          <div class="relative">
+            <transition-group appear name="list">
+              <a
+                v-for="category in categories.data"
+                :key="category.id"
+                :href="'#' + category.name"
+                v-smooth-scroll
+                class="btn btn-primary btn-sm mx-0.5 my-0.5 text-almond-300 hover:scale-105 focus:scale-105 transform transition ease-in-out duration-150"
+              >{{ category.name }}</a>
+            </transition-group>
+          </div>
         </div>
         <section v-for="category in categories.data" :id="category.name">
           <transition appear name="fade-expand">
             <div class="divider font-bold opacity-50" dir="ltr">{{ category.name }}</div>
           </transition>
-          <div class="flex justify-start items-center lg:ml-2 mt-6">
-            <div class="flex flex-wrap gap-4">
-              <transition-group appear class="relative" name="list">
+          <div class="sm:flex justify-start items-center lg:ml-2 mt-6">
+            <div class="flex flex-wrap gap-4 relative">
+              <transition-group appear name="list">
                 <MenuProduct
                   v-for="product in category.products"
                   :key="product.id"
@@ -87,7 +91,7 @@ const scrollToMyEl = () => {
   });
 };
 const locale = localStorage.getItem("locale");
-let props = defineProps({ categories: Object, filters: Object })
+let props = defineProps({ categories: Object, filters: Object, canList: Boolean, canListCat: Boolean })
 let search = ref(props.filters.search);
 watch(
   search,

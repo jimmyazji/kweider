@@ -39,6 +39,10 @@ class HandleInertiaRequests extends Middleware
             'auth.user' => fn () => $request->user()
                 ? $request->user()->only('id', 'first_name', 'last_name', 'email')
                 : null,
+            'can' => [
+                'userList' => fn () => $request->user() ? $request->user()->can('user-list') : false,
+                'roleList' => fn () => $request->user() ? $request->user()->can('role-list') : false
+            ],
             'flash' => [
                 'message' => fn () => $request->session()->get('message'),
                 'success' => fn () => $request->session()->get('success'),

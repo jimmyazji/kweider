@@ -24,7 +24,7 @@
           <Bullet />
           {{ $t('certificates p3') }}
         </p>
-        <h1 class="font-serif mt-20 text-6xl">{{ $t('Global Reach') }}</h1>
+        <h1 class="font-serif mt-20 text-6xl">{{ $t('global reach') }}</h1>
         <p class="flex text-xl mt-5">
           <Bullet />
           {{ $t('global p1') }}

@@ -170,8 +170,8 @@
                         </div>
                         <div class="flex justify-center">
                             <img
-                                v-if="form.imgUrl"
-                                :src="form.imgUrl"
+                                v-if="form.img_url"
+                                :src="form.img_url"
                                 class="rounded-lg h-60 w-auto mt-4"
                             />
                         </div>
@@ -289,7 +289,7 @@ const form = useForm({
     en_description: "",
     ar_description: "",
     image: null,
-    imgUrl: null,
+    img_url: null,
     _method: 'POST'
 });
 const prod_id = ref(null);
@@ -303,7 +303,7 @@ const edit = (prod) => {
     form.cat_id = prod.cat_id
     form.en_description = prod.description.en
     form.ar_description = prod.description.ar
-    form.imgUrl = prod.imgUrl
+    form.img_url = prod.img_url
 };
 const submit = () => {
   if (!prod_id.value) {
@@ -334,7 +334,7 @@ const destroy = (id) => {
 
 const previewImage = (e) => {
     form.image = e.target.files[0];
-    form.imgUrl = URL.createObjectURL(form.image);
+    form.img_url = URL.createObjectURL(form.image);
 }
 defineProps({
     categories: Object,

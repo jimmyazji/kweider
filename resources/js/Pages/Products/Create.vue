@@ -7,7 +7,7 @@
   </header>
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+      <div class="bg-white overflow-hidden shadow-sm sm:rounded-md">
         <div class="p-6 bg-white border-b border-gray-200">
           <form @submit.prevent="submit">
             <div class="grid md:grid-cols-2 gap-2">
@@ -41,31 +41,6 @@
                 <div
                   v-if="$page.props.errors.ar_name"
                   v-text="$page.props.errors.ar_name"
-                  class="text-error text-sm ml-2 mt-1"
-                ></div>
-              </div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-2">
-              <Input
-                id="quantity"
-                type="number"
-                v-model="form.quantity"
-                class="block mt-1 w-full"
-                autocomplete="quantity"
-                :placeholder="$t('quantity')"
-                :class="{ 'input-error': $page.props.errors.quantity }"
-              />
-              <div>
-                <label
-                  class="input input-bordered flex w-full mt-1 items-center px-5 cursor-pointer"
-                  for="img"
-                >
-                  <span>{{ $t("upload image") }}</span>
-                  <input id="img" type="file" class="sr-only" />
-                </label>
-                <div
-                  v-if="$page.props.errors.image"
-                  v-text="$page.props.errors.image"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
               </div>
@@ -146,7 +121,7 @@
             </div>
             <div class="grid sm:grid-cols-2 gap-2 my-2 mt-3">
               <div class="flex justify-center">
-                <Checkbox :name="box" v-model="form.box" class="checkbox-primary" />
+                <Checkbox name="box" v-model="form.box" class="checkbox-primary" />
                 <span class="mx-2 text-sm text-lonestar-700">{{ $t('box') }}</span>
               </div>
               <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:hidden">
@@ -206,7 +181,7 @@
                 />
               </div>
               <div class="flex justify-center">
-                <Checkbox :name="package" v-model="form.package" class="checkbox-primary" />
+                <Checkbox name="package" v-model="form.package" class="checkbox-primary" />
                 <span class="mx-2 text-sm text-lonestar-700">{{ $t('package') }}</span>
               </div>
             </div>
@@ -416,7 +391,87 @@
                 ></div>
               </div>
             </div>
-            <div class="flex items-center justify-between mt-4">
+            <div class="flex flex-wrap justify-evenly items-center">
+              <label
+                class="max-w-screen lg:w-80 lg:h-80 mx-auto w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                for="prod_image"
+              >
+                <img
+                  v-if="form.prod_img_url"
+                  class="w-full h-full object-cover rounded-md"
+                  :src="form.prod_img_url"
+                  alt="Product Image"
+                />
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="0.2"
+                  class="mx-auto w-1/2 md:w-40 md:h-40"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                <input
+                  id="prod_image"
+                  type="file"
+                  @change="previewProdImage"
+                  class="hidden"
+                  ref="photo"
+                />
+              </label>
+              <label
+                class="max-w-screen lg:w-80 lg:h-80 mx-auto w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                for="box_image"
+              >
+                <img
+                  v-if="form.box_img_url"
+                  class="w-full h-full object-cover rounded-md"
+                  :src="form.box_img_url"
+                  alt="Box Image"
+                />
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="0.2"
+                  class="mx-auto w-1/2 md:w-40 md:h-40"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                <input id="box_image" type="file" @change="previewBoxImage" class="hidden" />
+              </label>
+              <label
+                class="max-w-screen lg:w-80 lg:h-80 mx-auto w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                for="pack_image"
+              >
+                <img
+                  v-if="form.pack_img_url"
+                  class="w-full h-full object-cover rounded-md"
+                  :src="form.pack_img_url"
+                  alt="Package Image"
+                />
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="0.2"
+                  class="mx-auto w-1/2 md:w-40 md:h-40"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                <input id="pack_image" type="file" @change="previewPackImage" class="hidden" />
+              </label>
+            </div>
+            <div class="flex items-center justify-between mt-10">
               <Link
                 :href="route('menu.index')"
                 class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
@@ -447,7 +502,7 @@
                   <th colspan="6">
                     <div class="flex justify-center bg-almond-600 rounded">{{ $t('box') }}</div>
                   </th>
-                  <th colspan="7">
+                  <th colspan="6">
                     <div class="flex justify-center bg-almond-600 rounded">{{ $t('package') }}</div>
                   </th>
                   <th></th>
@@ -460,7 +515,6 @@
                   <th>{{ $t("ar desc") }}</th>
                   <th>{{ $t("cat") }}</th>
                   <th>{{ $t("weight") }}</th>
-                  <th>{{ $t("quantity") }}</th>
                   <th>{{ $t("width") }}</th>
                   <th>{{ $t("length") }}</th>
                   <th>{{ $t("height") }}</th>
@@ -485,7 +539,6 @@
                   <td>{{ product.description.ar }}</td>
                   <td>{{ product.category }}</td>
                   <td>{{ product.weight ? product.weight : "-" }}</td>
-                  <td>{{ product.quantity ? product.quantity : "-" }}</td>
                   <td>{{ product.box_w ? product.box_w : "-" }}</td>
                   <td>{{ product.box_l ? product.box_l : "-" }}</td>
                   <td>{{ product.box_h ? product.box_h : "-" }}</td>
@@ -549,7 +602,6 @@
                   <th>{{ $t("ar desc") }}</th>
                   <th>{{ $t("cat") }}</th>
                   <th>{{ $t("weight") }}</th>
-                  <th>{{ $t("quantity") }}</th>
                   <th>{{ $t("width") }}</th>
                   <th>{{ $t("length") }}</th>
                   <th>{{ $t("height") }}</th>
@@ -570,7 +622,7 @@
                   <th colspan="6">
                     <div class="flex justify-center bg-almond-600 rounded">{{ $t('box') }}</div>
                   </th>
-                  <th colspan="7">
+                  <th colspan="6">
                     <div class="flex justify-center bg-almond-600 rounded">{{ $t('package') }}</div>
                   </th>
                   <th></th>
@@ -599,7 +651,6 @@ const form = useForm({
   en_description: "",
   ar_description: "",
   weight: "",
-  quantity: "",
   cat_id: "",
   box: false,
   box_l: "",
@@ -615,6 +666,13 @@ const form = useForm({
   pack_q: "",
   pack_w_c: "",
   pack_w_a: "",
+  prod_image: null,
+  prod_img_url: null,
+  box_image: null,
+  box_img_url: null,
+  pack_image: null,
+  pack_img_url: null,
+  _method: 'POST'
 });
 const prod_id = ref(null);
 const edit = (prod) => {
@@ -627,6 +685,9 @@ const edit = (prod) => {
   form.cat_id = prod.cat_id;
   form.en_description = prod.description.en;
   form.ar_description = prod.description.ar;
+  form.prod_img_url = prod.prod_url
+  form.box_img_url = prod.box_url
+  form.pack_img_url = prod.pack_url
   if (prod.box_l) {
     form.box = true;
     form.box_l = prod.box_l;
@@ -654,6 +715,7 @@ const submit = () => {
     })
   }
   else {
+    form._method = 'PUT'
     form.post(route('products.update', prod_id.value), {
       preserveScroll: true,
       onSuccess: () => clear(),
@@ -670,6 +732,18 @@ const destroy = (id) => {
       confirm("Are you sure you want to delete this product? this cannot be undone"),
     preserveScroll: true,
   });
+};
+const previewProdImage = (e) => {
+  form.prod_image = e.target.files[0];
+  form.prod_img_url = URL.createObjectURL(form.prod_image);
+};
+const previewBoxImage = (e) => {
+  form.box_image = e.target.files[0];
+  form.box_img_url = URL.createObjectURL(form.box_image);
+};
+const previewPackImage = (e) => {
+  form.pack_image = e.target.files[0];
+  form.pack_img_url = URL.createObjectURL(form.pack_image);
 };
 defineProps({
   categories: Object,

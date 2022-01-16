@@ -65,6 +65,7 @@ export default {
             return {
                 '48': 'w-48',
                 '32': 'w-32',
+                'full': 'w-full'
             }[this.width.toString()]
         },
 

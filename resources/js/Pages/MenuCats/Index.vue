@@ -161,11 +161,10 @@ let submit = () => {
     })
   }
   else {
-    form.put(route('menucats.update', cat_id), {
+    form.put(route('menucats.update', props.user.id), {
       preserveScroll: true,
       onSuccess: () => form.reset(),
     })
-
   }
 };
 let edit = (category) => {

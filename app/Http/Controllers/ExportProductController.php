@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ExportCat;
 use Inertia\Inertia;
+use App\Models\ExportCat;
 use Illuminate\Http\Request;
 use App\Models\ExportProduct;
-use Illuminate\Support\Facades\App;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class ExportProductController extends Controller
 {
@@ -21,11 +22,14 @@ class ExportProductController extends Controller
 
     public function index()
     {
+        $user = Auth::user();
+        $canList = $user ? $user->can('export-list') : false;
+        $canListCat = $user ? $user->can('export-cat-list') : false;
         return Inertia::render(
             'Products/Index',
             [
                 'products' => ExportProduct::query()
-                    ->filter(request(['search','category']))
+                    ->filter(request(['search', 'category']))
                     ->paginate(20)
                     ->withQueryString()
                     ->through(
@@ -47,6 +51,9 @@ class ExportProductController extends Controller
                             'pack_w' => $prod->pack_w,
                             'pack_h' => $prod->pack_h,
                             'pack_q' => $prod->pack_q,
+                            'prod_url' => $prod->getFirstMedia('prod') ? $prod->getFirstMedia('prod')->getUrl('export') : null,
+                            'box_url' => $prod->getFirstMedia('box') ? $prod->getFirstMedia('box')->getUrl('export') : null,
+                            'pack_url' => $prod->getFirstMedia('package') ? $prod->getFirstMedia('package')->getUrl('export') : null
                         ]
                     ),
                 'categories' => ExportCat::all()->map(
@@ -57,12 +64,15 @@ class ExportProductController extends Controller
                         ];
                     }
                 ),
-                'filters' => request(['search'])
+                'filters' => request(['search']),
+                'canList' => $canList,
+                'canListCat' => $canListCat
             ]
         );
     }
     public function create()
     {
+
         return Inertia::render(
             'Products/Create',
             [
@@ -87,6 +97,9 @@ class ExportProductController extends Controller
                             'pack_w' => $prod->pack_w,
                             'pack_h' => $prod->pack_h,
                             'pack_q' => $prod->pack_q,
+                            'prod_url'=> $prod->getFirstMedia('prod') ? $prod->getFirstMedia('prod')->getUrl('export') : null,
+                            'box_url' => $prod->getFirstMedia('box') ? $prod->getFirstMedia('box')->getUrl('export') : null,
+                            'pack_url'=> $prod->getFirstMedia('pack') ? $prod->getFirstMedia('pack')->getUrl('export') : null
                         ];
                     }
                 ),
@@ -122,6 +135,9 @@ class ExportProductController extends Controller
             'pack_q' => 'required_if:package,true|integer|nullable|min:0',
             'pack_w_c' => 'required_if:package,true|numeric|nullable|min:0',
             'pack_w_a' => 'required_if:package,true|numeric|nullable|min:0',
+            'prod_image' => 'required|max:10240',
+            'box_image' => 'required_if:box,true|max:10240',
+            'pack_image' => 'required_if:package,true|max:10240'
         ]);
         $product = ExportProduct::create([
             'name' => [
@@ -134,7 +150,7 @@ class ExportProductController extends Controller
             ],
             'weight' => $request->weight,
             'cat_id' => $request->cat_id,
-            'box_w' => $request->box_w,
+            'box_w' => $request->box_w ,
             'box_h' => $request->box_h,
             'box_l' => $request->box_l,
             'box_q' => $request->box_q,
@@ -147,11 +163,21 @@ class ExportProductController extends Controller
             'pack_w_c' => $request->pack_w_c,
             'pack_w_a' => $request->pack_w_a,
         ]);
+        $product->addMediaFromRequest('prod_image')
+            ->toMediaCollection('prod');
+        if ($request['box_image']) {
+            $product->addMediaFromRequest('box_image')
+                ->toMediaCollection('box');
+        }
+        if ($request['pack_image']) {
+            $product->addMediaFromRequest('pack_image')
+                ->toMediaCollection('package');
+        }
         return redirect()->back()->with('success', 'Product added successfully.');
     }
     public function update(Request $request, $id)
     {
-        $prod = ExportProduct::find($id);
+        $product = ExportProduct::find($id);
         $request->validate([
             'en_name' => 'required',
             'ar_name' => 'required',
@@ -172,7 +198,7 @@ class ExportProductController extends Controller
             'pack_w_c' => 'required_if:package,true|numeric|nullable|min:0',
             'pack_w_a' => 'required_if:package,true|numeric|nullable|min:0',
         ]);
-        $prod->update([
+        $product->update([
             'name' => [
                 'en' => ucfirst(strtolower($request->en_name)),
                 'ar' => $request->ar_name,
@@ -196,6 +222,18 @@ class ExportProductController extends Controller
             'pack_w_c' => $request->pack_w_c,
             'pack_w_a' => $request->pack_w_a,
         ]);
+        if ($request['prod_image']) {
+            $product->addMediaFromRequest('prod_image')
+            ->toMediaCollection('prod');
+        }
+        if ($request['box_image']) {
+            $product->addMediaFromRequest('box_image')
+                ->toMediaCollection('box');
+        }
+        if ($request['pack_image']) {
+            $product->addMediaFromRequest('pack_image')
+                ->toMediaCollection('package');
+        }
         return redirect()->back()->with('success', 'Product updated successfully.');
     }
     public function destroy($id)

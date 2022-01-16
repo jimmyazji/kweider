@@ -23,10 +23,12 @@
         </div>
         <div class="mt-5 sm:mt-0 flex justify-between">
           <Link
+            v-if="canListCat"
             class="mx-4 hover:underline whitespace-nowrap"
             :href="route('exportcats.index')"
           >{{ $t('manage categories') }}</Link>
           <Link
+            v-if="canList"
             class="mx-4 mb-2 hover:underline whitespace-nowrap"
             :href="route('products.create')"
           >{{ $t('manage products') }}</Link>
@@ -51,17 +53,17 @@
             </div>
           </div>
         </div>
-        <div v-if="products.data.length === 0" class="mt-20 w-full flex justify-center">
-          <span class="text-lg text-lonestar-600 opacity-80">{{ $t('no results') }}</span>
-        </div>
-        <div class="flex-wrap">
-          <transition-group class="relative" name="list" appear>
+        <div class="flex-wrap relative w-full">
+          <transition-group name="list" appear>
             <ExportProduct
               v-for="product in products.data"
               :key="product.id"
               class="mt-4"
               :product="product"
             />
+            <div v-if="products.data.length === 0" class="w-full mt-20 flex justify-center">
+              <span class="text-lg text-lonestar-600 opacity-80">{{ $t('no results') }}</span>
+            </div>
           </transition-group>
         </div>
       </div>
@@ -78,7 +80,7 @@ import Input from "@/Components/Input";
 import debounce from "lodash/debounce";
 import { Inertia } from "@inertiajs/inertia";
 const locale = localStorage.getItem("locale");
-let props = defineProps({ categories: Object, products: Object, filters: Object });
+let props = defineProps({ categories: Object, products: Object, filters: Object, canList: Boolean, canListCat: Boolean });
 let search = ref(props.filters.search)
 let category = ref(props.filters.category)
 const setCat = (cat) => {
@@ -107,5 +109,4 @@ watch(
 );
 </script>
 <style>
-
 </style>
