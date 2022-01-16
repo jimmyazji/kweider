@@ -11,7 +11,7 @@
       }"
     >
       <nav
-        class="bg-primary sticky top-0 z-50 p-2"
+        class="bg-primary sticky top-0 z-50 p-2 border-b-2 border-almond-500"
         :style="{
           backgroundImage: `url('/../images/pattern.png')`,
           backgroundPosition: 'left center',
@@ -93,21 +93,9 @@
                     type="button"
                     class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-almond-500 hover:text-almond-300 focus:outline-none transition ease-in-out duration-150"
                   >
-                    <svg
-                      class="mx-2 h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
                     {{ $i18n.locale.toUpperCase() }}
                     <img
-                      :src="'/../images/' + $i18n.locale.toUpperCase() + '.png'"
+                      :src="'/../images/' + $i18n.locale + '.png'"
                       alt="EN"
                       class="w-6 h-6 mx-1 rounded-full"
                     />
@@ -208,10 +196,11 @@
     }"
   >
     <div class="grid grid-flow-col gap-4">
-      <a class="link link-hover">About us</a>
-      <a class="link link-hover">Contact</a>
-      <a class="link link-hover">Jobs</a>
-      <a class="link link-hover">Press kit</a>
+      <a :href="route('products.index')" class="link link-hover">{{ $t('products') }}</a>
+      <a :href="route('menu.index')" class="link link-hover">{{ $t('menu') }}</a>
+      <a :href="route('blog.index')" class="link link-hover">{{ $t('blog') }}</a>
+      <a :href="route('about.index')" class="link link-hover">{{ $t('about') }}</a>
+      <a :href="route('contact.index')" class="link link-hover">{{ $t('contact') }}</a>
     </div>
     <div>
       <div class="grid grid-flow-col gap-4">
@@ -272,7 +261,7 @@ import LanguageSelector from "@/Components/LanguageSelector.vue";
 import FlashMessage from "@/Components/FlashMessage.vue";
 import ScrollTop from "@/Components/ScrollTop.vue";
 import { usePage } from "@inertiajs/inertia-vue3";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 defineProps({
   showingNavigationDropdown: false,
 });
@@ -281,7 +270,6 @@ onMounted(() => {
   if (usePage().props.value.locale !== locale) {
     var url = "/locale/:locale";
     url = url.replace(":locale", locale);
-    console.log(url)
     window.location.replace(url)
   }
 })
@@ -329,5 +317,19 @@ onMounted(() => {
 .fade-expand-leave-from {
   opacity: 0.5;
   transform: scale(1, 1);
+}
+.fade-enter-active {
+  transition: all 0.5s ease-in-out;
+}
+.fade-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
 }
 </style>
