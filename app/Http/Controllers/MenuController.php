@@ -114,7 +114,7 @@ class MenuController extends Controller
             'en_description' => 'required',
             'ar_description' => 'required',
             'cat_id' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png|max:10240'
+            'image' => 'nullable|mimes:jpg,jpeg,png|max:20480'
         ]);
         $product->update([
             'name' => [
