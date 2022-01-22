@@ -144,6 +144,7 @@
                   :class="{ 'input-error': $page.props.errors.box_l }"
                 />
                 <Input
+                  data-tooltip-target="tooltip-default"
                   id="box_h"
                   type="number"
                   autocomplete="box_h"
@@ -152,6 +153,14 @@
                   :placeholder="$t('height')"
                   :class="{ 'input-error': $page.props.errors.box_h }"
                 />
+                <div
+                  id="tooltip-default"
+                  role="tooltip"
+                  class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700"
+                >
+                  {{ $t('height') }}
+                  <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
                 <Input
                   id="box_q"
                   type="number"
@@ -393,7 +402,7 @@
             </div>
             <div class="flex flex-wrap justify-evenly items-center">
               <label
-                class="max-w-screen lg:w-80 lg:h-80 mx-auto w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
                 for="prod_image"
               >
                 <img
@@ -423,7 +432,7 @@
                 />
               </label>
               <label
-                class="max-w-screen lg:w-80 lg:h-80 mx-auto w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
                 for="box_image"
               >
                 <img
@@ -447,7 +456,7 @@
                 <input id="box_image" type="file" @change="previewBoxImage" class="hidden" />
               </label>
               <label
-                class="max-w-screen lg:w-80 lg:h-80 mx-auto w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
                 for="pack_image"
               >
                 <img

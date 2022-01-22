@@ -4,17 +4,17 @@
     <div class="max-w-7xl mx-2 sm:mx-auto sm:px-6 lg:px-8">
       <div class="tabs">
         <span
-          class="tab tab-lifted tab-lg transition duration-500"
+          class="tab tab-lifted tab-lg duration-500"
           @click="selectTab(1)"
           :class="(selectedTab === 1) ? 'tab-active' : ''"
         >{{ $t('al-midan branch') }}</span>
         <span
-          class="tab tab-lifted tab-lg transition duration-500"
+          class="tab tab-lifted tab-lg duration-500"
           @click="selectTab(2)"
           :class="(selectedTab === 2) ? 'tab-active' : ''"
-        >Tab 2</span>
+        >{{ $t('al-mazzah branch') }}</span>
         <span
-          class="tab tab-lifted tab-lg transition duration-500"
+          class="tab tab-lifted tab-lg duration-500"
           @click="selectTab(3)"
           :class="(selectedTab === 3) ? 'tab-active' : ''"
         >Tab 3</span>
@@ -23,8 +23,8 @@
         class="p-4 bg-white rounded-lg"
         :class="(selectedTab === 1) ? ((locale === 'ar') ? 'rounded-tr-none' : 'rounded-tl-none') : ''"
       >
-        <section class="text-lonestar-600 body-font relative">
-          <div class="absolute inset-0 bg-gray-300">
+        <section class="text-lonestar-600 body-font relative h-180">
+          <div class="absolute inset-0 bg-almond-300">
             <transition-group appear name="fade">
               <iframe
                 v-if="selectedTab === 1"
@@ -61,9 +61,9 @@
               ></iframe>
             </transition-group>
           </div>
-          <div class="container px-5 py-24 mx-auto flex h-screen">
+          <div class="container px-5 py-24 mx-auto flex h-160">
             <div
-              class="hidden lg:w-1/3 md:w-1/2 bg-almond-50 rounded-lg p-8 sm:flex flex-col md:ml-auto w-full mt-10 relative z-10 shadow-md"
+              class="hidden lg:w-1/3 md:w-1/2 bg-almond-50 rounded-lg p-8 md:flex flex-col md:ml-auto w-full mt-10 relative z-10 shadow-md"
             >
               <h2 class="text-lonestar-900 text-lg mb-1 font-medium title-font">{{ $t('feedback') }}</h2>
               <p class="leading-relaxed mb-2 text-lonestar-600">{{ $t('contact message') }}</p>
@@ -89,7 +89,7 @@
         </section>
       </div>
       <div
-        class="sm:hidden mx-2 bg-almond-50 rounded-lg p-8 flex flex-col mt-10 shadow-md"
+        class="md:hidden bg-almond-50 rounded-lg p-8 flex flex-col mt-10 shadow-md"
       >
         <h2 class="text-lonestar-900 text-lg mb-1 font-medium title-font">{{ $t('feedback') }}</h2>
         <p class="leading-relaxed mb-2 text-lonestar-600">{{ $t('contact message') }}</p>
@@ -116,7 +116,7 @@
 </template>
 
 <script setup>
-import { Head, useForm } from "@inertiajs/inertia-vue3";
+import { Head, useForm, usePage } from "@inertiajs/inertia-vue3";
 import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
 import { ref } from "vue";
@@ -127,6 +127,7 @@ const form = useForm({
   message: "",
 })
 const submit = () => {
+  usePage.props.flash.success = "Message sent,Thanks for the feedback"
   form.reset();
 }
 const selectTab = (tab) => {

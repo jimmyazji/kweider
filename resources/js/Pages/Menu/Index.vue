@@ -2,11 +2,11 @@
   <Head :title="$t('menu')" />
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="flex-wrap sm:flex sm:justify-between text-lonestar-600 mx-4">
+      <div class="flex-wrap md:flex md:justify-between text-lonestar-600 mx-4">
         <div class="relative">
           <Input
             type="text"
-            class="input w-96 sm:ml-5 placeholder-lonestar-400 text-lonestar-600"
+            class="input w-full md:w-96 sm:ml-5 placeholder-lonestar-400 text-lonestar-600"
             :placeholder="$t('search')"
             v-model="search"
           />
@@ -21,7 +21,7 @@
             />
           </svg>
         </div>
-        <div class="mt-5 sm:mt-0 flex justify-between items-center">
+        <div class="mt-5 lg:mt-0 flex justify-between items-center">
           <Link
             v-if="canListCat"
             class="mx-4 hover:underline focus:outline-none focus:underline"
@@ -35,18 +35,16 @@
         </div>
       </div>
       <div class="max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div class="flex flex-wrap justify-center">
-          <div class="relative">
-            <transition-group appear name="list">
-              <a
-                v-for="category in categories.data"
-                :key="category.id"
-                :href="'#' + category.name"
-                v-smooth-scroll
-                class="btn btn-primary btn-sm mx-0.5 my-0.5 text-almond-300 hover:scale-105 focus:scale-105 transform transition ease-in-out duration-150"
-              >{{ category.name }}</a>
-            </transition-group>
-          </div>
+        <div class="flex flex-wrap justify-center items-center relative">
+          <transition-group appear name="list">
+            <a
+              v-for="category in categories.data"
+              :key="category.id"
+              :href="'#' + category.name"
+              v-smooth-scroll
+              class="btn btn-primary btn-sm mx-0.5 my-0.5 text-almond-300 hover:scale-105 focus:scale-105 transform transition ease-in-out duration-150"
+            >{{ category.name }}</a>
+          </transition-group>
         </div>
         <section v-for="category in categories.data" :id="category.name">
           <transition appear name="fade-expand">

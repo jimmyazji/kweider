@@ -91,7 +91,7 @@
                                         v-model="form.cat_id"
                                         autocomplete="cat_id"
                                     >
-                                        <option disabled value="">{{ $t('select category') }}</option>
+                                        <option disabled value>{{ $t('select category') }}</option>
                                         <option
                                             v-for="category in categories"
                                             :key="category.id"
@@ -114,7 +114,7 @@
                                     <label
                                         v-else
                                         class="input input-bordered flex w-full mt-1 items-center px-5 cursor-pointer"
-                                        :class="{'input-error' : form.errors.image}"
+                                        :class="{ 'input-error': form.errors.image }"
                                         for="image"
                                     >
                                         <span
@@ -273,7 +273,7 @@
 </template>
 
 <script setup>
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head, usePage } from "@inertiajs/inertia-vue3";
 import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
@@ -306,19 +306,19 @@ const edit = (prod) => {
     form.img_url = prod.img_url
 };
 const submit = () => {
-  if (!prod_id.value) {
-    form.post(route('menu.index'), {
-      preserveScroll: true,
-      onSuccess: () => clear(),
-    })
-  }
-  else {
-    form._method='PUT'
-    form.post(route('menu.update', prod_id.value), {
-      preserveScroll: true,
-      onSuccess: () => clear(),
-    })
-  }
+    if (!prod_id.value) {
+        form.post(route('menu.index'), {
+            preserveScroll: true,
+            onSuccess: () => clear(),
+        })
+    }
+    else {
+        form._method = 'PUT'
+        form.post(route('menu.update', prod_id.value), {
+            preserveScroll: true,
+            onSuccess: () => clear(),
+        })
+    }
 };
 
 const clear = () => {
@@ -333,8 +333,11 @@ const destroy = (id) => {
 };
 
 const previewImage = (e) => {
-    form.image = e.target.files[0];
-    form.img_url = URL.createObjectURL(form.image);
+    console.log(e.target.files[0].type)
+    if (e.target.files[0].type === 'image/png' | 'image/jpg' | 'image/jpeg') {
+        form.image = e.target.files[0];
+        form.img_url = URL.createObjectURL(form.image);
+    }
 }
 defineProps({
     categories: Object,

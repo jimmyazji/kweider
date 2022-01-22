@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuCatController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +52,6 @@ Route::get('/contact', function () {
     return Inertia::render('Contact/Index');
 })->name('contact.index');
 Route::resource('menucats', MenuCatController::class);
+Route::resource('roles', RoleController::class);
 Route::resource('exportcats', ExportCatContoller::class);
 require __DIR__ . '/auth.php';

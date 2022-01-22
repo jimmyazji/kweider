@@ -99,7 +99,7 @@ class ExportProductController extends Controller
                             'pack_q' => $prod->pack_q,
                             'prod_url'=> $prod->getFirstMedia('prod') ? $prod->getFirstMedia('prod')->getUrl('export') : null,
                             'box_url' => $prod->getFirstMedia('box') ? $prod->getFirstMedia('box')->getUrl('export') : null,
-                            'pack_url'=> $prod->getFirstMedia('pack') ? $prod->getFirstMedia('pack')->getUrl('export') : null
+                            'pack_url'=> $prod->getFirstMedia('package') ? $prod->getFirstMedia('package')->getUrl('export') : null
                         ];
                     }
                 ),

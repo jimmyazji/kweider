@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors');
 const svgToDataUri = require('mini-svg-data-uri');
 
 module.exports = {
-    purge: [
+    content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
@@ -22,12 +22,15 @@ module.exports = {
                 '104': '26rem',
                 '120': '30rem',
                 '140': '35rem',
+                '180': '45rem',
+                '160': '40rem',
                 '240': '60rem',
                 'full': '100%'
 
             },
             minHeight: {
                 '24': '6rem',
+                '240': '60rem'
             },
             colors: {
                 almond: {

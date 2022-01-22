@@ -93,7 +93,7 @@ watch(
     Inertia.get(
       "/products",
       { category: value },
-      { preserveState: true, replace: true }
+      { preserveState: true, preserveScroll: true, replace: true }
     );
   }, 300)
 )
@@ -103,7 +103,7 @@ watch(
     Inertia.get(
       "/products",
       { search: value },
-      { preserveState: true, replace: true }
+      { preserveState: true, preserveScroll: true, replace: true }
     );
   }, 300)
 );

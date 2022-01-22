@@ -211,7 +211,7 @@
                             <div v-show="product.box_url ? (currentSlide === 3) : (currentSlide === 2) ">
                                 <img
                                     alt="ecommerce"
-                                    class="min-w-full h-full object-cover rounded-lg"
+                                    class="bg-transparent min-w-full h-full object-cover rounded-lg"
                                     :src="product.pack_url"
                                 />
                             </div>

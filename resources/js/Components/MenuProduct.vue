@@ -2,7 +2,7 @@
     <a
         href="#"
         class="container rounded-lg border-2 bg-almond-300 border-lonestar-300 p-2 focus:outline-none transition-all transform ease-in-out duration-500"
-        :class="toggled ? 'sm:w-140 h-120 sm:h-auto' : 'sm:w-68 h-106 sm:h-auto focus:-translate-y-1 hover:scale-95 focus:scale-100'"
+        :class="toggled ? 'sm:w-140 h-120 sm:h-auto' : 'sm:w-68 h-106 sm:h-auto focus:-translate-y-1 lg:hover:scale-95 lg:focus:scale-100'"
         @click.prevent="toggleElement()"
     >
         <div
@@ -11,7 +11,7 @@
             <img
                 :src="product.image"
                 :alt="product.description"
-                class="h-full object-center object-cover rounded-lg"
+                class="h-full object-center object-cover rounded-lg bg-transparent"
             />
             <p
                 class="hidden md:flex text-lonestar-400 text-sm mx-2 mt-8 ease-in-out"

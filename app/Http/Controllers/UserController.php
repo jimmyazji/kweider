@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Inertia\Inertia;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Spatie\Permission\Models\Role;
@@ -43,6 +44,7 @@ class UserController extends Controller
                     'phone' => $user->phone,
                     'country' => $user->country,
                     'region' => $user->region,
+                    'roles' => $user->roles->pluck('name')->all()
                 ]),
             'filters' => request(['search'])
         ]);
@@ -119,18 +121,10 @@ class UserController extends Controller
             'user' => $user->only('id', 'first_name', 'last_name', 'email', 'phone', 'country', 'region'),
             'roles' => Role::pluck('name')->all(),
             'permissions' => Permission::pluck('name')->all(),
-            'userRoles' => $user->roles->pluck('name','name')->all(),
-            'userPermissions' => $user->permissions->pluck('name','name')->all(),
+            'userRoles' => $user->roles->pluck('name', 'name')->all(),
+            'userPermissions' => $user->permissions->pluck('name', 'name')->all(),
         ]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -150,11 +144,15 @@ class UserController extends Controller
             'country' => $request->country,
             'region' => $request->region,
             'phone' => $request->phone,
-            'password' => Hash::make($request->password),
         ]);
+        if ($request->password) {
+            $user->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
         $user->syncPermissions($request->permissions);
         $user->syncRoles($request->roles);
-        return redirect()->back()->with('success','User Edited Successfully');
+        return redirect()->route('users.index')->with('success', 'User Edited Successfully');
     }
 
     /**

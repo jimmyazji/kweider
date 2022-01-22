@@ -167,7 +167,7 @@ export default {
     submit() {
       this.form.post(this.route("login"), {
         preserveScroll: true,
-        onSuccess: () => form.reset("password"),
+        onSuccess: () => form.reset(),
       });
     },
     switchVisibility() {

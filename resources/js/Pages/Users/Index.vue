@@ -1,8 +1,8 @@
 <template>
-  <Head :title="$t('manageusers')" />
+  <Head :title="$t('manage users')" />
   <header class="bg-almond-200 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $t("manageusers") }}</h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $t("manage users") }}</h2>
     </div>
   </header>
   <div class="py-12">
@@ -48,6 +48,7 @@
                   <th>{{ $t("email") }}</th>
                   <th>{{ $t("country") }}</th>
                   <th>{{ $t("region") }}</th>
+                  <th>{{ $t("roles") }}</th>
                   <th>{{ $t("phone") }}</th>
                   <th></th>
                 </tr>
@@ -68,6 +69,14 @@
                   </td>
                   <td v-t="user.country"></td>
                   <td v-t="user.region"></td>
+                  <td>
+                    <div class="flex">
+                      <span
+                        class="text-xs bg-almond-500 py-0.5 px-1 rounded-full mr-1"
+                        v-for="role in user.roles"
+                      >{{ role }}</span>
+                    </div>
+                  </td>
                   <td v-if="user.phone">{{ user.phone }}</td>
                   <td v-else>{{ $t("none") }}</td>
                   <td class="text-lonestar-500">
@@ -93,6 +102,7 @@
                   <th>{{ $t("email") }}</th>
                   <th>{{ $t("country") }}</th>
                   <th>{{ $t("region") }}</th>
+                  <th>{{ $t("roles") }}</th>
                   <th>{{ $t("phone") }}</th>
                   <th></th>
                 </tr>
