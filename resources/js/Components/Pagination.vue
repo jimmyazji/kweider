@@ -17,7 +17,7 @@ import Button from "./Button.vue";
 export default {
   components: { Button },
   props: {
-    links: Array,
+    links: Object,
   },
 };
 </script>

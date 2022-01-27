@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\ExportCatContoller;
-use App\Http\Controllers\ExportProductController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuCatController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ExportCatContoller;
+use App\Http\Controllers\ExportProductController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,30 +29,27 @@ Route::get('locale/{locale}', function ($locale) {
 })->name('locale');
 
 Route::get('/', function () {
-    return Inertia::render(
-        'Home'
-    );
+    return Inertia::render('Home');
 })->name('home');
 
-Route::resource('users', UserController::class);
-
 Route::get('/settings', function () {
-    return Inertia::render(
-        'Settings'
-    );
+    return Inertia::render('Settings');
 })->name('settings');
-Route::resource('products', ExportProductController::class);
-Route::resource('menu', MenuController::class);
-Route::get('/blog', function () {
-    return Inertia::render('Blog/Index');
-})->name('blog.index');
+
+
 Route::get('/about', function () {
     return Inertia::render('About/Index');
 })->name('about.index');
+
 Route::get('/contact', function () {
     return Inertia::render('Contact/Index');
 })->name('contact.index');
+Route::get('blog', [PostController::class, 'index'])->name('blog.index');
+Route::get('posts/{post:slug}',[PostController::class,'show'])->name('posts.show');
+Route::resource('users', UserController::class);
+Route::resource('products', ExportProductController::class);
+Route::resource('exportcats', ExportCatContoller::class);
+Route::resource('menu', MenuController::class);
 Route::resource('menucats', MenuCatController::class);
 Route::resource('roles', RoleController::class);
-Route::resource('exportcats', ExportCatContoller::class);
 require __DIR__ . '/auth.php';

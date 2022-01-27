@@ -1,8 +1,8 @@
 <template>
     <a
         href="#"
-        class="container rounded-lg border-2 bg-almond-300 border-lonestar-300 p-2 focus:outline-none transition-all transform ease-in-out duration-500"
-        :class="toggled ? 'sm:w-140 h-120 sm:h-auto' : 'sm:w-68 h-106 sm:h-auto focus:-translate-y-1 lg:hover:scale-95 lg:focus:scale-100'"
+        class="container rounded-lg border-2 md:h-auto bg-almond-300 border-lonestar-300 p-2 focus:outline-none transition-all transform ease-in-out duration-500"
+        :class="toggled ? 'sm:w-140 h-120' : 'sm:w-68 h-106 focus:-translate-y-1 lg:hover:scale-95 lg:focus:scale-100'"
         @click.prevent="toggleElement()"
     >
         <div

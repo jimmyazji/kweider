@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -27,13 +26,14 @@ class MenuProduct extends Model implements HasMedia
         'description'
     ];
 
-    public function cat()
+    protected $with = ['media'];
+    public function category()
     {
         return $this->belongsTo(MenuCat::class, 'cat_id', 'id');
     }
     public function registerMediaConversions(Media $media = null): void
     {
-        $this->addMediaConversion('menu')->crop('crop-center', 450, 400);
+        $this->addMediaConversion('menu')->crop('crop-center', 450, 400)->keepOriginalImageFormat();
     }
     public function registerMediaCollections(): void
     {

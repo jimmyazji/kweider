@@ -6,7 +6,7 @@
         <div class="relative">
           <Input
             type="text"
-            class="input w-96 sm:ml-5 placeholder-lonestar-400 text-lonestar-600"
+            class="w-full md:w-96 sm:ml-5 placeholder-lonestar-400 text-lonestar-600"
             :placeholder="$t('search')"
             v-model="search"
           />
@@ -40,14 +40,14 @@
             <h2 class="font-bold">{{ $t('categories') }}</h2>
             <div class="mx-1 mt-1">
               <span
-                @click.prevent="setCat('')"
+                @click.prevent="setCategory('')"
                 class="block whitespace-nowrap text-sm"
                 :class="!category ? 'font-bold' : 'cursor-pointer'"
               >{{ $t('all') }}</span>
               <span
                 class="block whitespace-nowrap text-sm"
                 v-for="cat in categories"
-                @click.prevent="setCat(cat.name)"
+                @click.prevent="setCategory(cat.name)"
                 :class="category === cat.name ? 'font-bold' : 'cursor-pointer'"
               >{{ cat.name }}</span>
             </div>
@@ -83,26 +83,16 @@ const locale = localStorage.getItem("locale");
 let props = defineProps({ categories: Object, products: Object, filters: Object, canList: Boolean, canListCat: Boolean });
 let search = ref(props.filters.search)
 let category = ref(props.filters.category)
-const setCat = (cat) => {
+const setCategory = (cat) => {
   category.value = cat;
 }
 
 watch(
-  category,
-  debounce(function (value) {
+  [search, category],
+  debounce(function () {
     Inertia.get(
       "/products",
-      { category: value },
-      { preserveState: true, preserveScroll: true, replace: true }
-    );
-  }, 300)
-)
-watch(
-  search,
-  debounce(function (value) {
-    Inertia.get(
-      "/products",
-      { search: value },
+      { category: category.value, search: search.value },
       { preserveState: true, preserveScroll: true, replace: true }
     );
   }, 300)

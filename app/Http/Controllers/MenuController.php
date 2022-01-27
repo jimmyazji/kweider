@@ -26,11 +26,12 @@ class MenuController extends Controller
         $canListCat = $user ? $user->can('export-cat-list') : false;
         return Inertia::render('Menu/Index', [
             'categories' => MenuCat::query()
+                ->with('products')
                 ->filter(request(['search']))
                 ->paginate(20)
                 ->withQuerystring()
                 ->through(fn ($cat) => [
-                    $products = $cat->products->map(function ($prod) {
+                    $products = $cat->products->loadMissing('media')->map(function ($prod) {
                         return [
                             'id' => $prod->id,
                             'name' => $prod->name,

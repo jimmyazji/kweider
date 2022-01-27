@@ -6,7 +6,7 @@
         <div class="relative">
           <Input
             type="text"
-            class="input w-full md:w-96 sm:ml-5 placeholder-lonestar-400 text-lonestar-600"
+            class="w-full md:w-96 sm:ml-5 placeholder-lonestar-400 text-lonestar-600"
             :placeholder="$t('search')"
             v-model="search"
           />
@@ -34,7 +34,7 @@
           >{{ $t('manage products') }}</Link>
         </div>
       </div>
-      <div class="max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="flex flex-wrap justify-center items-center relative">
           <transition-group appear name="list">
             <a
@@ -50,16 +50,14 @@
           <transition appear name="fade-expand">
             <div class="divider font-bold opacity-50" dir="ltr">{{ category.name }}</div>
           </transition>
-          <div class="sm:flex justify-start items-center lg:ml-2 mt-6">
-            <div class="flex flex-wrap gap-4 relative">
-              <transition-group appear name="list">
-                <MenuProduct
-                  v-for="product in category.products"
-                  :key="product.id"
-                  :product="product"
-                />
-              </transition-group>
-            </div>
+          <div class="flex flex-wrap justify-start gap-4 relative">
+            <transition-group appear name="list">
+              <MenuProduct
+                v-for="product in category.products"
+                :key="product.id"
+                :product="product"
+              />
+            </transition-group>
           </div>
         </section>
         <div v-if="categories.data.length === 0">

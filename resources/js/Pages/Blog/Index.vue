@@ -1,81 +1,79 @@
 <template>
-  <Head title="blog" />
-  <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-almond-200 overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 bg-almond-200 border-b border-gray-200">
-          <section class="text-gray-600 body-font">
-            <div class="container px-5 py-24 mx-auto flex flex-wrap">
-              <div class="flex w-full mb-20 flex-wrap">
-                <h1
-                  class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4"
-                >Master Cleanse Reliac Heirloom</h1>
-                <p
-                  class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base"
-                >Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
-              </div>
-              <div class="flex flex-wrap md:-m-2 -m-1">
-                <div class="flex flex-wrap w-1/2">
-                  <div class="md:p-2 p-1 w-1/2">
-                    <img
-                      alt="gallery"
-                      class="w-full object-cover h-full object-center block"
-                      src="https://dummyimage.com/500x300"
-                    />
-                  </div>
-                  <div class="md:p-2 p-1 w-1/2">
-                    <img
-                      alt="gallery"
-                      class="w-full object-cover h-full object-center block"
-                      src="https://dummyimage.com/501x301"
-                    />
-                  </div>
-                  <div class="md:p-2 p-1 w-full">
-                    <img
-                      alt="gallery"
-                      class="w-full h-full object-cover object-center block"
-                      src="https://dummyimage.com/600x360"
-                    />
-                  </div>
-                </div>
-                <div class="flex flex-wrap w-1/2">
-                  <div class="md:p-2 p-1 w-full">
-                    <img
-                      alt="gallery"
-                      class="w-full h-full object-cover object-center block"
-                      src="https://dummyimage.com/601x361"
-                    />
-                  </div>
-                  <div class="md:p-2 p-1 w-1/2">
-                    <img
-                      alt="gallery"
-                      class="w-full object-cover h-full object-center block"
-                      src="https://dummyimage.com/502x302"
-                    />
-                  </div>
-                  <div class="md:p-2 p-1 w-1/2">
-                    <img
-                      alt="gallery"
-                      class="w-full object-cover h-full object-center block"
-                      src="https://dummyimage.com/503x303"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+  <Head :title="$t('blog')" />
+  <header class="max-w-sm lg:max-w-xl lg:mx-auto mx-2 mt-20 text-center">
+    <div class="space-y-2 lg:space-y-0 mt-8 text-lonestar-600">
+      <!--  Category -->
+      <div class="relative flex lg:inline-flex items-center bg-almond-200 rounded-xl lg:mx-2">
+        <select
+          v-model="category"
+          :class="{ 'text-lonestar-400': !category }"
+          class="flex-1 appearance-none py-2 pl-3 pr-9 text-sm font-semibold select focus:border-transparent"
+        >
+          <option :value="undefined" selected>{{ category ? 'All' : 'Category' }}</option>
+          <option v-for="category in categories" :value="category.slug">{{ category.name }}</option>
+        </select>
+      </div>
+
+      <!-- Sort -->
+      <div class="relative flex lg:inline-flex items-center bg-almond-200 rounded-xl lg:mx-2">
+        <select
+          v-model="sorting"
+          :class="{ 'text-lonestar-400': !sorting }"
+          class="flex-1 appearance-none py-2 pl-3 pr-9 text-sm font-semibold select focus:border-transparent"
+        >
+          <option :value="undefined" selected>{{ sorting ? 'New first' : 'Sort by' }}</option>
+          <option value="asc">Old first</option>
+        </select>
+      </div>
+
+      <!-- Search -->
+      <div
+        class="relative flex lg:inline-flex items-center bg-almond-200 rounded-xl px-2 py-2 lg:mx-2"
+      >
+        <Input
+          v-model="search"
+          type="text"
+          name="search"
+          :placeholder="$t('search')"
+          class="placeholder-lonestar-400 font-semibold text-sm w-full"
+        />
       </div>
     </div>
+  </header>
+  <div class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+    <FeaturedPost v-if="!(posts.data.length === 0)" :post="posts.data[0]" />
+    <span class="flex justify-center items-center text-lonestar-500" v-else>{{ $t('no results') }}</span>
+    <div v-if="posts.data.length > 1" class="lg:grid lg:grid-cols-6">
+      <template v-for="(post, index) in posts.data.slice(1)">
+        <Post :class="index > 1 ? 'col-span-2' : 'col-span-3'" :post="post" />
+      </template>
+    </div>
+    <Pagination class="ml-10 pb-10" :links="posts.links" />
   </div>
 </template>
 
-<script>
+<script setup>
 import { Head } from "@inertiajs/inertia-vue3";
+import { watch, ref } from "vue";
+import Post from "@/Components/Post.vue"
+import FeaturedPost from "@/Components/FeaturedPost.vue"
+import Pagination from "@/Components/Pagination.vue"
+import Input from "@/Components/Input.vue";
+import debounce from "lodash/debounce";
+import { Inertia } from "@inertiajs/inertia";
 
-export default {
-  components: {
-    Head,
-  },
-};
+let props = defineProps({ posts: Object, filters: Object, categories: Object })
+let category = ref(props.filters.category)
+let sorting = ref(props.filters.sorting)
+let search = ref(props.filters.search)
+watch(
+  [search, category, sorting],
+  debounce(function () {
+    Inertia.get(
+      "/blog",
+      { category: category.value, search: search.value, sorting: sorting.value },
+      { preserveState: true, preserveScroll: true, replace: true }
+    );
+  }, 800)
+);
 </script>

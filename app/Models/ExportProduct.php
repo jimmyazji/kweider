@@ -37,9 +37,9 @@ class ExportProduct extends Model implements HasMedia
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? false, fn ($query, $search) =>
-        $query
+        $query->where(fn ($query) => $query
             ->where(DB::raw('lower(name)'), 'LIKE', '%' . strtolower($search) . '%')
-            ->orWhere(DB::raw('lower(description)'), 'LIKE', '%' . strtolower($search) . '%'));
+            ->orWhere(DB::raw('lower(description)'), 'LIKE', '%' . strtolower($search) . '%')));
         $query->when($filters['category'] ?? false, fn ($query, $category) =>
         $query->whereHas('category', fn ($query) =>
         $query->where(DB::raw('lower(name)'), 'LIKE', '%' . strtolower($category) . '%')));
@@ -50,7 +50,7 @@ class ExportProduct extends Model implements HasMedia
     }
     public function registerMediaConversions(?Media $media = null): void
     {
-        $this->addMediaConversion('export')->crop('crop-center', 400, 400);
+        $this->addMediaConversion('export')->crop('crop-center', 400, 400)->keepOriginalImageFormat();
     }
     public function registerMediaCollections(): void
     {

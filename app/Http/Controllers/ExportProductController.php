@@ -29,6 +29,7 @@ class ExportProductController extends Controller
             'Products/Index',
             [
                 'products' => ExportProduct::query()
+                    ->with('category', 'media')
                     ->filter(request(['search', 'category']))
                     ->paginate(20)
                     ->withQueryString()
@@ -64,7 +65,7 @@ class ExportProductController extends Controller
                         ];
                     }
                 ),
-                'filters' => request(['search']),
+                'filters' => request(['search', 'category']),
                 'canList' => $canList,
                 'canListCat' => $canListCat
             ]
@@ -97,9 +98,9 @@ class ExportProductController extends Controller
                             'pack_w' => $prod->pack_w,
                             'pack_h' => $prod->pack_h,
                             'pack_q' => $prod->pack_q,
-                            'prod_url'=> $prod->getFirstMedia('prod') ? $prod->getFirstMedia('prod')->getUrl('export') : null,
+                            'prod_url' => $prod->getFirstMedia('prod') ? $prod->getFirstMedia('prod')->getUrl('export') : null,
                             'box_url' => $prod->getFirstMedia('box') ? $prod->getFirstMedia('box')->getUrl('export') : null,
-                            'pack_url'=> $prod->getFirstMedia('package') ? $prod->getFirstMedia('package')->getUrl('export') : null
+                            'pack_url' => $prod->getFirstMedia('package') ? $prod->getFirstMedia('package')->getUrl('export') : null
                         ];
                     }
                 ),
@@ -150,7 +151,7 @@ class ExportProductController extends Controller
             ],
             'weight' => $request->weight,
             'cat_id' => $request->cat_id,
-            'box_w' => $request->box_w ,
+            'box_w' => $request->box_w,
             'box_h' => $request->box_h,
             'box_l' => $request->box_l,
             'box_q' => $request->box_q,
@@ -224,7 +225,7 @@ class ExportProductController extends Controller
         ]);
         if ($request['prod_image']) {
             $product->addMediaFromRequest('prod_image')
-            ->toMediaCollection('prod');
+                ->toMediaCollection('prod');
         }
         if ($request['box_image']) {
             $product->addMediaFromRequest('box_image')
