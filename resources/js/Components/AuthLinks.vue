@@ -34,8 +34,7 @@
               font-semibold
             "
           >
-            {{ $page.props.auth.user.first_name }}
-            {{ $page.props.auth.user.last_name }}
+            {{ $page.props.auth.user.name }}
             <svg
               class="mx-2 h-4 w-4"
               xmlns="http://www.w3.org/2000/svg"

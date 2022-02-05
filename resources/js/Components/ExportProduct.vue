@@ -9,7 +9,7 @@
                     <div class="flex mb-4">
                         <span
                             @click="setInfo('prod')"
-                            class="flex-grow border-b-2 py-2 text-lg px-1 cursor-pointer transition-color duration-500  ease-in-out"
+                            class="flex-grow border-b-2 py-2 text-lg px-1 cursor-pointer transition-color duration-500 ease-in-out"
                             :class="selectInfo === 'prod' ? 'text-lonestar-500  border-lonestar-500 ' : 'border-lonestar-300 delay-200'"
                         >{{ $t('prod') }}</span>
                         <span
@@ -46,7 +46,7 @@
                                     >{{ (product.weight < 800) ? product.weight + ' ' + $t('g') : product.weight / 1000 + ' ' + $t('kg') }}</span>
                                 </div>
                                 <div class="flex border-b border-t border-lonestar-200 py-2">
-                                    <span class="text-lonestar-500">{{ $t('cat') }}</span>
+                                    <span class="text-lonestar-500">{{ $t('category') }}</span>
                                     <span class="ml-auto text-lonestar-900">{{ product.category }}</span>
                                 </div>
                             </div>
@@ -187,9 +187,9 @@
                     <Carousel
                         :id="product.id"
                         :class="'carousel-' + product.id"
-                        v-slot="{ currentSlide }"
+                        v-slot="{ currentSlide, animation }"
                     >
-                        <Slide v-if="product.prod_url">
+                        <Slide :animation="animation" v-if="product.prod_url">
                             <div v-show="currentSlide === 1">
                                 <img
                                     alt="ecommerce"
@@ -198,7 +198,7 @@
                                 />
                             </div>
                         </Slide>
-                        <Slide v-if="product.box_url">
+                        <Slide :animation="animation" v-if="product.box_url">
                             <div v-show="currentSlide === 2">
                                 <img
                                     alt="ecommerce"
@@ -207,8 +207,10 @@
                                 />
                             </div>
                         </Slide>
-                        <Slide v-if="product.pack_url">
-                            <div v-show="product.box_url ? (currentSlide === 3) : (currentSlide === 2) ">
+                        <Slide :animation="animation" v-if="product.pack_url">
+                            <div
+                                v-show="product.box_url ? (currentSlide === 3) : (currentSlide === 2)"
+                            >
                                 <img
                                     alt="ecommerce"
                                     class="bg-transparent min-w-full h-full object-cover rounded-lg"

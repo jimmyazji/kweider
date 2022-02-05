@@ -1,8 +1,9 @@
 <template>
-    <div class="relative w-full h-full">
-        <slot :currentSlide="currentSlide" />
+    <div class="relative w-full h-full overflow-hidden rounded-lg">
+        <slot :currentSlide="currentSlide" :animation="animation" />
         <!--  Navigation  -->
-        <div dir="ltr"
+        <div
+            dir="ltr"
             v-if="navigationEnabled && getSlideCount > 1"
             class="hidden py-4 h-full w-full absolute lg:flex justify-between items-center opacity-70"
         >
@@ -16,12 +17,13 @@
             ></i>
         </div>
         <!-- Pagination -->
-        <div dir="ltr"
+        <div
+            dir="ltr"
             v-if="paginationEnabled"
             class="absolute bottom-6 w-full flex justify-center items-center gap-4"
         >
             <span
-                v-for="(slide,index) in getSlideCount"
+                v-for="(slide, index) in getSlideCount"
                 @click="goToSlide(index)"
                 :key="index"
                 class="cursor-pointer w-4 h-4 rounded-full shadow-sm transition-colors duration-500"
@@ -32,6 +34,7 @@
 </template>
 
 <script setup>
+import { current } from 'daisyui/colors';
 import { ref, onMounted } from 'vue';
 
 const props = defineProps(['pagination', 'navigation', 'timeout', 'autoplay', 'id']
@@ -44,6 +47,7 @@ const timeoutDuration = ref(props.timeout ? props.timeout : 5000);
 const paginationEnabled = ref(props.pagination === false ? false : true);
 const navigationEnabled = ref(props.navigation === false ? false : true);
 const carouselId = ref(props.id ? props.id : '1');
+const animation = ref('next')
 
 var timer;
 
@@ -53,6 +57,7 @@ const nextSlide = () => {
         clearInterval(timer);
         startAutoPlay();
     };
+    animation.value = 'next';
     if (currentSlide.value === getSlideCount.value) {
         currentSlide.value = 1;
         return;
@@ -66,6 +71,7 @@ const prevSlide = () => {
         clearInterval(timer);
         startAutoPlay();
     };
+    animation.value = 'prev';
     if (currentSlide.value === 1) {
         currentSlide.value = getSlideCount.value;
         return;
@@ -79,6 +85,13 @@ const goToSlide = (index) => {
         clearInterval(timer);
         startAutoPlay();
     };
+    if (currentSlide.value > index + 1) {
+        animation.value = 'prev'
+    }
+    else if (currentSlide.value < index + 1) {
+        animation.value = 'next'
+    }
+    else { return }
     currentSlide.value = index + 1;
 };
 
@@ -96,3 +109,37 @@ onMounted(() => {
     getSlideCount.value = carousel[0].querySelectorAll(".slide").length;
 });
 </script>
+<style>
+.prev-enter-active,
+.prev-leave-active {
+    transition: all 0.3s;
+    position: absolute;
+}
+.prev-enter-from {
+    transform: translateX(-100%);
+}
+.prev-leave-to {
+    opacity: 0;
+}
+.prev-enter-to,
+.prev-leave-from {
+    transform: translateX(0);
+    opacity: 1;
+}
+.next-enter-active,
+.next-leave-active {
+    transition: all 0.4s;
+    position: absolute;
+}
+.next-enter-from {
+    transform: translateX(100%);
+}
+.next-leave-to {
+    opacity: 0;
+}
+.next-enter-to,
+.next-leave-from {
+    transform: translateX(0);
+    opacity: 1;
+}
+</style>

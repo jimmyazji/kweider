@@ -47,7 +47,7 @@
               </div>
               <div class="flex items-center justify-between mt-4">
                 <Link
-                  :href="route('menu.index')"
+                  :href="route('products.index')"
                   class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
                 >{{ $t("back") }}</Link>
                 <div>

@@ -6,8 +6,6 @@ use Inertia\Inertia;
 use App\Models\MenuCat;
 use App\Models\MenuProduct;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
@@ -68,8 +66,8 @@ class MenuController extends Controller
                         'name' => $prod->getTranslations('name'),
                         'type' => $prod->getTranslations('type'),
                         'description' => $prod->getTranslations('description'),
-                        'category' => $prod->cat->name,
-                        'cat_id' => $prod->cat_id,
+                        'category' => $prod->category->name,
+                        'cat_id' => $prod->category_id,
                         'img_url' => $prod->getFirstMedia('menu')->getUrl()
                     ];
                 }

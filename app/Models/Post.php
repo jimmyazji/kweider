@@ -3,17 +3,25 @@
 namespace App\Models;
 
 use DateTimeInterface;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
     use HasFactory;
-
+    use HasTranslations;
     protected $fillable = [
         'title',
+        'slug',
         'category_id',
         'user_id',
+        'excerpt',
+        'body',
+    ];
+    protected $translatable = [
+        'title',
         'excerpt',
         'body',
     ];

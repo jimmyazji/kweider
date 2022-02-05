@@ -196,11 +196,11 @@
     }"
   >
     <div class="grid grid-flow-col gap-4">
-      <a :href="route('products.index')" class="link link-hover">{{ $t('products') }}</a>
-      <a :href="route('menu.index')" class="link link-hover">{{ $t('menu') }}</a>
-      <a :href="route('blog.index')" class="link link-hover">{{ $t('blog') }}</a>
-      <a :href="route('about.index')" class="link link-hover">{{ $t('about') }}</a>
-      <a :href="route('contact.index')" class="link link-hover">{{ $t('contact') }}</a>
+      <Link :href="route('products.index')" class="link link-hover">{{ $t('products') }}</Link>
+      <Link :href="route('menu.index')" class="link link-hover">{{ $t('menu') }}</Link>
+      <Link :href="route('blog.index')" class="link link-hover">{{ $t('blog') }}</Link>
+      <Link :href="route('about.index')" class="link link-hover">{{ $t('about') }}</Link>
+      <Link :href="route('contact.index')" class="link link-hover">{{ $t('contact') }}</Link>
     </div>
     <div>
       <div class="grid grid-flow-col gap-4">

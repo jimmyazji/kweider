@@ -142,7 +142,7 @@
           class="hover:underline text-sm text-lonestar-500 hover:text-lonestar-700"
         >{{ $t("registered") }}</Link>
       </div>
-      <div :class="locale === 'ar' ? 'mr-4' : 'ml-4'">
+      <div class="ml-4">
         <BreezeButton
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
@@ -173,7 +173,6 @@ export default {
 
   data() {
     return {
-      locale: localStorage.getItem("locale"),
       form: this.$inertia.form({
         first_name: "",
         last_name: "",

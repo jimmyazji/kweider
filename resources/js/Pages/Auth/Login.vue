@@ -164,6 +164,7 @@ export default {
     submit() {
       this.form.post(this.route("login"), {
         preserveScroll: true,
+        replace: true,
         onSuccess: () => form.reset(),
       });
     },

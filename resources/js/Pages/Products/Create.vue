@@ -426,6 +426,7 @@
                 <input
                   id="prod_image"
                   type="file"
+                  accept="image/*"
                   @change="previewProdImage"
                   class="hidden"
                   ref="photo"
@@ -453,7 +454,7 @@
                 >
                   <path d="M12 5v14M5 12h14" />
                 </svg>
-                <input id="box_image" type="file" @change="previewBoxImage" class="hidden" />
+                <input id="box_image" type="file" accept="image/*" @change="previewBoxImage" class="hidden" />
               </label>
               <label
                 class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
@@ -477,12 +478,18 @@
                 >
                   <path d="M12 5v14M5 12h14" />
                 </svg>
-                <input id="pack_image" type="file" @change="previewPackImage" class="hidden" />
+                <input
+                  id="pack_image"
+                  type="file"
+                  accept="image/*"
+                  @change="previewPackImage"
+                  class="hidden"
+                />
               </label>
             </div>
             <div class="flex items-center justify-between mt-10">
               <Link
-                :href="route('menu.index')"
+                :href="route('products.index')"
                 class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
               >{{ $t("back") }}</Link>
               <div>

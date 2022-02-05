@@ -1,20 +1,17 @@
 <template>
     <Head :title="$t('blog')" />
     <div class="max-w-6xl mx-auto mt-10 lg:mt-20 space-y-6 pb-10">
-        <article class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10">
+        <article class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10 px-5 lg:px-5">
             <div class="col-span-4 lg:text-center lg:pt-14 mb-10">
                 <img src="/images/IMG_1.jpg" alt class="rounded-xl" />
 
                 <div class="flex items-center text-sm mt-4">
-                    <div class="ml-3 text-left">
-                        <span>Posted by</span>
-                        <h5
-                            class="font-bold"
-                        >{{ post.author.first_name + ' ' + post.author.last_name }}</h5>
+                    <div class="flex">
+                        <span class="mr-1">{{ $t('author') }}</span>
+                        <h5 class="font-bold">{{ post.author }}</h5>
                     </div>
                 </div>
-                <p class="mt-4 block text-lonestar-400 text-xs">
-                    Published
+                <p class="flex mt-2 text-lonestar-400 text-xs justify-start">
                     <time>{{ post.created_at }}</time>
                 </p>
             </div>
@@ -25,7 +22,13 @@
                         :href="route('blog.index')"
                         class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-lonestar-400"
                     >
-                        <svg width="22" height="22" viewBox="0 0 22 22" class="mr-2">
+                        <svg
+                            width="22"
+                            height="22"
+                            viewBox="0 0 22 22"
+                            class="mr-2"
+                            :class="locale === 'ar' ? 'transform rotate-180' : ''"
+                        >
                             <g fill="none" fill-rule="evenodd">
                                 <path
                                     stroke="#000"
@@ -39,7 +42,7 @@
                                 />
                             </g>
                         </svg>
-                        Back to Posts
+                        {{ $t('back to posts') }}
                     </Link>
 
                     <div class="space-x-2">
@@ -48,7 +51,7 @@
                             @click.prevent="categorise"
                             class="px-3 py-1 border-2 border-lonestar-400 border-opacity-50 rounded-full text-lonestar-500 text-xs uppercase font-semibold"
                             style="font-size: 10px"
-                        >{{ post.category.name }}</a>
+                        >{{ post.category }}</a>
                     </div>
                 </div>
 
@@ -65,6 +68,7 @@ import { Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia"
 let props = defineProps({ post: Object })
 const categorise = () => {
-    Inertia.get('/blog', { category: props.post.category.name })
+    Inertia.get('/blog', { category: props.post.category })
 }
+const locale = localStorage.getItem("locale");
 </script>

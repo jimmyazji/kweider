@@ -2,8 +2,8 @@
   <Head :title="$t('home')" />
 
   <div class="h-140 overflow-hidden">
-    <Carousel :autoplay="true" class="carousel-1" v-slot="{ currentSlide }">
-      <Slide>
+    <Carousel :autoplay="true" class="carousel-1" v-slot="{ currentSlide, animation }">
+      <Slide :animation="animation">
         <div v-show="currentSlide === 1">
           <img
             class="min-w-full h-full object-cover rounded-lg"
@@ -12,7 +12,7 @@
           />
         </div>
       </Slide>
-      <Slide>
+      <Slide :animation="animation">
         <div v-show="currentSlide === 2">
           <img
             class="min-w-full h-full object-cover rounded-lg"
@@ -21,7 +21,7 @@
           />
         </div>
       </Slide>
-      <Slide>
+      <Slide :animation="animation">
         <div v-show="currentSlide === 3">
           <img
             class="min-w-full h-full object-cover rounded-lg"

@@ -31,6 +31,7 @@ class ExportProductController extends Controller
                 'products' => ExportProduct::query()
                     ->with('category', 'media')
                     ->filter(request(['search', 'category']))
+                    ->orderBy('created_at', request('sorting') ?? 'desc')
                     ->paginate(20)
                     ->withQueryString()
                     ->through(

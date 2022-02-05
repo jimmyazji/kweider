@@ -44,8 +44,15 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return Inertia::render('Contact/Index');
 })->name('contact.index');
+
 Route::get('blog', [PostController::class, 'index'])->name('blog.index');
-Route::get('posts/{post:slug}',[PostController::class,'show'])->name('posts.show');
+Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('blog', [PostController::class, 'store'])->name('posts.store');
+Route::get('posts/{post:slug}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('blog/{post}', [PostController::class, 'update'])->name('posts.update');
+Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.delete');
+
 Route::resource('users', UserController::class);
 Route::resource('products', ExportProductController::class);
 Route::resource('exportcats', ExportCatContoller::class);

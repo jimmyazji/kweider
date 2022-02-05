@@ -1,28 +1,41 @@
 <template>
     <article
-        class="pb-20 relative transition-colors duration-300 hover:bg-almond-200 border border-lonestar-800 border-opacity-0 hover:border-opacity-5 rounded-xl"
+        class="pb-20 relative transition-colors duration-300 hover:bg-almond-200 border border-lonestar-800 border-opacity-0 hover:border-opacity-5 rounded-xl focus-within:bg-almond-200"
     >
-        <div class="py-6 px-5">
-            <div>
+        <div class="py-6 px-2 lg:px-5">
+            <div class="flex-1" >
                 <img src="/images/IMG_1.jpg" alt="Blog Post illustration" class="rounded-xl" />
             </div>
 
-            <div class="mt-8 flex flex-col justify-between">
+            <div class="flex-1 flex flex-col justify-between mt-8">
                 <header>
-                    <div class="space-x-2">
+                    <div class="flex justify-between">
                         <a
                             href="#"
                             @click.prevent="categorise()"
-                            class="px-3 py-1 border-2 border-lonestar-400 border-opacity-50 rounded-full text-lonestar-500 text-xs uppercase font-semibold"
-                            style="font-size: 10px"
-                        >{{ post.category }}</a>
+                            class="btn btn-primary btn-sm btn-outline border-2 border-lonestar-400 opacity-70 hover:opacity-100 text-3xs"
+                        >{{ post.category.name }}</a>
+                        <Dropdown :align="locale === 'ar' ? 'left' : 'right'">
+                            <template #trigger>
+                                <button
+                                    class="btn btn-primary btn-sm btn-outline border-2 border-lonestar-400 opacity-70 hover:opacity-100"
+                                >
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                            </template>
+                            <template #content>
+                                <DropdownLink :href="route('posts.edit', post)">{{ $t('edit') }}</DropdownLink>
+                                <DropdownLink @click="destroy">
+                                    <span class="text-red-600">{{ $t('delete') }}</span>
+                                </DropdownLink>
+                            </template>
+                        </Dropdown>
                     </div>
 
                     <div class="mt-4">
-                        <h1 class="text-3xl">{{ post.title }}</h1>
+                        <h1 class="text-3xl text-lonestar-600">{{ post.title }}</h1>
 
                         <span class="mt-2 block text-lonestar-400 text-xs">
-                            Published
                             <time>{{ post.created_at }}</time>
                         </span>
                     </div>
@@ -34,28 +47,36 @@
 
                 <footer class="flex justify-between items-center w-full absolute bottom-2 pb-5">
                     <div class="flex items-center text-sm">
-                        <div class="flex">
-                            <span class="mr-1">Post by</span>
+                        <div class="ml-3 flex">
+                            <span class="mr-1">{{ $t('post by') }}</span>
                             <h5 class="font-bold">{{ post.author }}</h5>
                         </div>
                     </div>
 
-                    <div class="hidden mr-10 lg:block">
+                    <div class="hidden lg:mr-10 lg:block">
                         <Link
                             :href="route('posts.show', post.slug)"
-                            class="btn btn-sm duration-300 text-xs text-almond-200 font-semibold bg-lonestar-500 hover:bg-lonestar-400 rounded-full py-2 px-5"
-                        >Read More</Link>
+                            class="btn btn-primary btn-sm"
+                        >{{ $t('read more') }}</Link>
                     </div>
                 </footer>
             </div>
         </div>
     </article>
 </template>
-<script setup>import { Inertia } from '@inertiajs/inertia';
-
-
+<script setup>
+import { Inertia } from '@inertiajs/inertia';
+import Dropdown from '@/Components/Dropdown.vue';
+import DropdownLink from '@/Components/DropdownLink.vue';
+const locale = localStorage.getItem('locale');
 let props = defineProps({ post: Object });
 const categorise = () => {
-    Inertia.get('/blog', { category: props.post.category })
+    Inertia.get('/blog', { category: props.post.category.slug })
 }
+const destroy = () => {
+    Inertia.delete(`/posts/${props.post.id}`, {
+        onBefore: () => confirm('Are you sure you want to delete this post? this cannot be undone'),
+        preserveScroll: true
+    })
+};
 </script>
