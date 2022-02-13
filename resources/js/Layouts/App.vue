@@ -11,10 +11,10 @@
       }"
     >
       <nav
-        class="bg-primary sticky top-0 z-50 p-2 border-b-2 border-almond-500"
+        class="bg-primary sticky top-0 z-50 p-2 border-b border-almond-500"
         :style="{
           backgroundImage: `url('/../images/pattern.png')`,
-          backgroundPosition: 'left center',
+          backgroundPosition: 'center center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }"
@@ -246,7 +246,7 @@
       </div>
     </div>
     <div>
-      <p>Copyright © 2021 - All right reserved</p>
+      <p>Copyright © 2022 - All right reserved</p>
     </div>
   </footer>
 </template>

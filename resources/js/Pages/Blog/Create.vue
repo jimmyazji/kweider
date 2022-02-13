@@ -118,6 +118,37 @@
                                 v-text="form.errors.ar_body"
                                 class="text-error text-sm ml-2 mt-1"
                             ></div>
+                            <label
+                                class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                                for="thumbnail"
+                            >
+                                <img
+                                    v-if="form.thumbnail_url"
+                                    class="w-full h-full object-cover rounded-md"
+                                    :src="form.thumbnail_url"
+                                    alt="thumbnail"
+                                />
+                                <svg
+                                    v-else
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="0.2"
+                                    class="mx-auto w-1/2 md:w-40 md:h-40"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg>
+                                <input
+                                    id="thumbnail"
+                                    type="file"
+                                    accept="image/*"
+                                    @change="previewImage"
+                                    class="hidden"
+                                    ref="photo"
+                                />
+                            </label>
                             <div class="flex items-center justify-between mt-4">
                                 <Link
                                     :href="route('blog.index')"
@@ -129,7 +160,7 @@
                                         class="px-5 mx-0.5"
                                         :class="{ 'opacity-25': form.processing }"
                                         :disabled="form.processing"
-                                    >{{ $t("submit") }}</Button>
+                                    >{{ $t("create") }}</Button>
                                     <Button
                                         type="button"
                                         class="px-5 mx-0.5"
@@ -159,7 +190,7 @@
         >
             <article class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10">
                 <div class="col-span-4 lg:text-center lg:pt-14 mb-10">
-                    <img src="/images/IMG_1.jpg" alt class="rounded-xl" />
+                    <img :src="form.thumbnail_url" alt class="rounded-xl" />
                     <div class="flex items-center text-sm mt-4">
                         <div class="flex">
                             <span class="mx-1">{{ previewLocale === 'ar' ? 'الكاتب' : 'Author' }}</span>
@@ -171,7 +202,7 @@
 
                 <div class="col-span-8">
                     <div class="hidden lg:flex justify-between mb-6">
-                        <Link
+                        <span
                             class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-lonestar-400"
                         >
                             <svg
@@ -195,7 +226,7 @@
                                 </g>
                             </svg>
                             {{ previewLocale === 'ar' ? 'العودة' : 'back to posts' }}
-                        </Link>
+                        </span>
 
                         <div class="space-x-2">
                             <a
@@ -253,8 +284,14 @@ const form = useForm({
     category_id: '',
     en_body: '',
     ar_body: '',
+    thumbnail: null,
+    thumbnail_url: null,
 });
 
+const previewImage = (e) => {
+    form.thumbnail = e.target.files[0];
+    form.thumbnail_url = URL.createObjectURL(form.thumbnail);
+}
 const submit = () => {
     form.post(route('blog.index'), {
         preserveScroll: true,

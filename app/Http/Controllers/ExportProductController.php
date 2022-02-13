@@ -143,7 +143,7 @@ class ExportProductController extends Controller
         ]);
         $product = ExportProduct::create([
             'name' => [
-                'en' => ucfirst(strtolower($request->en_name)),
+                'en' => $request->en_name,
                 'ar' => $request->ar_name,
             ],
             'description' => [
@@ -190,7 +190,7 @@ class ExportProductController extends Controller
             'box_w' => 'required_if:box,true|numeric|nullable|min:0',
             'box_h' => 'required_if:box,true|numeric|nullable|min:0',
             'box_l' => 'required_if:box,true|numeric|nullable|min:0',
-            'box_q' => 'required_if:box,true|integer|nullable|min:0',
+            'box_q' => 'integer|nullable|min:0',
             'box_w_c' => 'required_if:box,true|numeric|nullable|min:0',
             'box_w_a' => 'required_if:box,true|numeric|nullable|min:0',
             'pack_w' => 'required_if:package,true|numeric|nullable|min:0',
@@ -202,7 +202,7 @@ class ExportProductController extends Controller
         ]);
         $product->update([
             'name' => [
-                'en' => ucfirst(strtolower($request->en_name)),
+                'en' => $request->en_name,
                 'ar' => $request->ar_name,
             ],
             'description' => [

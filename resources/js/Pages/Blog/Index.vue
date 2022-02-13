@@ -22,7 +22,7 @@
           class="select select-bordered focus:border-transparent w-full"
         >
           <option :value="undefined" selected>{{ sorting ? 'New first' : $t('sort by') }}</option>
-          <option value="asc">Old first</option>
+          <option value="asc">{{ $t('old first') }}</option>
         </select>
       </div>
 
@@ -45,6 +45,7 @@
           </template>
           <template #content>
             <DropdownLink :href="route('posts.create')">{{ $t('create post') }}</DropdownLink>
+            <DropdownLink :href="route('postcats.index')">{{ $t('manage categories') }}</DropdownLink>
           </template>
         </Dropdown>
       </div>
@@ -53,11 +54,11 @@
   <div class="max-w-6xl mx-auto mt-6 space-y-6">
     <FeaturedPost v-if="!(posts.data.length === 0)" :post="posts.data[0]" />
     <span class="flex justify-center items-center text-lonestar-500" v-else>{{ $t('no results') }}</span>
-    <tmep v-if="posts.data.length > 1" class="lg:grid lg:grid-cols-6">
+    <div v-if="posts.data.length > 1" class="lg:grid lg:grid-cols-6">
       <template v-for="(post, index) in posts.data.slice(1)">
         <Post :class="index > 1 ? 'col-span-2' : 'col-span-3'" :post="post" />
       </template>
-    </tmep>
+    </div>
     <Pagination
       v-if="posts.next_page_url || posts.prev_page_url"
       class="ml-2 lg:ml-10 pb-10"

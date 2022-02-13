@@ -4,7 +4,7 @@
     >
         <div class="py-6 px-2 lg:px-5 lg:flex">
             <div class="flex-1 lg:mr-8">
-                <img src="/images/IMG_1.jpg" alt="Blog Post illustration" class="rounded-xl" />
+                <img :src="post.thumbnail" alt="Blog Post illustration" class="rounded-xl" />
             </div>
 
             <div class="flex-1 flex flex-col justify-between">
@@ -24,9 +24,17 @@
                                 </button>
                             </template>
                             <template #content>
-                                <DropdownLink :href="route('posts.edit', post)">{{ $t('edit') }}</DropdownLink>
+                                <DropdownLink :href="route('posts.edit', post)">
+                                    <span class="text-lonestar-500">
+                                        <i class="fas fa-edit mr-1" />
+                                        {{ $t('edit') }}
+                                    </span>
+                                </DropdownLink>
                                 <DropdownLink @click="destroy">
-                                    <span class="text-red-600">{{ $t('delete') }}</span>
+                                    <span class="text-red-600">
+                                        <i class="fa fa-trash mr-2" />
+                                        {{ $t('delete') }}
+                                    </span>
                                 </DropdownLink>
                             </template>
                         </Dropdown>

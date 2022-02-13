@@ -1,9 +1,9 @@
+   
 <template>
-    <div class="relative w-full h-full overflow-hidden rounded-lg">
-        <slot :currentSlide="currentSlide" :animation="animation" />
+    <div class="relative w-full h-full">
+        <slot :animation="animation" :currentSlide="currentSlide" />
         <!--  Navigation  -->
-        <div
-            dir="ltr"
+        <div dir="ltr"
             v-if="navigationEnabled && getSlideCount > 1"
             class="hidden py-4 h-full w-full absolute lg:flex justify-between items-center opacity-70"
         >
@@ -17,13 +17,12 @@
             ></i>
         </div>
         <!-- Pagination -->
-        <div
-            dir="ltr"
+        <div dir="ltr"
             v-if="paginationEnabled"
             class="absolute bottom-6 w-full flex justify-center items-center gap-4"
         >
             <span
-                v-for="(slide, index) in getSlideCount"
+                v-for="(slide,index) in getSlideCount"
                 @click="goToSlide(index)"
                 :key="index"
                 class="cursor-pointer w-4 h-4 rounded-full shadow-sm transition-colors duration-500"
@@ -32,9 +31,7 @@
         </div>
     </div>
 </template>
-
 <script setup>
-import { current } from 'daisyui/colors';
 import { ref, onMounted } from 'vue';
 
 const props = defineProps(['pagination', 'navigation', 'timeout', 'autoplay', 'id']
@@ -109,6 +106,7 @@ onMounted(() => {
     getSlideCount.value = carousel[0].querySelectorAll(".slide").length;
 });
 </script>
+
 <style>
 .prev-enter-active,
 .prev-leave-active {

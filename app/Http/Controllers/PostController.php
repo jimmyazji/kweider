@@ -32,6 +32,7 @@ class PostController extends Controller
                         'slug' => $post->category->slug
                     ],
                     'author' => $post->author->name,
+                    'thumbnail' => $post->getFirstMedia('thumbnail') ? $post->getFirstMedia('thumbnail')->getUrl() : null
                 ]),
             'categories' => PostCategory::all()->map(function ($cat) {
                 return ['name' => $cat->name, 'slug' => $cat->slug];
@@ -52,9 +53,10 @@ class PostController extends Controller
             '*_excerpt' => 'required',
             '*_body' => 'required',
             'category_id' => 'required',
+            'thumbnail' => 'required|mimes:jpg,jpeg,png|max:10240'
         ]);
 
-        Post::create([
+        $post = Post::create([
             'title' => [
                 'en' => $request->en_title,
                 'ar' => $request->ar_title
@@ -71,6 +73,8 @@ class PostController extends Controller
             'category_id' => $request->category_id,
             'user_id' => auth()->id(),
         ]);
+        $post->addMediaFromRequest('thumbnail')
+            ->toMediaCollection('thumbnail');
         return redirect()->route('blog.index')->with('success', 'Post Created Successfully.');
     }
     public function show(Post $post)
@@ -82,13 +86,24 @@ class PostController extends Controller
             'body' => $post->body,
             'category' => $post->category->name,
             'author' => $post->author->name,
-            'created_at' => $post->created_at->diffForHumans()
+            'created_at' => $post->created_at->diffForHumans(),
+            'thumbnail' => $post->getFirstMedia('thumbnail') ? $post->getFirstMedia('thumbnail')->getUrl() : null
         ];
         return Inertia::render('Blog/Show', ['post' => $data]);
     }
     public function edit(Post $post)
     {
-        return Inertia::render('Blog/Edit', ['post' => $post, 'categories' => PostCategory::all()->map(function ($cat) {
+        $post->load(['media', 'author', 'category']);
+        $data = [
+            'id' => $post->id,
+            'title' => $post->getTranslations('title'),
+            'excerpt' => $post->getTranslations('excerpt'),
+            'body' => $post->getTranslations('body'),
+            'category_id' => $post->category_id,
+            'author' => $post->author->name,
+            'thumbnail_url' => $post->getFirstMedia('thumbnail') ? $post->getFirstMedia('thumbnail')->getUrl() : null
+        ];
+        return Inertia::render('Blog/Edit', ['post' => $data, 'categories' => PostCategory::all()->map(function ($cat) {
             return ['id' => $cat->id, 'name' => $cat->name];
         })]);
     }
@@ -100,6 +115,7 @@ class PostController extends Controller
             '*_excerpt' => 'required',
             '*_body' => 'required',
             'category_id' => 'required',
+            'image' => 'nullable|mimes:jpg,jpeg,png|max:10240'
         ]);
         $post = Post::find($id);
         $post->update([
@@ -117,6 +133,10 @@ class PostController extends Controller
             ],
             'category_id' => $request->category_id,
         ]);
+        if ($request->thumbnail) {
+            $post->addMediaFromRequest('thumbnail')
+                ->toMediaCollection('thumbnail');
+        }
         return redirect()->route('blog.index')->with('success', 'Post updated successfully.');
     }
     public function destroy($id)

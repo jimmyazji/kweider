@@ -82,58 +82,26 @@
                                     ></div>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-2">
-                                <div>
-                                    <select
-                                        id="cat_id"
-                                        class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
-                                        :class="{ 'text-gray-500': !form.cat_id, 'select-error': form.errors.cat_id }"
-                                        v-model="form.cat_id"
-                                        autocomplete="cat_id"
-                                    >
-                                        <option disabled value>{{ $t('select category') }}</option>
-                                        <option
-                                            v-for="category in categories"
-                                            :key="category.id"
-                                            :value="category.id"
-                                        >{{ category.name }}</option>
-                                    </select>
-                                    <div
-                                        v-if="form.errors.cat_id"
-                                        v-text="form.errors.cat_id"
-                                        class="text-error text-sm ml-2 mt-1"
-                                    ></div>
-                                </div>
-                                <div>
-                                    <progress
-                                        v-if="form.progress"
-                                        class="progress"
-                                        :value="form.progress.percentage"
-                                        max="100"
-                                    >{{ form.progress.percentage }}</progress>
-                                    <label
-                                        v-else
-                                        class="input input-bordered flex w-full mt-1 items-center px-5 cursor-pointer"
-                                        :class="{ 'input-error': form.errors.image }"
-                                        for="image"
-                                    >
-                                        <span
-                                            v-text="form.image ? form.image.name : $t('upload image')"
-                                        ></span>
-                                        <input
-                                            id="image"
-                                            type="file"
-                                            @change="previewImage"
-                                            ref="photo"
-                                            class="sr-only"
-                                        />
-                                    </label>
-                                    <div
-                                        v-if="form.errors.image"
-                                        v-text="form.errors.image"
-                                        class="text-error text-sm ml-2 mt-1"
-                                    ></div>
-                                </div>
+                            <div>
+                                <select
+                                    id="cat_id"
+                                    class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
+                                    :class="{ 'text-gray-500': !form.cat_id, 'select-error': form.errors.cat_id }"
+                                    v-model="form.cat_id"
+                                    autocomplete="cat_id"
+                                >
+                                    <option disabled value>{{ $t('select category') }}</option>
+                                    <option
+                                        v-for="category in categories"
+                                        :key="category.id"
+                                        :value="category.id"
+                                    >{{ category.name }}</option>
+                                </select>
+                                <div
+                                    v-if="form.errors.cat_id"
+                                    v-text="form.errors.cat_id"
+                                    class="text-error text-sm ml-2 mt-1"
+                                ></div>
                             </div>
                             <div class="grid grid-cols-2 gap-2">
                                 <div>
@@ -168,13 +136,37 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex justify-center">
+                        <label
+                            class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                            for="image"
+                        >
                             <img
                                 v-if="form.img_url"
+                                class="w-full h-full object-cover rounded-md"
                                 :src="form.img_url"
-                                class="rounded-lg h-60 w-auto mt-4"
+                                alt="Image"
                             />
-                        </div>
+                            <svg
+                                v-else
+                                xmlns="http://www.w3.org/2000/svg"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="0.2"
+                                class="mx-auto w-1/2 md:w-40 md:h-40"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                            <input
+                                id="image"
+                                type="file"
+                                accept="image/*"
+                                @change="previewImage"
+                                class="hidden"
+                                ref="photo"
+                            />
+                        </label>
                         <div class="flex items-center justify-between mt-4">
                             <Link
                                 :href="route('menu.index')"
@@ -333,11 +325,8 @@ const destroy = (id) => {
 };
 
 const previewImage = (e) => {
-    console.log(e.target.files[0].type)
-    if (e.target.files[0].type === 'image/png' | 'image/jpg' | 'image/jpeg') {
-        form.image = e.target.files[0];
-        form.img_url = URL.createObjectURL(form.image);
-    }
+    form.image = e.target.files[0];
+    form.img_url = URL.createObjectURL(form.image);
 }
 defineProps({
     categories: Object,

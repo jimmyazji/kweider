@@ -38,7 +38,7 @@ class ExportCatContoller extends Controller
         ]);
         ExportCat::create([
             'name' => [
-                'en' => ucfirst(strtolower($request['name.en'])),
+                'en' => $request['name.en'],
                 'ar' => $request['name.ar']
             ]
         ]);
@@ -53,7 +53,7 @@ class ExportCatContoller extends Controller
         ]);
         $cat->update([
             'name' => [
-                'en' => ucfirst(strtolower($request['name.en'])),
+                'en' => $request['name.en'],
                 'ar' => $request['name.ar']
             ],
         ]);

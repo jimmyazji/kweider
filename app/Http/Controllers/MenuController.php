@@ -24,6 +24,7 @@ class MenuController extends Controller
         $canListCat = $user ? $user->can('export-cat-list') : false;
         return Inertia::render('Menu/Index', [
             'categories' => MenuCat::query()
+                ->orderBy('order','desc')
                 ->with('products')
                 ->filter(request(['search']))
                 ->paginate(20)
@@ -67,7 +68,7 @@ class MenuController extends Controller
                         'type' => $prod->getTranslations('type'),
                         'description' => $prod->getTranslations('description'),
                         'category' => $prod->category->name,
-                        'cat_id' => $prod->category_id,
+                        'cat_id' => $prod->cat_id,
                         'img_url' => $prod->getFirstMedia('menu')->getUrl()
                     ];
                 }
@@ -113,19 +114,19 @@ class MenuController extends Controller
             'en_description' => 'required',
             'ar_description' => 'required',
             'cat_id' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png|max:20480'
+            'image' => 'nullable|mimes:jpg,jpeg,png|max:10240'
         ]);
         $product->update([
             'name' => [
-                'en' => ucfirst(strtolower($request->en_name)),
+                'en' => $request->en_name,
                 'ar' => $request->ar_name
             ],
             'type' => [
-                'en' => ucfirst(strtolower($request->en_type)),
+                'en' => $request->en_type,
                 'ar' => $request->ar_type
             ],
             'description' => [
-                'en' => ucfirst(strtolower($request->en_description)),
+                'en' => $request->en_description,
                 'ar' => $request->ar_description
             ],
             'cat_id' => $request->cat_id

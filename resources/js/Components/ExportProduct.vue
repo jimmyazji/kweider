@@ -43,7 +43,7 @@
                                     <span class="text-lonestar-500">{{ $t('weight') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ (product.weight < 800) ? product.weight + ' ' + $t('g') : product.weight / 1000 + ' ' + $t('kg') }}</span>
+                                    >{{ product.weight ? ((product.weight < 800) ? product.weight + ' ' + $t('g') : product.weight / 1000 + ' ' + $t('kg')) : '-' }}</span>
                                 </div>
                                 <div class="flex border-b border-t border-lonestar-200 py-2">
                                     <span class="text-lonestar-500">{{ $t('category') }}</span>
@@ -92,7 +92,7 @@
                                     <span class="text-lonestar-500">{{ $t('quantity') }}</span>
                                     <span
                                         class="ml-auto text-lonestar-900"
-                                    >{{ product.box_q + ' ' + $t('p') }}</span>
+                                    >{{ product.box_q ? (product.box_q + ' ' + $t('p')) : '-' }}</span>
                                 </div>
                             </div>
                         </transition>

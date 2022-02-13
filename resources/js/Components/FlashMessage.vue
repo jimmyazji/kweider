@@ -22,9 +22,11 @@
           @click.prevent="showFlash = false"
           class="opacity-75 cursor-pointer absolute top-0 right-0 py-2 px-3 hover:opacity-100"
         >×</button>
-        <div class="flex items-center" v-if="flash.error || Object.keys(errors).length > 0">
+        <div class="flex items-center" v-if="Object.keys(errors).length > 0">
           {{ $t("Whoops, Something went wrong!") }}
-          <p>{{ flash.error }}</p>
+        </div>
+        <div class="flex items-center" v-if="flash.error">
+          {{ $t("Error,") }} {{ flash.error }}
         </div>
         <div
           class="flex items-center"

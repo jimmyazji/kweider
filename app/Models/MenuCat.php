@@ -14,6 +14,7 @@ class MenuCat extends Model
     use HasTranslations;
     protected $fillable = [
         'name',
+        'order'
     ];
     public $translatable = [
         'name'

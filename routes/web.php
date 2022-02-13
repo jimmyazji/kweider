@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuCatController;
 use App\Http\Controllers\ExportCatContoller;
 use App\Http\Controllers\ExportProductController;
+use App\Http\Controllers\PostCategoryContoller;
 use App\Http\Controllers\PostController;
 
 /*
@@ -52,11 +53,13 @@ Route::get('posts/{post:slug}/edit', [PostController::class, 'edit'])->name('pos
 Route::put('blog/{post}', [PostController::class, 'update'])->name('posts.update');
 Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.delete');
-
+Route::resource('postcats', PostCategoryContoller::class);
 Route::resource('users', UserController::class);
 Route::resource('products', ExportProductController::class);
 Route::resource('exportcats', ExportCatContoller::class);
 Route::resource('menu', MenuController::class);
 Route::resource('menucats', MenuCatController::class);
 Route::resource('roles', RoleController::class);
+Route::put('menucat/advance/{id}',[MenuCatController::class,'advance'])->name('menucat.advance');
+Route::put('menucat/postpone/{id}',[MenuCatController::class,'postpone'])->name('menucat.postpone');
 require __DIR__ . '/auth.php';

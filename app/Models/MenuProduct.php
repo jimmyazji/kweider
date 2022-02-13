@@ -31,12 +31,12 @@ class MenuProduct extends Model implements HasMedia
     {
         return $this->belongsTo(MenuCat::class, 'cat_id', 'id');
     }
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('menu')->crop('crop-center', 450, 400)->keepOriginalImageFormat();
-    }
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('menu')->singleFile();
+    }
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('menu')->crop('crop-center', 450, 400)->keepOriginalImageFormat();
     }
 }

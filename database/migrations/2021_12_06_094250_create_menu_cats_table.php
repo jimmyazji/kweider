@@ -16,6 +16,7 @@ class CreateMenuCatsTable extends Migration
         Schema::create('menu_cats', function (Blueprint $table) {
             $table->id();
             $table->json('name');
+            $table->unsignedBigInteger('order');
             $table->timestamps();
         });
     }

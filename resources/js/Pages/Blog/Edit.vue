@@ -118,6 +118,37 @@
                                 v-text="form.errors.ar_body"
                                 class="text-error text-sm ml-2 mt-1"
                             ></div>
+                            <label
+                                class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                                for="thumbnail"
+                            >
+                                <img
+                                    v-if="form.thumbnail_url"
+                                    class="w-full h-full object-cover rounded-md"
+                                    :src="form.thumbnail_url"
+                                    alt="thumbnail"
+                                />
+                                <svg
+                                    v-else
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="0.2"
+                                    class="mx-auto w-1/2 md:w-40 md:h-40"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg>
+                                <input
+                                    id="thumbnail"
+                                    type="file"
+                                    accept="image/*"
+                                    @change="previewImage"
+                                    class="hidden"
+                                    ref="photo"
+                                />
+                            </label>
                             <div class="flex items-center justify-between mt-4">
                                 <Link
                                     :href="route('blog.index')"
@@ -253,8 +284,14 @@ const form = useForm({
     en_body: props.post.body.en,
     ar_body: props.post.body.ar,
     id: props.post.id,
+    thumbnail: null,
+    thumbnail_url: props.post.thumbnail_url,
     _method: 'PUT'
 });
+const previewImage = (e) => {
+    form.thumbnail = e.target.files[0];
+    form.thumbnail_url = URL.createObjectURL(form.thumbnail);
+}
 const submit = () => {
     form.post(route('posts.update', props.post), {
         preserveScroll: true,

@@ -13,7 +13,7 @@
           :placeholder="$t('search')"
           class="placeholder-lonestar-400 font-semibold text-sm w-full"
         />
-        <Dropdown v-if="canList & canListCat" align="left">
+        <Dropdown v-if="canList & canListCat" align="lg:right">
           <template #trigger>
             <button class="focus:scale-110 transform transition px-4 focus:outline-none">
               <i class="fas fa-ellipsis-v"></i>
@@ -38,13 +38,13 @@
       <div class="px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="flex flex-wrap justify-center items-center relative">
           <transition-group appear name="list">
-            <a
+            <Button
               v-for="category in categories.data"
               :key="category.id"
               :href="'#' + category.name"
               v-smooth-scroll
               class="btn btn-primary btn-sm mx-0.5 my-0.5 text-almond-300 hover:scale-105 focus:scale-105 transform transition ease-in-out duration-150"
-            >{{ category.name }}</a>
+            >{{ category.name }}</Button>
           </transition-group>
         </div>
         <section v-for="category in categories.data" :id="category.name">
@@ -73,6 +73,7 @@
 
 <script setup>
 import { Head } from "@inertiajs/inertia-vue3";
+import Button from "@/Components/Button.vue";
 import Dropdown from "@/Components/Dropdown";
 import DropdownLink from "@/Components/DropdownLink";
 import { inject, ref, watch } from "vue";

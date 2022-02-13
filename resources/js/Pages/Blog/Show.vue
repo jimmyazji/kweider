@@ -3,7 +3,7 @@
     <div class="max-w-6xl mx-auto mt-10 lg:mt-20 space-y-6 pb-10">
         <article class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10 px-5 lg:px-5">
             <div class="col-span-4 lg:text-center lg:pt-14 mb-10">
-                <img src="/images/IMG_1.jpg" alt class="rounded-xl" />
+                <img :src="post.thumbnail" alt class="rounded-xl" />
 
                 <div class="flex items-center text-sm mt-4">
                     <div class="flex">
