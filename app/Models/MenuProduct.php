@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -17,7 +18,7 @@ class MenuProduct extends Model implements HasMedia
     protected $fillable = [
         'name',
         'type',
-        'cat_id',
+        'category_id',
         'description',
     ];
     public $translatable = [
@@ -27,9 +28,20 @@ class MenuProduct extends Model implements HasMedia
     ];
 
     protected $with = ['media'];
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, fn ($query, $search) =>
+        $query->where(fn ($query) => $query
+            ->where(DB::raw('lower(name)'), 'LIKE', '%' . strtolower($search) . '%')
+            ->orWhere(DB::raw('lower(type)'), 'LIKE', '%' . strtolower($search) . '%')
+            ->orWhere(DB::raw('lower(description)'), 'LIKE', '%' . strtolower($search) . '%')
+            ->orWherehas('category', fn ($query) =>
+            $query->where(DB::raw('lower(name)'), 'LIKE', '%' . strtolower($search) . '%'))));
+    }
     public function category()
     {
-        return $this->belongsTo(MenuCat::class, 'cat_id', 'id');
+        return $this->belongsTo(MenuCategory::class, 'category_id', 'id');
     }
     public function registerMediaCollections(): void
     {

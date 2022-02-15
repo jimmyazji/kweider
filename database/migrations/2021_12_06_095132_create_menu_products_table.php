@@ -18,10 +18,10 @@ class CreateMenuProductsTable extends Migration
             $table->json('name');
             $table->json('type')->nullable();
             $table->json('description');
-            $table->unsignedBigInteger('cat_id');
-            $table->foreign('cat_id')
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')
             ->references('id')
-            ->on('menu_cats')
+            ->on('menu_categories')
             ->onDelete('cascade');
             $table->timestamps();
         });

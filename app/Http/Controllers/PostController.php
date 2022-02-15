@@ -34,16 +34,16 @@ class PostController extends Controller
                     'author' => $post->author->name,
                     'thumbnail' => $post->getFirstMedia('thumbnail') ? $post->getFirstMedia('thumbnail')->getUrl() : null
                 ]),
-            'categories' => PostCategory::all()->map(function ($cat) {
-                return ['name' => $cat->name, 'slug' => $cat->slug];
+            'categories' => PostCategory::all()->map(function ($category) {
+                return ['name' => $category->name, 'slug' => $category->slug];
             }),
             'filters' => request(['sorting', 'search', 'category'])
         ]);
     }
     public function create()
     {
-        return Inertia::render('Blog/Create', ['categories' => PostCategory::all()->map(function ($cat) {
-            return ['id' => $cat->id, 'name' => $cat->name];
+        return Inertia::render('Blog/Create', ['categories' => PostCategory::all()->map(function ($category) {
+            return ['id' => $category->id, 'name' => $category->name];
         })]);
     }
     public function store(Request $request)
@@ -103,8 +103,8 @@ class PostController extends Controller
             'author' => $post->author->name,
             'thumbnail_url' => $post->getFirstMedia('thumbnail') ? $post->getFirstMedia('thumbnail')->getUrl() : null
         ];
-        return Inertia::render('Blog/Edit', ['post' => $data, 'categories' => PostCategory::all()->map(function ($cat) {
-            return ['id' => $cat->id, 'name' => $cat->name];
+        return Inertia::render('Blog/Edit', ['post' => $data, 'categories' => PostCategory::all()->map(function ($category) {
+            return ['id' => $category->id, 'name' => $category->name];
         })]);
     }
 

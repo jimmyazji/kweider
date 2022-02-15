@@ -20,7 +20,7 @@ class ExportProduct extends Model implements HasMedia
         'name',
         'description',
         'weight',
-        'cat_id',
+        'category_id',
         'box_w_c',
         'box_w_a',
         'box_l',
@@ -46,7 +46,7 @@ class ExportProduct extends Model implements HasMedia
     }
     public function category()
     {
-        return $this->belongsTo(ExportCat::class, 'cat_id', 'id');
+        return $this->belongsTo(ExportCategory::class, 'category_id', 'id');
     }
     public function registerMediaConversions(?Media $media = null): void
     {

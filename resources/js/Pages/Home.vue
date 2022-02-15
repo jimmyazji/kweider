@@ -1,7 +1,7 @@
 <template>
   <Head :title="$t('home')" />
 
-  <div class="h-80 overflow-hidden">
+  <!-- <div class="h-80 overflow-hidden">
     <Carousel :autoplay="true" class="carousel-1" v-slot="{ currentSlide, animation }">
       <Slide :animation="animation">
         <div v-show="currentSlide === 1">
@@ -19,19 +19,26 @@
         </div>
       </Slide>
     </Carousel>
-  </div>
+  </div> -->
   <div class="px-20">
     <img src="/images/asawer-walnut.gif" alt />
   </div>
+  <div class="flex mx-auto flex-wrap max-w-7xl gap-4 py-10">
+    <MenuProduct :product="product" />
+    <MenuProduct :product="product" />
+    <MenuProduct :product="product" />
+    <MenuProduct :product="product" />
+  </div>
 </template>
 
-<script>
+<script setup>
 import { Head } from "@inertiajs/inertia-vue3";
 import Carousel from "@/Components/Carousel.vue";
 import Slide from "@/Components/Slide.vue";
-export default {
-  components: {
-    Head, Carousel, Slide,
-  },
-};
+import MenuProduct from "@/Components/MenuProduct.vue";
+const product = {
+  name:'product',
+  type:'test product',
+  description:'This is a test product',
+}
 </script>

@@ -20,10 +20,10 @@ class CreateExportProductsTable extends Migration
             $table->json('description');
             
             $table->unsignedInteger('weight')->nullable();
-            $table->unsignedBigInteger('cat_id');
-            $table->foreign('cat_id')
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')
             ->references('id')
-            ->on('export_cats')
+            ->on('export_categories')
             ->onDelete('cascade');
 
             $table->unsignedInteger('box_w_c')->nullable();

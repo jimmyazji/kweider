@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
-use App\Models\MenuCat;
+use App\Models\MenuCategory;
 use App\Models\MenuProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,16 +21,16 @@ class MenuController extends Controller
     {
         $user = Auth::user();
         $canList = $user ? $user->can('export-list') : false;
-        $canListCat = $user ? $user->can('export-cat-list') : false;
+        $canListCategories = $user ? $user->can('export-category-list') : false;
         return Inertia::render('Menu/Index', [
-            'categories' => MenuCat::query()
-                ->orderBy('order','desc')
+            'categories' => MenuCategory::query()
+                ->orderBy('order', 'desc')
                 ->with('products')
                 ->filter(request(['search']))
                 ->paginate(20)
                 ->withQuerystring()
-                ->through(fn ($cat) => [
-                    $products = $cat->products->loadMissing('media')->map(function ($prod) {
+                ->through(fn ($category) => [
+                    $products = $category->products->loadMissing('media')->map(function ($prod) {
                         return [
                             'id' => $prod->id,
                             'name' => $prod->name,
@@ -39,40 +39,45 @@ class MenuController extends Controller
                             'image' => $prod->getFirstMedia('menu')->getUrl('menu')
                         ];
                     }),
-                    'id' => $cat->id,
-                    'name' => $cat->name,
+                    'id' => $category->id,
+                    'name' => $category->name,
+                    'slug' => $category->slug,
                     'products' => $products,
                 ]),
             'filters' => request(['search']),
-            'canList' => $canList,
-            'canListCat' => $canListCat
+            'list' => $canList,
+            'listCategories' => $canListCategories
         ]);
     }
     public function create()
     {
 
         return Inertia::render('Menu/Create', [
-            'categories' => MenuCat::all()->map(
-                function ($cat) {
+            'categories' => MenuCategory::all()->map(
+                function ($category) {
                     return [
-                        'id' => $cat->id,
-                        'name' => $cat->name,
+                        'id' => $category->id,
+                        'name' => $category->name,
                     ];
                 }
             ),
-            'products' => MenuProduct::all()->map(
-                function ($prod) {
-                    return [
+            'products' => MenuProduct::query()
+                ->with('category')
+                ->filter(request(['search']))
+                ->paginate(5)
+                ->withQueryString()
+                ->through(
+                    fn ($prod) => [
                         'id' => $prod->id,
                         'name' => $prod->getTranslations('name'),
                         'type' => $prod->getTranslations('type'),
                         'description' => $prod->getTranslations('description'),
                         'category' => $prod->category->name,
-                        'cat_id' => $prod->cat_id,
+                        'category_id' => $prod->category_id,
                         'img_url' => $prod->getFirstMedia('menu')->getUrl()
-                    ];
-                }
-            )
+                    ]
+                ),
+            'filters' => request(['search'])
         ]);
     }
     public function store(Request $request)
@@ -80,7 +85,7 @@ class MenuController extends Controller
         $request->validate([
             '*_name' => 'required',
             '*_type' => 'max:255|nullable',
-            'cat_id' => 'required',
+            'category_id' => 'required',
             '*_description' => 'required|max:255',
             'image' => 'required|mimes:jpg,jpeg,png|max:10240'
         ]);
@@ -93,7 +98,7 @@ class MenuController extends Controller
                 'en' => $request->en_type,
                 'ar' => $request->ar_type,
             ],
-            'cat_id' => $request->cat_id,
+            'category_id' => $request->category_id,
             'description' => [
                 'en' => $request->en_description,
                 'ar' => $request->ar_description
@@ -113,7 +118,7 @@ class MenuController extends Controller
             'ar_type' => 'max:255|nullable',
             'en_description' => 'required',
             'ar_description' => 'required',
-            'cat_id' => 'required',
+            'category_id' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png|max:10240'
         ]);
         $product->update([
@@ -129,7 +134,7 @@ class MenuController extends Controller
                 'en' => $request->en_description,
                 'ar' => $request->ar_description
             ],
-            'cat_id' => $request->cat_id
+            'category_id' => $request->category_id
         ]);
         if ($request->image) {
             $product->addMediaFromRequest('image')

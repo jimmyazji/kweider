@@ -158,7 +158,7 @@ return [
         'ar_name' => 'arabic name',
         'en_type' => 'english type',
         'ar_type' => 'arabic type',
-        'cat_id' => 'category',
+        'category_id' => 'category',
         'en_description'=> 'english description',
         'ar_description'=> 'arabic description',
         'en_name' => 'english name',

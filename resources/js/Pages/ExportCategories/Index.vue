@@ -2,7 +2,9 @@
   <Head :title="$t('manage categories')" />
   <header class="bg-almond-200 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $t("manage categories") }}</h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        {{ $t("manage categories") }}
+      </h2>
     </div>
   </header>
   <div class="py-12">
@@ -17,11 +19,11 @@
                     id="en_name"
                     type="text"
                     class="block mt-1 w-full"
-                    v-model="form.en_name"
-                    :placeholder="$t('cat name en')"
+                    v-model="form.name.en"
+                    :placeholder="$t('en name')"
                     autofocus
                     autocomplete="en_name"
-                    :class="$page.props.errors.en_name ? 'input-error' : ''"
+                    :class="{ 'input-error': $page.props.errors.en_name }"
                   />
                   <div
                     v-if="$page.props.errors.en_name"
@@ -33,9 +35,9 @@
                   <Input
                     id="ar_name"
                     type="text"
-                    v-model="form.ar_name"
+                    v-model="form.name.ar"
                     class="block mt-1 w-full"
-                    :placeholder="$t('cat name ar')"
+                    :placeholder="$t('ar name')"
                     :class="{ 'input-error': $page.props.errors.ar_name }"
                   />
                   <div
@@ -47,28 +49,34 @@
               </div>
               <div class="flex items-center justify-between mt-4">
                 <Link
-                  :href="route('blog.index')"
+                  :href="route('products.index')"
                   class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
-                >{{ $t("back") }}</Link>
+                  >{{ $t("back") }}</Link
+                >
                 <div>
                   <Button
                     type="button"
                     class="px-5 mx-0.5"
                     :class="{ 'opacity-25': form.processing }"
                     @click.prevent="clear()"
-                  >{{ $t("clear") }}</Button>
+                    >{{ $t("clear") }}</Button
+                  >
                   <Button
                     type="submit"
                     class="px-5 mx-0.5"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
-                  >{{ $t("submit") }}</Button>
+                    >{{ $t("submit") }}</Button
+                  >
                 </div>
               </div>
             </div>
           </form>
           <div class="overflow-x-auto mt-4">
-            <table class="table w-full table-compact table-zebra text-lonestar-800" dir="ltr">
+            <table
+              class="table w-full table-compact table-zebra text-lonestar-800"
+              dir="ltr"
+            >
               <thead>
                 <tr>
                   <th></th>
@@ -95,8 +103,12 @@
                           class="w-4 h-auto mx-0.5"
                           viewBox="0 0 24 24"
                         >
-                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                          <path
+                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          />
+                          <path
+                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
                         </svg>
                       </button>
                       <button @click="destroy(category.id)">
@@ -118,9 +130,9 @@
                     </div>
                   </td>
                 </tr>
-                <tr v-if="categories.length === 0">
-                  <td colspan="12">
-                    <div class="flex justify-center items-center">{{ $t('no results') }}</div>
+                <tr v-if="categories.length == 0">
+                  <td colspan="5">
+                    <span class="flex justify-center">{{ $t("no results") }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -145,44 +157,48 @@ import { Head } from "@inertiajs/inertia-vue3";
 import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-import { Inertia } from "@inertiajs/inertia"
+import { Inertia } from "@inertiajs/inertia";
 
 let form = useForm({
-  en_name: '',
-  ar_name: ''
+  name: {
+    en: "",
+    ar: "",
+  },
 });
 
-let cat_id = ""
+let category_id = "";
 let submit = () => {
-  if (!cat_id) {
-    form.post(route('postcats.index'), {
+  if (!category_id) {
+    form.post(route("exportcategories.index"), {
       preserveScroll: true,
       onSuccess: () => form.reset(),
-    })
-  }
-  else {
-    form.put(route('postcats.update', cat_id), {
+    });
+  } else {
+    form.put(route("exportcategories.update", category_id), {
       preserveScroll: true,
       onSuccess: () => form.reset(),
-    })
+    });
   }
 };
 let edit = (category) => {
-  cat_id = category.id
-  form.en_name = category.name.en
-  form.ar_name = category.name.ar
-}
+  category_id = category.id;
+  form.name.en = category.name.en;
+  form.name.ar = category.name.ar;
+};
 let clear = () => {
-  cat_id = ''
-  form.reset()
-}
+  category_id = "";
+  form.reset();
+};
 let destroy = (id) => {
-  Inertia.delete(`/postcats/${id}`, {
-    onBefore: () => confirm('Are you sure you want to delete this category? all of the products in this category will be lost'),
-    preserveScroll: true
-  })
-}
+  Inertia.delete(`/exportcategories/${id}`, {
+    onBefore: () =>
+      confirm(
+        "Are you sure you want to delete this category? all of the products in this category will be lost"
+      ),
+    preserveScroll: true,
+  });
+};
 defineProps({
   categories: Object,
-})
+});
 </script>

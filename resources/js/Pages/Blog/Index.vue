@@ -45,7 +45,7 @@
           </template>
           <template #content>
             <DropdownLink :href="route('posts.create')">{{ $t('create post') }}</DropdownLink>
-            <DropdownLink :href="route('postcats.index')">{{ $t('manage categories') }}</DropdownLink>
+            <DropdownLink :href="route('postcategories.index')">{{ $t('manage categories') }}</DropdownLink>
           </template>
         </Dropdown>
       </div>

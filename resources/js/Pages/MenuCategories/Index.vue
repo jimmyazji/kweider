@@ -120,7 +120,7 @@
                       </div>
                     </td>
                   </tr>
-                  <tr v-if="categories.length === 0">
+                  <tr v-if="categories.data.length === 0">
                     <td colspan="12">
                       <div class="flex justify-center items-center">{{ $t('no results') }}</div>
                     </td>
@@ -165,44 +165,44 @@ let props = defineProps({
 })
 
 let search = ref(props.filters.search);
-let cat_id = ""
+let category_id = ""
 let submit = () => {
-  if (!cat_id) {
-    form.post(route('menucats.index'), {
+  if (!category_id) {
+    form.post(route('menucategories.index'), {
       preserveScroll: true,
       onSuccess: () => form.reset(),
     })
   }
   else {
-    form.put(route('menucats.update', cat_id), {
+    form.put(route('menucategories.update', category_id), {
       preserveScroll: true,
       onSuccess: () => clear(),
     })
   }
 };
 let edit = (category) => {
-  cat_id = category.id
+  category_id = category.id
   form.en_name = category.name.en
   form.ar_name = category.name.ar
 }
 let clear = () => {
-  cat_id = ''
+  category_id = ''
   form.reset()
 }
 let destroy = (id) => {
-  Inertia.delete(`/menucats/${id}`, {
+  Inertia.delete(`/menucategories/${id}`, {
     onBefore: () => confirm('Are you sure you want to delete this category? all of the products in this category will be lost'),
     preserveScroll: true
   })
 }
 const rank = (id, dir) => {
   if (dir === 'up') {
-    Inertia.put(route('menucat.advance', id),
+    Inertia.put(route('menucategories.advance', id),
       {},
       { preserveScroll: true });
   }
   else {
-    Inertia.put(route('menucat.postpone', id),
+    Inertia.put(route('menucategories.postpone', id),
       {},
       { preserveScroll: true });
   }
@@ -212,7 +212,7 @@ watch(
   search,
   debounce(function (value) {
     Inertia.get(
-      "/menucats",
+      "/menucategories",
       { search: value },
       { preserveState: true, replace: true }
     );

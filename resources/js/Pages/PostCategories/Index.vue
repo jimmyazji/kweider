@@ -17,11 +17,11 @@
                     id="en_name"
                     type="text"
                     class="block mt-1 w-full"
-                    v-model="form.name.en"
-                    :placeholder="$t('cat name en')"
+                    v-model="form.en_name"
+                    :placeholder="$t('en name')"
                     autofocus
                     autocomplete="en_name"
-                    :class="{ 'input-error': $page.props.errors.en_name }"
+                    :class="$page.props.errors.en_name ? 'input-error' : ''"
                   />
                   <div
                     v-if="$page.props.errors.en_name"
@@ -33,9 +33,9 @@
                   <Input
                     id="ar_name"
                     type="text"
-                    v-model="form.name.ar"
+                    v-model="form.ar_name"
                     class="block mt-1 w-full"
-                    :placeholder="$t('cat name ar')"
+                    :placeholder="$t('ar name')"
                     :class="{ 'input-error': $page.props.errors.ar_name }"
                   />
                   <div
@@ -47,7 +47,7 @@
               </div>
               <div class="flex items-center justify-between mt-4">
                 <Link
-                  :href="route('products.index')"
+                  :href="route('blog.index')"
                   class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
                 >{{ $t("back") }}</Link>
                 <div>
@@ -118,9 +118,9 @@
                     </div>
                   </td>
                 </tr>
-                <tr v-if="categories.length == 0">
-                  <td colspan="5">
-                    <span class="flex justify-center">{{ $t('no results') }}</span>
+                <tr v-if="categories.length === 0">
+                  <td colspan="12">
+                    <div class="flex justify-center items-center">{{ $t('no results') }}</div>
                   </td>
                 </tr>
               </tbody>
@@ -148,39 +148,36 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia"
 
 let form = useForm({
-  name: {
-    en: "",
-    ar: ""
-  }
+  en_name: '',
+  ar_name: ''
 });
 
-let cat_id = ""
+let category_id = ""
 let submit = () => {
-  if (!cat_id) {
-    form.post(route('exportcats.index'), {
+  if (!category_id) {
+    form.post(route('postcategories.index'), {
       preserveScroll: true,
       onSuccess: () => form.reset(),
     })
   }
   else {
-    form.put(route('exportcats.update', cat_id), {
+    form.put(route('postcategories.update', category_id), {
       preserveScroll: true,
       onSuccess: () => form.reset(),
     })
-
   }
 };
 let edit = (category) => {
-  cat_id = category.id
-  form.name.en = category.name.en
-  form.name.ar = category.name.ar
+  category_id = category.id
+  form.en_name = category.name.en
+  form.ar_name = category.name.ar
 }
 let clear = () => {
-  cat_id = ''
+  category_id = ''
   form.reset()
 }
 let destroy = (id) => {
-  Inertia.delete(`/exportcats/${id}`, {
+  Inertia.delete(`/postcategories/${id}`, {
     onBefore: () => confirm('Are you sure you want to delete this category? all of the products in this category will be lost'),
     preserveScroll: true
   })

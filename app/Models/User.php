@@ -29,7 +29,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'phone',
         'password',
     ];
-
+    protected $appends = ['name'];
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class MenuCat extends Model
+class MenuCategory extends Model
 {
     use HasFactory;
     use HasTranslations;
     protected $fillable = [
         'name',
-        'order'
+        'order',
+        'slug'
     ];
     public $translatable = [
         'name'
@@ -29,10 +29,11 @@ class MenuCat extends Model
                     ->orWhere(DB::raw('lower(type)'), 'LIKE', '%' . strtolower($search) . '%')
                     ->orWhere(DB::raw('lower(description)'), 'LIKE', '%' . strtolower($search) . '%');
             })
-            ->orWhere(DB::raw('lower(name)'), 'LIKE', '%' . strtolower($search) . '%'));
+            ->orWhere(DB::raw('lower(name)'), 'LIKE', '%' . strtolower($search) . '%')
+            ->orWhere('slug', 'Like', $search));
     }
     public function products()
     {
-        return $this->hasMany(MenuProduct::class, 'cat_id', 'id');
+        return $this->hasMany(MenuProduct::class, 'category_id', 'id');
     }
 }

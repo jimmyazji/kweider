@@ -17,14 +17,14 @@
                   type="text"
                   class="block mt-1 w-full"
                   v-model="form.en_name"
-                  :placeholder="$t('product name en')"
+                  :placeholder="$t('en name')"
                   autofocus
                   autocomplete="en_name"
-                  :class="{ 'input-error': $page.props.errors.en_name }"
+                  :class="{ 'input-error': form.errors.en_name }"
                 />
                 <div
-                  v-if="$page.props.errors.en_name"
-                  v-text="$page.props.errors.en_name"
+                  v-if="form.errors.en_name"
+                  v-text="form.errors.en_name"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
               </div>
@@ -35,12 +35,12 @@
                   v-model="form.ar_name"
                   class="block mt-1 w-full"
                   autocomplete="ar_name"
-                  :placeholder="$t('product name ar')"
-                  :class="{ 'input-error': $page.props.errors.ar_name }"
+                  :placeholder="$t('ar name')"
+                  :class="{ 'input-error': form.errors.ar_name }"
                 />
                 <div
-                  v-if="$page.props.errors.ar_name"
-                  v-text="$page.props.errors.ar_name"
+                  v-if="form.errors.ar_name"
+                  v-text="form.errors.ar_name"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
               </div>
@@ -48,14 +48,14 @@
             <div class="grid md:grid-cols-2 gap-2">
               <div>
                 <select
-                  id="cat_id"
+                  id="category_id"
                   class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
                   :class="{
-                    'text-gray-500': !form.cat_id,
-                    'select-error': $page.props.errors.cat_id,
+                    'text-gray-500': !form.category_id,
+                    'select-error': form.errors.category_id,
                   }"
-                  v-model="form.cat_id"
-                  autocomplete="cat_id"
+                  v-model="form.category_id"
+                  autocomplete="category_id"
                 >
                   <option disabled value>{{ $t("select category") }}</option>
                   <option
@@ -65,8 +65,8 @@
                   >{{ category.name }}</option>
                 </select>
                 <div
-                  v-if="$page.props.errors.cat_id"
-                  v-text="$page.props.errors.cat_id"
+                  v-if="form.errors.category_id"
+                  v-text="form.errors.category_id"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
               </div>
@@ -78,11 +78,11 @@
                   v-model="form.weight"
                   :placeholder="$t('weight')"
                   autocomplete="weight"
-                  :class="{ 'input-error': $page.props.errors.weight }"
+                  :class="{ 'input-error': form.errors.weight }"
                 />
                 <div
-                  v-if="$page.props.errors.weight"
-                  v-text="$page.props.errors.weight"
+                  v-if="form.errors.weight"
+                  v-text="form.errors.weight"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
               </div>
@@ -94,12 +94,12 @@
                   class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none px-5"
                   autocomplete="en_description"
                   v-model="form.en_description"
-                  :placeholder="$t('product desc en')"
-                  :class="{ 'textarea-error': $page.props.errors.en_description }"
+                  :placeholder="$t('en desc')"
+                  :class="{ 'textarea-error': form.errors.en_description }"
                 />
                 <div
-                  v-if="$page.props.errors.en_description"
-                  v-text="$page.props.errors.en_description"
+                  v-if="form.errors.en_description"
+                  v-text="form.errors.en_description"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
               </div>
@@ -109,12 +109,12 @@
                   v-model="form.ar_description"
                   class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none"
                   autocomplete="ar_description"
-                  :placeholder="$t('product desc ar')"
-                  :class="{ 'textarea-error': $page.props.errors.ar_description }"
+                  :placeholder="$t('ar desc')"
+                  :class="{ 'textarea-error': form.errors.ar_description }"
                 />
                 <div
-                  v-if="$page.props.errors.ar_description"
-                  v-text="$page.props.errors.ar_description"
+                  v-if="form.errors.ar_description"
+                  v-text="form.errors.ar_description"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
               </div>
@@ -132,7 +132,7 @@
                   v-model="form.box_w"
                   :disabled="!form.box"
                   :placeholder="$t('width')"
-                  :class="{ 'input-error': $page.props.errors.box_w }"
+                  :class="{ 'input-error': form.errors.box_w }"
                 />
                 <Input
                   id="box_l"
@@ -141,7 +141,7 @@
                   v-model="form.box_l"
                   :disabled="!form.box"
                   :placeholder="$t('length')"
-                  :class="{ 'input-error': $page.props.errors.box_l }"
+                  :class="{ 'input-error': form.errors.box_l }"
                 />
                 <Input
                   data-tooltip-target="tooltip-default"
@@ -151,7 +151,7 @@
                   v-model="form.box_h"
                   :disabled="!form.box"
                   :placeholder="$t('height')"
-                  :class="{ 'input-error': $page.props.errors.box_h }"
+                  :class="{ 'input-error': form.errors.box_h }"
                 />
                 <div
                   id="tooltip-default"
@@ -168,14 +168,14 @@
                   v-model="form.box_q"
                   :disabled="!form.box"
                   :placeholder="$t('quantity')"
-                  :class="{ 'input-error': $page.props.errors.box_q }"
+                  :class="{ 'input-error': form.errors.box_q }"
                 />
                 <Input
                   id="box_w_c"
                   type="number"
                   autocomplete="box_w_c"
                   v-model="form.box_w_c"
-                  :class="{ 'input-error': $page.props.errors.box_w_c }"
+                  :class="{ 'input-error': form.errors.box_w_c }"
                   :disabled="!form.box"
                   :placeholder="$t('clear weight')"
                 />
@@ -184,7 +184,7 @@
                   type="number"
                   autocomplete="box_w_a"
                   v-model="form.box_w_a"
-                  :class="{ 'input-error': $page.props.errors.box_w_a }"
+                  :class="{ 'input-error': form.errors.box_w_a }"
                   :disabled="!form.box"
                   :placeholder="$t('actual weight')"
                 />
@@ -203,7 +203,7 @@
                   v-model="form.box_w"
                   :disabled="!form.box"
                   :placeholder="$t('width')"
-                  :class="{ 'input-error': $page.props.errors.box_w }"
+                  :class="{ 'input-error': form.errors.box_w }"
                 />
                 <Input
                   id="box_l"
@@ -212,7 +212,7 @@
                   v-model="form.box_l"
                   :disabled="!form.box"
                   :placeholder="$t('length')"
-                  :class="{ 'input-error': $page.props.errors.box_l }"
+                  :class="{ 'input-error': form.errors.box_l }"
                 />
                 <Input
                   id="box_h"
@@ -221,7 +221,7 @@
                   v-model="form.box_h"
                   :disabled="!form.box"
                   :placeholder="$t('height')"
-                  :class="{ 'input-error': $page.props.errors.box_h }"
+                  :class="{ 'input-error': form.errors.box_h }"
                 />
                 <Input
                   id="box_q"
@@ -230,7 +230,7 @@
                   v-model="form.box_q"
                   :disabled="!form.box"
                   :placeholder="$t('quantity')"
-                  :class="{ 'input-error': $page.props.errors.box_q }"
+                  :class="{ 'input-error': form.errors.box_q }"
                 />
               </div>
               <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -241,7 +241,7 @@
                   v-model="form.pack_w"
                   :disabled="!form.package"
                   :placeholder="$t('width')"
-                  :class="{ 'input-error': $page.props.errors.pack_w }"
+                  :class="{ 'input-error': form.errors.pack_w }"
                 />
                 <Input
                   id="pack_l"
@@ -250,7 +250,7 @@
                   v-model="form.pack_l"
                   :disabled="!form.package"
                   :placeholder="$t('length')"
-                  :class="{ 'input-error': $page.props.errors.pack_l }"
+                  :class="{ 'input-error': form.errors.pack_l }"
                 />
                 <Input
                   id="pack_h"
@@ -259,14 +259,14 @@
                   v-model="form.pack_h"
                   :disabled="!form.package"
                   :placeholder="$t('height')"
-                  :class="{ 'input-error': $page.props.errors.pack_h }"
+                  :class="{ 'input-error': form.errors.pack_h }"
                 />
                 <Input
                   id="pack_q"
                   type="number"
                   autocomplete="pack_q"
                   v-model="form.pack_q"
-                  :class="{ 'input-error': $page.props.errors.pack_q }"
+                  :class="{ 'input-error': form.errors.pack_q }"
                   :disabled="!form.package"
                   :placeholder="$t('quantity')"
                 />
@@ -276,7 +276,7 @@
                   class="sm:hidden"
                   autocomplete="pack_w_c"
                   v-model="form.pack_w_c"
-                  :class="{ 'input-error': $page.props.errors.pack_w_c }"
+                  :class="{ 'input-error': form.errors.pack_w_c }"
                   :disabled="!form.package"
                   :placeholder="$t('clear weight')"
                 />
@@ -286,7 +286,7 @@
                   class="sm:hidden"
                   autocomplete="pack_w_a"
                   v-model="form.pack_w_a"
-                  :class="{ 'input-error': $page.props.errors.pack_w_a }"
+                  :class="{ 'input-error': form.errors.pack_w_a }"
                   :disabled="!form.package"
                   :placeholder="$t('actual weight')"
                 />
@@ -299,7 +299,7 @@
                   type="number"
                   autocomplete="box_w_c"
                   v-model="form.box_w_c"
-                  :class="{ 'input-error': $page.props.errors.box_w_c }"
+                  :class="{ 'input-error': form.errors.box_w_c }"
                   :disabled="!form.box"
                   :placeholder="$t('clear weight')"
                 />
@@ -308,7 +308,7 @@
                   type="number"
                   autocomplete="box_w_a"
                   v-model="form.box_w_a"
-                  :class="{ 'input-error': $page.props.errors.box_w_a }"
+                  :class="{ 'input-error': form.errors.box_w_a }"
                   :disabled="!form.box"
                   :placeholder="$t('actual weight')"
                 />
@@ -319,7 +319,7 @@
                   type="number"
                   autocomplete="pack_w_c"
                   v-model="form.pack_w_c"
-                  :class="{ 'input-error': $page.props.errors.pack_w_c }"
+                  :class="{ 'input-error': form.errors.pack_w_c }"
                   :disabled="!form.package"
                   :placeholder="$t('clear weight')"
                 />
@@ -328,7 +328,7 @@
                   type="number"
                   autocomplete="pack_w_a"
                   v-model="form.pack_w_a"
-                  :class="{ 'input-error': $page.props.errors.pack_w_a }"
+                  :class="{ 'input-error': form.errors.pack_w_a }"
                   :disabled="!form.package"
                   :placeholder="$t('actual weight')"
                 />
@@ -337,155 +337,182 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-1">
               <div>
                 <div
-                  v-if="$page.props.errors.box_w"
-                  v-text="$page.props.errors.box_w"
+                  v-if="form.errors.box_w"
+                  v-text="form.errors.box_w"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.box_l"
-                  v-text="$page.props.errors.box_l"
+                  v-if="form.errors.box_l"
+                  v-text="form.errors.box_l"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.box_h"
-                  v-text="$page.props.errors.box_h"
+                  v-if="form.errors.box_h"
+                  v-text="form.errors.box_h"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.box_q"
-                  v-text="$page.props.errors.box_q"
+                  v-if="form.errors.box_q"
+                  v-text="form.errors.box_q"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.box_w_c"
-                  v-text="$page.props.errors.box_w_c"
+                  v-if="form.errors.box_w_c"
+                  v-text="form.errors.box_w_c"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.box_w_a"
-                  v-text="$page.props.errors.box_w_a"
+                  v-if="form.errors.box_w_a"
+                  v-text="form.errors.box_w_a"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
               </div>
               <div>
                 <div
-                  v-if="$page.props.errors.pack_w"
-                  v-text="$page.props.errors.pack_w"
+                  v-if="form.errors.pack_w"
+                  v-text="form.errors.pack_w"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.pack_l"
-                  v-text="$page.props.errors.pack_l"
+                  v-if="form.errors.pack_l"
+                  v-text="form.errors.pack_l"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.pack_h"
-                  v-text="$page.props.errors.pack_h"
+                  v-if="form.errors.pack_h"
+                  v-text="form.errors.pack_h"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.pack_q"
-                  v-text="$page.props.errors.pack_q"
+                  v-if="form.errors.pack_q"
+                  v-text="form.errors.pack_q"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.pack_w_c"
-                  v-text="$page.props.errors.pack_w_c"
+                  v-if="form.errors.pack_w_c"
+                  v-text="form.errors.pack_w_c"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
                 <div
-                  v-if="$page.props.errors.pack_w_a"
-                  v-text="$page.props.errors.pack_w_a"
+                  v-if="form.errors.pack_w_a"
+                  v-text="form.errors.pack_w_a"
                   class="text-error text-sm ml-2 mt-1"
                 ></div>
               </div>
             </div>
             <div class="flex flex-wrap justify-evenly items-center">
-              <label
-                class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
-                for="prod_image"
-              >
-                <img
-                  v-if="form.prod_img_url"
-                  class="w-full h-full object-cover rounded-md"
-                  :src="form.prod_img_url"
-                  alt="Product Image"
-                />
-                <svg
-                  v-else
-                  xmlns="http://www.w3.org/2000/svg"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="0.2"
-                  class="mx-auto w-1/2 md:w-40 md:h-40"
-                  viewBox="0 0 24 24"
+              <div>
+                <label
+                  class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                  for="prod_image"
                 >
-                  <path d="M12 5v14M5 12h14" />
-                </svg>
-                <input
-                  id="prod_image"
-                  type="file"
-                  accept="image/*"
-                  @change="previewProdImage"
-                  class="hidden"
-                  ref="photo"
-                />
-              </label>
-              <label
-                class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
-                for="box_image"
-              >
-                <img
-                  v-if="form.box_img_url"
-                  class="w-full h-full object-cover rounded-md"
-                  :src="form.box_img_url"
-                  alt="Box Image"
-                />
-                <svg
-                  v-else
-                  xmlns="http://www.w3.org/2000/svg"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="0.2"
-                  class="mx-auto w-1/2 md:w-40 md:h-40"
-                  viewBox="0 0 24 24"
+                  <img
+                    v-if="form.prod_img_url"
+                    class="w-full h-full object-cover rounded-md"
+                    :src="form.prod_img_url"
+                    alt="Product Image"
+                  />
+                  <svg
+                    v-else
+                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="0.2"
+                    class="mx-auto w-1/2 md:w-40 md:h-40"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                  <input
+                    id="prod_image"
+                    type="file"
+                    accept="image/*"
+                    @change="previewProdImage"
+                    class="hidden"
+                    ref="photo"
+                  />
+                </label>
+                <div
+                  v-if="form.errors.prod_image"
+                  v-text="form.errors.prod_image"
+                  class="text-error text-sm ml-2 mt-1"
+                ></div>
+              </div>
+              <div>
+                <label
+                  class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                  for="box_image"
                 >
-                  <path d="M12 5v14M5 12h14" />
-                </svg>
-                <input id="box_image" type="file" accept="image/*" @change="previewBoxImage" class="hidden" />
-              </label>
-              <label
-                class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
-                for="pack_image"
-              >
-                <img
-                  v-if="form.pack_img_url"
-                  class="w-full h-full object-cover rounded-md"
-                  :src="form.pack_img_url"
-                  alt="Package Image"
-                />
-                <svg
-                  v-else
-                  xmlns="http://www.w3.org/2000/svg"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="0.2"
-                  class="mx-auto w-1/2 md:w-40 md:h-40"
-                  viewBox="0 0 24 24"
+                  <img
+                    v-if="form.box_img_url"
+                    class="w-full h-full object-cover rounded-md"
+                    :src="form.box_img_url"
+                    alt="Box Image"
+                  />
+                  <svg
+                    v-else
+                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="0.2"
+                    class="mx-auto w-1/2 md:w-40 md:h-40"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                  <input
+                    id="box_image"
+                    type="file"
+                    accept="image/*"
+                    @change="previewBoxImage"
+                    class="hidden"
+                  />
+                </label>
+                <div
+                  v-if="form.errors.box_image"
+                  v-text="form.errors.box_image"
+                  class="text-error text-sm ml-2 mt-1"
+                ></div>
+              </div>
+              <div>
+                <label
+                  class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                  for="pack_image"
                 >
-                  <path d="M12 5v14M5 12h14" />
-                </svg>
-                <input
-                  id="pack_image"
-                  type="file"
-                  accept="image/*"
-                  @change="previewPackImage"
-                  class="hidden"
-                />
-              </label>
+                  <img
+                    v-if="form.pack_img_url"
+                    class="w-full h-full object-cover rounded-md"
+                    :src="form.pack_img_url"
+                    alt="Package Image"
+                  />
+                  <svg
+                    v-else
+                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="0.2"
+                    class="mx-auto w-1/2 md:w-40 md:h-40"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                  <input
+                    id="pack_image"
+                    type="file"
+                    accept="image/*"
+                    @change="previewPackImage"
+                    class="hidden"
+                  />
+                </label>
+                <div
+                  v-if="form.errors.pack_image"
+                  v-text="form.errors.pack_image"
+                  class="text-error text-sm ml-2 mt-1"
+                ></div>
+              </div>
             </div>
             <div class="flex items-center justify-between mt-10">
               <Link
@@ -529,7 +556,7 @@
                   <th>{{ $t("ar name") }}</th>
                   <th>{{ $t("en desc") }}</th>
                   <th>{{ $t("ar desc") }}</th>
-                  <th>{{ $t("cat") }}</th>
+                  <th>{{ $t("category") }}</th>
                   <th>{{ $t("weight") }}</th>
                   <th>{{ $t("width") }}</th>
                   <th>{{ $t("length") }}</th>
@@ -570,35 +597,10 @@
                   <td>
                     <div class="flex justify-end">
                       <button @click="edit(product)">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          stroke="#000"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
-                          class="w-4 h-auto mx-0.5"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                        </svg>
+                        <i class="fa fa-edit text-lonestar-500" />
                       </button>
                       <button @click="destroy(product.id)">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          stroke="#DC143C"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
-                          class="w-4 0h-auto"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"
-                          />
-                        </svg>
+                        <i class="fa fa-trash text-red-700" />
                       </button>
                     </div>
                   </td>
@@ -616,7 +618,7 @@
                   <th>{{ $t("ar name") }}</th>
                   <th>{{ $t("en desc") }}</th>
                   <th>{{ $t("ar desc") }}</th>
-                  <th>{{ $t("cat") }}</th>
+                  <th>{{ $t("category") }}</th>
                   <th>{{ $t("weight") }}</th>
                   <th>{{ $t("width") }}</th>
                   <th>{{ $t("length") }}</th>
@@ -667,7 +669,7 @@ const form = useForm({
   en_description: "",
   ar_description: "",
   weight: "",
-  cat_id: "",
+  category_id: "",
   box: false,
   box_l: "",
   box_w: "",
@@ -698,7 +700,7 @@ const edit = (prod) => {
   form.ar_name = prod.name.ar;
   form.weight = prod.weight;
   form.quantity = prod.quantity;
-  form.cat_id = prod.cat_id;
+  form.category_id = prod.category_id;
   form.en_description = prod.description.en;
   form.ar_description = prod.description.ar;
   form.prod_img_url = prod.prod_url

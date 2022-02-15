@@ -20,8 +20,7 @@
                                         type="text"
                                         class="block mt-1 w-full"
                                         v-model="form.en_name"
-                                        :placeholder="$t('product name en')"
-                                        autofocus
+                                        :placeholder="$t('en name')"
                                         autocomplete="en_name"
                                         :class="{ 'input-error': form.errors.en_name }"
                                     />
@@ -38,7 +37,7 @@
                                         v-model="form.ar_name"
                                         class="block mt-1 w-full"
                                         autocomplete="ar_name"
-                                        :placeholder="$t('product name ar')"
+                                        :placeholder="$t('ar name')"
                                         :class="{ 'input-error': form.errors.ar_name }"
                                     />
                                     <div
@@ -55,7 +54,7 @@
                                         type="text"
                                         class="block mt-1 w-full"
                                         v-model="form.en_type"
-                                        :placeholder="$t('product type en')"
+                                        :placeholder="$t('en type')"
                                         autocomplete="en_type"
                                         :class="{ 'input-error': form.errors.en_type }"
                                     />
@@ -72,7 +71,7 @@
                                         v-model="form.ar_type"
                                         class="block mt-1 w-full"
                                         autocomplete="ar_type"
-                                        :placeholder="$t('product type ar')"
+                                        :placeholder="$t('ar type')"
                                         :class="{ 'input-error': form.errors.ar_type }"
                                     />
                                     <div
@@ -84,11 +83,11 @@
                             </div>
                             <div>
                                 <select
-                                    id="cat_id"
+                                    id="category_id"
                                     class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
-                                    :class="{ 'text-gray-500': !form.cat_id, 'select-error': form.errors.cat_id }"
-                                    v-model="form.cat_id"
-                                    autocomplete="cat_id"
+                                    :class="{ 'text-gray-500': !form.category_id, 'select-error': form.errors.category_id }"
+                                    v-model="form.category_id"
+                                    autocomplete="category_id"
                                 >
                                     <option disabled value>{{ $t('select category') }}</option>
                                     <option
@@ -98,8 +97,8 @@
                                     >{{ category.name }}</option>
                                 </select>
                                 <div
-                                    v-if="form.errors.cat_id"
-                                    v-text="form.errors.cat_id"
+                                    v-if="form.errors.category_id"
+                                    v-text="form.errors.category_id"
                                     class="text-error text-sm ml-2 mt-1"
                                 ></div>
                             </div>
@@ -110,7 +109,7 @@
                                         class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none px-5"
                                         autocomplete="en_description"
                                         v-model="form.en_description"
-                                        :placeholder="$t('product desc en')"
+                                        :placeholder="$t('en desc')"
                                         :class="{ 'textarea-error': form.errors.en_description }"
                                     />
                                     <div
@@ -125,7 +124,7 @@
                                         v-model="form.ar_description"
                                         class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none"
                                         autocomplete="ar_description"
-                                        :placeholder="$t('product desc ar')"
+                                        :placeholder="$t('ar desc')"
                                         :class="{ 'textarea-error': form.errors.ar_description }"
                                     />
                                     <div
@@ -136,6 +135,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <label
                             class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
                             for="image"
@@ -167,24 +167,44 @@
                                 ref="photo"
                             />
                         </label>
-                        <div class="flex items-center justify-between mt-4">
-                            <Link
-                                :href="route('menu.index')"
-                                class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
-                            >{{ $t("back") }}</Link>
+                        <div
+                            v-if="form.errors.image"
+                            v-text="form.errors.image"
+                            class="text-error text-sm ml-2 mt-1 flex justify-center"
+                        ></div>
+                        <div class="lg:flex items-center justify-between mt-4">
                             <div>
-                                <Button
-                                    type="button"
-                                    class="px-5 mx-0.5"
-                                    :class="{ 'opacity-25': form.processing }"
-                                    @click.prevent="clear()"
-                                >{{ $t("clear") }}</Button>
-                                <Button
-                                    type="submit"
-                                    class="px-5 mx-0.5"
-                                    :class="{ 'opacity-25': form.processing }"
-                                    :disabled="form.processing"
-                                >{{ $t("submit") }}</Button>
+                                <Input
+                                    type="text"
+                                    class="input md:w-96 w-full mr-1 placeholder-lonestar-400 text-lonestar-800"
+                                    :placeholder="$t('search')"
+                                    v-model="search"
+                                    autofocus
+                                />
+                                <Link
+                                    :href="route('menu.index')"
+                                    class="text-sm underline hover:text-lonestar-500 font-semibold mx-1 hidden lg:inline-flex"
+                                >{{ $t("back") }}</Link>
+                            </div>
+                            <div class="flex justify-between items-center mt-4 lg:mt-0">
+                                <div>
+                                    <Button
+                                        type="button"
+                                        class="px-5 mx-0.5"
+                                        :class="{ 'opacity-25': form.processing }"
+                                        @click.prevent="clear()"
+                                    >{{ $t("clear") }}</Button>
+                                    <Button
+                                        type="submit"
+                                        class="px-5 mx-0.5"
+                                        :class="{ 'opacity-25': form.processing }"
+                                        :disabled="form.processing"
+                                    >{{ $t("submit") }}</Button>
+                                </div>
+                                <Link
+                                    :href="route('menu.index')"
+                                    class="text-sm underline hover:text-lonestar-500 font-semibold mx-1 lg:hidden"
+                                >{{ $t("back") }}</Link>
                             </div>
                         </div>
                     </form>
@@ -202,18 +222,26 @@
                                     <th>{{ $t("ar type") }}</th>
                                     <th>{{ $t("en desc") }}</th>
                                     <th>{{ $t("ar desc") }}</th>
-                                    <th>{{ $t("cat") }}</th>
+                                    <th>{{ $t("category") }}</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="product in products" :key="product.id">
+                                <tr v-for="product in products.data" :key="product.id">
                                     <td>{{ product.name.en }}</td>
                                     <td>{{ product.name.ar }}</td>
                                     <td>{{ product.type.en }}</td>
                                     <td>{{ product.type.ar }}</td>
-                                    <td>{{ product.description.en }}</td>
-                                    <td>{{ product.description.ar }}</td>
+                                    <td>
+                                        <div
+                                            class="whitespace-pre-wrap block max-w-xs"
+                                        >{{ product.description.en }}</div>
+                                    </td>
+                                    <td>
+                                        <div
+                                            class="whitespace-pre-wrap block max-w-xs"
+                                        >{{ product.description.ar }}</div>
+                                    </td>
                                     <td>{{ product.category }}</td>
                                     <td>
                                         <div class="flex justify-end">
@@ -260,6 +288,11 @@
                     </div>
                 </div>
             </div>
+            <Pagination
+                v-if="products.next_page_url || products.prev_page_url"
+                class="mt-5 ml-2 lg:ml-10 pb-10"
+                :links="products.links"
+            />
         </div>
     </div>
 </template>
@@ -270,14 +303,22 @@ import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia"
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import debounce from "lodash/debounce";
+import Pagination from "@/Components/Pagination.vue";
+let props = defineProps({
+    categories: Object,
+    products: Object,
+    filters: Object,
+})
 
+let search = ref(props.filters.search);
 const form = useForm({
     en_name: "",
     ar_name: "",
     en_type: "",
     ar_type: "",
-    cat_id: "",
+    category_id: "",
     en_description: "",
     ar_description: "",
     image: null,
@@ -292,7 +333,7 @@ const edit = (prod) => {
     form.ar_name = prod.name.ar
     form.en_type = prod.type.en
     form.ar_type = prod.type.ar
-    form.cat_id = prod.cat_id
+    form.category_id = prod.category_id
     form.en_description = prod.description.en
     form.ar_description = prod.description.ar
     form.img_url = prod.img_url
@@ -328,8 +369,18 @@ const previewImage = (e) => {
     form.image = e.target.files[0];
     form.img_url = URL.createObjectURL(form.image);
 }
-defineProps({
-    categories: Object,
-    products: Object,
-})
+watch(
+    search,
+    debounce(function (value) {
+        Inertia.get(
+            route('menu.create'),
+            { search: value },
+            {
+                preserveScroll: true,
+                replace: true,
+                preserveState: true
+            }
+        );
+    }, 300)
+);
 </script>

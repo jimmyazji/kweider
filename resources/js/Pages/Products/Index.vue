@@ -5,11 +5,11 @@
       <!--  Category -->
       <div class="relative flex lg:inline-flex items-center bg-almond-200 rounded-xl mx-2">
         <select
-          v-model="category"
-          :class="{ 'text-lonestar-400': !category }"
+          v-model="currentCategory"
+          :class="{ 'text-lonestar-400': !currentCategory }"
           class="select select-bordered focus:border-transparent w-full"
         >
-          <option :value="undefined" selected>{{ category ? 'All' : $t('category') }}</option>
+          <option :value="undefined" selected>{{ category ? $t('all') : $t('category') }}</option>
           <option v-for="category in categories" :value="category.name">{{ category.name }}</option>
         </select>
       </div>
@@ -37,7 +37,7 @@
           :placeholder="$t('search')"
           class="placeholder-lonestar-400 font-semibold text-sm w-full"
         />
-        <Dropdown v-if="canList & canListCat" align="left">
+        <Dropdown v-if="canList || canListCategories" align="left">
           <template #trigger>
             <button class="focus:scale-110 transform transition px-4 focus:outline-none">
               <i class="fas fa-ellipsis-v"></i>
@@ -45,8 +45,8 @@
           </template>
           <template #content>
             <DropdownLink
-              v-if="canListCat"
-              :href="route('exportcats.index')"
+              v-if="canListCategories"
+              :href="route('exportcategories.index')"
             >{{ $t('manage categories') }}</DropdownLink>
             <DropdownLink
               v-if="canList"
@@ -66,15 +66,15 @@
             <div class="mx-1 mt-1">
               <span
                 @click.prevent="setCategory(undefined)"
-                class="block whitespace-nowrap text-sm"
-                :class="!category ? 'font-bold' : 'cursor-pointer'"
+                class="block whitespace-nowrap text-sm transition"
+                :class="!currentCategory ? 'font-bold text-lonestar-600' : 'text-lonestar-400 cursor-pointer'"
               >{{ $t('all') }}</span>
               <span
-                class="block whitespace-nowrap text-sm"
-                v-for="cat in categories"
-                @click.prevent="setCategory(cat.name)"
-                :class="category === cat.name ? 'font-bold' : 'cursor-pointer'"
-              >{{ cat.name }}</span>
+                class="block whitespace-nowrap text-sm transition"
+                v-for="category in categories"
+                @click.prevent="setCategory(category.name)"
+                :class="currentCategory === category.name ? 'font-bold text-lonestar-600' : 'text-lonestar-400 cursor-pointer'"
+              >{{ category.name }}</span>
             </div>
           </div>
         </div>
@@ -107,20 +107,20 @@ import { Inertia } from "@inertiajs/inertia";
 import Dropdown from "@/Components/Dropdown";
 import DropdownLink from "@/Components/DropdownLink";
 const locale = localStorage.getItem("locale");
-let props = defineProps({ categories: Object, products: Object, filters: Object, canList: Boolean, canListCat: Boolean, sorting: Object });
+let props = defineProps({ categories: Object, products: Object, filters: Object, canList: Boolean, canListCategories: Boolean, sorting: Object });
 let search = ref(props.filters.search)
-let category = ref(props.filters.category)
+let currentCategory = ref(props.filters.category)
 let sorting = ref(props.filters.sorting)
 const setCategory = (cat) => {
-  category.value = cat;
+  currentCategory.value = cat;
 }
 
 watch(
-  [search, category, sorting],
+  [search, currentCategory, sorting],
   debounce(function () {
     Inertia.get(
       "/products",
-      { category: category.value, search: search.value, sorting: sorting.value },
+      { category: currentCategory.value, search: search.value, sorting: sorting.value },
       { preserveState: true, preserveScroll: true, replace: true }
     );
   }, 300)

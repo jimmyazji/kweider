@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
-use App\Models\ExportCat;
+use App\Models\ExportCategory;
 use Illuminate\Http\Request;
 use App\Models\ExportProduct;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class ExportProductController extends Controller
@@ -24,7 +22,7 @@ class ExportProductController extends Controller
     {
         $user = Auth::user();
         $canList = $user ? $user->can('export-list') : false;
-        $canListCat = $user ? $user->can('export-cat-list') : false;
+        $canListCategories = $user ? $user->can('export-category-list') : false;
         return Inertia::render(
             'Products/Index',
             [
@@ -58,17 +56,17 @@ class ExportProductController extends Controller
                             'pack_url' => $prod->getFirstMedia('package') ? $prod->getFirstMedia('package')->getUrl('export') : null
                         ]
                     ),
-                'categories' => ExportCat::all()->map(
-                    function ($cat) {
+                'categories' => ExportCategory::all()->map(
+                    function ($category) {
                         return [
-                            'id' => $cat->id,
-                            'name' => $cat->name
+                            'id' => $category->id,
+                            'name' => $category->name
                         ];
                     }
                 ),
                 'filters' => request(['search', 'category']),
                 'canList' => $canList,
-                'canListCat' => $canListCat
+                'canListCategories' => $canListCategories
             ]
         );
     }
@@ -85,7 +83,7 @@ class ExportProductController extends Controller
                             'name' => $prod->getTranslations('name'),
                             'description' => $prod->getTranslations('description'),
                             'category' => $prod->category->name,
-                            'cat_id' => $prod->category->id,
+                            'category_id' => $prod->category->id,
                             'weight' => $prod->weight,
                             'box_w_c' => $prod->box_w_c,
                             'box_w_a' => $prod->box_w_a,
@@ -105,11 +103,11 @@ class ExportProductController extends Controller
                         ];
                     }
                 ),
-                'categories' => ExportCat::all()->map(
-                    function ($cat) {
+                'categories' => ExportCategory::all()->map(
+                    function ($category) {
                         return [
-                            'id' => $cat->id,
-                            'name' => $cat->name,
+                            'id' => $category->id,
+                            'name' => $category->name,
                         ];
                     }
                 )
@@ -121,7 +119,7 @@ class ExportProductController extends Controller
         $request->validate([
             'en_name' => 'required',
             'ar_name' => 'required',
-            'cat_id' => 'required',
+            'category_id' => 'required',
             'en_description' => 'required',
             'ar_description' => 'required',
             'weight' => 'nullable|numeric|min:0',
@@ -151,7 +149,7 @@ class ExportProductController extends Controller
                 'ar' => $request->ar_description,
             ],
             'weight' => $request->weight,
-            'cat_id' => $request->cat_id,
+            'category_id' => $request->category_id,
             'box_w' => $request->box_w,
             'box_h' => $request->box_h,
             'box_l' => $request->box_l,
@@ -183,7 +181,7 @@ class ExportProductController extends Controller
         $request->validate([
             'en_name' => 'required',
             'ar_name' => 'required',
-            'cat_id' => 'required',
+            'category_id' => 'required',
             'en_description' => 'required',
             'ar_description' => 'required',
             'weight' => 'nullable|numeric|min:0',
@@ -210,7 +208,7 @@ class ExportProductController extends Controller
                 'ar' => $request->ar_description,
             ],
             'weight' => $request->weight,
-            'cat_id' => $request->cat_id,
+            'category_id' => $request->category_id,
             'box_w' => $request->box_w,
             'box_h' => $request->box_h,
             'box_l' => $request->box_l,

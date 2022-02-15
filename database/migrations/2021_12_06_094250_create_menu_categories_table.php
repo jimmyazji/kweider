@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExportCatsTable extends Migration
+class CreateMenuCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateExportCatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('export_cats', function (Blueprint $table) {
+        Schema::create('menu_categories', function (Blueprint $table) {
             $table->id();
             $table->json('name');
+            $table->string('slug');
+            $table->unsignedBigInteger('order');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateExportCatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('export_cats');
+        Schema::dropIfExists('menu_categories');
     }
 }

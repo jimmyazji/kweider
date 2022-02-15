@@ -12,13 +12,13 @@ class PostCategoryContoller extends Controller
     public function index()
     {
         return Inertia::render(
-            'PostCats/Index',
+            'PostCategories/Index',
             [
                 'categories' => PostCategory::all()->map(
-                    function ($cat) {
+                    function ($category) {
                         return [
-                            'id' => $cat->id,
-                            'name' => $cat->getTranslations('name'),
+                            'id' => $category->id,
+                            'name' => $category->getTranslations('name'),
                         ];
                     }
                 )
@@ -32,7 +32,7 @@ class PostCategoryContoller extends Controller
         ]);
         PostCategory::create([
             'name' => [
-                'en' => ucfirst(strtolower($request['en_name'])),
+                'en' => $request['en_name'],
                 'ar' => $request['ar_name']
             ],
             'slug' => Str::slug($request->en_name),
@@ -47,7 +47,7 @@ class PostCategoryContoller extends Controller
         $post = PostCategory::find($id);
         $post->update([
             'name' => [
-                'en' => ucfirst(strtolower($request['en_name'])),
+                'en' => $request['en_name'],
                 'ar' => $request['ar_name']
             ],
             'slug' => Str::slug($request->en_name),
@@ -56,8 +56,8 @@ class PostCategoryContoller extends Controller
     }
     public function destroy($id)
     {
-        $cat = PostCategory::find($id);
-        $cat->delete();
-        return redirect()->route('menucats.index')->with('success', 'Category Deleted Successfully.');
+        $category = PostCategory::find($id);
+        $category->delete();
+        return redirect()->route('menucategories.index')->with('success', 'Category Deleted Successfully.');
     }
 }
