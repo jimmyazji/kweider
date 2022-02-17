@@ -1,11 +1,11 @@
 const path = require('path');
-module: {
+module.exports = {
     rules: [{
             test: /\\.vue$/,
-            loader: 'vue-loader',
+            loader: '@intlify/vue-i18n-loader',
         },
         {
-            test: /\\.(json5?|ya?ml)$/, // target json, json5, yaml and yml files
+            test: /\\.(json?|ya?ml)$/, // target json, json5, yaml and yml files
             type: 'javascript/auto',
             loader: '@intlify/vue-i18n-loader',
             include: [ // Use `Rule.include` to specify the files of locale messages to be pre-compiled
@@ -17,13 +17,10 @@ module: {
             type: 'javascript/auto',
             loader: '@intlify/vue-i18n-loader'
         },
-    ]
-}
-
-module.exports = {
+    ],
     resolve: {
         alias: {
             '@': path.resolve('resources/js'),
         },
     },
-};
+}

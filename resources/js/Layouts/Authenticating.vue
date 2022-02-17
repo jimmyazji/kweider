@@ -34,10 +34,16 @@
               </span>
             </LanguageSelector>
             <div class="flex text-sm">
-              <Link :href="route('login')" class="flex items-center mx-4"
-              :class="{'font-bold' : route().current('login')}">{{ $t('login') }}</Link>
-              <Link :href="route('register')" class="flex items-center mx-4"
-              :class="{'font-bold' : route().current('register')}">{{ $t('register') }}</Link>
+              <Link
+                :href="route('login')"
+                class="flex items-center mx-4"
+                :class="{ 'font-bold': route().current('login') }"
+              >{{ $t('login') }}</Link>
+              <Link
+                :href="route('register')"
+                class="flex items-center mx-4"
+                :class="{ 'font-bold': route().current('register') }"
+              >{{ $t('register') }}</Link>
             </div>
           </div>
         </nav>
@@ -71,6 +77,14 @@
 import BreezeApplicationLogo from "@/Components/ApplicationLogo.vue";
 import LanguageSelector from "@/Components/LanguageSelector.vue";
 import FlashMessage from "@/Components/FlashMessage.vue";
-
+import { usePage } from "@inertiajs/inertia-vue3";
+import { onMounted } from "vue";
 let locale = localStorage.getItem("locale");
+onMounted(() => {
+  if (usePage().props.value.locale !== locale) {
+    var url = "/locale/:locale";
+    url = url.replace(":locale", locale);
+    window.location.replace(url)
+  }
+})
 </script>

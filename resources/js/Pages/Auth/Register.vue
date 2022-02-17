@@ -50,41 +50,17 @@
         v-text="$page.props.errors.email"
         class="text-error text-sm ml-2 mt-1"
       ></div>
-      <country-select
-        class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
-        topCountry="SY"
+      <select
         v-model="form.country"
-        :class="[
-          form.country === '' ? 'text-gray-500' : '',
-          { 'border-error': $page.props.errors.country },
-        ]"
-        disablePlaceholder
-        :usei18n="false"
-        :countryName="true"
-        :placeholder="$t('select country')"
-      />
+        class="mt-1 block w-full select select-bordered font-normal pl-5 focus:border-transparent"
+        :class="{ 'text-gray-500': !form.country }"
+      >
+        <option selected disabled value>{{ $t('select country') }}</option>
+        <option v-for="country, index in countries" :value="index">{{ country }}</option>
+      </select>
       <div
         v-if="$page.props.errors.country"
         v-text="$page.props.errors.country"
-        class="text-error text-sm ml-2 mt-1"
-      ></div>
-      <region-select
-        class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
-        v-model="form.region"
-        :country="form.country"
-        disablePlaceholder
-        :class="[
-          form.region === '' ? 'text-gray-500' : '',
-          { 'border-error': $page.props.errors.region },
-        ]"
-        :placeholder="$t('select region')"
-        :usei18n="false"
-        :countryName="true"
-        :regionName="true"
-      />
-      <div
-        v-if="$page.props.errors.region"
-        v-text="$page.props.errors.region"
         class="text-error text-sm ml-2 mt-1"
       ></div>
       <BreezeInput
@@ -170,7 +146,7 @@ export default {
     Head,
     Link,
   },
-
+  props: { countries: Object },
   data() {
     return {
       form: this.$inertia.form({

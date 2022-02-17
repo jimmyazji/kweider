@@ -196,6 +196,6 @@ return [
     |
     */
 
-    'same_site' => 'Strict',
+    'same_site' => 'lax',
 
 ];

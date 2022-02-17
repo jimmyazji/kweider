@@ -514,24 +514,39 @@
                 ></div>
               </div>
             </div>
-            <div class="flex items-center justify-between mt-10">
-              <Link
-                :href="route('products.index')"
-                class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
-              >{{ $t("back") }}</Link>
+            <div class="lg:flex items-center justify-between mt-4">
               <div>
-                <Button
-                  type="button"
-                  class="px-5 mx-0.5"
-                  :class="{ 'opacity-25': form.processing }"
-                  @click.prevent="clear()"
-                >{{ $t("clear") }}</Button>
-                <Button
-                  type="submit"
-                  class="px-5 mx-0.5"
-                  :class="{ 'opacity-25': form.processing }"
-                  :disabled="form.processing"
-                >{{ $t("submit") }}</Button>
+                <Input
+                  type="text"
+                  class="input md:w-96 w-full mr-1 placeholder-lonestar-400 text-lonestar-800"
+                  :placeholder="$t('search')"
+                  v-model="search"
+                  autofocus
+                />
+                <Link
+                  :href="route('menu.index')"
+                  class="text-sm underline hover:text-lonestar-500 font-semibold mx-1 hidden lg:inline-flex"
+                >{{ $t("back") }}</Link>
+              </div>
+              <div class="flex justify-between items-center mt-4 lg:mt-0">
+                <div>
+                  <Button
+                    type="button"
+                    class="px-5 mx-0.5"
+                    :class="{ 'opacity-25': form.processing }"
+                    @click.prevent="clear()"
+                  >{{ $t("clear") }}</Button>
+                  <Button
+                    type="submit"
+                    class="px-5 mx-0.5"
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                  >{{ $t("submit") }}</Button>
+                </div>
+                <Link
+                  :href="route('menu.index')"
+                  class="text-sm underline hover:text-lonestar-500 font-semibold mx-1 lg:hidden"
+                >{{ $t("back") }}</Link>
               </div>
             </div>
           </form>
@@ -661,7 +676,16 @@ import Button from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import Checkbox from "@/Components/Checkbox.vue";
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import debounce from "lodash/debounce";
+
+
+let props = defineProps({
+  categories: Object,
+  products: Object,
+  filters: Object,
+});
+let search = ref(props.filters.search);
 
 const form = useForm({
   en_name: "",
@@ -763,8 +787,18 @@ const previewPackImage = (e) => {
   form.pack_image = e.target.files[0];
   form.pack_img_url = URL.createObjectURL(form.pack_image);
 };
-defineProps({
-  categories: Object,
-  products: Object,
-});
+watch(
+  search,
+  debounce(function (value) {
+    Inertia.get(
+      route('product.create'),
+      { search: value },
+      {
+        preserveScroll: true,
+        replace: true,
+        preserveState: true
+      }
+    );
+  }, 300)
+);
 </script>

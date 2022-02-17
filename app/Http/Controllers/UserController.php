@@ -8,8 +8,11 @@ use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
+use Monarobase\CountryList\CountryListFacade as Countries;
+
 
 class UserController extends Controller
 {
@@ -42,8 +45,7 @@ class UserController extends Controller
                     'last_name' => $user->last_name,
                     'email' => $user->email,
                     'phone' => $user->phone,
-                    'country' => $user->country,
-                    'region' => $user->region,
+                    'country' => Countries::getOne($user->country,App::getLocale()),
                     'roles' => $user->roles->pluck('name')->all()
                 ]),
             'filters' => request(['search'])
@@ -60,7 +62,8 @@ class UserController extends Controller
     {
         return Inertia::render('Users/Create', [
             'roles' => Role::pluck('name')->all(),
-            'permissions' => Permission::pluck('name')->all()
+            'permissions' => Permission::pluck('name')->all(),
+            'countries' => Countries::getList(App::getLocale())
         ]);
     }
 
@@ -77,7 +80,6 @@ class UserController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'country' => 'required',
-            'region' => 'required',
             'phone' => 'nullable|digits:10',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -87,7 +89,6 @@ class UserController extends Controller
             'last_name' => ucfirst(strtolower($request->last_name)),
             'email' => strtolower($request->email),
             'country' => $request->country,
-            'region' => $request->region,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
@@ -118,11 +119,12 @@ class UserController extends Controller
     {
         $user = User::find($id);
         return Inertia::render('Users/Edit', [
-            'user' => $user->only('id', 'first_name', 'last_name', 'email', 'phone', 'country', 'region'),
+            'user' => $user->only('id', 'first_name', 'last_name', 'email', 'phone', 'country'),
             'roles' => Role::pluck('name')->all(),
             'permissions' => Permission::pluck('name')->all(),
             'userRoles' => $user->roles->pluck('name', 'name')->all(),
             'userPermissions' => $user->permissions->pluck('name', 'name')->all(),
+            'countries' => Countries::getList(App::getLocale())
         ]);
     }
     public function update(Request $request, $id)
@@ -133,7 +135,6 @@ class UserController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'country' => 'required',
-            'region' => 'required',
             'phone' => 'nullable|digits:10',
             'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -142,7 +143,6 @@ class UserController extends Controller
             'last_name' => ucfirst(strtolower($request->last_name)),
             'email' => strtolower($request->email),
             'country' => $request->country,
-            'region' => $request->region,
             'phone' => $request->phone,
         ]);
         if ($request->password) {

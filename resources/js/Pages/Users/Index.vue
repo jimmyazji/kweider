@@ -47,7 +47,6 @@
                   <th>{{ $t("name") }}</th>
                   <th>{{ $t("email") }}</th>
                   <th>{{ $t("country") }}</th>
-                  <th>{{ $t("region") }}</th>
                   <th>{{ $t("roles") }}</th>
                   <th>{{ $t("phone") }}</th>
                   <th></th>
@@ -67,8 +66,7 @@
                   <td>
                     <Link class="hover:underline" :href="route('users.show', user)">{{ user.email }}</Link>
                   </td>
-                  <td v-t="user.country"></td>
-                  <td v-t="user.region"></td>
+                  <td>{{ user.country }}</td>
                   <td>
                     <div class="flex">
                       <span
@@ -79,11 +77,21 @@
                   </td>
                   <td v-if="user.phone">{{ user.phone }}</td>
                   <td v-else>{{ $t("none") }}</td>
-                  <td class="text-lonestar-500">
-                    <Link
-                      class="focus:outline-none hover:underline"
-                      :href="route('users.edit', user.id)"
-                    >{{ $t("edit") }}</Link>
+                  <td>
+                    <div class="flex justify-end">
+                      <Link
+                        class="text-lonestar-500 focus:outline-none hover:underline"
+                        :href="route('users.edit', user.id)"
+                      >
+                        <i class="fa fa-edit mx-1"></i>
+                      </Link>
+                      <Link
+                        class="text-red-700 focus:outline-none hover:underline"
+                        :href="route('users.edit', user.id)"
+                      >
+                        <i class="fa fa-trash"></i>
+                      </Link>
+                    </div>
                   </td>
                 </tr>
                 <tr
@@ -101,7 +109,6 @@
                   <th>{{ $t("name") }}</th>
                   <th>{{ $t("email") }}</th>
                   <th>{{ $t("country") }}</th>
-                  <th>{{ $t("region") }}</th>
                   <th>{{ $t("roles") }}</th>
                   <th>{{ $t("phone") }}</th>
                   <th></th>

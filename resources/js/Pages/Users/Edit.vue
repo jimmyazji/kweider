@@ -82,45 +82,20 @@
                             </div>
                             <div class="grid sm:grid-cols-2 gap-2">
                                 <div>
-                                    <country-select
-                                        class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
-                                        topCountry="SY"
+                                    <select
                                         v-model="form.country"
-                                        autocomplete
-                                        :class="[
-                                            form.country === '' ? 'text-gray-500' : '',
-                                            { 'border-error': $page.props.errors.country },
-                                        ]"
-                                        disablePlaceholder
-                                        :usei18n="false"
-                                        :placeholder="$t('select country')"
-                                        :countryName="true"
-                                    />
+                                        class="mt-1 block w-full select select-bordered font-normal focus:border-transparent"
+                                        :class="{ 'text-gray-500': !form.country, 'select-error': form.errors.country, 'pl-5': !locale === 'ar' }"
+                                    >
+                                        <option selected disabled value>{{ $t('select country') }}</option>
+                                        <option
+                                            v-for="country, index in countries"
+                                            :value="index"
+                                        >{{ country }}</option>
+                                    </select>
                                     <div
-                                        v-if="$page.props.errors.country"
-                                        v-text="$page.props.errors.country"
-                                        class="text-error text-sm ml-2 mt-1"
-                                    ></div>
-                                </div>
-                                <div>
-                                    <region-select
-                                        class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
-                                        v-model="form.region"
-                                        :usei18n="false"
-                                        :country="form.country"
-                                        disablePlaceholder
-                                        autocomplete
-                                        :class="[
-                                            form.region === '' ? 'text-gray-500' : '',
-                                            { 'border-error': $page.props.errors.region },
-                                        ]"
-                                        :placeholder="$t('select region')"
-                                        :countryName="true"
-                                        :regionName="true"
-                                    />
-                                    <div
-                                        v-if="$page.props.errors.region"
-                                        v-text="$page.props.errors.region"
+                                        v-if="form.errors.country"
+                                        v-text="form.errors.country"
                                         class="text-error text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
@@ -133,7 +108,7 @@
                                     autocomplete="roles"
                                     :options="roles"
                                     v-model="form.roles"
-                                    placeholder="Select roles"
+                                    :placeholder="$t('select roles')"
                                     searchable
                                     label
                                 />
@@ -144,7 +119,7 @@
                                     autocomplete="permissions"
                                     :options="permissions"
                                     v-model="form.permissions"
-                                    placeholder="Select permissions"
+                                    :placeholder="$t('select permissions')"
                                     searchable
                                     label
                                 />
@@ -208,11 +183,12 @@ import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import Multiselect from '@vueform/multiselect'
-let props = defineProps({ roles: Object, permissions: Object, user: Object, userRoles: Array, userPermissions: Array });
+let props = defineProps({ roles: Object, permissions: Object, user: Object, userRoles: Object, userPermissions: Object, countries: Object });
+const locale = localStorage.getItem('locale');
 let classes = {
     tag: 'bg-lonestar-500 text-white text-sm font-semibold py-0.5 pl-2 rounded mr-1 mb-1 flex items-center whitespace-nowrap',
-    container: 'relative mx-auto w-full flex items-center justify-end rounded-lg cursor-pointer border border-gray-300 rounded text-sm bg-white outline-none min-h-12 transition duration-200',
-    placeholder: 'flex items-center h-full absolute left-0 top-0 pointer-events-none bg-transparent pl-4 text-gray-500',
+    container: 'relative mx-auto w-full flex items-center justify-end rounded-lg cursor-pointer border border-gray-300 rounded text-sm bg-white outline-none min-h-12 transition duration-200 mt-1',
+    placeholder: 'flex items-center h-full absolute top-0 pointer-events-none bg-transparent pl-4 text-gray-500' + ' ' + (locale === 'ar' ? 'right-0' : 'left-0'),
     tagsSearchWrapper: 'inline-block relative mx-1 mb-1 flex-grow flex-shrink h-full',
     tagsSearch: 'absolute inset-0 border-0 outline-none focus:ring-0 focus:outline-none appearance-none p-0 text-base font-sans box-border w-full',
     containerActive: 'ring-1 border-transparent ring-almond-600',

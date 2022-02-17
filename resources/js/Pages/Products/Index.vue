@@ -9,7 +9,7 @@
           :class="{ 'text-lonestar-400': !currentCategory }"
           class="select select-bordered focus:border-transparent w-full"
         >
-          <option :value="undefined" selected>{{ category ? $t('all') : $t('category') }}</option>
+          <option :value="undefined" selected>{{ currentCategory ? $t('all') : $t('category') }}</option>
           <option v-for="category in categories" :value="category.name">{{ category.name }}</option>
         </select>
       </div>
@@ -100,7 +100,6 @@
 import { Head } from "@inertiajs/inertia-vue3";
 import { watch, ref } from "vue";
 import ExportProduct from "@/Components/ExportProduct.vue";
-import { Link } from "@inertiajs/inertia-vue3";
 import Input from "@/Components/Input";
 import debounce from "lodash/debounce";
 import { Inertia } from "@inertiajs/inertia";

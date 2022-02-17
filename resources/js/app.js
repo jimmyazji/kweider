@@ -17,7 +17,6 @@ import AR from "./../lang/ar.json"
 import EN from "./../lang/en.json"
 
 import { createI18n } from 'vue-i18n'
-import vueCountryRegionSelect from 'vue3-country-region-select'
 import VueSmoothScroll from 'vue3-smooth-scroll'
 
 
@@ -59,7 +58,6 @@ createInertiaApp({
                 render: () => h(app, props)
             })
             .use(plugin)
-            .use(vueCountryRegionSelect)
             .use(VueSmoothScroll)
             .use(i18n)
             .component('Link', Link)

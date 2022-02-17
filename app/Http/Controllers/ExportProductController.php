@@ -101,7 +101,7 @@ class ExportProductController extends Controller
                             'box_url' => $prod->getFirstMedia('box') ? $prod->getFirstMedia('box')->getUrl('export') : null,
                             'pack_url' => $prod->getFirstMedia('package') ? $prod->getFirstMedia('package')->getUrl('export') : null
                         ];
-                    }
+                    },
                 ),
                 'categories' => ExportCategory::all()->map(
                     function ($category) {
@@ -110,7 +110,8 @@ class ExportProductController extends Controller
                             'name' => $category->name,
                         ];
                     }
-                )
+                ),
+                'filters' => request(['search'])
             ]
         );
     }
