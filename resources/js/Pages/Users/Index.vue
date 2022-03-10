@@ -2,7 +2,9 @@
   <Head :title="$t('manage users')" />
   <header class="bg-almond-200 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $t("manage users") }}</h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        {{ $t("manage users") }}
+      </h2>
     </div>
   </header>
   <div class="py-12">
@@ -40,7 +42,10 @@
                 </Link>
               </div>
             </div>
-            <table class="table w-full table-compact table-zebra text-lonestar-800 mt-4" dir="ltr">
+            <table
+              class="table w-full table-compact table-zebra text-lonestar-800 mt-4"
+              dir="ltr"
+            >
               <thead>
                 <tr>
                   <th></th>
@@ -55,16 +60,19 @@
               <tbody>
                 <tr v-for="user in users.data" :key="user.id">
                   <td>
-                    <Link class="hover:underline" :href="route('users.show', user)">{{ user.id }}</Link>
+                    <Link class="hover:underline" :href="route('users.show', user)">{{
+                      user.id
+                    }}</Link>
                   </td>
                   <td>
-                    <Link
-                      class="hover:underline"
-                      :href="route('users.show', user)"
-                    >{{ user.first_name }} {{ user.last_name }}</Link>
+                    <Link class="hover:underline" :href="route('users.show', user)"
+                      >{{ user.first_name }} {{ user.last_name }}</Link
+                    >
                   </td>
                   <td>
-                    <Link class="hover:underline" :href="route('users.show', user)">{{ user.email }}</Link>
+                    <Link class="hover:underline" :href="route('users.show', user)">{{
+                      user.email
+                    }}</Link>
                   </td>
                   <td>{{ user.country }}</td>
                   <td>
@@ -72,7 +80,8 @@
                       <span
                         class="text-xs bg-almond-500 py-0.5 px-1 rounded-full mr-1"
                         v-for="role in user.roles"
-                      >{{ role }}</span>
+                        >{{ role }}</span
+                      >
                     </div>
                   </td>
                   <td v-if="user.phone">{{ user.phone }}</td>
@@ -99,21 +108,12 @@
                   :class="users.data.length === 0 ? 'opacity-70' : 'opacity-0'"
                 >
                   <td colspan="7">
-                    <div class="flex justify-center transition duration-500">{{ $t('no results') }}</div>
+                    <div class="flex justify-center transition duration-500">
+                      {{ $t("no results") }}
+                    </div>
                   </td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr>
-                  <th></th>
-                  <th>{{ $t("name") }}</th>
-                  <th>{{ $t("email") }}</th>
-                  <th>{{ $t("country") }}</th>
-                  <th>{{ $t("roles") }}</th>
-                  <th>{{ $t("phone") }}</th>
-                  <th></th>
-                </tr>
-              </tfoot>
             </table>
           </div>
         </div>
@@ -138,11 +138,7 @@ let search = ref(props.filters.search);
 watch(
   search,
   debounce(function (value) {
-    Inertia.get(
-      "/users",
-      { search: value },
-      { preserveState: true, replace: true }
-    );
+    Inertia.get("/users", { search: value }, { preserveState: true, replace: true });
   }, 300)
 );
 </script>

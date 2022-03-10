@@ -82,7 +82,7 @@
               <Button @click="submit()" class="btn-md">{{ $t('send') }}</Button>
               <p class="text-xs text-gray-500 mt-3">
                 {{ $t('or contact') }}
-                <a class="text-green-500" href="#">{{ $t('whatsapp') }}</a>.
+                <a class="text-green-500" href="http://www.google.com" target="_blank" rel="noopener noreferrer">{{ $t('whatsapp') }}</a>.
               </p>
             </div>
           </div>

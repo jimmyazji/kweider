@@ -626,41 +626,6 @@
                   </td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr>
-                  <th></th>
-                  <th>{{ $t("en name") }}</th>
-                  <th>{{ $t("ar name") }}</th>
-                  <th>{{ $t("en desc") }}</th>
-                  <th>{{ $t("ar desc") }}</th>
-                  <th>{{ $t("category") }}</th>
-                  <th>{{ $t("weight") }}</th>
-                  <th>{{ $t("width") }}</th>
-                  <th>{{ $t("length") }}</th>
-                  <th>{{ $t("height") }}</th>
-                  <th>{{ $t("quantity") }}</th>
-                  <th>{{ $t("clear weight") }}</th>
-                  <th>{{ $t("actual weight") }}</th>
-                  <th>{{ $t("width") }}</th>
-                  <th>{{ $t("length") }}</th>
-                  <th>{{ $t("height") }}</th>
-                  <th>{{ $t("quantity") }}</th>
-                  <th>{{ $t("clear weight") }}</th>
-                  <th>{{ $t("actual weight") }}</th>
-                  <th></th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th class colspan="6"></th>
-                  <th colspan="6">
-                    <div class="flex justify-center bg-almond-600 rounded">{{ $t('box') }}</div>
-                  </th>
-                  <th colspan="6">
-                    <div class="flex justify-center bg-almond-600 rounded">{{ $t('package') }}</div>
-                  </th>
-                  <th></th>
-                </tr>
-              </tfoot>
             </table>
           </div>
         </div>

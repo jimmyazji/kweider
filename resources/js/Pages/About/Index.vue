@@ -11,7 +11,7 @@
               {{ $t('about p1') }}
             </p>
           </div>
-          <img src="/images/web11-03.jpg" class="w-104" />
+          <!-- <img src="/images/web11-03.jpg" class="w-104" /> -->
         </div>
         <p class="flex text-lg mt-2 ml-10">{{ $t('about p2') }}</p>
         <p class="flex text-lg mt-2 ml-10">{{ $t('about p3') }}</p>
@@ -41,7 +41,7 @@
               {{ $t('global p1') }}
             </p>
           </div>
-          <img src="/images/web11-01.jpg" class="w-104" />
+          <!-- <img src="/images/web11-01.jpg" class="w-104" /> -->
         </div>
         <p class="flex text-lg mt-5 ml-10">{{ $t('global p2') }}</p>
         <p class="flex text-lg mt-5 ml-10">{{ $t('global p3') }}</p>

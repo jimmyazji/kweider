@@ -2,7 +2,11 @@
     <a
         href="#"
         class="container rounded-lg border-2 md:h-auto bg-almond-300 border-lonestar-300 p-2 focus:outline-none transition-all transform ease-in-out duration-500"
-        :class="toggled ? 'sm:w-140 h-120' : 'sm:w-68 h-106 focus:-translate-y-1 lg:hover:scale-95 lg:focus:scale-100'"
+        :class="
+            toggled
+                ? 'sm:w-140 h-120'
+                : 'sm:w-68 h-106 focus:-translate-y-1 lg:hover:scale-95 lg:focus:scale-100'
+        "
         @click.prevent="toggleElement()"
     >
         <div
@@ -26,7 +30,7 @@
                 </h3>
                 <p class="mt-1 text-sm text-lonestar-500">{{ product.type }}</p>
             </div>
-            <p class="font-medium text-lonestar-900">$35</p>
+            <!-- <p class="font-medium text-lonestar-900">$35</p> -->
         </div>
         <p
             class="text-sm opacity-80 transform transition-all delay-200 duration-100"
@@ -35,7 +39,7 @@
     </a>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 const toggled = ref(false);
 defineProps({
     product: Object,
@@ -43,5 +47,4 @@ defineProps({
 const toggleElement = () => {
     toggled.value = !toggled.value;
 };
-
 </script>

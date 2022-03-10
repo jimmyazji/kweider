@@ -127,14 +127,6 @@
                   </tr>
                 </TransitionGroup>
               </tbody>
-              <tfoot>
-                <tr>
-                  <th></th>
-                  <th>{{ $t("en name") }}</th>
-                  <th>{{ $t("ar name") }}</th>
-                  <th></th>
-                </tr>
-              </tfoot>
             </table>
           </div>
         </div>

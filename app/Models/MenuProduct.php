@@ -17,6 +17,7 @@ class MenuProduct extends Model implements HasMedia
     use HasTranslations;
     protected $fillable = [
         'name',
+        'slug',
         'type',
         'category_id',
         'description',

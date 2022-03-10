@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
-use App\Models\MenuCategory;
 use App\Models\MenuProduct;
+use Illuminate\Support\Str;
+use App\Models\MenuCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,6 +35,7 @@ class MenuController extends Controller
                         return [
                             'id' => $prod->id,
                             'name' => $prod->name,
+                            'slug' => $prod->slug,
                             'type' => $prod->type,
                             'description' => $prod->description,
                             'image' => $prod->getFirstMedia('menu')->getUrl('menu')
@@ -94,6 +96,7 @@ class MenuController extends Controller
                 'en' => $request->en_name,
                 'ar' => $request->ar_name
             ],
+            'slug' => Str::slug($request->en_name . '-' . $request->category_id),
             'type' => [
                 'en' => $request->en_type,
                 'ar' => $request->ar_type,
@@ -126,6 +129,7 @@ class MenuController extends Controller
                 'en' => $request->en_name,
                 'ar' => $request->ar_name
             ],
+            'slug' => Str::slug($request->en_name . '-' . $request->category_id),
             'type' => [
                 'en' => $request->en_type,
                 'ar' => $request->ar_type

@@ -37,8 +37,6 @@
         "@tailwindcss/aspect-ratio": "^0.3.0",
         "@vueform/multiselect": "^2.3.1",
         "daisyui": "^1.16.2",
-        "vue3-carousel": "^0.1.35",
-        "vue3-country-region-select": "^1.0.0",
-        "vue3-smooth-scroll": "^0.8.1"
+        "vue3-carousel": "^0.1.36"
     }
 }

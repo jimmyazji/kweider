@@ -17,7 +17,6 @@ import AR from "./../lang/ar.json"
 import EN from "./../lang/en.json"
 
 import { createI18n } from 'vue-i18n'
-import VueSmoothScroll from 'vue3-smooth-scroll'
 
 
 const messages = {
@@ -58,7 +57,6 @@ createInertiaApp({
                 render: () => h(app, props)
             })
             .use(plugin)
-            .use(VueSmoothScroll)
             .use(i18n)
             .component('Link', Link)
             .mixin({

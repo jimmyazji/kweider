@@ -144,7 +144,9 @@
                     </div>
 
                     <div class="flex items-center">
-                        <span class="title-font font-medium text-2xl text-lonestar-900">$58.00</span>
+                        <!--Price-->
+
+                        <!-- <span class="title-font font-medium text-2xl text-lonestar-900">$58.00</span> -->
                         <Button
                             type="button"
                             class="flex ml-auto text-almond-400 border-0 py-2 focus:outline-none"
@@ -182,42 +184,36 @@
                     </div>
                 </div>
                 <div
-                    class="max-w-screen lg:w-104 lg:h-104 mx-auto p-4 w-full h-0 pb-full lg:pb-0 flex justify-center items-center rounded-md mt-10 lg:mt-0"
+                    class="w-full lg:w-104 lg:h-104 justify-center items-center mt-4 mx-auto lg:mt-0"
                 >
                     <Carousel
-                        :id="product.id"
-                        :class="'carousel-' + product.id"
-                        v-slot="{ currentSlide, animation }"
+                        :itemsToScroll="1"
+                        :itemsToShow="1"
+                        class="relative text-center box-border"
                     >
-                        <Slide :animation="animation" v-if="product.prod_url">
-                            <div v-show="currentSlide === 1">
-                                <img
-                                    alt="ecommerce"
-                                    class="min-w-full h-full object-cover rounded-lg"
-                                    :src="product.prod_url"
-                                />
+                        <Slide class>
+                            <div class="carousel__item rounded-lg bg-almond-500">
+                                <img :src="product.prod_url" class="rounded-lg" alt="Product Image" />
                             </div>
                         </Slide>
-                        <Slide :animation="animation" v-if="product.box_url">
-                            <div v-show="currentSlide === 2">
-                                <img
-                                    alt="ecommerce"
-                                    class="min-w-full h-full object-cover rounded-lg"
-                                    :src="product.box_url"
-                                />
-                            </div>
-                        </Slide>
-                        <Slide :animation="animation" v-if="product.pack_url">
+                        <Slide class>
                             <div
-                                v-show="product.box_url ? (currentSlide === 3) : (currentSlide === 2)"
+                                class="carousel__item aspect-w-9 aspect-h-8 rounded-lg bg-almond-500"
                             >
-                                <img
-                                    alt="ecommerce"
-                                    class="bg-transparent min-w-full h-full object-cover rounded-lg"
-                                    :src="product.pack_url"
-                                />
+                                <img :src="product.box_url" class="rounded-lg" alt="Product Image" />
                             </div>
                         </Slide>
+                        <Slide class>
+                            <div
+                                class="carousel__item aspect-w-9 aspect-h-8 rounded-lg bg-almond-500"
+                            >
+                                <img :src="product.pack_url" class="rounded-lg" alt="Product Image" />
+                            </div>
+                        </Slide>
+                        <template #addons>
+                            <Navigation />
+                            <Pagination />
+                        </template>
                     </Carousel>
                 </div>
             </div>
@@ -226,11 +222,10 @@
 </template>
 <script setup>
 import Button from "@/Components/Button";
-import Carousel from "@/Components/Carousel.vue";
-import Slide from "@/Components/Slide.vue";
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide, Navigation, Pagination } from "vue3-carousel";
 import { ref } from 'vue';
 defineProps({ product: Object })
-
 const selectInfo = ref('prod');
 
 const setInfo = (index) => {
@@ -252,5 +247,21 @@ const setInfo = (index) => {
 .fade-enter-to,
 .fade-leave-from {
     opacity: 1;
+}
+:root {
+    --vc-clr-primary: #6b0303;
+    --vc-clr-secondary: #974f4f;
+    --vc-clr-white: #ffffff;
+}
+.carousel__item {
+    min-height: 300px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel__prev--in-active,
+.carousel__next--in-active {
+    display: none;
 }
 </style>

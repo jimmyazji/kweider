@@ -19,26 +19,276 @@
         </div>
       </Slide>
     </Carousel>
-  </div> -->
-  <div class="px-20">
+  </div>-->
+  <div>
     <img src="/images/asawer-walnut.gif" alt />
   </div>
-  <div class="flex mx-auto flex-wrap max-w-7xl gap-4 py-10">
-    <MenuProduct :product="product" />
-    <MenuProduct :product="product" />
-    <MenuProduct :product="product" />
-    <MenuProduct :product="product" />
+  <div class="max-w-7xl mx-auto py-10">
+    <h4 class="text-3xl text-lonestar-500 py-5 font-semibold">Featured Products</h4>
+    <Carousel
+      :itemsToShow="4"
+      :itemsToScroll="1"
+      class="relative text-center box-border hidden md:block"
+    >
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <template #addons>
+        <Navigation />
+        <Pagination />
+      </template>
+    </Carousel>
+    <Carousel :itemsToShow="1" :itemsToScroll="1" class="relative text-center box-border md:hidden">
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <template #addons>
+        <Navigation />
+        <Pagination />
+      </template>
+    </Carousel>
+    <h4 class="text-3xl text-lonestar-500 py-5 font-semibold">Trending Products</h4>
+    <Carousel :itemsToShow="4" :itemsToScroll="1" class="relative text-center box-border">
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <Slide class="borded border-lonestar-500 overflow-hidden">
+        <Link
+          class="carousel__item rounded-lg bg-almond-500 border border-lonestar-500 justify-center items-center"
+          :href="route('menu.index') + '#big-meals'"
+        >
+          <img
+            src="/media/3/conversions/web5-02-menu.jpg"
+            class="rounded-lg object-fill w-80 h-80"
+            alt
+          />
+        </Link>
+      </Slide>
+      <template #addons>
+        <Navigation />
+        <Pagination />
+      </template>
+    </Carousel>
   </div>
 </template>
 
 <script setup>
-import { Head } from "@inertiajs/inertia-vue3";
-import Carousel from "@/Components/Carousel.vue";
-import Slide from "@/Components/Slide.vue";
-import MenuProduct from "@/Components/MenuProduct.vue";
-const product = {
-  name:'product',
-  type:'test product',
-  description:'This is a test product',
-}
+import { Head, Link } from "@inertiajs/inertia-vue3";
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide, Navigation, Pagination } from "vue3-carousel";
+
 </script>
+<style>
+:root {
+  --vc-clr-primary: #6b0303;
+  --vc-clr-secondary: #974f4f;
+  --vc-clr-white: #ffffff;
+}
+.carousel__item {
+  min-height: 300px;
+  width: 350px;
+  display: flex;
+}
+.carousel__slide {
+  padding: 5px;
+}
+.carousel__prev--in-active,
+.carousel__next--in-active {
+  display: none;
+}
+</style>
