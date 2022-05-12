@@ -6,5 +6,5 @@
     </div>
 </template>
 <script setup>
-defineProps({ animation: String })
+defineProps({ animation: String });
 </script>
