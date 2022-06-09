@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
 
-class PostCategoryContoller extends Controller
+class PostCategoryController extends Controller
 {
     public function index()
     {

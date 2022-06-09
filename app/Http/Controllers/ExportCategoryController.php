@@ -6,7 +6,7 @@ use App\Models\ExportCategory;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
-class ExportCategoryContoller extends Controller
+class ExportCategoryController extends Controller
 {
     public function __construct()
     {

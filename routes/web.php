@@ -7,9 +7,9 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuCategoryController;
-use App\Http\Controllers\ExportCategoryContoller;
+use App\Http\Controllers\ExportCategoryController;
 use App\Http\Controllers\ExportProductController;
-use App\Http\Controllers\PostCategoryContoller;
+use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 
 /*
@@ -53,10 +53,10 @@ Route::get('posts/{post:slug}/edit', [PostController::class, 'edit'])->name('pos
 Route::put('blog/{post}', [PostController::class, 'update'])->name('posts.update');
 Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.delete');
-Route::resource('postcategories', PostCategoryContoller::class);
+Route::resource('postcategories', PostCategoryController::class);
 Route::resource('users', UserController::class);
 Route::resource('products', ExportProductController::class);
-Route::resource('exportcategories', ExportCategoryContoller::class);
+Route::resource('exportcategories', ExportCategoryController::class);
 Route::resource('menu', MenuController::class);
 Route::resource('menucategories', MenuCategoryController::class);
 Route::resource('roles', RoleController::class);

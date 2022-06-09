@@ -34,13 +34,11 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'country' => 'required',
-            'region' => 'required',
             'phone' => 'nullable|digits:10',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -50,7 +48,6 @@ class RegisteredUserController extends Controller
             'last_name' => ucfirst(strtolower($request->last_name)),
             'email' => strtolower($request->email),
             'country' => $request->country,
-            'region' => $request->region,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
@@ -58,6 +55,6 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
 
-        return redirect()->route('login')->with('success', 'Check your email for an email confimration link.');
+        return redirect()->route('login')->with('success', 'Check your email for an email confirmation link.');
     }
 }
