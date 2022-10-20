@@ -524,6 +524,11 @@
                                 <label
                                     class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
                                     for="box_image"
+                                    :class="
+                                        form.box
+                                            ? 'cursor-pointer'
+                                            : 'cursor-not-allowed'
+                                    "
                                 >
                                     <img
                                         v-if="form.box_img_url"
@@ -546,6 +551,7 @@
                                     <input
                                         id="box_image"
                                         type="file"
+                                        :disabled="form.box == false"
                                         accept="image/*"
                                         @change="previewBoxImage"
                                         class="hidden"
@@ -559,8 +565,13 @@
                             </div>
                             <div>
                                 <label
-                                    class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
+                                    class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400"
                                     for="pack_image"
+                                    :class="
+                                        form.package
+                                            ? 'cursor-pointer'
+                                            : 'cursor-not-allowed'
+                                    "
                                 >
                                     <img
                                         v-if="form.pack_img_url"
@@ -584,6 +595,7 @@
                                         id="pack_image"
                                         type="file"
                                         accept="image/*"
+                                        :disabled="form.package == false"
                                         @change="previewPackImage"
                                         class="hidden"
                                     />
@@ -812,11 +824,21 @@
                                     class="border-b"
                                 >
                                     <td class="py-4"></td>
-                                    <td class="py-4 px-6 text-start">{{ product.name.en }}</td>
-                                    <td class="py-4 px-6 text-start">{{ product.description.en }}</td>
-                                    <td class="py-4 px-6 text-start">{{ product.name.ar }}</td>
-                                    <td class="py-4 px-6 text-start">{{ product.description.ar }}</td>
-                                    <td class="py-4 px-6 text-start">{{ product.category }}</td>
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.name.en }}
+                                    </td>
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.description.en }}
+                                    </td>
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.name.ar }}
+                                    </td>
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.description.ar }}
+                                    </td>
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.category }}
+                                    </td>
                                     <td class="py-4 px-6 text-start">
                                         {{
                                             product.weight

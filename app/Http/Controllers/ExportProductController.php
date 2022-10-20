@@ -23,6 +23,7 @@ class ExportProductController extends Controller
         $user = Auth::user();
         $canList = $user ? $user->can('export-list') : false;
         $canListCategories = $user ? $user->can('export-category-list') : false;
+
         return Inertia::render(
             'Products/Index',
             [
@@ -51,9 +52,9 @@ class ExportProductController extends Controller
                             'pack_w' => $prod->pack_w,
                             'pack_h' => $prod->pack_h,
                             'pack_q' => $prod->pack_q,
-                            'prod_url' => $prod->getFirstMedia('prod') ? $prod->getFirstMedia('prod')->getUrl('export') : null,
-                            'box_url' => $prod->getFirstMedia('box') ? $prod->getFirstMedia('box')->getUrl('export') : null,
-                            'pack_url' => $prod->getFirstMedia('package') ? $prod->getFirstMedia('package')->getUrl('export') : null
+                            'prod_url' => $prod->getFirstOrDefaultMediaUrl('prod', 'export'),
+                            'box_url' => $prod->box_l ? $prod->getFirstOrDefaultMediaUrl('box', 'export') : null,
+                            'pack_url' => $prod->pack_l ? $prod->getFirstOrDefaultMediaUrl('package', 'export') : null
                         ]
                     ),
                 'categories' => ExportCategory::all()->map(
@@ -97,9 +98,9 @@ class ExportProductController extends Controller
                             'pack_w' => $prod->pack_w,
                             'pack_h' => $prod->pack_h,
                             'pack_q' => $prod->pack_q,
-                            'prod_url' => $prod->getFirstMedia('prod') ? $prod->getFirstMedia('prod')->getUrl('export') : null,
-                            'box_url' => $prod->getFirstMedia('box') ? $prod->getFirstMedia('box')->getUrl('export') : null,
-                            'pack_url' => $prod->getFirstMedia('package') ? $prod->getFirstMedia('package')->getUrl('export') : null
+                            'prod_url' => $prod->getFirstOrDefaultMediaUrl('prod', 'export'),
+                            'box_url' => $prod->box_l ? $prod->getFirstOrDefaultMediaUrl('box', 'export') : null,
+                            'pack_url' => $prod->pack_l ? $prod->getFirstOrDefaultMediaUrl('package', 'export') : null
                         ];
                     },
                 ),
@@ -168,11 +169,11 @@ class ExportProductController extends Controller
             $product->addMediaFromRequest('prod_image')
                 ->toMediaCollection('prod');
         }
-        if ($request['box_image']) {
+        if ($request['box'] && $request['box_image']) {
             $product->addMediaFromRequest('box_image')
                 ->toMediaCollection('box');
         }
-        if ($request['pack_image']) {
+        if ($request['package'] && $request['pack_image']) {
             $product->addMediaFromRequest('pack_image')
                 ->toMediaCollection('package');
         }
@@ -212,28 +213,28 @@ class ExportProductController extends Controller
             ],
             'weight' => $request->weight,
             'category_id' => $request->category_id,
-            'box_w' => $request->box_w,
-            'box_h' => $request->box_h,
-            'box_l' => $request->box_l,
-            'box_q' => $request->box_q,
-            'box_w_c' => $request->box_w_c,
-            'box_w_a' => $request->box_w_a,
-            'pack_w' => $request->pack_w,
-            'pack_l' => $request->pack_l,
-            'pack_h' => $request->pack_h,
-            'pack_q' => $request->pack_q,
-            'pack_w_c' => $request->pack_w_c,
-            'pack_w_a' => $request->pack_w_a,
+            'box_w' => $request->box ? $request->box_w : null,
+            'box_h' => $request->box ? $request->box_h : null,
+            'box_l' => $request->box ? $request->box_l : null,
+            'box_q' => $request->box ? $request->box_q : null,
+            'box_w_c' => $request->box ? $request->box_w_c : null,
+            'box_w_a' => $request->box ? $request->box_w_a : null,
+            'pack_w' => $request->package ? $request->pack_w : null,
+            'pack_l' => $request->package ? $request->pack_l : null,
+            'pack_h' => $request->package ? $request->pack_h : null,
+            'pack_q' => $request->package ? $request->pack_q : null,
+            'pack_w_c' => $request->package ? $request->pack_w_c : null,
+            'pack_w_a' => $request->package ? $request->pack_w_a : null,
         ]);
         if ($request['prod_image']) {
             $product->addMediaFromRequest('prod_image')
                 ->toMediaCollection('prod');
         }
-        if ($request['box_image']) {
+        if ($request['box'] && $request['box_image']) {
             $product->addMediaFromRequest('box_image')
                 ->toMediaCollection('box');
         }
-        if ($request['pack_image']) {
+        if ($request['package'] && $request['pack_image']) {
             $product->addMediaFromRequest('pack_image')
                 ->toMediaCollection('package');
         }

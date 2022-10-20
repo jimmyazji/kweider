@@ -323,9 +323,9 @@
                             >
                                 <div class="carousel__item rounded-lg">
                                     <img
-                                        :src="slide"
+                                        :src="slide.img"
                                         class="rounded-lg"
-                                        alt="Product Image"
+                                        :alt="slide.alt"
                                     />
                                 </div>
                             </Slide>
@@ -348,16 +348,22 @@ import { ref } from "vue";
 const props = defineProps({ product: Object });
 const selectInfo = ref("prod");
 const slides = [];
-if (props.product.box_url) {
-    slides.push(props.product.prod_url);
+if (props.product.prod_url) {
+    slides.push({ alt: "Product Image", img: props.product.prod_url });
 }
 if (props.product.box_url) {
-    slides.push(props.product.box_url);
+    slides.push({ alt: "Box Image", img:props.product.box_url});
 }
 if (props.product.pack_url) {
-    slides.push(props.product.pack_url);
+    slides.push({ alt: "Package Image", img:props.product.pack_url});
 }
 const setInfo = (index) => {
     selectInfo.value = index;
 };
 </script>
+<style>
+.carousel__prev,
+.carousel__next {
+    border: 1px solid #fdfcfa;
+}
+</style>
