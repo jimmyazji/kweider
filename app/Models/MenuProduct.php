@@ -15,6 +15,7 @@ class MenuProduct extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
     use HasTranslations;
+    protected static $defaultImage = '/images/default-menu.png';
     protected $fillable = [
         'name',
         'slug',
@@ -51,5 +52,11 @@ class MenuProduct extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('menu')->crop('crop-center', 450, 400)->keepOriginalImageFormat();
+    }
+    public function getFirstOrDefaultMediaUrl(string $collectionName = 'default', string $conversionName = ''): string
+    {
+        $url = $this->getFirstMediaUrl($collectionName, $conversionName);
+
+        return $url ? $url : $this::$defaultImage ?? '';
     }
 }

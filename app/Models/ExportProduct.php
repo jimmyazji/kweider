@@ -16,6 +16,7 @@ class ExportProduct extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
     public $translatable = ['name', 'description'];
+    protected static $defaultImage = '/images/default-export.png';
     protected $fillable = [
         'name',
         'description',
@@ -57,5 +58,11 @@ class ExportProduct extends Model implements HasMedia
         $this->addMediaCollection('prod')->singleFile();
         $this->addMediaCollection('box')->singleFile();
         $this->addMediaCollection('package')->singleFile();
+    }
+    public function getFirstOrDefaultMediaUrl(string $collectionName = 'default', string $conversionName = ''): string
+    {
+        $url = $this->getFirstMediaUrl($collectionName, $conversionName);
+
+        return $url ? $url : $this::$defaultImage ?? '';
     }
 }
