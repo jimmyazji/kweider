@@ -136,9 +136,9 @@ class ExportProductController extends Controller
             'pack_q' => 'required_if:package,true|integer|nullable|min:0',
             'pack_w_c' => 'required_if:package,true|numeric|nullable|min:0',
             'pack_w_a' => 'required_if:package,true|numeric|nullable|min:0',
-            'prod_image' => 'required|max:10240',
-            'box_image' => 'required_if:box,true|max:10240',
-            'pack_image' => 'required_if:package,true|max:10240'
+            'prod_image' => 'nullable|max:10240',
+            'box_image' => 'nullable|max:10240',
+            'pack_image' => 'nullable|max:10240'
         ]);
         $product = ExportProduct::create([
             'name' => [
@@ -164,8 +164,10 @@ class ExportProductController extends Controller
             'pack_w_c' => $request->pack_w_c,
             'pack_w_a' => $request->pack_w_a,
         ]);
-        $product->addMediaFromRequest('prod_image')
-            ->toMediaCollection('prod');
+        if ($request['prod_image']) {
+            $product->addMediaFromRequest('prod_image')
+                ->toMediaCollection('prod');
+        }
         if ($request['box_image']) {
             $product->addMediaFromRequest('box_image')
                 ->toMediaCollection('box');

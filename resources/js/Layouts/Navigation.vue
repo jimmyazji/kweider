@@ -1,6 +1,6 @@
 <template>
     <nav
-        class="bg-primary sticky top-0 z-50 p-2 border-b border-almond-500"
+        class=" bg-lonestar-500 sticky top-0 z-50 p-2 border-b border-almond-500"
         :style="{
             backgroundImage: `url('/../images/pattern.png')`,
             backgroundPosition: 'center center',
@@ -22,9 +22,8 @@
                         </Link>
                     </div>
                     <!-- Navigation Links -->
-                    <div class="hidden space-x-4 lg:space-x-8 md:-my-px md:mx-4 lg:mx-10 md:flex">
+                    <div class="hidden space-x-4 rtl:space-x-reverse lg:space-x-8 md:-my-px md:mx-4 lg:mx-10 md:flex">
                         <BreezeNavLink
-                            :class="locale === 'ar' ? 'mr-4 lg:mr-8' : ''"
                             :href="route('products.index')"
                             :active="route().current('products.index')"
                         >{{ $t("products") }}</BreezeNavLink>
@@ -42,7 +41,7 @@
                         >{{ $t("about") }}</BreezeNavLink>
                         <BreezeNavLink
                             :href="route('contact.index')"
-                            :active="route().current('contact.index')"
+                            :active="route().current('contact.show')"
                         >{{ $t("contact") }}</BreezeNavLink>
                     </div>
                 </div>

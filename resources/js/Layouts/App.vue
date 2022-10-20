@@ -99,21 +99,5 @@ onMounted(() => {
 .fade-leave-from {
     opacity: 1;
 }
-:root {
-    --vc-clr-primary: #6b0303;
-    --vc-clr-secondary: #974f4f;
-    --vc-clr-white: #ffffff;
-}
-.carousel__item {
-    min-height: 300px;
-    width: 350px;
-    display: flex;
-}
-.carousel__slide {
-    padding: 5px;
-}
-.carousel__prev--in-active,
-.carousel__next--in-active {
-    display: none;
-}
+
 </style>

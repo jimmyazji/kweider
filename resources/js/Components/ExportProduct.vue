@@ -33,7 +33,7 @@
                         <span
                             v-if="product.pack_w"
                             @click="setInfo('pack')"
-                            class="flex-grow border-b-2 border-lonestar-300 py-2 text-lg px-1 cursor-pointer transition-color duration-300 ease-in-out"
+                            class="flex-grow border-b-2 py-2 text-lg px-1 cursor-pointer transition-color duration-300 ease-in-out"
                             :class="
                                 selectInfo === 'pack'
                                     ? 'text-lonestar-500  border-lonestar-500'
@@ -270,7 +270,6 @@
 
                     <div class="flex items-center">
                         <!--Price-->
-
                         <!-- <span class="title-font font-medium text-2xl text-lonestar-900">$58.00</span> -->
                         <Button
                             type="button"
@@ -314,7 +313,6 @@
                     class="w-full lg:w-104 lg:h-104 justify-center items-center mt-4 mx-auto lg:mt-0"
                 >
                     <Carousel
-                        :items-to-scroll="1"
                         :items-to-show="1"
                         class="relative text-center box-border"
                     >
@@ -323,9 +321,7 @@
                                 v-for="slide in slides"
                                 class="overflow-hidden"
                             >
-                                <div
-                                    class="carousel__item rounded-lg"
-                                >
+                                <div class="carousel__item rounded-lg">
                                     <img
                                         :src="slide"
                                         class="rounded-lg"
@@ -347,23 +343,20 @@
 <script setup>
 import Button from "@/Components/Button";
 import "vue3-carousel/dist/carousel.css";
-import { onMounted } from "vue";
 import { Carousel, Slide, Navigation, Pagination } from "vue3-carousel";
 import { ref } from "vue";
 const props = defineProps({ product: Object });
 const selectInfo = ref("prod");
-const slides = ref([props.product.prod_url]);
-const pushImages = () => {
-    if (props.product.box_url) {
-        slides.value.push(props.product.box_url);
-    }
-    if (props.product.pack_url) {
-        slides.value.push(props.product.pack_url);
-    }
-};
-onMounted(() => {
-    pushImages();
-});
+const slides = [];
+if (props.product.box_url) {
+    slides.push(props.product.prod_url);
+}
+if (props.product.box_url) {
+    slides.push(props.product.box_url);
+}
+if (props.product.pack_url) {
+    slides.push(props.product.pack_url);
+}
 const setInfo = (index) => {
     selectInfo.value = index;
 };

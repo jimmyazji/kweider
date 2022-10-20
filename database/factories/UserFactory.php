@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Monarobase\CountryList\CountryListFacade as Countries;
 
 class UserFactory extends Factory
 {
@@ -19,8 +20,7 @@ class UserFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
             'phone' => $this->faker->unique()->phoneNumber(),
-            'country'=> $this->faker->country(),
-            'region' => $this->faker->state(),
+            'country'=> array_rand(Countries::getList('en','php')),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),

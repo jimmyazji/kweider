@@ -15,7 +15,7 @@
       <div
         v-if="$page.props.errors.first_name"
         v-text="$page.props.errors.first_name"
-        class="text-error text-sm ml-2 mt-1"
+        class="text-red-700 text-sm ml-2 mt-1"
       ></div>
     </div>
     <div class="mt-1">
@@ -31,7 +31,7 @@
       <div
         v-if="$page.props.errors.last_name"
         v-text="$page.props.errors.last_name"
-        class="text-error text-sm ml-2 mt-1"
+        class="text-red-700 text-sm ml-2 mt-1"
       ></div>
     </div>
 
@@ -48,11 +48,11 @@
       <div
         v-if="$page.props.errors.email"
         v-text="$page.props.errors.email"
-        class="text-error text-sm ml-2 mt-1"
+        class="text-red-700 text-sm ml-2 mt-1"
       ></div>
       <select
         v-model="form.country"
-        class="mt-1 block w-full select select-bordered font-normal pl-5 focus:border-transparent"
+        class="mt-1 block w-full appearance-none text-sm outline-none border-opacity-20 flex-shrink-0 transition-colors duration-200 h-12 border border-lonestar-500 rounded text-lonestar-500 px-5 pr-10 focus:ring-2 focus:ring-lonestar-500 focus:ring-opacity-10 font-normal pl-5 focus:border-transparent"
         :class="{ 'text-gray-500': !form.country }"
       >
         <option selected disabled value>{{ $t('select country') }}</option>
@@ -61,7 +61,7 @@
       <div
         v-if="$page.props.errors.country"
         v-text="$page.props.errors.country"
-        class="text-error text-sm ml-2 mt-1"
+        class="text-red-700 text-sm ml-2 mt-1"
       ></div>
       <BreezeInput
         id="phone"
@@ -75,7 +75,7 @@
       <div
         v-if="$page.props.errors.phone"
         v-text="$page.props.errors.phone"
-        class="text-error text-sm ml-2 mt-1"
+        class="text-red-700 text-sm ml-2 mt-1"
       ></div>
     </div>
     <div class="mt-1">
@@ -90,7 +90,7 @@
       <div
         v-if="$page.props.errors.password"
         v-text="$page.props.errors.password"
-        class="text-error text-sm ml-2 mt-1"
+        class="text-red-700 text-sm ml-2 mt-1"
       ></div>
     </div>
 
@@ -107,7 +107,7 @@
       <div
         v-if="$page.props.errors.password_confirmation"
         v-text="$page.props.errors.password_confirmation"
-        class="text-error text-sm ml-2 mt-1"
+        class="text-red-700 text-sm ml-2 mt-1"
       ></div>
     </div>
 
@@ -115,7 +115,7 @@
       <div>
         <Link
           :href="route('login')"
-          class="hover:underline text-sm text-lonestar-500 hover:text-lonestar-700"
+          class="hover:underline focus:underline focus:outline-none  text-sm text-lonestar-500 hover:text-lonestar-700"
         >{{ $t("registered") }}</Link>
       </div>
       <div class="ml-4">

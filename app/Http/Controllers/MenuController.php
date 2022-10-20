@@ -53,7 +53,6 @@ class MenuController extends Controller
     }
     public function create()
     {
-
         return Inertia::render('Menu/Create', [
             'categories' => MenuCategory::all()->map(
                 function ($category) {

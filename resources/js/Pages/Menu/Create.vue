@@ -2,9 +2,9 @@
     <Head :title="$t('manage products')" />
     <header class="bg-almond-200 shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h2
-                class="font-semibold text-xl text-gray-800 leading-tight"
-            >{{ $t("manage products") }}</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ $t("manage products") }}
+            </h2>
         </div>
     </header>
     <div class="py-12">
@@ -21,13 +21,16 @@
                                         class="block mt-1 w-full"
                                         v-model="form.en_name"
                                         :placeholder="$t('en name')"
+                                        :title="$t('en name')"
                                         autocomplete="en_name"
-                                        :class="{ 'input-error': form.errors.en_name }"
+                                        :class="{
+                                            'input-error': form.errors.en_name,
+                                        }"
                                     />
                                     <div
                                         v-if="form.errors.en_name"
                                         v-text="form.errors.en_name"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                                 <div>
@@ -38,12 +41,15 @@
                                         class="block mt-1 w-full"
                                         autocomplete="ar_name"
                                         :placeholder="$t('ar name')"
-                                        :class="{ 'input-error': form.errors.ar_name }"
+                                        :title="$t('ar name')"
+                                        :class="{
+                                            'input-error': form.errors.ar_name,
+                                        }"
                                     />
                                     <div
                                         v-if="form.errors.ar_name"
                                         v-text="form.errors.ar_name"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                             </div>
@@ -55,13 +61,16 @@
                                         class="block mt-1 w-full"
                                         v-model="form.en_type"
                                         :placeholder="$t('en type')"
+                                        :title="$t('en type')"
                                         autocomplete="en_type"
-                                        :class="{ 'input-error': form.errors.en_type }"
+                                        :class="{
+                                            'input-error': form.errors.en_type,
+                                        }"
                                     />
                                     <div
                                         v-if="form.errors.en_type"
                                         v-text="form.errors.en_type"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                                 <div>
@@ -72,65 +81,84 @@
                                         class="block mt-1 w-full"
                                         autocomplete="ar_type"
                                         :placeholder="$t('ar type')"
-                                        :class="{ 'input-error': form.errors.ar_type }"
+                                        :title="$t('ar type')"
+                                        :class="{
+                                            'input-error': form.errors.ar_type,
+                                        }"
                                     />
                                     <div
                                         v-if="form.errors.ar_type"
                                         v-text="form.errors.ar_type"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                             </div>
                             <div>
                                 <select
                                     id="category_id"
-                                    class="block mt-1 w-full select select-bordered focus:border-transparent font-normal"
-                                    :class="{ 'text-gray-500': !form.category_id, 'select-error': form.errors.category_id }"
+                                    class="block appearance-none text-sm outline-none border-opacity-20 flex-shrink-0 transition-colors duration-200 h-12 border border-lonestar-500 rounded focus:border-transparent text-lonestar-500 px-5 pr-10 focus:ring-2 focus:ring-lonestar-500 focus:ring-opacity-10 w-full"
+                                    :class="{
+                                        'text-gray-500': !form.category_id,
+                                        'select-error': form.errors.category_id,
+                                    }"
+                                    :title="$t('category')"
                                     v-model="form.category_id"
                                     autocomplete="category_id"
                                 >
-                                    <option disabled value>{{ $t('select category') }}</option>
+                                    <option disabled value>
+                                        {{ $t("select category") }}
+                                    </option>
                                     <option
                                         v-for="category in categories"
                                         :key="category.id"
                                         :value="category.id"
-                                    >{{ category.name }}</option>
+                                    >
+                                        {{ category.name }}
+                                    </option>
                                 </select>
                                 <div
                                     v-if="form.errors.category_id"
                                     v-text="form.errors.category_id"
-                                    class="text-error text-sm ml-2 mt-1"
+                                    class="text-red-700 text-sm ml-2 mt-1"
                                 ></div>
                             </div>
                             <div class="grid grid-cols-2 gap-2">
                                 <div>
-                                    <textarea
+                                    <TextArea
                                         id="en_description"
                                         class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none px-5"
                                         autocomplete="en_description"
                                         v-model="form.en_description"
                                         :placeholder="$t('en desc')"
-                                        :class="{ 'textarea-error': form.errors.en_description }"
+                                        :title="$t('en desc')"
+                                        :class="{
+                                            'textarea-error':
+                                                form.errors.en_description,
+                                        }"
                                     />
                                     <div
                                         v-if="form.errors.en_description"
                                         v-text="form.errors.en_description"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                                 <div>
-                                    <textarea
+                                    <TextArea
                                         id="ar_description"
                                         v-model="form.ar_description"
                                         class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none"
                                         autocomplete="ar_description"
                                         :placeholder="$t('ar desc')"
-                                        :class="{ 'textarea-error': form.errors.ar_description }"
+                                        :title="$t('ar desc')"
+                                        :class="{
+                                            'textarea-error':
+                                                form.errors.ar_description,
+                                        }"
                                     />
                                     <div
                                         v-if="form.errors.ar_description"
                                         v-text="form.errors.ar_description"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                             </div>
@@ -170,7 +198,7 @@
                         <div
                             v-if="form.errors.image"
                             v-text="form.errors.image"
-                            class="text-error text-sm ml-2 mt-1 flex justify-center"
+                            class="text-red-700 text-sm ml-2 mt-1 flex justify-center"
                         ></div>
                         <div class="lg:flex items-center justify-between mt-4">
                             <div>
@@ -184,66 +212,156 @@
                                 <Link
                                     :href="route('menu.index')"
                                     class="text-sm underline hover:text-lonestar-500 font-semibold mx-1 hidden lg:inline-flex"
-                                >{{ $t("back") }}</Link>
+                                    >{{ $t("back") }}</Link
+                                >
                             </div>
-                            <div class="flex justify-between items-center mt-4 lg:mt-0">
+                            <div
+                                class="flex justify-between items-center mt-4 lg:mt-0"
+                            >
                                 <div>
                                     <Button
                                         type="button"
                                         class="px-5 mx-0.5"
-                                        :class="{ 'opacity-25': form.processing }"
+                                        :class="{
+                                            'opacity-25': form.processing,
+                                        }"
                                         @click.prevent="clear()"
-                                    >{{ $t("clear") }}</Button>
+                                        >{{ $t("clear") }}</Button
+                                    >
                                     <Button
                                         type="submit"
                                         class="px-5 mx-0.5"
-                                        :class="{ 'opacity-25': form.processing }"
+                                        :class="{
+                                            'opacity-25': form.processing,
+                                        }"
                                         :disabled="form.processing"
-                                    >{{ $t("submit") }}</Button>
+                                        >{{ $t("submit") }}</Button
+                                    >
                                 </div>
                                 <Link
                                     :href="route('menu.index')"
                                     class="text-sm underline hover:text-lonestar-500 font-semibold mx-1 lg:hidden"
-                                >{{ $t("back") }}</Link>
+                                    >{{ $t("back") }}</Link
+                                >
                             </div>
                         </div>
                     </form>
 
-                    <div class="overflow-x-auto mt-4">
+                    <div
+                        class="overflow-x-auto relative shadow-md sm:rounded-lg mt-6"
+                    >
                         <table
-                            class="table w-full table-compact table-zebra text-lonestar-800"
-                            dir="ltr"
+                            class="w-full text-sm text-left text-lonestar-700"
                         >
-                            <thead>
+                            <thead
+                                class="text-xs text-lonestar-700 uppercase bg-lonestar-500 bg-opacity-50"
+                            >
                                 <tr>
-                                    <th>{{ $t("en name") }}</th>
-                                    <th>{{ $t("ar name") }}</th>
-                                    <th>{{ $t("en type") }}</th>
-                                    <th>{{ $t("ar type") }}</th>
-                                    <th>{{ $t("en desc") }}</th>
-                                    <th>{{ $t("ar desc") }}</th>
-                                    <th>{{ $t("category") }}</th>
-                                    <th></th>
+                                    <th colspan="3" class="pt-1">
+                                        <div
+                                            class="flex justify-center bg-lonestar-500 rounded-md text-almond-100 py-2"
+                                        >
+                                            {{ $t("english") }}
+                                        </div>
+                                    </th>
+                                    <th colspan="3" class="pt-1">
+                                        <div
+                                            class="flex justify-center bg-lonestar-500 rounded-md text-almond-100 py-2"
+                                        >
+                                            {{ $t("arabic") }}
+                                        </div>
+                                    </th>
+                                    <th colspan="2"></th>
+                                </tr>
+                                <tr>
+                                    <th
+                                        scope="col"
+                                        class="py-4 px-6 text-start"
+                                    >
+                                        {{ $t("name") }}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="py-4 px-6 text-start"
+                                    >
+                                        {{ $t("type") }}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="py-4 px-6 text-start"
+                                    >
+                                        {{ $t("desc") }}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="py-4 px-6 text-start"
+                                    >
+                                        {{ $t("name") }}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="py-4 px-6 text-start"
+                                    >
+                                        {{ $t("type") }}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="py-4 px-6 text-start"
+                                    >
+                                        {{ $t("desc") }}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="py-4 px-6 text-start"
+                                    >
+                                        {{ $t("category") }}
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="py-4 px-6 text-start"
+                                    ></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="product in products.data" :key="product.id">
-                                    <td>{{ product.name.en }}</td>
-                                    <td>{{ product.name.ar }}</td>
-                                    <td>{{ product.type.en }}</td>
-                                    <td>{{ product.type.ar }}</td>
-                                    <td>
+                                <tr
+                                    v-for="(product, index) in products.data"
+                                    :key="index"
+                                    :class="
+                                        index % 2 != 0
+                                            ? 'bg-lonestar-50'
+                                            : 'bg-white'
+                                    "
+                                >
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.name.en }}
+                                    </td>
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.type.en }}
+                                    </td>
+                                    <td class="py-4 px-6 text-start">
                                         <div
                                             class="whitespace-pre-wrap block max-w-xs"
-                                        >{{ product.description.en }}</div>
+                                        >
+                                            {{ product.description.en }}
+                                        </div>
                                     </td>
-                                    <td>
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.name.ar }}
+                                    </td>
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.type.ar }}
+                                    </td>
+                                    <td class="py-4 px-6 text-start">
                                         <div
                                             class="whitespace-pre-wrap block max-w-xs"
-                                        >{{ product.description.ar }}</div>
+                                        >
+                                            {{ product.description.ar }}
+                                        </div>
                                     </td>
-                                    <td>{{ product.category }}</td>
-                                    <td>
+                                    <td class="py-4 px-6 text-start">
+                                        {{ product.category }}
+                                    </td>
+                                    <td class="py-4 px-6 text-start">
                                         <div class="flex justify-end">
                                             <button @click="edit(product)">
                                                 <svg
@@ -264,7 +382,9 @@
                                                     />
                                                 </svg>
                                             </button>
-                                            <button @click="destroy(product.id)">
+                                            <button
+                                                @click="destroy(product.id)"
+                                            >
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
@@ -281,6 +401,13 @@
                                                 </svg>
                                             </button>
                                         </div>
+                                    </td>
+                                </tr>
+                                <tr v-if="products.data.length === 0">
+                                    <td colspan="20" class="py-4 px-6">
+                                        <span class="flex justify-center">{{
+                                            $t("no results")
+                                        }}</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -302,15 +429,16 @@ import { Head } from "@inertiajs/inertia-vue3";
 import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-import { Inertia } from "@inertiajs/inertia"
+import { Inertia } from "@inertiajs/inertia";
 import { ref, watch } from "vue";
 import debounce from "lodash/debounce";
 import Pagination from "@/Components/Pagination.vue";
+import TextArea from "@/Components/TextArea.vue";
 let props = defineProps({
     categories: Object,
     products: Object,
     filters: Object,
-})
+});
 
 let search = ref(props.filters.search);
 const form = useForm({
@@ -323,62 +451,64 @@ const form = useForm({
     ar_description: "",
     image: null,
     img_url: null,
-    _method: 'POST'
+    _method: "POST",
 });
 const prod_id = ref(null);
 const edit = (prod) => {
-    clear()
-    prod_id.value = prod.id
-    form.en_name = prod.name.en
-    form.ar_name = prod.name.ar
-    form.en_type = prod.type.en
-    form.ar_type = prod.type.ar
-    form.category_id = prod.category_id
-    form.en_description = prod.description.en
-    form.ar_description = prod.description.ar
-    form.img_url = prod.img_url
+    clear();
+    prod_id.value = prod.id;
+    form.en_name = prod.name.en;
+    form.ar_name = prod.name.ar;
+    form.en_type = prod.type.en;
+    form.ar_type = prod.type.ar;
+    form.category_id = prod.category_id;
+    form.en_description = prod.description.en;
+    form.ar_description = prod.description.ar;
+    form.img_url = prod.img_url;
 };
 const submit = () => {
     if (!prod_id.value) {
-        form.post(route('menu.index'), {
+        form.post(route("menu.index"), {
             preserveScroll: true,
             onSuccess: () => clear(),
-        })
-    }
-    else {
-        form._method = 'PUT'
-        form.post(route('menu.update', prod_id.value), {
+        });
+    } else {
+        form._method = "PUT";
+        form.post(route("menu.update", prod_id.value), {
             preserveScroll: true,
             onSuccess: () => clear(),
-        })
+        });
     }
 };
 
 const clear = () => {
     prod_id.value = null;
-    form.reset()
+    form.reset();
 };
 const destroy = (id) => {
     Inertia.delete(`/menu/${id}`, {
-        onBefore: () => confirm('Are you sure you want to delete this product? this cannot be undone'),
-        preserveScroll: true
-    })
+        onBefore: () =>
+            confirm(
+                "Are you sure you want to delete this product? this cannot be undone"
+            ),
+        preserveScroll: true,
+    });
 };
 
 const previewImage = (e) => {
     form.image = e.target.files[0];
     form.img_url = URL.createObjectURL(form.image);
-}
+};
 watch(
     search,
     debounce(function (value) {
         Inertia.get(
-            route('menu.create'),
+            route("menu.create"),
             { search: value },
             {
                 preserveScroll: true,
                 replace: true,
-                preserveState: true
+                preserveState: true,
             }
         );
     }, 300)

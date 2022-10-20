@@ -26,7 +26,7 @@
                   <div
                     v-if="$page.props.errors.en_name"
                     v-text="$page.props.errors.en_name"
-                    class="text-error text-sm ml-2 mt-1"
+                    class="text-red-700 text-sm ml-2 mt-1"
                   ></div>
                 </div>
                 <div>
@@ -41,7 +41,7 @@
                   <div
                     v-if="$page.props.errors.ar_name"
                     v-text="$page.props.errors.ar_name"
-                    class="text-error text-sm ml-2 mt-1"
+                    class="text-red-700 text-sm ml-2 mt-1"
                   ></div>
                 </div>
               </div>

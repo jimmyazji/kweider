@@ -23,7 +23,7 @@
                                     <div
                                         v-if="form.errors.en_title"
                                         v-text="form.errors.en_title"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                                 <div>
@@ -37,7 +37,7 @@
                                     <div
                                         v-if="form.errors.ar_title"
                                         v-text="form.errors.ar_title"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                                 <div class="col-span-2 sm:col-span-1">
@@ -55,7 +55,7 @@
                                     <div
                                         v-if="form.errors.category_id"
                                         v-text="form.errors.category_id"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                             <div
                                 v-if="form.errors.en_excerpt"
                                 v-text="form.errors.en_excerpt"
-                                class="text-error text-sm ml-2 mt-1"
+                                class="text-red-700 text-sm ml-2 mt-1"
                             ></div>
                             <textarea
                                 dir="ltr"
@@ -87,7 +87,7 @@
                             <div
                                 v-if="form.errors.ar_excerpt"
                                 v-text="form.errors.ar_excerpt"
-                                class="text-error text-sm ml-2 mt-1"
+                                class="text-red-700 text-sm ml-2 mt-1"
                             ></div>
                             <textarea
                                 dir="ltr"
@@ -102,7 +102,7 @@
                             <div
                                 v-if="form.errors.en_body"
                                 v-text="form.errors.en_body"
-                                class="text-error text-sm ml-2 mt-1"
+                                class="text-red-700 text-sm ml-2 mt-1"
                             ></div>
                             <textarea
                                 id="ar_body"
@@ -116,7 +116,7 @@
                             <div
                                 v-if="form.errors.ar_body"
                                 v-text="form.errors.ar_body"
-                                class="text-error text-sm ml-2 mt-1"
+                                class="text-red-700 text-sm ml-2 mt-1"
                             ></div>
                             <label
                                 class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"

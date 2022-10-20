@@ -1,42 +1,30 @@
 <template>
+
   <Head :title="$t('blog')" />
   <header class="w-full lg:max-w-2xl lg:mx-auto mt-6 text-center">
     <div class="space-y-2 lg:space-y-0 mt-8 text-lonestar-600">
       <!--  Category -->
-      <div class="relative flex lg:inline-flex items-center bg-almond-200 rounded-xl mx-2">
-        <select
-          v-model="category"
-          :class="{ 'text-lonestar-400': !category }"
-          class="select select-bordered focus:border-transparent w-full"
-        >
+      <div class="relative flex lg:inline-flex items-center rounded-xl mx-2">
+        <select v-model="category" :class="{ 'text-lonestar-400': !category }"
+          class="inline-flex appearance-none text-sm outline-none border-opacity-20 flex-shrink-0 transition-colors duration-200 h-12 border border-lonestar-500 rounded focus:border-transparent text-lonestar-500 px-5 pr-10 focus:ring-2 focus:ring-lonestar-500 focus:ring-opacity-10 w-full">
           <option :value="undefined" selected>{{ category ? 'All' : $t('category') }}</option>
           <option v-for="category in categories" :value="category.slug">{{ category.name }}</option>
         </select>
       </div>
 
       <!-- Sort -->
-      <div class="relative flex lg:inline-flex items-center bg-almond-200 rounded-xl mx-2">
-        <select
-          v-model="sorting"
-          :class="{ 'text-lonestar-400': !sorting }"
-          class="select select-bordered focus:border-transparent w-full"
-        >
+      <div class="relative flex lg:inline-flex items-center rounded-xl mx-2">
+        <select v-model="sorting" :class="{ 'text-lonestar-400': !sorting }"
+          class="inline-flex appearance-none text-sm outline-none border-opacity-20 flex-shrink-0 transition-colors duration-200 h-12 border border-lonestar-500 rounded focus:border-transparent text-lonestar-500 px-5 pr-10 focus:ring-2 focus:ring-lonestar-500 focus:ring-opacity-10 w-full">
           <option :value="undefined" selected>{{ sorting ? 'New first' : $t('sort by') }}</option>
           <option value="asc">{{ $t('old first') }}</option>
         </select>
       </div>
 
       <!-- Search -->
-      <div
-        class="relative flex lg:inline-flex items-center bg-almond-200 rounded-xl px-2 py-2 mx-2"
-      >
-        <Input
-          v-model="search"
-          type="text"
-          name="search"
-          :placeholder="$t('search')"
-          class="placeholder-lonestar-400 font-semibold text-sm w-full"
-        />
+      <div class="relative flex lg:inline-flex items-center bg-almond-200 rounded-xl px-2 py-2 mx-2">
+        <Input v-model="search" type="text" name="search" :placeholder="$t('search')"
+          class="placeholder-lonestar-400 font-semibold text-sm w-full" />
         <Dropdown :align="locale === 'ar' ? 'right' : 'left'">
           <template #trigger>
             <button class="focus:scale-110 transform transition px-4 focus:outline-none">
@@ -59,11 +47,7 @@
         <Post :class="index > 1 ? 'col-span-2' : 'col-span-3'" :post="post" />
       </template>
     </div>
-    <Pagination
-      v-if="posts.next_page_url || posts.prev_page_url"
-      class="ml-2 lg:ml-10 pb-10"
-      :links="posts.links"
-    />
+    <Pagination v-if="posts.next_page_url || posts.prev_page_url" class="ml-2 lg:ml-10 pb-10" :links="posts.links" />
   </div>
 </template>
 

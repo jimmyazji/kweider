@@ -1,7 +1,7 @@
 <template>
     
     <footer
-        class="p-5 footer bg-primary text-almond-300 footer-center"
+        class="grid w-full grid-flow-row gap-y-10 gap-x-4 place-items-center text-center p-5 bg-lonestar-500 text-almond-300"
         :style="{
           backgroundImage: `url('/../images/pattern.png')`,
           backgroundPosition: '600px 200px',

@@ -15,7 +15,7 @@
               <span class="mx-4 py-1 inline-flex rounded-md">
                 <button
                   type="button"
-                  class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-lonestar-800 hover:text-lonestar-500 focus:outline-none transition ease-in-out duration-150"
+                  class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-lonestar-800 hover:text-lonestar-500 focus:outline-none transform transition ease-in-out duration-150 hover:scale-105 focus:scale-105"
                 >
                   {{ $i18n.locale.toUpperCase() }}
                   <svg
@@ -36,12 +36,12 @@
             <div class="flex text-sm">
               <Link
                 :href="route('login')"
-                class="flex items-center mx-4"
+                class="flex items-center mx-4 focus:outline-none transform transition ease-in-out duration-75 focus:scale-105 hover:scale-105"
                 :class="{ 'font-bold': route().current('login') }"
               >{{ $t('login') }}</Link>
               <Link
                 :href="route('register')"
-                class="flex items-center mx-4"
+                class="flex items-center mx-4 focus:outline-none transform transition ease-in-out duration-75 focus:scale-105 hover:scale-105"
                 :class="{ 'font-bold': route().current('register') }"
               >{{ $t('register') }}</Link>
             </div>

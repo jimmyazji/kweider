@@ -1,4 +1,6 @@
 {
+    "english":"English",
+    "arabic":"Arabic",
     "email": "Email",
     "password": "Password",
     "login": "Log in",
@@ -33,6 +35,7 @@
     "ar name": "Name in Arabic",
     "ar type": "Type in Arabic",
     "en type": "Type in English",
+    "description": "Description",
     "ar desc": "Description in Arabic",
     "en desc": "Description in English",
     "en title": "Title in English",

@@ -2,7 +2,9 @@
     <Head :title="$t('create post')" />
     <header class="bg-almond-200 shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $t('create post') }}</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ $t("create post") }}
+            </h2>
         </div>
     </header>
     <div class="py-12">
@@ -18,12 +20,14 @@
                                         :placeholder="$t('en title')"
                                         v-model="form.en_title"
                                         class="block mt-1 w-full"
-                                        :class="{ 'input-error': form.errors.en_title }"
+                                        :class="{
+                                            'input-error': form.errors.en_title,
+                                        }"
                                     />
                                     <div
                                         v-if="form.errors.en_title"
                                         v-text="form.errors.en_title"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                                 <div>
@@ -32,49 +36,61 @@
                                         :placeholder="$t('ar title')"
                                         v-model="form.ar_title"
                                         class="block mt-1 w-full"
-                                        :class="{ 'input-error': form.errors.ar_title }"
+                                        :class="{
+                                            'input-error': form.errors.ar_title,
+                                        }"
                                     />
                                     <div
                                         v-if="form.errors.ar_title"
                                         v-text="form.errors.ar_title"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                                 <div class="col-span-2 sm:col-span-1">
                                     <select
                                         v-model="form.category_id"
-                                        class="block sm:mt-1 w-full select select-bordered focus:border-transparent font-normal"
-                                        :class="{ 'text-gray-500': !form.category_id, 'select-error': form.errors.category_id }"
+                                        class="sm:mt-1 w-full inline-flex appearance-none text-sm outline-none border-opacity-20 flex-shrink-0 transition-colors duration-200 h-12 border border-lonestar-500 rounded focus:translate-x-10 text-lonestar-500 px-5 pr-10 focus:ring-2 focus:ring-lonestar-500 focus:ring-opacity-10 focus:border-transparent font-normal"
+                                        :class="{
+                                            'text-gray-500': !form.category_id,
+                                            'select-error':
+                                                form.errors.category_id,
+                                        }"
                                     >
-                                        <option selected value>{{ $t('select category') }}</option>
+                                        <option selected value>
+                                            {{ $t("select category") }}
+                                        </option>
                                         <option
                                             v-for="category in categories"
                                             :value="category.id"
-                                        >{{ category.name }}</option>
+                                        >
+                                            {{ category.name }}
+                                        </option>
                                     </select>
                                     <div
                                         v-if="form.errors.category_id"
                                         v-text="form.errors.category_id"
-                                        class="text-error text-sm ml-2 mt-1"
+                                        class="text-red-700 text-sm ml-2 mt-1"
                                     ></div>
                                 </div>
                             </div>
 
-                            <textarea
+                            <TextArea
                                 id="en_excerpt"
                                 class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none px-5"
                                 autocomplete="en_excerpt"
                                 v-model="form.en_excerpt"
                                 :placeholder="$t('en excerpt')"
                                 :title="$t('en excerpt')"
-                                :class="{ 'textarea-error': form.errors.en_excerpt }"
+                                :class="{
+                                    'textarea-error': form.errors.en_excerpt,
+                                }"
                             />
                             <div
                                 v-if="form.errors.en_excerpt"
                                 v-text="form.errors.en_excerpt"
-                                class="text-error text-sm ml-2 mt-1"
+                                class="text-red-700 text-sm ml-2 mt-1"
                             ></div>
-                            <textarea
+                            <TextArea
                                 dir="ltr"
                                 id="ar_excerpt"
                                 class="block mt-1 w-full textarea h-24 textarea-bordered focus:border-transparent resize-none px-5"
@@ -82,14 +98,16 @@
                                 v-model="form.ar_excerpt"
                                 :placeholder="$t('ar excerpt')"
                                 :title="$t('ar excerpt')"
-                                :class="{ 'textarea-error': form.errors.ar_excerpt }"
+                                :class="{
+                                    'textarea-error': form.errors.ar_excerpt,
+                                }"
                             />
                             <div
                                 v-if="form.errors.ar_excerpt"
                                 v-text="form.errors.ar_excerpt"
-                                class="text-error text-sm ml-2 mt-1"
+                                class="text-red-700 text-sm ml-2 mt-1"
                             ></div>
-                            <textarea
+                            <TextArea
                                 dir="ltr"
                                 id="en_body"
                                 class="block mt-1 w-full textarea h-104 textarea-bordered focus:border-transparent resize-none px-5"
@@ -97,26 +115,30 @@
                                 v-model="form.en_body"
                                 :placeholder="$t('en body')"
                                 :title="$t('en body')"
-                                :class="{ 'textarea-error': form.errors.en_body }"
+                                :class="{
+                                    'textarea-error': form.errors.en_body,
+                                }"
                             />
                             <div
                                 v-if="form.errors.en_body"
                                 v-text="form.errors.en_body"
-                                class="text-error text-sm ml-2 mt-1"
+                                class="text-red-700 text-sm ml-2 mt-1"
                             ></div>
-                            <textarea
+                            <TextArea
                                 id="ar_body"
                                 class="block mt-1 w-full textarea h-104 textarea-bordered focus:border-transparent resize-none px-5"
                                 autocomplete="ar_body"
                                 v-model="form.ar_body"
                                 :placeholder="$t('ar body')"
                                 :title="$t('ar body')"
-                                :class="{ 'textarea-error': form.errors.ar_body }"
+                                :class="{
+                                    'textarea-error': form.errors.ar_body,
+                                }"
                             />
                             <div
                                 v-if="form.errors.ar_body"
                                 v-text="form.errors.ar_body"
-                                class="text-error text-sm ml-2 mt-1"
+                                class="text-red-700 text-sm ml-2 mt-1"
                             ></div>
                             <label
                                 class="max-w-screen w-80 h-80 mx-auto flex justify-center items-center rounded-md mt-5 border-2 border-lonestar-300 text-lonestar-400 cursor-pointer"
@@ -153,28 +175,38 @@
                                 <Link
                                     :href="route('blog.index')"
                                     class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
-                                >{{ $t('back') }}</Link>
+                                    >{{ $t("back") }}</Link
+                                >
                                 <div>
                                     <Button
                                         type="submit"
                                         class="px-5 mx-0.5"
-                                        :class="{ 'opacity-25': form.processing }"
+                                        :class="{
+                                            'opacity-25': form.processing,
+                                        }"
                                         :disabled="form.processing"
-                                    >{{ $t("create") }}</Button>
+                                        >{{ $t("create") }}</Button
+                                    >
                                     <Button
                                         type="button"
                                         class="px-5 mx-0.5"
-                                        :class="{ 'opacity-25': form.processing }"
+                                        :class="{
+                                            'opacity-25': form.processing,
+                                        }"
                                         :disabled="form.processing"
                                         @click="enPreview"
-                                    >{{ $t("en preview") }}</Button>
+                                        >{{ $t("en preview") }}</Button
+                                    >
                                     <Button
                                         type="button"
                                         class="px-5 mx-0.5"
-                                        :class="{ 'opacity-25': form.processing }"
+                                        :class="{
+                                            'opacity-25': form.processing,
+                                        }"
                                         @click="arPreview"
                                         :disabled="form.processing"
-                                    >{{ $t("ar preview") }}</Button>
+                                        >{{ $t("ar preview") }}</Button
+                                    >
                                 </div>
                             </div>
                         </div>
@@ -193,8 +225,12 @@
                     <img :src="form.thumbnail_url" alt class="rounded-xl" />
                     <div class="flex items-center text-sm mt-4">
                         <div class="flex">
-                            <span class="mx-1">{{ previewLocale === 'ar' ? 'الكاتب' : 'Author' }}</span>
-                            <h5 class="font-bold">{{ $page.props.auth.user.name }}</h5>
+                            <span class="mx-1">{{
+                                previewLocale === "ar" ? "الكاتب" : "Author"
+                            }}</span>
+                            <h5 class="font-bold">
+                                {{ $page.props.auth.user.name }}
+                            </h5>
                         </div>
                     </div>
                     <p class="mt-4 block text-lonestar-400 text-xs"></p>
@@ -210,7 +246,11 @@
                                 height="22"
                                 viewBox="0 0 22 22"
                                 class="mr-2"
-                                :class="previewLocale === 'ar' ? 'transform rotate-180' : ''"
+                                :class="
+                                    previewLocale === 'ar'
+                                        ? 'transform rotate-180'
+                                        : ''
+                                "
                             >
                                 <g fill="none" fill-rule="evenodd">
                                     <path
@@ -225,7 +265,11 @@
                                     />
                                 </g>
                             </svg>
-                            {{ previewLocale === 'ar' ? 'العودة' : 'back to posts' }}
+                            {{
+                                previewLocale === "ar"
+                                    ? "العودة"
+                                    : "back to posts"
+                            }}
                         </span>
 
                         <div class="space-x-2">
@@ -233,15 +277,26 @@
                                 href="#"
                                 class="px-3 py-1 border-2 border-lonestar-400 border-opacity-50 rounded-full text-lonestar-500 text-xs uppercase font-semibold"
                                 style="font-size: 10px"
-                            >{{ previewLocale === 'ar' ? 'الفئة' : 'category' }}</a>
+                                >{{
+                                    previewLocale === "ar"
+                                        ? "الفئة"
+                                        : "category"
+                                }}</a
+                            >
                         </div>
                     </div>
 
-                    <h1
-                        class="font-bold text-3xl lg:text-4xl mb-10"
-                    >{{ previewLocale === 'ar' ? form.ar_title : form.en_title }}</h1>
+                    <h1 class="font-bold text-3xl lg:text-4xl mb-10">
+                        {{
+                            previewLocale === "ar"
+                                ? form.ar_title
+                                : form.en_title
+                        }}
+                    </h1>
                     <div
-                        v-html="previewLocale === 'ar' ? form.ar_body : form.en_body"
+                        v-html="
+                            previewLocale === 'ar' ? form.ar_body : form.en_body
+                        "
                         class="space-y-4 lg:text-lg leading-loose"
                     ></div>
                 </div>
@@ -251,39 +306,38 @@
 </template>
 
 <script setup>
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
-import Input from '@/Components/Input.vue';
-import Button from '@/Components/Button.vue';
-import { ref } from 'vue';
+import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
+import Input from "@/Components/Input.vue";
+import TextArea from "@/Components/TextArea.vue";
+import Button from "@/Components/Button.vue";
+import { ref } from "vue";
 defineProps({ categories: Object });
 const previewEnabled = ref(false);
-const previewLocale = ref('en');
+const previewLocale = ref("en");
 const enPreview = () => {
-    if (previewLocale.value === 'en') {
-        previewEnabled.value = !previewEnabled.value
-    }
-    else {
-        previewLocale.value = 'en';
-        previewEnabled.value = true
-    }
-}
-const arPreview = () => {
-    if (previewLocale.value === 'ar') {
-        previewEnabled.value = !previewEnabled.value
-    }
-    else {
-        previewLocale.value = 'ar';
+    if (previewLocale.value === "en") {
+        previewEnabled.value = !previewEnabled.value;
+    } else {
+        previewLocale.value = "en";
         previewEnabled.value = true;
     }
-}
+};
+const arPreview = () => {
+    if (previewLocale.value === "ar") {
+        previewEnabled.value = !previewEnabled.value;
+    } else {
+        previewLocale.value = "ar";
+        previewEnabled.value = true;
+    }
+};
 const form = useForm({
-    en_title: '',
-    ar_title: '',
-    en_excerpt: '',
-    ar_excerpt: '',
-    category_id: '',
-    en_body: '',
-    ar_body: '',
+    en_title: "",
+    ar_title: "",
+    en_excerpt: "",
+    ar_excerpt: "",
+    category_id: "",
+    en_body: "",
+    ar_body: "",
     thumbnail: null,
     thumbnail_url: null,
 });
@@ -291,11 +345,11 @@ const form = useForm({
 const previewImage = (e) => {
     form.thumbnail = e.target.files[0];
     form.thumbnail_url = URL.createObjectURL(form.thumbnail);
-}
+};
 const submit = () => {
-    form.post(route('blog.index'), {
+    form.post(route("blog.index"), {
         preserveScroll: true,
         onSuccess: () => clear(),
-    })
-}
+    });
+};
 </script>

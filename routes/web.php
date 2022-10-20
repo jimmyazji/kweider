@@ -11,6 +11,7 @@ use App\Http\Controllers\ExportCategoryController;
 use App\Http\Controllers\ExportProductController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\BranchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +43,8 @@ Route::get('/about', function () {
     return Inertia::render('About/Index');
 })->name('about.index');
 
-Route::get('/contact', function () {
-    return Inertia::render('Contact/Index');
-})->name('contact.index');
+Route::get('/contact', [BranchController::class, 'index'])->name('contact.index');
+Route::get('/contact/{branch:slug}', [BranchController::class, 'show'])->name('contact.show');
 
 Route::get('blog', [PostController::class, 'index'])->name('blog.index');
 Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
@@ -60,6 +60,6 @@ Route::resource('exportcategories', ExportCategoryController::class);
 Route::resource('menu', MenuController::class);
 Route::resource('menucategories', MenuCategoryController::class);
 Route::resource('roles', RoleController::class);
-Route::put('menucategories/advance/{id}',[MenuCategoryController::class,'advance'])->name('menucategories.advance');
-Route::put('menucategories/postpone/{id}',[MenuCategoryController::class,'postpone'])->name('menucategories.postpone');
+Route::put('menucategories/advance/{id}', [MenuCategoryController::class, 'advance'])->name('menucategories.advance');
+Route::put('menucategories/postpone/{id}', [MenuCategoryController::class, 'postpone'])->name('menucategories.postpone');
 require __DIR__ . '/auth.php';

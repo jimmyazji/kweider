@@ -122,8 +122,8 @@ class UserController extends Controller
             'user' => $user->only('id', 'first_name', 'last_name', 'email', 'phone', 'country'),
             'roles' => Role::pluck('name')->all(),
             'permissions' => Permission::pluck('name')->all(),
-            'userRoles' => $user->roles->pluck('name', 'name')->all(),
-            'userPermissions' => $user->permissions->pluck('name', 'name')->all(),
+            'userRoles' => $user->roles->pluck('name')->all(),
+            'userPermissions' => $user->permissions->pluck('name')->all(),
             'countries' => Countries::getList(App::getLocale())
         ]);
     }

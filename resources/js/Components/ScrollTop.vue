@@ -2,7 +2,7 @@
   <div v-cloak>
       <div
         id="pagetop"
-        class="fixed right-4 bottom-16 btn btn-primary btn-sm shadow-sm border-2 border-almond-500 h-16 w-16 z-50"
+        class="fixed right-4 bottom-16 bg-lonestar-600 cursor-pointer inline-flex items-center select-none transform transition ease-in-out duration-200 rounded-lg px-3 min-h-8 font-semibold uppercase text-sm  text-almond-300 focus:outline-none active:scale-95 hover:bg-lonestar-500 focus:scale-105 hover:scale-105 shadow-sm border-2 border-almond-500 h-16 w-16 z-50"
         v-show="scY > 300"
         @click.prevent="toTop"
       >

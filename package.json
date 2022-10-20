@@ -15,28 +15,29 @@
         "@inertiajs/inertia-vue3": "^0.5.1",
         "@inertiajs/progress": "^0.2.6",
         "@intlify/vue-i18n-loader": "^4.0.0",
-        "@tailwindcss/forms": "^0.2.1",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/forms": "^0.5.3",
+        "@tailwindcss/line-clamp": "^0.4.2",
+        "@tailwindcss/typography": "^0.5.7",
         "@vue/compiler-sfc": "^3.0.5",
-        "autoprefixer": "^10.4.2",
+        "autoprefixer": "^10.4.12",
         "axios": "^0.21.4",
         "laravel-mix": "^6.0.39",
         "lodash": "^4.17.19",
-        "postcss": "^8.4.5",
+        "postcss": "^8.4.17",
         "postcss-import": "^14.0.1",
-        "tailwindcss": "^2.2.19",
-        "tailwindcss-flip": "^1.0.0",
+        "tailwindcss": "^3.1.8",
         "vue": "^3.0.5",
         "vue-i18n": "^9.2.0-beta.20",
         "vue-loader": "^16.1.2"
     },
     "engines": {
-        "node": ">=17.0.1",
-        "npm": ">=8.1.0"
+        "node": ">=18.7.0",
+        "npm": ">=8.15.0"
     },
     "dependencies": {
-        "@tailwindcss/aspect-ratio": "^0.3.0",
         "@vueform/multiselect": "^2.3.1",
-        "daisyui": "^1.16.2",
+        "tailwindcss": "^3.1.8",
         "vue3-carousel": "^0.1.36"
     }
 }

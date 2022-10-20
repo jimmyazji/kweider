@@ -4,10 +4,10 @@
 
   <form @submit.prevent="submit">
     <div>
-      <BreezeInput
+      <Input
         id="email"
         type="email"
-        class="mt-1 block w-full"
+        class="mt-1 block w-full bg-almond-100"
         v-model="form.email"
         autofocus
         autocomplete="username"
@@ -17,15 +17,15 @@
       <div
         v-if="$page.props.errors.email"
         v-text="$page.props.errors.email"
-        class="text-error text-sm ml-2 mt-1"
+        class="text-red-700 text-sm ml-2 mt-1"
       ></div>
     </div>
 
     <div class="mt-2 relative">
-      <BreezeInput
+      <Input
         id="password"
         :type="passwordFieldType"
-        class="mt-1 block w-full"
+        class="mt-1 block w-full bg-almond-100"
         v-model="form.password"
         autocomplete="current-password"
         :placeholder="$t('password')"
@@ -33,10 +33,7 @@
       />
       <span
         @click.prevent="switchVisibility"
-        class="absolute top-0 btn btn-primary"
-        :class="
-          locale === 'en' ? 'right-0 rounded-l-none' : 'left-0 rounded-r-none'
-        "
+        class="absolute top-0 bg-lonestar-500 cursor-pointer h-full ltr:rounded-r-lg right-0 flex justify-center items-center px-4 select-none"
       >
         <transition
           enter-to-class="opacity-100"
@@ -82,13 +79,13 @@
       <div
         v-if="$page.props.errors.password"
         v-text="$page.props.errors.password"
-        class="text-error text-sm ml-2 mt-1"
+        class="text-red-700 text-sm ml-2 mt-1"
       ></div>
     </div>
 
     <div class="flex items-center justify-between mt-4">
       <label class="flex items-center">
-        <BreezeCheckbox name="remember" v-model:checked="form.remember" />
+        <Checkbox name="remember" v-model:checked="form.remember" />
         <span class="mx-2 text-sm text-lonestar-700">
           {{
             $t("remember me")
@@ -98,11 +95,11 @@
       <Link
         v-if="canResetPassword"
         :href="route('password.request')"
-        class="hover:underline text-sm text-lonestar-700 hover:text-lonestar-900"
+        class="hover:underline focus:underline focus:outline-none  text-sm text-lonestar-700 hover:text-lonestar-900"
       >{{ $t("forgotpassword") }}</Link>
     </div>
     <div class="flex flex-wrap justify-center mt-2">
-      <BreezeButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+      <Button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -111,34 +108,34 @@
           stroke-width="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="w-4 h-4 mx-2 text-white"
+          class="w-4 h-4 ltr:mr-2 rtl:ml-2 text-white"
         >
           <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4m-5-4 5-5-5-5m5 5H3" />
         </svg>
         {{ $t("login") }}
-      </BreezeButton>
+      </Button>
     </div>
   </form>
 </template>
 
 <script>
-import BreezeButton from "@/Components/Button.vue";
-import BreezeCheckbox from "@/Components/Checkbox.vue";
-import BreezeAuthenticatingLayout from "@/Layouts/Authenticating.vue";
-import BreezeInput from "@/Components/Input.vue";
-import BreezeLabel from "@/Components/Label.vue";
-import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
+import Button from "@/Components/Button.vue";
+import Checkbox from "@/Components/Checkbox.vue";
+import AuthenticatingLayout from "@/Layouts/Authenticating.vue";
+import Input from "@/Components/Input.vue";
+import Label from "@/Components/Label.vue";
+import ValidationErrors from "@/Components/ValidationErrors.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 
 export default {
-  layout: BreezeAuthenticatingLayout,
+  layout: AuthenticatingLayout,
 
   components: {
-    BreezeButton,
-    BreezeCheckbox,
-    BreezeInput,
-    BreezeLabel,
-    BreezeValidationErrors,
+    Button,
+    Checkbox,
+    Input,
+    Label,
+    ValidationErrors,
     Head,
     Link,
   },
