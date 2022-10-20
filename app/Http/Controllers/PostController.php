@@ -10,6 +10,12 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:post-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:post-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:post-delete', ['only' => ['destroy']]);
+    }
     public function index(Request $request)
     {
         return Inertia::render('Blog/Index', [
@@ -37,7 +43,9 @@ class PostController extends Controller
             'categories' => PostCategory::all()->map(function ($category) {
                 return ['name' => $category->name, 'slug' => $category->slug];
             }),
-            'filters' => request(['sorting', 'search', 'category'])
+            'filters' => request(['sorting', 'search', 'category']),
+            'canCreate' => request()->user()?->can('post-create'),
+            'canCategoryList' => request()->user()?->can('post-create'),
         ]);
     }
     public function create()

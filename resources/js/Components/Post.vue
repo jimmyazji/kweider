@@ -13,15 +13,15 @@
                         <a
                             href="#"
                             @click.prevent="categorise()"
-                            class="btn btn-primary btn-sm btn-outline border-2 border-lonestar-400 opacity-70 hover:opacity-100 text-3xs"
+                            class="border-lonestar-500 cursor-pointer inline-flex items-center select-none transform transition ease-in-out duration-200 rounded-lg px-3 h-8 min-h-8 font-semibold uppercase border hover:text-almond-300 focus:outline-none active:scale-95 hover:bg-lonestar-500 hover:border-lonestar-500 focus:scale-105 hover:scale-105 text-3xs"
                         >{{ post.category.name }}</a>
                         <Dropdown :align="locale === 'ar' ? 'left' : 'right'">
                             <template #trigger>
-                                <button
+                                <Button
                                     class="btn btn-primary btn-sm btn-outline border-2 border-lonestar-400 opacity-70 hover:opacity-100"
                                 >
                                     <i class="fas fa-ellipsis-h"></i>
-                                </button>
+                                </Button>
                             </template>
                             <template #content>
                                 <DropdownLink :href="route('posts.edit', post)">
@@ -64,7 +64,7 @@
                     <div class="hidden lg:mr-10 lg:block">
                         <Link
                             :href="route('posts.show', post.slug)"
-                            class="btn btn-primary btn-sm"
+                            class="border-lonestar-500 bg-lonestar-600 cursor-pointer inline-flex items-center select-none transform transition ease-in-out duration-200 rounded-lg px-3 h-8 min-h-8 font-semibold uppercase text-sm border text-almond-300 focus:outline-none active:scale-95 hover:bg-lonestar-500 hover:border-lonestar-500 focus:scale-105 hover:scale-105"
                         >{{ $t('read more') }}</Link>
                     </div>
                 </footer>
@@ -76,6 +76,7 @@
 import { Inertia } from '@inertiajs/inertia';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
+import Button from '@/Components/Button.vue';
 const locale = localStorage.getItem('locale');
 let props = defineProps({ post: Object });
 const categorise = () => {
