@@ -38,7 +38,7 @@ class MenuController extends Controller
                             'slug' => $prod->slug,
                             'type' => $prod->type,
                             'description' => $prod->description,
-                            'image' => $prod->getFirstOrDefaultMediaUrl('menu', 'menu')
+                            'image' => $prod->getFirstMedia('menu')->getUrl('menu')
                         ];
                     }),
                     'id' => $category->id,
@@ -75,7 +75,7 @@ class MenuController extends Controller
                         'description' => $prod->getTranslations('description'),
                         'category' => $prod->category->name,
                         'category_id' => $prod->category_id,
-                        'image' => $prod->getFirstOrDefaultMediaUrl('menu', 'menu')
+                        'img_url' => $prod->getFirstMedia('menu')->getUrl()
                     ]
                 ),
             'filters' => request(['search'])
@@ -88,7 +88,7 @@ class MenuController extends Controller
             '*_type' => 'max:255|nullable',
             'category_id' => 'required',
             '*_description' => 'required|max:255',
-            'image' => 'nullable|mimes:jpg,jpeg,png|max:10240'
+            'image' => 'required|mimes:jpg,jpeg,png|max:10240'
         ]);
         $product = MenuProduct::create([
             'name' => [
@@ -106,10 +106,8 @@ class MenuController extends Controller
                 'ar' => $request->ar_description
             ],
         ]);
-        if ($request->image) {
-            $product->addMediaFromRequest('image')
-                ->toMediaCollection('menu');
-        }
+        $product->addMediaFromRequest('image')
+            ->toMediaCollection('menu');
         return redirect()->route('menu.create')->with('success', 'Product added successfully.');
     }
     public function update(Request $request, $id)
