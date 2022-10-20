@@ -77,7 +77,6 @@
                             <tbody
                                 tag="tbody"
                                 name="list"
-                                is="transition-group"
                             >
                                 <tr
                                     v-for="(user, index) in users.data"
