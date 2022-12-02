@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg class="w-8 h-8 mr-2 pb-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 327.3">
+        <svg class="rtl:-scale-x-100 w-8 h-8 mr-2 pb-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 327.3">
             <g fill-rule="evenodd">
                 <path
                     fill="#840404"
