@@ -19,6 +19,8 @@
     <!-- Scripts -->
     @routes
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/manifest.js') }}" defer></script>
+    <script src="{{ mix('js/vendor.js') }}" defer></script>
 </head>
 
 <body class="font-sans antialiased">
@@ -31,5 +33,6 @@
 <style>
     html {
         scroll-behavior: smooth;
+        scroll-padding-top: 80px;
     }
 </style>

@@ -23,7 +23,7 @@
             </div>
         </div>
     </header>
-    <div class="py-6 menu__page">
+    <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div class="flex flex-wrap justify-center items-center relative">
@@ -89,10 +89,6 @@ watch(
 );
 </script>
 <style>
-.menu__page {
-    scroll-behavior: smooth;
-}
-
 :root {
     --vc-clr-primary: #6b0303;
     --vc-clr-secondary: #974f4f;
