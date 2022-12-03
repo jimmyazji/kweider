@@ -38,9 +38,8 @@ const appName = 'Kweider';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: name => {
-        require(`./Pages/${name}.vue`);
-        const page = require(`./Pages/${name}`).default;
+    resolve: async name => {
+        const page = (await import(`./Pages/${name}`)).default;
 
         if (page.layout === undefined) {
             page.layout = Layout
