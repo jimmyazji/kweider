@@ -53,30 +53,50 @@
                                     ></div>
                                 </div>
                             </div>
-                            <div class="flex items-center justify-between mt-4">
-                                <Link
-                                    :href="route('products.index')"
-                                    class="text-sm underline hover:text-lonestar-500 font-semibold mx-1"
-                                    >{{ $t("back") }}</Link
-                                >
+                            <div
+                                class="lg:flex items-center justify-between mt-4"
+                            >
                                 <div>
-                                    <Button
-                                        type="button"
-                                        class="px-5 mx-0.5"
-                                        :class="{
-                                            'opacity-25': form.processing,
-                                        }"
-                                        @click.prevent="clear()"
-                                        >{{ $t("clear") }}</Button
+                                    <Input
+                                        type="text"
+                                        class="input md:w-96 w-full mr-1 placeholder-lonestar-400 text-lonestar-800"
+                                        :placeholder="$t('search')"
+                                        v-model="search"
+                                        autofocus
+                                    />
+                                    <Link
+                                        :href="route('menu.index')"
+                                        class="text-sm underline hover:text-lonestar-500 font-semibold mx-1 hidden lg:inline-flex"
+                                        >{{ $t("back") }}</Link
                                     >
-                                    <Button
-                                        type="submit"
-                                        class="px-5 mx-0.5"
-                                        :class="{
-                                            'opacity-25': form.processing,
-                                        }"
-                                        :disabled="form.processing"
-                                        >{{ $t("submit") }}</Button
+                                </div>
+                                <div
+                                    class="flex justify-between items-center mt-4 lg:mt-0"
+                                >
+                                    <div>
+                                        <Button
+                                            type="button"
+                                            class="px-5 mx-0.5"
+                                            :class="{
+                                                'opacity-25': form.processing,
+                                            }"
+                                            @click.prevent="clear()"
+                                            >{{ $t("clear") }}</Button
+                                        >
+                                        <Button
+                                            type="submit"
+                                            class="px-5 mx-0.5"
+                                            :class="{
+                                                'opacity-25': form.processing,
+                                            }"
+                                            :disabled="form.processing"
+                                            >{{ $t("submit") }}</Button
+                                        >
+                                    </div>
+                                    <Link
+                                        :href="route('menu.index')"
+                                        class="text-sm underline hover:text-lonestar-500 font-semibold mx-1 lg:hidden"
+                                        >{{ $t("back") }}</Link
                                     >
                                 </div>
                             </div>
@@ -104,14 +124,14 @@
                             </thead>
                             <tbody>
                                 <tr
-                                    v-for="(category, index) in categories"
+                                    v-for="(category, index) in categories.data"
                                     :key="index"
                                     :class="
                                         index % 2 != 0
                                             ? 'bg-lonestar-50'
                                             : 'bg-white'
                                     "
-                                    class="border-b text-lonestar-700"
+                                    class="border-b"
                                 >
                                     <th
                                         scope="row"
@@ -174,16 +194,23 @@
                     </div>
                 </div>
             </div>
+            <Pagination
+                v-if="categories.next_page_url || categories.prev_page_url"
+                class="mt-5 ml-2 lg:ml-10 pb-10"
+                :links="categories.links"
+            />
         </div>
     </div>
 </template>
 
 <script setup>
-import { Head } from "@inertiajs/inertia-vue3";
+import { ref, watch } from "vue";
 import Input from "@/Components/Input.vue";
 import Button from "@/Components/Button.vue";
-import { useForm } from "@inertiajs/inertia-vue3";
+import { Head, useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
+import Pagination from "@/Components/Pagination.vue";
+import debounce from "lodash/debounce";
 
 let form = useForm({
     name: {
@@ -224,7 +251,19 @@ let destroy = (id) => {
         preserveScroll: true,
     });
 };
-defineProps({
+const props = defineProps({
     categories: Object,
+    filters: Object,
 });
+let search = ref(props.filters.search);
+watch(
+    search,
+    debounce(function (value) {
+        Inertia.get(
+            "/exportcategories",
+            { search: value },
+            { preserveState: true, replace: true }
+        );
+    }, 300)
+);
 </script>

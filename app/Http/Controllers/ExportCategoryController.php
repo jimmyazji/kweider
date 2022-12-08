@@ -20,14 +20,18 @@ class ExportCategoryController extends Controller
         return Inertia::render(
             'ExportCategories/Index',
             [
-                'categories' => ExportCategory::all()->map(
-                    function ($category) {
-                        return [
+                'categories' => ExportCategory::query()
+                    ->with('products')
+                    ->filter(request(['search']))
+                    ->paginate(10)
+                    ->withQuerystring()
+                    ->through(
+                        fn ($category) => [
                             'id' => $category->id,
                             'name' => $category->getTranslations('name'),
-                        ];
-                    }
-                )
+                        ]
+                    ),
+                'filters' => [request()->search]
             ]
         );
     }
@@ -61,7 +65,7 @@ class ExportCategoryController extends Controller
     }
     public function destroy($id)
     {
-        $exportCategory= ExportCategory::find($id);
+        $exportCategory = ExportCategory::find($id);
         $exportCategory->delete();
         return redirect()->route('exportcategories.index')->with('success', 'Category Deleted Successfully.');
     }
