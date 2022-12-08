@@ -63,6 +63,6 @@ class ExportCategoryController extends Controller
     {
         $exportCategory= ExportCategory::find($id);
         $exportCategory->delete();
-        return redirect()->route('exportcategory.index')->with('success', 'Category Deleted Successfully.');
+        return redirect()->route('exportcategories.index')->with('success', 'Category Deleted Successfully.');
     }
 }
