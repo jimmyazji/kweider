@@ -162,6 +162,13 @@
                                         </div>
                                     </td>
                                 </tr>
+                                <tr v-if="categories.data.length == 0">
+                                    <td colspan="4" class="py-4 px-6">
+                                        <span class="flex justify-center">{{
+                                            $t("no results")
+                                        }}</span>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
