@@ -14,7 +14,7 @@ class MenuCategoryController extends Controller
         $this->middleware('permission:menu-category-list', ['only' => ['index']]);
         $this->middleware('permission:menu-category-create', ['only' => ['store']]);
         $this->middleware('permission:menu-category-edit', ['only' => ['update']]);
-        $this->middleware('permission:menu-category-delete', ['only' => ['delete']]);
+        $this->middleware('permission:menu-category-delete', ['only' => ['destroy']]);
     }
     public function index()
     {

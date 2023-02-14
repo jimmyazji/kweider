@@ -133,14 +133,24 @@
                                             >
                                                 <i class="fa fa-edit mx-1"></i>
                                             </Link>
-                                            <Link
-                                                class="text-red-700 hover:underline focus:underline focus:outline-none"
-                                                :href="
-                                                    route('users.edit', user.id)
-                                                "
+                                            <button
+                                                @click="destroy(user.id)"
                                             >
-                                                <i class="fa fa-trash"></i>
-                                            </Link>
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    stroke="#DC143C"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="1.5"
+                                                    class="w-4 0h-auto"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"
+                                                    />
+                                                </svg>
+                                            </button>
                                         </div>
                                     </td>
                                 </tr>
@@ -182,6 +192,15 @@ let props = defineProps({ users: Object, filters: Object });
 
 let search = ref(props.filters.search);
 
+const destroy = (id) => {
+    Inertia.delete(`/users/${id}`, {
+        onBefore: () =>
+            confirm(
+                "Are you sure you want to delete this user? this cannot be undone"
+            ),
+        preserveScroll: true,
+    });
+};
 watch(
     search,
     debounce(function (value) {

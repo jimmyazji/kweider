@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:user-list', ['only' => ['index']]);
+        $this->middleware('permission:user-list', ['only' => ['index', 'show']]);
         $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:user-delete', ['only' => ['destroy']]);
@@ -35,7 +35,7 @@ class UserController extends Controller
                 ->when(request('search'), function ($query, $search) {
                     $query->where('first_name', 'like', "%{$search}%")
                         ->orWhere('last_name', 'like', "%{$search}%")
-                        ->orWhereRaw("concat(first_name,' ',last_name) like '%{$search}%'");
+                        ->orWhereRaw("concat(first_name,' ',last_name) like ?", "%$search%");
                 })
                 ->paginate(19)
                 ->withQuerystring()
@@ -45,7 +45,7 @@ class UserController extends Controller
                     'last_name' => $user->last_name,
                     'email' => $user->email,
                     'phone' => $user->phone,
-                    'country' => Countries::getOne($user->country,App::getLocale()),
+                    'country' => Countries::getOne($user->country, App::getLocale()),
                     'roles' => $user->roles->pluck('name')->all()
                 ]),
             'filters' => request(['search'])
@@ -163,6 +163,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if ($user->email == "jimmyyazji98@gmail.com" || $user->roles()->pluck('name')->contains('Admin') && User::role('admin')->get()->count() <= 1) {
+            return redirect()->back()->with('error', 'Cannot delete this user');
+        }
+        $user->delete();
+        return redirect()->back()->with('success', 'Users deleted successfully');
     }
 }

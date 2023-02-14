@@ -13,7 +13,7 @@ class ExportCategoryController extends Controller
         $this->middleware('permission:export-category-list', ['only' => ['index']]);
         $this->middleware('permission:export-category-create', ['only' => ['store']]);
         $this->middleware('permission:export-category-edit', ['only' => ['update']]);
-        $this->middleware('permission:export-category-delete', ['only' => ['delete']]);
+        $this->middleware('permission:export-category-delete', ['only' => ['destroy']]);
     }
     public function index()
     {
