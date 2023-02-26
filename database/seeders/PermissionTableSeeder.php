@@ -52,6 +52,8 @@ class PermissionTableSeeder extends Seeder
             'menu-category-create',
             'menu-category-edit',
             'menu-category-delete',
+
+            'view-horizon'
         ];
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);
