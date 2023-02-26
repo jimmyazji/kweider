@@ -178,6 +178,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Monarobase\CountryList\CountryListServiceProvider::class,
+        App\Providers\HorizonServiceProvider::class,
 
         /*
          * Package Service Providers...
